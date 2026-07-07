@@ -58,9 +58,9 @@ const skills = [
 ]
 
 const whatIDo = [
-  { key: 'modernize', title: 'Legacy Modernization', icon: '⚡', desc: 'I take rotting monoliths and carve them into clean, scalable services — without burning the company down during the migration.' },
+  { key: 'modernize', title: 'Legacy Modernization', icon: '⚡', desc: 'I take rotting monoliths and carve them into clean, scalable services - without burning the company down during the migration.' },
   { key: 'architect', title: 'Systems Architecture', icon: '🏗', desc: 'End-to-end architectural blueprints that carry your org from startup chaos to enterprise-grade reliability, cloud-first from day one.' },
-  { key: 'lead', title: 'Engineering Leadership', icon: '🎯', desc: 'CTO / VP Eng experience. I build the teams, processes, and culture that ship product — fast, reliably, and with pride.' },
+  { key: 'lead', title: 'Engineering Leadership', icon: '🎯', desc: 'CTO / VP Eng experience. I build the teams, processes, and culture that ship product - fast, reliably, and with pride.' },
   { key: 'found', title: 'Founding & Advising', icon: '🚀', desc: "Multiple founder credits. I know the terror and the thrill. I help early-stage teams avoid the pitfalls I've already survived." },
 ]
 
@@ -71,7 +71,7 @@ const projects = [
     tag: 'Parent Co · Live',
     color: '#8b5cf6',
     url: 'https://www.hallofthegods.com',
-    desc: 'The Nexus of Limitless Potential — a protective Webwork for creators, brands, and ventures of any scale. Parent company housing the entire ecosystem.',
+    desc: 'The Nexus of Limitless Potential - a protective Webwork for creators, brands, and ventures of any scale. Parent company housing the entire ecosystem.',
   },
   {
     key: 'blackbox',
@@ -79,7 +79,7 @@ const projects = [
     tag: 'Infrastructure · Live',
     color: '#06b6d4',
     url: 'https://www.worldwidewebwork.com',
-    desc: 'Proprietary sovereign infrastructure — self-healing, fully automated BlackBOX nodes networked via the w⁴ Hyper-cube Protocol. The backbone of the Worldwide Webwork.',
+    desc: 'Proprietary sovereign infrastructure - self-healing, fully automated BlackBOX nodes networked via the w⁴ Hyper-cube Protocol. The backbone of the Worldwide Webwork.',
   },
   {
     key: 'bbwg',
@@ -87,7 +87,7 @@ const projects = [
     tag: 'Managed Service · Live',
     color: '#f59e0b',
     url: 'https://www.blackboxwhiteglove.com',
-    desc: 'Premium concierge digital management — Signature ($249/mo), Concierge, and Enterprise tiers. Your entire digital footprint managed so you can focus on creation.',
+    desc: 'Premium concierge digital management - Signature ($249/mo), Concierge, and Enterprise tiers. Your entire digital footprint managed so you can focus on creation.',
   },
   {
     key: 'compass',
@@ -95,7 +95,7 @@ const projects = [
     tag: 'Advisory · Live',
     color: '#10b981',
     url: 'https://www.mycompassconsulting.com',
-    desc: 'Strategic Synthesis — the rare bridge between executive vision and rigorous engineering. Three pillars: Structural Integrity, Meticulous Performance, Strategic Clarity.',
+    desc: 'Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Three pillars: Structural Integrity, Meticulous Performance, Strategic Clarity.',
   },
   {
     key: 'glowitheflow',
@@ -103,7 +103,7 @@ const projects = [
     tag: 'Social · Active Build',
     color: '#f43f5e',
     url: null,
-    desc: 'A next-gen creator network built on mutual promotion economics. Think Reddit if Reddit actually wanted you to succeed — Flow economy, Tributaries, gamified click-value.',
+    desc: 'A next-gen creator network built on mutual promotion economics. Think Reddit if Reddit actually wanted you to succeed - Flow economy, Tributaries, gamified click-value.',
   },
   {
     key: 'youmeos',
@@ -111,7 +111,7 @@ const projects = [
     tag: 'Vision · 100-Year Play',
     color: '#a78bfa',
     url: null,
-    desc: 'A spatial OS for the web — Vue + WebGPU over the Compass Engine. Each install is a Youniverse: HeliOS (command center), NexOS (relational layer), NoOSphere (collective thought).',
+    desc: 'A spatial OS for the web - Vue + WebGPU over the Compass Engine. Each install is a Youniverse: HeliOS (command center), NexOS (relational layer), NoOSphere (collective thought).',
   },
 ]
 
@@ -266,7 +266,7 @@ onMounted(() => {
             <h1 class="name">Xopher Pollard</h1>
             <p class="role">Principal Systems Synthesist</p>
             <p class="bio">25+ years engineering massive-scale software. I build the architectural blueprints
-              enterprises stake their futures on — cloud-first, modular, and built to last.</p>
+              enterprises stake their futures on - cloud-first, modular, and built to last.</p>
           </div>
           <ul
             class="tag-row"
@@ -300,11 +300,11 @@ onMounted(() => {
           aria-label="Who I Am"
         >
           <h2 class="panel-title">Who I Am</h2>
-          <p class="panel-lead">I'm Xopher — a systems thinker, builder, and architect who has spent 25+ years at the
+          <p class="panel-lead">I'm Xopher - a systems thinker, builder, and architect who has spent 25+ years at the
             intersection of technology and business impact.</p>
           <div class="glass-card bio-card">
             <p>I've led engineering at Series A through Fortune 500. I've been a co-founder, a solo contributor, a CTO,
-              and everything in between. My superpower is seeing the entire system — code, team, process, and market —
+              and everything in between. My superpower is seeing the entire system - code, team, process, and market -
               as one coherent machine that needs to be tuned.</p>
           </div>
           <div class="section-label">SKILLS &amp; STACK</div>
@@ -333,7 +333,7 @@ onMounted(() => {
           aria-label="What I Do"
         >
           <h2 class="panel-title">What I Do</h2>
-          <p class="panel-lead">I solve the hard problems — the ones that keep CTOs up at night and boards questioning
+          <p class="panel-lead">I solve the hard problems - the ones that keep CTOs up at night and boards questioning
             their technology bets.</p>
           <div class="accordion-list">
             <div
@@ -372,7 +372,7 @@ onMounted(() => {
           aria-label="Projects"
         >
           <h2 class="panel-title">Projects</h2>
-          <p class="panel-lead">The Hall of the Gods ecosystem — infrastructure, services, and visions I'm building.</p>
+          <p class="panel-lead">The Hall of the Gods ecosystem - infrastructure, services, and visions I'm building.</p>
           <div class="project-list">
             <div
               v-for="project in projects"
