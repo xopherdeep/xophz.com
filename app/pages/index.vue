@@ -6,6 +6,15 @@ useSeoMeta({
   description: 'Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.',
 })
 
+const { data: recentPosts } = await useAsyncData('recent-posts', () =>
+  queryCollection('posts').order('date', 'DESC').limit(3).all()
+)
+
+const formatShortDate = (raw: string) =>
+  new Date(raw).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+
+const postTypeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
+
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let rafId = 0
 const NODE_COUNT = 55
@@ -290,6 +299,31 @@ onMounted(() => {
               class="cta-btn ghost"
               @click="navigateTo('connect')"
             >Connect</button>
+            <NuxtLink
+              id="cta-posts"
+              to="/posts"
+              class="cta-btn ghost posts-link"
+            >Posts ✦</NuxtLink>
+          </div>
+
+          <div v-if="recentPosts && recentPosts.length" class="recent-posts-widget">
+            <div class="recent-posts-header">
+              <span class="section-label-sm">RECENT POSTS</span>
+              <NuxtLink to="/posts" class="view-all-link">View all →</NuxtLink>
+            </div>
+            <div class="recent-posts-list">
+              <NuxtLink
+                v-for="post in recentPosts"
+                :key="post._path"
+                :to="post._path"
+                class="recent-post-item"
+                :style="{ '--rp-color': postTypeColor(post.type ?? 'article') }"
+              >
+                <span class="rp-dot" />
+                <span class="rp-title">{{ post.title }}</span>
+                <time class="rp-date">{{ formatShortDate(post.date) }}</time>
+              </NuxtLink>
+            </div>
           </div>
         </section>
 
@@ -1355,4 +1389,99 @@ onMounted(() => {
       transform: translateY(-10px);
     }
   }
+
+  .posts-link {
+    color: #a78bfa;
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+
+  .posts-link:hover {
+    background: rgba(139, 92, 246, 0.12);
+    border-color: rgba(139, 92, 246, 0.4);
+    color: #c4b5fd;
+  }
+
+  .recent-posts-widget {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .recent-posts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-label-sm {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted, #71717a);
+  }
+
+  .view-all-link {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent, #8b5cf6);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .view-all-link:hover { opacity: 1; }
+
+  .recent-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .recent-post-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s ease;
+  }
+
+  .recent-post-item:last-child { border-bottom: none; }
+
+  .recent-post-item:hover { background: rgba(139, 92, 246, 0.07); }
+
+  .rp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rp-color, #8b5cf6);
+    flex-shrink: 0;
+    box-shadow: 0 0 6px var(--rp-color, #8b5cf6);
+  }
+
+  .rp-title {
+    flex: 1;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary, #a1a1aa);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .recent-post-item:hover .rp-title { color: var(--text-primary, #f4f4f5); }
+
+  .rp-date {
+    font-size: 0.68rem;
+    color: var(--text-muted, #71717a);
+    flex-shrink: 0;
+  }
 </style>
+

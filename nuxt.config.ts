@@ -1,6 +1,17 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  modules: ['@nuxt/content'],
+
+  content: {
+    sources: {
+      posts: {
+        driver: 'fs',
+        prefix: '/posts',
+        base: './docs/posts',
+      },
+    },
+  },
 
   app: {
     head: {

@@ -1,0 +1,95 @@
+name: Cross-Post New Article
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/posts/**'
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find new posts
+        id: find
+        run: |
+          NEW=$(git diff --name-only HEAD~1 HEAD -- 'docs/posts/*.md' | head -1)
+          echo "post_file=$NEW" >> "$GITHUB_OUTPUT"
+
+      - name: Parse frontmatter
+        id: meta
+        if: steps.find.outputs.post_file != ''
+        run: |
+          FILE="${{ steps.find.outputs.post_file }}"
+          TITLE=$(grep '^title:' "$FILE" | sed 's/title: *//;s/^"//;s/"$//')
+          SUMMARY=$(grep '^summary:' "$FILE" | sed 's/summary: *//;s/^"//;s/"$//')
+          SLUG=$(basename "$FILE" .md)
+          CROSSPOST=$(grep '^crosspost:' "$FILE" | grep -i 'true' | wc -l)
+          echo "title=$TITLE" >> "$GITHUB_OUTPUT"
+          echo "summary=$SUMMARY" >> "$GITHUB_OUTPUT"
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "crosspost=$CROSSPOST" >> "$GITHUB_OUTPUT"
+          echo "url=https://xophz.com/posts/$SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: Post to X / Twitter
+        if: steps.meta.outputs.crosspost == '1'
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+        run: |
+          TEXT="${{ steps.meta.outputs.title }} — ${{ steps.meta.outputs.url }}"
+          curl -s -X POST "https://api.twitter.com/2/tweets" \
+            --oauth-bearer-token "$TWITTER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{\"text\": \"$TEXT\"}" \
+            --oauth-consumer-key "$TWITTER_API_KEY" \
+            --oauth-consumer-secret "$TWITTER_API_SECRET" \
+            --oauth-token "$TWITTER_ACCESS_TOKEN" \
+            --oauth-token-secret "$TWITTER_ACCESS_SECRET" || true
+
+      - name: Post to LinkedIn
+        if: steps.meta.outputs.crosspost == '1'
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+        run: |
+          curl -s -X POST "https://api.linkedin.com/v2/ugcPosts" \
+            -H "Authorization: Bearer $LINKEDIN_ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "author": "'"$LINKEDIN_PERSON_URN"'",
+              "lifecycleState": "PUBLISHED",
+              "specificContent": {
+                "com.linkedin.ugc.ShareContent": {
+                  "shareCommentary": { "text": "${{ steps.meta.outputs.title }}\n\n${{ steps.meta.outputs.summary }}\n\n${{ steps.meta.outputs.url }}" },
+                  "shareMediaCategory": "ARTICLE",
+                  "media": [{ "status": "READY", "originalUrl": "${{ steps.meta.outputs.url }}" }]
+                }
+              },
+              "visibility": { "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC" }
+            }' || true
+
+      - name: Post to Reddit
+        if: steps.meta.outputs.crosspost == '1'
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+          REDDIT_SUBREDDIT: ${{ secrets.REDDIT_SUBREDDIT }}
+        run: |
+          TOKEN=$(curl -s -X POST "https://www.reddit.com/api/v1/access_token" \
+            -u "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" \
+            -d "grant_type=password&username=$REDDIT_USERNAME&password=$REDDIT_PASSWORD" \
+            -A "xophz-crosspost-bot/1.0" \
+            | jq -r '.access_token')
+          curl -s -X POST "https://oauth.reddit.com/api/submit" \
+            -H "Authorization: bearer $TOKEN" \
+            -H "User-Agent: xophz-crosspost-bot/1.0" \
+            -d "sr=$REDDIT_SUBREDDIT&kind=link&title=${{ steps.meta.outputs.title }}&url=${{ steps.meta.outputs.url }}&resubmit=true" || true
