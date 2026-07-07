@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
 
+  nitro: {
+    preset: 'github-pages'
+  },
   app: {
     head: {
       title: 'xophz — Xopher Pollard',
