@@ -41,15 +41,6 @@ jobs:
         with:
           static_site_generator: nuxt
 
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .output/public
-            .nuxt
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('.output/public') }}
-          restore-keys: |
-            ${{ runner.os }}-nuxt-build-
 
       - name: Install dependencies
         run: pnpm install
