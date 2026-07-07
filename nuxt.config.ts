@@ -3,6 +3,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
 
+  content: {
+    sources: {
+      wiki: {
+        driver: 'github',
+        repo: 'xopherdeep/xophz.com.wiki',
+        prefix: '/wiki'
+      },
+    },
+  },
+
   nitro: {
     preset: 'github-pages'
   },

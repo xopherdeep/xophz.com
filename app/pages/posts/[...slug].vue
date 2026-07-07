@@ -82,6 +82,10 @@ const copyLink = async () => {
 
       <div class="prose glass-card">
         <ContentRenderer :value="post" />
+        <div class="post-signature">
+          <p>Abracadabra,</p>
+          <p>— Xopher "XP" Pollard 🧞</p>
+        </div>
       </div>
 
       <footer class="article-footer">
@@ -433,5 +437,21 @@ const copyLink = async () => {
   .article-title {
     font-size: 2rem;
   }
+}
+
+.post-signature {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  color: var(--text-muted, #71717a);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.post-signature p {
+  margin: 0 0 0.25rem 0 !important;
 }
 </style>
