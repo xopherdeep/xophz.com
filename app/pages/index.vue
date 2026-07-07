@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 useSeoMeta({
   title: 'Xopher Pollard',
@@ -41,10 +41,37 @@ const closeMenu = () => { menuOpen.value = false }
 
 type PanelKey = 'home' | 'about' | 'whatido' | 'projects' | 'connect'
 const activePanel = ref<PanelKey>('home')
+
+const route = useRoute()
+const router = useRouter()
+
 const navigateTo = (panel: PanelKey) => {
   activePanel.value = panel
   closeMenu()
+  if (route.hash !== `#${panel}`) {
+    router.push({ hash: `#${panel}` })
+  }
 }
+
+onMounted(() => {
+  if (route.hash) {
+    const hashPanel = route.hash.replace('#', '') as PanelKey
+    if (['home', 'about', 'whatido', 'projects', 'connect'].includes(hashPanel)) {
+      activePanel.value = hashPanel
+    }
+  }
+})
+
+watch(() => route.hash, (newHash) => {
+  if (newHash) {
+    const hashPanel = newHash.replace('#', '') as PanelKey
+    if (['home', 'about', 'whatido', 'projects', 'connect'].includes(hashPanel)) {
+      activePanel.value = hashPanel
+    }
+  } else {
+    activePanel.value = 'home'
+  }
+})
 
 const openAccordion = ref<string | null>(null)
 const toggleAccordion = (key: string) => {
@@ -1399,6 +1426,7 @@ onMounted(() => {
   .posts-link {
     color: #a78bfa;
     border-color: rgba(139, 92, 246, 0.25);
+    cursor: pointer;
   }
 
   .posts-link:hover {
@@ -1459,6 +1487,7 @@ onMounted(() => {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     transition: background 0.15s ease;
+    cursor: pointer;
   }
 
   .recent-post-item:last-child {
