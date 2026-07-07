@@ -102,7 +102,7 @@ onMounted(() => {
       <div v-if="posts && posts.length" class="post-feed" aria-label="Posts">
         <article
           v-for="post in posts"
-          :key="post._path"
+          :key="post.path"
           class="post-card glass-card"
           :style="{ '--type-color': typeColor(post.type ?? 'article') }"
         >
@@ -125,7 +125,7 @@ onMounted(() => {
               <div v-if="post.tags && post.tags.length" class="tag-row-sm">
                 <span v-for="tag in post.tags" :key="tag" class="tag-sm">{{ tag }}</span>
               </div>
-              <NuxtLink :to="post._path" class="read-more-link" :aria-label="`Read ${post.title}`">
+              <NuxtLink :to="post.path" class="read-more-link" :aria-label="`Read ${post.title}`">
                 Read more
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />

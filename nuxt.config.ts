@@ -3,16 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
 
-  content: {
-    sources: {
-      posts: {
-        driver: 'fs',
-        prefix: '/posts',
-        base: './docs/posts',
-      },
-    },
-  },
-
   app: {
     head: {
       title: 'xophz — Xopher Pollard',
