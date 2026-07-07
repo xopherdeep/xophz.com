@@ -35,9 +35,7 @@ function buildNodes(w: number, h: number): Node[] {
   }))
 }
 
-const menuOpen = ref(false)
-const toggleMenu = () => { menuOpen.value = !menuOpen.value }
-const closeMenu = () => { menuOpen.value = false }
+
 
 type PanelKey = 'home' | 'about' | 'whatido' | 'projects' | 'connect'
 const activePanel = ref<PanelKey>('home')
@@ -47,7 +45,6 @@ const router = useRouter()
 
 const navigateTo = (panel: PanelKey) => {
   activePanel.value = panel
-  closeMenu()
   if (route.hash !== `#${panel}`) {
     router.push({ hash: `#${panel}` })
   }
@@ -78,13 +75,7 @@ const toggleAccordion = (key: string) => {
   openAccordion.value = openAccordion.value === key ? null : key
 }
 
-const navItems = [
-  { key: 'home' as PanelKey, label: 'Home', icon: '◎' },
-  { key: 'about' as PanelKey, label: 'Who I Am', icon: '♥' },
-  { key: 'whatido' as PanelKey, label: 'What I Do', icon: '♣' },
-  { key: 'projects' as PanelKey, label: 'Projects', icon: '♦' },
-  { key: 'connect' as PanelKey, label: 'Connect', icon: '♠' },
-]
+
 
 const skills = [
   { group: 'Architecture', items: ['Distributed Systems', 'Event-Driven Design', 'Domain-Driven Design', 'Microservices'] },
@@ -221,68 +212,6 @@ onMounted(() => {
       aria-hidden="true"
     />
 
-    <button
-      id="hamburger-btn"
-      class="hamburger"
-      :class="{ open: menuOpen }"
-      aria-label="Toggle navigation"
-      :aria-expanded="menuOpen"
-      @click="toggleMenu"
-    >
-      <span class="bar" />
-      <span class="bar" />
-      <span class="bar" />
-    </button>
-
-    <header class="top-bar">
-      <span class="top-handle">xophz.com</span>
-      <span class="top-panel-title">{{ navItems.find(n => n.key === activePanel)?.label ?? 'Home' }}</span>
-    </header>
-
-    <Transition name="overlay">
-      <div
-        v-if="menuOpen"
-        class="drawer-overlay"
-        @click="closeMenu"
-      />
-    </Transition>
-
-    <Transition name="drawer">
-      <nav
-        v-if="menuOpen"
-        class="nav-drawer"
-        aria-label="Main navigation"
-      >
-        <div class="drawer-header">
-          <div class="drawer-avatar">XP</div>
-          <div class="drawer-identity">
-            <p class="drawer-name">Xopher Pollard</p>
-            <p class="drawer-role">Principal Systems Synthesist</p>
-          </div>
-        </div>
-        <ul class="nav-list">
-          <li
-            v-for="item in navItems"
-            :key="item.key"
-          >
-            <button
-              :id="`nav-${item.key}`"
-              class="nav-item"
-              :class="{ active: activePanel === item.key }"
-              @click="navigateTo(item.key)"
-            >
-              <span class="nav-icon">{{ item.icon }}</span>
-              <span class="nav-label">{{ item.label }}</span>
-              <span class="nav-arrow">›</span>
-            </button>
-          </li>
-        </ul>
-        <div class="drawer-footer">
-          <p class="drawer-copy">© {{ new Date().getFullYear() }} Xopher Pollard</p>
-        </div>
-      </nav>
-    </Transition>
-
     <div class="panel-stage">
       <Transition
         name="panel"
@@ -347,8 +276,8 @@ onMounted(() => {
             <div class="recent-posts-list">
               <NuxtLink
                 v-for="post in recentPosts"
-                :key="post._path"
-                :to="post._path"
+                :key="post.path"
+                :to="post.path"
                 class="recent-post-item"
                 :style="{ '--rp-color': postTypeColor(post.type ?? 'article') }"
               >
@@ -506,23 +435,7 @@ onMounted(() => {
       </Transition>
     </div>
 
-    <nav
-      class="bottom-nav"
-      aria-label="Quick navigation"
-    >
-      <button
-        v-for="item in navItems"
-        :id="`bottom-nav-${item.key}`"
-        :key="item.key"
-        class="bottom-nav-item"
-        :class="{ active: activePanel === item.key }"
-        :aria-label="item.label"
-        @click="navigateTo(item.key)"
-      >
-        <span class="bottom-nav-icon">{{ item.icon }}</span>
-        <span class="bottom-nav-label">{{ item.label }}</span>
-      </button>
-    </nav>
+
   </main>
 </template>
 
@@ -532,6 +445,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
@@ -828,6 +742,7 @@ onMounted(() => {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   .panel {
@@ -1312,69 +1227,7 @@ onMounted(() => {
     color: var(--text-secondary);
   }
 
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    height: 64px;
-    padding: 0 0.5rem;
-    background: rgba(10, 10, 18, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    gap: 0.25rem;
-  }
 
-  .bottom-nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 0.4rem 0.25rem;
-    border-radius: 10px;
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .bottom-nav-item:hover {
-    color: var(--text-secondary);
-  }
-
-  .bottom-nav-item.active {
-    color: var(--accent);
-  }
-
-  .bottom-nav-item.active .bottom-nav-icon {
-    background: rgba(139, 92, 246, 0.15);
-    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
-  }
-
-  .bottom-nav-icon {
-    font-size: 1rem;
-    width: 34px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .bottom-nav-label {
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-  }
 
   .drawer-enter-active,
   .drawer-leave-active {
