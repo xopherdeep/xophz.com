@@ -14,16 +14,47 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "robots", content: "index, follow" },
+        { name: "author", content: "Xopher Pollard" },
         {
           name: "description",
           content:
             "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
         },
+
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "xophz" },
+        { property: "og:url", content: "https://xophz.com" },
         { property: "og:title", content: "xophz — Xopher Pollard" },
         {
           property: "og:description",
-          content: "Principal Systems Synthesist · Engineer · Builder.",
+          content:
+            "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
         },
+        {
+          property: "og:image",
+          content: "https://xophz.com/xp_headshot.png",
+        },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: "Xopher Pollard — xophz" },
+        { property: "og:locale", content: "en_US" },
+
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@xophz" },
+        { name: "twitter:creator", content: "@xophz" },
+        { name: "twitter:title", content: "xophz — Xopher Pollard" },
+        {
+          name: "twitter:description",
+          content:
+            "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
+        },
+        {
+          name: "twitter:image",
+          content: "https://xophz.com/xp_headshot.png",
+        },
+        { name: "twitter:image:alt", content: "Xopher Pollard — xophz" },
+
         { name: "theme-color", content: "#0a0a12" },
       ],
       link: [
