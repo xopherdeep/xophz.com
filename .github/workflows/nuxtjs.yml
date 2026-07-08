@@ -52,6 +52,19 @@ jobs:
       - name: Compare dependency versions
         run: pnpm list @nuxt/content nitropack nitro unstorage better-sqlite3 --depth 0
 
+      - name: Verify @parcel/watcher scan
+        run: |
+          node -e "
+          const { readdirSync } = require('fs');
+          console.log('plain readdir:', readdirSync('./docs'));
+          try {
+            const w = require('@parcel/watcher');
+            console.log('@parcel/watcher loaded:', typeof w.subscribe);
+          } catch (e) {
+            console.error('@parcel/watcher load error:', e.message);
+          }
+          "
+
       - name: Clean Cache
         run: rm -rf .nuxt .output # Force a truly fresh build
 
