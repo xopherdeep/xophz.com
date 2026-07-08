@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:image",
-          content: "https://xophz.com/xp_headshot.png",
+          content: "https://xophz.com/og_social_card.png",
         },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: "https://xophz.com/xp_headshot.png",
+          content: "https://xophz.com/og_social_card.png",
         },
         { name: "twitter:image:alt", content: "Xopher Pollard — xophz" },
 
