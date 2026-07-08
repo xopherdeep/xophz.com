@@ -61,7 +61,9 @@ jobs:
           node -e "const db = require('better-sqlite3')(':memory:'); console.log('better-sqlite3 OK', db)"
 
       - name: Static HTML export with Nuxt
-        run: DEBUG=content:* pnpm run generate
+        run: pnpm run generate
+        env:
+          NITRO_PRESET: github-pages
 
       - name: Inspect built content DB
         run: |
