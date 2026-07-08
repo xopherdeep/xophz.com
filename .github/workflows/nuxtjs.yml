@@ -48,6 +48,10 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Compare dependency versions
+        run: pnpm list @nuxt/content nitropack nitro unstorage better-sqlite3 --depth 0
+
       - name: Clean Cache
         run: rm -rf .nuxt .output # Force a truly fresh build
 
