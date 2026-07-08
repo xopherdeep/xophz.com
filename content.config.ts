@@ -1,4 +1,5 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { resolve } from "path";
+import { defineContentConfig, defineCollection, z } from "@nuxt/content";
 
 const postSchema = z.object({
   title: z.string(),
@@ -7,18 +8,18 @@ const postSchema = z.object({
   tags: z.array(z.string()).optional(),
   summary: z.string().optional(),
   crosspost: z.boolean().optional(),
-})
+});
 
 export default defineContentConfig({
   collections: {
     posts: defineCollection({
-      type: 'page',
+      type: "page",
       source: {
-        include: '**/*.md',
-        prefix: '/posts',
-        cwd: './docs/posts',
+        include: "**/*.md",
+        prefix: "/posts",
+        cwd: resolve(process.cwd(), "docs/posts"),
       },
       schema: postSchema,
     }),
   },
-})
+});
