@@ -99,11 +99,11 @@ onMounted(() => {
     font-family: var(--font-body, 'Inter', sans-serif);
     color: var(--text-primary, #f4f4f5);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .particle-canvas {
-    position: absolute;
+    position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
@@ -172,30 +172,14 @@ onMounted(() => {
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    height: 100dvh;
   }
 
   .main-content {
     flex: 1;
-    height: 100%;
-    overflow-y: auto;
     position: relative;
     background: transparent;
     display: flex;
     flex-direction: column;
-  }
-
-  .main-content::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .main-content::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .main-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
   }
 
   @media (max-width: 860px) {

@@ -92,27 +92,56 @@ const whatIDo = [
 ]
 
 const projects = [
+  // --- THE SOURCE & PHILOSOPHY ---
   {
     key: 'hotg',
     name: 'Hall of the Gods, Inc.',
     tag: 'Parent Co · Live',
-    color: '#8b5cf6',
+    color: 'rgb(217, 190, 111)',
     url: 'https://www.hallofthegods.com',
     desc: 'The Nexus of Limitless Potential - a protective Webwork for creators, brands, and ventures of any scale. Parent company housing the entire ecosystem.',
+  },
+  {
+    key: 'triforce',
+    name: 'Triforce of the Gods',
+    tag: 'Architecture · Live',
+    color: '#d9be6f',
+    url: 'https://www.triforceofthegods.com',
+    desc: 'The explicit source code of reality. A philosophical and architectural framework bridging sacred geometry, alchemical principles, and decentralized web mechanics into a unified system for creation.',
+  },
+  {
+    key: 'sacredrealm',
+    name: 'Sacred Realm',
+    tag: 'Community · Live',
+    color: '#c5a059',
+    url: 'https://www.sacredrealm.org',
+    desc: 'Forging transformative art and community. A sovereign digital space sheltered within the Hall\'s Umbra, dedicated to the intersection of creative expression, deep lore, and decentralized connection.',
+  },
+
+  // --- THE INFRASTRUCTURE ---
+  {
+    key: 'webwork',
+    name: 'Worldwide Webwork',
+    tag: 'Infrastructure · Live',
+    color: 'rgb(61, 238, 152)',
+    url: 'https://www.worldwidewebwork.com',
+    desc: 'The foundational architecture where sovereignty is anchored. Designed for speed, security, and stability, it provides the sovereign infrastructure and stable ground that anchors the entire Hall.',
   },
   {
     key: 'blackbox',
     name: 'BlackBOX / w⁴ Protocol',
     tag: 'Infrastructure · Live',
-    color: '#06b6d4',
-    url: 'https://www.worldwidewebwork.com',
+    color: '#555',
+    url: 'https://www.buildablox.com', 
     desc: 'Proprietary sovereign infrastructure - self-healing, fully automated BlackBOX nodes networked via the w⁴ Hyper-cube Protocol. The backbone of the Worldwide Webwork.',
   },
+
+  // --- THE STEWARDSHIP ---
   {
     key: 'bbwg',
     name: 'BlackBOX WhiteGLOVE',
     tag: 'Managed Service · Live',
-    color: '#f59e0b',
+    color: '#fff',
     url: 'https://www.blackboxwhiteglove.com',
     desc: 'Premium concierge digital management - Signature ($249/mo), Concierge, and Enterprise tiers. Your entire digital footprint managed so you can focus on creation.',
   },
@@ -120,24 +149,52 @@ const projects = [
     key: 'compass',
     name: 'My Compass Consulting',
     tag: 'Advisory · Live',
-    color: '#10b981',
+    color: 'rgb(49, 128, 137)',
     url: 'https://www.mycompassconsulting.com',
     desc: 'Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Three pillars: Structural Integrity, Meticulous Performance, Strategic Clarity.',
+  },
+  {
+    key: 'tucsonerd',
+    name: 'Tucsonerd ACS',
+    tag: 'Local Base · Active',
+    color: 'green',
+    url: 'https://acs.tucsonerd.com/',
+    desc: 'Local infrastructure anchored in the Sonoran desert. Bridging the gap between the global Webwork and physical reality, providing architectural support for the Tucson and Oro Valley digital frontier.',
+  },
+
+  // --- THE MECHANICS & DEEP CODE ---
+  {
+    key: 'midnightnerd',
+    name: 'Midnight Nerd',
+    tag: 'Deep Code · Active',
+    color: '#8d105e',
+    url: 'https://www.midnightnerd.com',
+    desc: 'The ultimate secret weapon. Operating in the twilight hours, this represents the deep-code alchemy and meticulous late-night engineering required to keep the ecosystem\'s architecture flawless.',
+  },
+  {
+    key: 'forthexp',
+    name: 'Do It for the XP',
+    tag: 'Productivity · Live',
+    color: '#f30b0b',
+    url: 'https://doit.forthexp.com',
+    desc: 'Turn productivity into an adventure worth playing. A gamified progression system and organizational toolset that translates real-world grinds and milestones into tangible, rewarding mechanics.',
   },
   {
     key: 'glowitheflow',
     name: 'GlowitheFlow',
     tag: 'Social · Active Build',
-    color: '#f43f5e',
-    url: null,
+    color: '#007bff',
+    url: 'https://www.glowitheflow.com',
     desc: 'A next-gen creator network built on mutual promotion economics. Think Reddit if Reddit actually wanted you to succeed - Flow economy, Tributaries, gamified click-value.',
   },
+
+  // --- THE HORIZON ---
   {
     key: 'youmeos',
     name: 'YouMeOS',
     tag: 'Vision · 100-Year Play',
     color: '#a78bfa',
-    url: null,
+    url: 'https://www.youmeos.com',
     desc: 'A spatial OS for the web - Vue + WebGPU over the Compass Engine. Each install is a Youniverse: HeliOS (command center), NexOS (relational layer), NoOSphere (collective thought).',
   },
 ]
@@ -148,6 +205,7 @@ const links = [
   { id: 'link-linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/xophz', color: '#0a66c2', icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>` },
   { id: 'link-discord', label: 'Discord', href: 'https://discord.gg/2QDwKKxEqb', color: '#5865f2', icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>` },
   { id: 'link-email', label: 'Email', href: 'mailto:sayhi@xophz.com', color: '#f59e0b', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>` },
+  { id: 'link-cash', label: 'Cash App', href: 'https://cash.app/$XopherDeeP', color: '#', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>` },
 ]
 
 onMounted(() => {
@@ -367,7 +425,7 @@ onMounted(() => {
           class="panel"
           aria-label="Projects"
         >
-          <h2 class="panel-title">Projects</h2>
+          <h2 class="panel-title">Magnum Opus</h2>
           <p class="panel-lead">The Hall of the Gods ecosystem - infrastructure, services, and visions I'm building.</p>
           <div class="project-list">
             <div
