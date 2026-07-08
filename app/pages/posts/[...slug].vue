@@ -226,7 +226,7 @@ const copyLink = async () => {
 
 <style scoped>
   .post-detail-container {
-    padding: 6rem;
+    padding: calc(56px + 2rem) 2rem 6rem;
     max-width: 900px;
     margin: 0 auto;
     width: 100%;

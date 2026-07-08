@@ -91,6 +91,7 @@ const whatIDo = [
   { key: 'found', title: 'Founding & Advising', icon: '🚀', desc: "Multiple founder credits. I know the terror and the thrill. I help early-stage teams avoid the pitfalls I've already survived." },
 ]
 
+// --- ECOSYSTEM PROJECTS ---
 const projects = [
   // --- THE SOURCE & PHILOSOPHY ---
   {
@@ -127,23 +128,13 @@ const projects = [
     url: 'https://www.buildablox.com', 
     desc: 'Proprietary sovereign infrastructure - self-healing, fully automated BlackBOX nodes networked via the w⁴ Hyper-cube Protocol. The backbone of the Worldwide Webwork.',
   },
-
-  // --- THE STEWARDSHIP ---
   {
-    key: 'bbwg',
-    name: 'BlackBOX WhiteGLOVE',
-    tag: 'Managed Service · Live',
-    color: '#fff',
-    url: 'https://www.blackboxwhiteglove.com',
-    desc: 'Premium concierge digital management - Signature ($249/mo), Concierge, and Enterprise tiers. Your entire digital footprint managed so you can focus on creation.',
-  },
-  {
-    key: 'compass',
-    name: 'My Compass Consulting',
-    tag: 'Advisory · Live',
-    color: 'rgb(49, 128, 137)',
-    url: 'https://www.mycompassconsulting.com',
-    desc: 'Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Three pillars: Structural Integrity, Meticulous Performance, Strategic Clarity.',
+    key: 'tucsonerd',
+    name: 'Tucsonerd ACS',
+    tag: 'Local Base · Active',
+    color: 'green',
+    url: 'https://acs.tucsonerd.com/',
+    desc: 'Local infrastructure anchored in the Sonoran desert. Bridging the gap between the global Webwork and physical reality, providing architectural support for the Tucson and Oro Valley digital frontier.',
   },
 
   // --- THE MECHANICS & DEEP CODE ---
@@ -156,14 +147,6 @@ const projects = [
     desc: 'The ultimate secret weapon. Operating in the twilight hours, this represents the deep-code alchemy and meticulous late-night engineering required to keep the ecosystem\'s architecture flawless.',
   },
   {
-    key: 'tucsonerd',
-    name: 'Tucsonerd ACS',
-    tag: 'Local Base · Active',
-    color: 'green',
-    url: 'https://acs.tucsonerd.com/',
-    desc: 'Local infrastructure anchored in the Sonoran desert. Bridging the gap between the global Webwork and physical reality, providing architectural support for the Tucson and Oro Valley digital frontier.',
-  },
-  {
     key: 'forthexp',
     name: 'Do It for the XP',
     tag: 'Productivity · Live',
@@ -172,12 +155,38 @@ const projects = [
     desc: 'Turn productivity into an adventure worth playing. A gamified progression system and organizational toolset that translates real-world grinds and milestones into tangible, rewarding mechanics.',
   },
   {
+    key: 'mro-wizard',
+    name: 'My Remarkably Organized Planner Wizard',
+    tag: 'Productivity · Live',
+    color: '#0ea5e9', 
+    url: 'https://planner.mycompassconsulting.com', // Replace with exact deployment URL if different
+    desc: 'The gateway to meticulous organization. A comprehensive digital planning tool and onboarding ecosystem designed to bring structural integrity and automated clarity to daily workflows.',
+  },
+  {
     key: 'glowitheflow',
     name: 'GlowitheFlow',
     tag: 'Social · Active Build',
     color: '#007bff',
     url: 'https://www.glowitheflow.com',
     desc: 'A next-gen creator network built on mutual promotion economics. Think Reddit if Reddit actually wanted you to succeed - Flow economy, Tributaries, gamified click-value.',
+  },
+
+  // --- THE STEWARDSHIP ---
+  {
+    key: 'compass',
+    name: 'My Compass Consulting',
+    tag: 'Advisory · Live',
+    color: 'rgb(49, 128, 137)',
+    url: 'https://www.mycompassconsulting.com',
+    desc: 'Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Three pillars: Structural Integrity, Meticulous Performance, Strategic Clarity.',
+  },
+  {
+    key: 'bbwg',
+    name: 'BlackBOX WhiteGLOVE',
+    tag: 'Managed Service · Live',
+    color: '#fff',
+    url: 'https://www.blackboxwhiteglove.com',
+    desc: 'Premium concierge digital management - Signature ($249/mo), Concierge, and Enterprise tiers. Your entire digital footprint managed so you can focus on creation.',
   },
 
   // --- THE HORIZON ---
@@ -197,7 +206,7 @@ const projects = [
     url: 'https://www.youmeos.com',
     desc: 'A spatial OS for the web - Vue + WebGPU over the Compass Engine. Each install is a Youniverse: HeliOS (command center), NexOS (relational layer), NoOSphere (collective thought).',
   },
-]
+];
 
 const links = [
   // --- Professional & Developer ---
@@ -326,7 +335,7 @@ onMounted(() => {
               id="cta-posts"
               to="/posts"
               class="cta-btn ghost posts-link"
-            >Posts ✦</NuxtLink>
+            >Posts ♣</NuxtLink>
           </div>
 
           <div

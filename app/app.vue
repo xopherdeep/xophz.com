@@ -33,13 +33,13 @@ const navItems = [
     name: 'Posts', 
     to: '/posts', 
     isActive: () => route.path.startsWith('/posts'),
-    icon: '<path d="M11.8 14H5a3 3 0 1 1 2.22-5.06A4.5 4.5 0 1 1 15 5.86a3 3 0 1 1 4 5 3 3 0 0 1-2.22 3.14H12.2"/><path d="M12 14v7"/><path d="M8 21h8"/>' 
+    icon: '<path d="M12 14 A4.5 4.5 0 1 1 8 9 A4.5 4.5 0 1 1 16 9 A4.5 4.5 0 1 1 12 14 Z"/><path d="M12 14v7"/><path d="M8 21h8"/>' 
   },
   { 
     name: 'Connect', 
     to: '/#connect', 
     isActive: () => isHome.value && route.hash === '#connect',
-    icon: '<path d="M5 14A5 5 0 1 0 12 17A5 5 0 1 0 19 14C19 10 12 3 12 3C12 3 5 10 5 14Z" /><path d="M12 17V21" /><path d="M9 21H15" />' 
+    icon: '<path d="M12 2 C12 2 4 9 4 14 A4.5 4.5 0 0 0 12 15 A4.5 4.5 0 0 0 20 14 C20 9 12 2 12 2 Z"/><path d="M12 15v6"/><path d="M8 21h8"/>' 
   }
 ]
 </script>
@@ -119,7 +119,9 @@ const navItems = [
     </Transition>
 
     <div class="page-viewport">
-      <NuxtPage />
+      <Transition name="page" mode="out-in">
+        <NuxtPage />
+      </Transition>
     </div>
 
     <!-- Global App Bar -->
@@ -222,6 +224,24 @@ const navItems = [
     flex: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Page route transitions */
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .page-enter-from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .page-leave-to {
+    opacity: 0;
+    transform: translateY(-6px);
   }
 
   /* Global Bottom Nav */

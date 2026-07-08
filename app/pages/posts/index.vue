@@ -42,7 +42,7 @@ const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
 
 <style scoped>
 .posts-index-container {
-  padding: 4rem 2rem 6rem;
+  padding: calc(56px + 2rem) 2rem 6rem;
   max-width: 900px;
   margin: 0 auto;
   width: 100%;
