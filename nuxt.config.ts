@@ -57,6 +57,18 @@ export default defineNuxtConfig({
 
         { name: "theme-color", content: "#0a0a12" },
       ],
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-6FERWGTH0W",
+          async: true,
+        },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6FERWGTH0W');`,
+        },
+      ],
       link: [
         {
           rel: "preconnect",
