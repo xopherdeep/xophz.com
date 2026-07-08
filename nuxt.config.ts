@@ -3,16 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/content"],
 
-  content: {
-    sources: {
-      wiki: {
-        driver: "fs", // Changed from 'github' to filesystem
-        base: "docs", // ⚠️ Change this to the exact name of your submodule folder
-        prefix: "/wiki",
-      },
-    },
-  },
-
   nitro: {
     preset: "github-pages",
   },
