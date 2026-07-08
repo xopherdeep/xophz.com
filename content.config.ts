@@ -15,9 +15,9 @@ export default defineContentConfig({
     posts: defineCollection({
       type: "page",
       source: {
-        include: "**/*.md",
+        include: "**/*.md", // This will now grab all markdown files in the root of the submodule
         prefix: "/posts",
-        cwd: resolve(process.cwd(), "docs/posts"),
+        cwd: resolve(process.cwd(), "docs"), // Changed from 'docs/posts' to just 'docs'
       },
       schema: postSchema,
     }),
