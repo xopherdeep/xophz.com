@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "pnpm"
+          
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,6 +54,10 @@ jobs:
         run: |
           echo "Listing contents of docs directory:"
           ls -R ./docs
+
+      - name: Verify native modules
+        run: |
+          node -e "const db = require('better-sqlite3')(':memory:'); console.log('better-sqlite3 OK', db)"
 
       - name: Static HTML export with Nuxt
         run: pnpm run generate
