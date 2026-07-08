@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: "/",
     head: {
       title: "xophz — Xopher Pollard",
       meta: [
