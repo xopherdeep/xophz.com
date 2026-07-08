@@ -48,6 +48,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Debug Submodule Path
+        run: |
+          echo "Listing contents of docs directory:"
+          ls -R ./docs
+
       - name: Static HTML export with Nuxt
         run: pnpm run generate
 
