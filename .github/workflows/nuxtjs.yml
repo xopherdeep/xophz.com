@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 0
 
       - name: Sync Submodules
         run: git submodule update --init --recursive
@@ -69,7 +70,7 @@ jobs:
           echo "---"
           echo "Public output tree:"
           find .output/public -maxdepth 3
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
