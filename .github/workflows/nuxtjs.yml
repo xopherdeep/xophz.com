@@ -62,6 +62,14 @@ jobs:
       - name: Static HTML export with Nuxt
         run: DEBUG=content:* pnpm run generate
 
+      - name: Inspect built content DB
+        run: |
+          echo "Searching for content DB artifacts..."
+          find .output -iname "*.db" -o -iname "*sql_dump*" -o -iname "*content*"
+          echo "---"
+          echo "Public output tree:"
+          find .output/public -maxdepth 3
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
