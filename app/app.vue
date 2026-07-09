@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
-import { computed, ref, resolveComponent } from 'vue'
+import { computed, ref, resolveComponent, onMounted } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -9,6 +9,14 @@ const isHome = computed(() => route.path === '/')
 const menuOpen = ref(false)
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 const closeMenu = () => { menuOpen.value = false }
+
+const isLoaded = ref(false)
+onMounted(() => {
+  // Give a small delay to ensure layout and v-motion are settled
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 150)
+})
 
 const navItems = [
   { 
@@ -46,6 +54,19 @@ const navItems = [
 
 <template>
   <div class="flex flex-col min-h-dvh pb-[70px]">
+    <!-- Global Page Loader -->
+    <Transition
+      leave-active-class="transition-opacity duration-700 ease-in-out"
+      leave-to-class="opacity-0"
+    >
+      <div
+        v-if="!isLoaded"
+        class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0c0618]"
+      >
+        <div class="w-12 h-12 border-[3px] border-white/10 border-t-[#8b5cf6] rounded-full animate-spin shadow-[0_0_15px_rgba(139,92,246,0.3)]"></div>
+      </div>
+    </Transition>
+
     <NuxtRouteAnnouncer />
 
     <button

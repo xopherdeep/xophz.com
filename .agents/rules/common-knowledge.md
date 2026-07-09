@@ -2,26 +2,28 @@
 trigger: always_on
 ---
 
-- **ALWAYS** remember to keep your responses quick and simple. Use bullet points.
-- **NEVER** run commands or request to run tools that will most likely output large amount of text.
-- **ALWAYS** specify exact length constraints (e.g., "limit to 50 words," "maximum 3 sentences," or "under 500 characters").
-- **NEVER** include conversational filler, pleasantries, apologies, or introductory/concluding remarks.
-- **ALWAYS** explicitly instruct the AI to skip explanations or reasoning steps unless strictly necessary for the task.
-- **NEVER** ask open-ended questions if a direct "yes/no" or single-word answer will solve your problem.
-- **ALWAYS** request data in compact formats (like CSV or minified JSON) instead of verbose markdown tables or nested structures.
-- **NEVER** ask the AI to rewrite or echo the original prompt back to you.
-- **ALWAYS** combine multiple small tasks into a single prompt to reduce the token overhead of back-and-forth messages.
-- **NEVER** narrate your process or current focus in paragraph form (e.g., "I am now focusing on integrating...").
-- **ALWAYS** summarize ALL your action steps, thoughts, status updates etc, using brief, nested bullet points.
+# System Directives: Token & Context Optimization
 
-### Context Management & New Conversations
-- **ALWAYS** initiate a new conversation when shifting to an unrelated task or domain (e.g., switching from UI styling to database schema) to flush unnecessary token context.
-- **NEVER** continue a bloated thread once the AI begins losing track of details or slowing down; instead, request a highly compressed, bulleted state summary and carry it into a fresh chat.
-- **ALWAYS** establish a new thread with a compact "initialization prompt" or strict configuration block rather than pasting verbose historical chat logs.
+## [1] DO (Mandatory Execution)
+* **Formatting:** Use brief, nested bullet points. Output data strictly in compact formats (CSV/minified JSON). 
+* **Constraints:** Enforce strict numerical limits (e.g., "list 2", "under 50 words").
+* **Processing:** Skip explanations/reasoning unless explicitly requested. Halt immediately on first error or blocker.
+* **Batching:** Combine multiple micro-tasks into single prompts.
+* **Status Updates:** Summarize all actions and thoughts strictly via nested bullets.
+* **Context Mgt:** Initiate new threads for domain shifts. Boot new threads using compact initialization blocks, never historical chat dumps.
+* **Targeting:** Request isolated diffs, patch formats, or specific function replacements for large file edits.
+* **Strict Patching:** Use standard SEARCH/REPLACE blocks or unified diffs for file modifications to avoid rewriting unchanged code.
+* **Fail Fast & Query:** If an instruction is ambiguous, ask a single clarifying question rather than guessing and generating an extensive, incorrect implementation.
+* **Silent Corrections:** When correcting an error, output only the fix. Skip all apologies and acknowledgments.
+* **Atomic Commits:** Break large architectural changes into sequential, single-step prompts rather than requesting monolithic, multi-file refactors.
 
-### Tooling & Input/Output Precision
-- **NEVER** use broad, unconstrained search queries or ask the AI to "explore" directories; provide exact file paths, precise search strings, or targeted symbols.
-- **ALWAYS** instruct the AI to halt immediately upon encountering its first blocker or error, rather than generating massive outputs of speculative solutions.
-- **NEVER** ask for lists, examples, or iterations without a strict numerical limit (e.g., "provide exactly 2 options" instead of "give me some ideas").
-- **ALWAYS** request isolated function replacements, diffs, or patch formats when modifying large files to prevent full-file token dumps (while still strictly forbidding `// ...` placeholders).
-- **NEVER** feed the AI entire documents or log files if only a specific section is relevant; manually extract and provide the targeted snippet to save input tokens.
+## [2] DO NOT (Strict Prohibitions)
+* **Output Bloat:** No conversational filler, pleasantries, apologies, intros, or outros. No echoing the original prompt. No paragraph-form narrations of process.
+* **Input Bloat:** Do not feed entire documents or logs; manually extract targeted snippets. 
+* **Tooling:** No commands yielding massive text outputs. No broad, unconstrained directory searches. 
+* **Queries:** No open-ended questions if a direct "yes/no" or single-word answer suffices.
+* **Degradation:** Do not prolong a bloated thread if context is slipping. Request a compressed state summary and reboot in a fresh chat.
+* **Speculative Generation:** Never implement features, UI elements, or error handling that were not explicitly requested (YAGNI). 
+* **Disclaimers:** Never include AI safety disclaimers, ethical framing, or "As an AI..." explanations.
+* **Lazy Placeholders:** Do not use `// ...` or similar placeholders unless the patching system explicitly supports it.
+* **Formatting Overhead:** Avoid excessive Markdown (like nested tables or heavy bolding/italics) when plain text or code blocks suffice.
