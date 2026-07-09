@@ -3,6 +3,25 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/content"],
 
+  content: {},
+
+  hooks: {
+    'content:file:beforeParse': (ctx: any) => {
+      if (ctx.file.id.endsWith('.md') && typeof ctx.file.body === 'string') {
+        const metaBlockPattern = /```meta\s*\n([\s\S]*?)\n```\s*(\n|$)/;
+        const match = ctx.file.body.match(metaBlockPattern);
+        if (match) {
+          const metaYaml = match[1].trim();
+          ctx.file.body = ctx.file.body.replace(metaBlockPattern, '').trimEnd();
+          ctx.file.body = `---\n${metaYaml}\n---\n\n${ctx.file.body}`;
+          if (ctx.file.id.includes('25-years')) {
+            require('fs').writeFileSync('/tmp/nuxt-body-debug.md', ctx.file.body);
+          }
+        }
+      }
+    }
+  },
+
   nitro: {
     preset: "github-pages",
   },

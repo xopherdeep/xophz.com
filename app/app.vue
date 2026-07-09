@@ -164,10 +164,10 @@ const navItems = [
   }
 
   :root {
-    --bg: #0a0a12;
-    --bg-card: rgba(255, 255, 255, 0.04);
-    --bg-card-hover: rgba(255, 255, 255, 0.07);
-    --border: rgba(255, 255, 255, 0.08);
+    --bg: #080810;
+    --bg-card: rgba(255, 255, 255, 0.06);
+    --bg-card-hover: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.12);
     --border-glow: rgba(139, 92, 246, 0.4);
     --text-primary: #f0f0f8;
     --text-secondary: #8888a8;
@@ -178,6 +178,11 @@ const navItems = [
     --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #f59e0b 100%);
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-highlight: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --glass-blur: blur(24px);
   }
 
   html {
@@ -187,7 +192,8 @@ const navItems = [
   }
 
   body {
-    background: var(--bg);
+    background: linear-gradient(135deg, #0c0618 0%, #0a0a1a 25%, #061218 50%, #0a0a1a 75%, #18100a 100%);
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
     min-height: 100dvh;
@@ -252,13 +258,15 @@ const navItems = [
     right: 0;
     z-index: 1000;
     height: 70px;
-    background: rgba(10, 10, 18, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(12, 12, 24, 0.55);
+    backdrop-filter: blur(32px) saturate(1.6);
+    -webkit-backdrop-filter: blur(32px) saturate(1.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     justify-content: center;
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+    box-shadow:
+      0 -4px 24px rgba(0, 0, 0, 0.5),
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset;
   }
 
   .nav-container {
@@ -313,15 +321,17 @@ const navItems = [
 
   @media (min-width: 861px) {
 
-    /* On desktop, the bottom nav could float like a dock */
     .global-bottom-nav {
       bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
       width: fit-content;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 1px 0 0 rgba(255, 255, 255, 0.1) inset;
       height: 64px;
       padding: 0 1rem;
     }
@@ -348,10 +358,13 @@ const navItems = [
     align-items: center;
     justify-content: center;
     padding: 0 4rem;
-    background: rgba(10, 10, 18, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(12, 12, 24, 0.45);
+    backdrop-filter: blur(32px) saturate(1.6);
+    -webkit-backdrop-filter: blur(32px) saturate(1.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      0 -1px 0 0 rgba(255, 255, 255, 0.05) inset;
   }
 
   .top-handle {
@@ -386,11 +399,16 @@ const navItems = [
     justify-content: center;
     gap: 5px;
     padding: 0;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    box-shadow:
+      var(--glass-highlight),
+      0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
   .hamburger:hover {
@@ -440,11 +458,14 @@ const navItems = [
     width: min(320px, 88vw);
     display: flex;
     flex-direction: column;
-    background: rgba(10, 10, 20, 0.92);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    border-right: 1px solid rgba(139, 92, 246, 0.2);
-    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    background: rgba(12, 12, 24, 0.6);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border-right: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow:
+      4px 0 40px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
   }
 
   .drawer-header {

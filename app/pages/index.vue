@@ -629,18 +629,27 @@ onMounted(() => {
 
   .glass-card {
     width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 16px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
     padding: 1.25rem;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset, 0 8px 32px rgba(0, 0, 0, 0.35);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+      0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
 
   .glass-card:hover {
-    border-color: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(139, 92, 246, 0.06);
   }
 
   .avatar-ring {
@@ -742,17 +751,23 @@ onMounted(() => {
     letter-spacing: 0.06em;
     padding: 0.3rem 0.75rem;
     border-radius: 999px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.25);
     color: var(--text-secondary);
     white-space: nowrap;
     transition: all 0.2s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   }
 
   .tag:hover {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: rgba(139, 92, 246, 0.45);
+    background: rgba(139, 92, 246, 0.22);
+    border-color: rgba(139, 92, 246, 0.5);
     color: var(--text-primary);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 12px rgba(139, 92, 246, 0.15);
   }
 
   .cta-row {
@@ -785,15 +800,21 @@ onMounted(() => {
   }
 
   .cta-btn.ghost {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     color: var(--text-secondary);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   }
 
   .cta-btn.ghost:hover {
     border-color: rgba(139, 92, 246, 0.4);
     color: var(--text-primary);
-    background: rgba(139, 92, 246, 0.08);
+    background: rgba(139, 92, 246, 0.12);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 4px 16px rgba(139, 92, 246, 0.1);
   }
 
   .bio-card p {
@@ -1022,13 +1043,19 @@ onMounted(() => {
     gap: 0.875rem;
     padding: 0.875rem 1.1rem;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--text-primary);
     text-decoration: none;
     transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
   .social-card::before {
@@ -1042,13 +1069,17 @@ onMounted(() => {
 
   .social-card:hover {
     border-color: var(--link-color);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     transform: translateX(4px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), -4px 0 12px -2px var(--link-color);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+      0 8px 24px rgba(0, 0, 0, 0.35),
+      -4px 0 16px -2px var(--link-color);
   }
 
   .social-card:hover::before {
-    opacity: 0.06;
+    opacity: 0.08;
   }
 
   .social-icon {
@@ -1165,10 +1196,16 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     overflow: hidden;
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 4px 16px rgba(0, 0, 0, 0.25);
   }
 
   .recent-post-item {

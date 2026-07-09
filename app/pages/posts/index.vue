@@ -82,6 +82,7 @@ const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .post-card::before {
@@ -98,8 +99,12 @@ const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
 
 .post-card:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(139, 92, 246, 0.06);
 }
 
 .post-card:hover::before {
@@ -148,20 +153,29 @@ const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 16px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+    0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .empty-state {
   padding: 4rem 2rem;
   text-align: center;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 860px) {

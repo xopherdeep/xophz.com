@@ -9,6 +9,32 @@ const { data: post } = await useAsyncData(`post-${normalizedPath}`, () =>
   queryCollection('posts').path(normalizedPath).first()
 )
 
+const { data: allPosts } = await useAsyncData('all-posts-nav', () =>
+  queryCollection('posts')
+    .order('date', 'DESC')
+    .select('title', 'path', 'date', 'type', 'summary')
+    .all()
+)
+
+const currentIndex = computed(() => {
+  if (!allPosts.value || !post.value) return -1
+  return allPosts.value.findIndex(p => p.path === post.value!.path)
+})
+
+const newerPost = computed(() => {
+  const idx = currentIndex.value
+  if (idx <= 0 || !allPosts.value) return null
+  return allPosts.value[idx - 1]
+})
+
+const olderPost = computed(() => {
+  const idx = currentIndex.value
+  if (!allPosts.value || idx < 0 || idx >= allPosts.value.length - 1) return null
+  return allPosts.value[idx + 1]
+})
+
+const hasSiblings = computed(() => !!newerPost.value || !!olderPost.value)
+
 if (!post.value) {
   throw createError({ statusCode: 404, message: 'Post not found' })
 }
@@ -49,10 +75,7 @@ const copyLink = async () => {
 </script>
 
 <template>
-  <div
-    class="post-detail-container"
-    v-if="post"
-  >
+  <div class="post-detail-container">
     <nav class="back-nav">
       <NuxtLink
         to="/posts"
@@ -220,6 +243,54 @@ const copyLink = async () => {
           </button>
         </div>
       </footer>
+
+      <nav
+        v-if="hasSiblings"
+        class="post-nav"
+        aria-label="Post navigation"
+      >
+        <div class="post-nav-grid">
+          <NuxtLink
+            v-if="olderPost"
+            :to="olderPost.path"
+            class="post-nav-card nav-prev"
+            :class="{ 'nav-full-width': !newerPost }"
+          >
+            <span class="nav-direction">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              Older
+            </span>
+            <span class="nav-post-title">{{ olderPost.title }}</span>
+            <span
+              v-if="olderPost.type"
+              class="nav-type-badge"
+              :style="{ '--nav-type-color': olderPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }"
+            >{{ olderPost.type === 'short' ? 'Update' : 'Article' }}</span>
+          </NuxtLink>
+
+          <NuxtLink
+            v-if="newerPost"
+            :to="newerPost.path"
+            class="post-nav-card nav-next"
+            :class="{ 'nav-full-width': !olderPost }"
+          >
+            <span class="nav-direction">
+              Newer
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </span>
+            <span class="nav-post-title">{{ newerPost.title }}</span>
+            <span
+              v-if="newerPost.type"
+              class="nav-type-badge"
+              :style="{ '--nav-type-color': newerPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }"
+            >{{ newerPost.type === 'short' ? 'Update' : 'Article' }}</span>
+          </NuxtLink>
+        </div>
+      </nav>
     </article>
   </div>
 </template>
@@ -340,19 +411,25 @@ const copyLink = async () => {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted, #71717a);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset, 0 12px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+      0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   .prose {
@@ -486,11 +563,19 @@ const copyLink = async () => {
     text-decoration: none;
     border: 1px solid transparent;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset;
   }
 
   .share-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 4px 16px rgba(0, 0, 0, 0.2);
   }
 
   .share-btn svg {
@@ -550,6 +635,137 @@ const copyLink = async () => {
     color: #34d399;
   }
 
+  .post-nav {
+    margin-top: 1rem;
+  }
+
+  .post-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .post-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+      0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .post-nav-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.06) 0%,
+      rgba(6, 182, 212, 0.04) 50%,
+      rgba(245, 158, 11, 0.03) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .post-nav-card:hover::before {
+    opacity: 1;
+  }
+
+  .post-nav-card:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
+      0 12px 40px rgba(139, 92, 246, 0.08),
+      0 0 20px rgba(139, 92, 246, 0.05);
+  }
+
+  .nav-prev {
+    align-items: flex-start;
+  }
+
+  .nav-next {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .nav-full-width {
+    grid-column: 1 / -1;
+  }
+
+  .nav-direction {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent, #8b5cf6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-direction svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-prev:hover .nav-direction svg {
+    transform: translateX(-3px);
+  }
+
+  .nav-next:hover .nav-direction svg {
+    transform: translateX(3px);
+  }
+
+  .nav-post-title {
+    font-family: var(--font-display, 'Space Grotesk', sans-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary, #f4f4f5);
+    position: relative;
+    z-index: 1;
+    transition: color 0.25s ease;
+  }
+
+  .post-nav-card:hover .nav-post-title {
+    color: #c4b5fd;
+  }
+
+  .nav-type-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--nav-type-color, #8b5cf6);
+    background: color-mix(in srgb, var(--nav-type-color, #8b5cf6) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--nav-type-color, #8b5cf6) 25%, transparent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+  }
+
   @media (max-width: 860px) {
     .post-detail-container {
       padding: 1.5rem 1.5rem 4rem;
@@ -561,6 +777,15 @@ const copyLink = async () => {
 
     .article-title {
       font-size: 2rem;
+    }
+
+    .post-nav-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-next {
+      align-items: flex-start;
+      text-align: left;
     }
   }
 

@@ -95,7 +95,7 @@ onMounted(() => {
   .posts-layout {
     min-height: 100dvh;
     display: flex;
-    background: #0a0a12;
+    background: transparent;
     font-family: var(--font-body, 'Inter', sans-serif);
     color: var(--text-primary, #f4f4f5);
     position: relative;
