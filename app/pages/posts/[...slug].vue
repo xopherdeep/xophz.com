@@ -75,219 +75,90 @@ const copyLink = async () => {
 </script>
 
 <template>
-  <div class="post-detail-container">
-    <nav class="back-nav">
+  <div class="pt-[calc(56px+2rem)] px-8 pb-24 max-w-[900px] mx-auto w-full max-md:pt-6 max-md:px-6 max-md:pb-16">
+    <nav class="flex mb-8">
       <NuxtLink
         to="/posts"
-        class="back-link"
+        class="inline-flex items-center gap-1.5 text-[0.85rem] font-bold tracking-[0.1em] uppercase text-accent no-underline opacity-90 transition-all duration-200 hover:opacity-100 hover:gap-2.5"
         aria-label="Back to posts list"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="m15 18-6-6 6-6" />
-        </svg>
+        <LucideArrowLeft class="w-[18px] h-[18px] stroke-[2.5px]" />
         All Posts
       </NuxtLink>
     </nav>
 
-    <article class="article-body">
-      <header class="article-header">
-        <div class="article-meta">
+    <article class="flex flex-col gap-8 animate-[fadeIn_0.4s_ease-out]">
+      <header class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
           <span
-            class="post-type-badge"
-            :style="{ '--type-color': typeColor(post.type ?? 'article') }"
+            class="text-[0.65rem] font-bold tracking-[0.12em] uppercase px-2.5 py-1 rounded-full border"
+            :style="{ color: 'var(--type-color)', backgroundColor: 'color-mix(in srgb, var(--type-color) 15%, transparent)', borderColor: 'color-mix(in srgb, var(--type-color) 30%, transparent)', '--type-color': typeColor(post.type ?? 'article') }"
           >
             {{ typeLabel(post.type ?? 'article') }}
           </span>
-          <time
-            class="post-date"
-            :datetime="post.date"
-          >{{ formatDate(post.date) }}</time>
+          <time class="text-[0.8rem] text-text-muted font-medium" :datetime="post.date">{{ formatDate(post.date) }}</time>
         </div>
 
-        <h1 class="article-title">{{ post.title }}</h1>
+        <h1 class="font-display text-[clamp(2rem,4vw,3.5rem)] font-extrabold tracking-[-0.04em] leading-[1.1] text-text-primary m-0 max-md:text-4xl">{{ post.title }}</h1>
 
-        <p
-          v-if="post.summary"
-          class="article-summary"
-        >{{ post.summary }}</p>
+        <p v-if="post.summary" class="text-[1.1rem] leading-[1.6] text-text-secondary m-0 max-w-[90%]">{{ post.summary }}</p>
 
-        <div
-          v-if="post.tags && post.tags.length"
-          class="tag-row"
-        >
-          <span
-            v-for="tag in post.tags"
-            :key="tag"
-            class="tag-pill"
-          >{{ tag }}</span>
+        <div v-if="post.tags && post.tags.length" class="flex flex-wrap gap-2">
+          <span v-for="tag in post.tags" :key="tag" class="text-[0.7rem] font-semibold tracking-[0.08em] uppercase text-text-muted bg-white/5 border border-white/10 px-3 py-1 rounded-full backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">{{ tag }}</span>
         </div>
       </header>
 
-      <div class="prose glass-card">
+      <div class="bg-white/5 border border-white/12 rounded-[20px] backdrop-blur-[28px] shadow-glass-shadow p-12 leading-[1.8] text-[1.05rem] text-text-primary [&_h1]:font-display [&_h2]:font-display [&_h3]:font-display [&_h1]:text-text-primary [&_h2]:text-text-primary [&_h3]:text-text-primary [&_h1]:tracking-[-0.02em] [&_h2]:tracking-[-0.02em] [&_h3]:tracking-[-0.02em] [&_h1]:mt-8 [&_h2]:mt-8 [&_h3]:mt-8 [&_h1]:mb-4 [&_h2]:mb-4 [&_h3]:mb-4 [&_h2]:text-[1.75rem] [&_h2]:font-bold [&_h3]:text-[1.35rem] [&_h3]:font-semibold [&_p]:m-0 [&_p]:mb-5 [&_a]:text-accent [&_a]:no-underline [&_a]:border-b [&_a]:border-[color-mix(in_srgb,#8b5cf6_40%,transparent)] [&_a]:transition-all [&_a]:duration-200 hover:[&_a]:border-[#8b5cf6] hover:[&_a]:bg-[color-mix(in_srgb,#8b5cf6_10%,transparent)] [&_code]:font-['JetBrains_Mono','Fira_Code',monospace] [&_code]:text-[0.9em] [&_code]:bg-accent/12 [&_code]:border [&_code]:border-accent/20 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-[#c4b5fd] [&_pre]:bg-black/50 [&_pre]:border [&_pre]:border-white/5 [&_pre]:rounded-xl [&_pre]:p-6 [&_pre]:overflow-x-auto [&_pre]:my-6 [&_pre]:shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] [&_pre_code]:bg-transparent [&_pre_code]:border-none [&_pre_code]:p-0 [&_pre_code]:text-[0.9rem] [&_pre_code]:text-[#e4e4e7] [&_blockquote]:border-l-[3px] [&_blockquote]:border-accent [&_blockquote]:bg-[linear-gradient(90deg,rgba(139,92,246,0.08)_0%,transparent_100%)] [&_blockquote]:px-6 [&_blockquote]:py-4 [&_blockquote]:my-6 [&_blockquote]:text-text-secondary [&_blockquote]:italic [&_blockquote]:rounded-r-lg [&_ul]:pl-6 [&_ol]:pl-6 [&_ul]:my-3 [&_ul]:mb-5 [&_ol]:my-3 [&_ol]:mb-5 [&_li]:mb-2 [&_hr]:border-none [&_hr]:border-t [&_hr]:border-white/10 [&_hr]:my-10 max-md:p-6">
         <ContentRenderer :value="post" />
-        <div class="post-signature">
+        <div class="mt-12 pt-8 border-t border-dashed border-white/10 font-display text-text-muted italic text-[1.1rem] leading-[1.5] opacity-80 [&_p]:!m-0 [&_p]:!mb-1">
           <p>Abracadabra,</p>
           <p>— Xopher "XP" Pollard 🧞</p>
         </div>
       </div>
 
-      <footer class="article-footer">
-        <p class="share-label">Share this post</p>
-        <div
-          class="share-row"
-          role="group"
-          aria-label="Share options"
-        >
-          <a
-            id="share-twitter"
-            :href="twitterShareUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="share-btn share-twitter"
-            aria-label="Share on X / Twitter"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
+      <footer class="flex flex-col gap-4 pt-4 border-t border-white/5">
+        <p class="text-[0.8rem] font-bold tracking-[0.1em] uppercase text-text-muted m-0">Share this post</p>
+        <div class="flex flex-wrap gap-3" role="group" aria-label="Share options">
+          <a :href="twitterShareUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[0.85rem] font-semibold cursor-pointer no-underline border border-transparent transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] bg-[#e4e4e7]/10 border-[#e4e4e7]/15 text-[#e4e4e7] hover:-translate-y-0.5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#e4e4e7]/15 hover:border-[#e4e4e7]/25" aria-label="Share on X / Twitter">
+            <IconTwitter class="w-4 h-4 shrink-0" />
             X
           </a>
-
-          <a
-            id="share-linkedin"
-            :href="linkedinShareUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="share-btn share-linkedin"
-            aria-label="Share on LinkedIn"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
+          <a :href="linkedinShareUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[0.85rem] font-semibold cursor-pointer no-underline border border-transparent transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] bg-[#0a66c2]/15 border-[#0a66c2]/30 text-[#60a5fa] hover:-translate-y-0.5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#0a66c2]/20 hover:border-[#0a66c2]/45" aria-label="Share on LinkedIn">
+            <IconLinkedin class="w-4 h-4 shrink-0" />
             LinkedIn
           </a>
-
-          <a
-            id="share-reddit"
-            :href="redditShareUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="share-btn share-reddit"
-            aria-label="Share on Reddit"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"
-              />
-            </svg>
+          <a :href="redditShareUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[0.85rem] font-semibold cursor-pointer no-underline border border-transparent transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] bg-[#ff4500]/10 border-[#ff4500]/20 text-[#f97316] hover:-translate-y-0.5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#ff4500]/15 hover:border-[#ff4500]/35" aria-label="Share on Reddit">
+            <LucideShare2 class="w-4 h-4 shrink-0" />
             Reddit
           </a>
-
-          <button
-            id="share-copy"
-            class="share-btn share-copy"
-            :class="{ copied: copySuccess }"
-            aria-label="Copy link"
-            @click="copyLink"
-          >
-            <svg
-              v-if="!copySuccess"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect
-                width="14"
-                height="14"
-                x="8"
-                y="8"
-                rx="2"
-                ry="2"
-              />
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-            </svg>
-            <svg
-              v-else
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
+          <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[0.85rem] font-semibold cursor-pointer border transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)]" :class="copySuccess ? 'bg-[#10b981]/10 border-[#10b981]/30 text-[#34d399]' : 'bg-accent/10 border-accent/20 text-[#a78bfa] hover:-translate-y-0.5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_4px_16px_rgba(0,0,0,0.2)] hover:bg-accent/15 hover:border-accent/35'" aria-label="Copy link" @click="copyLink">
+            <LucideCheck v-if="copySuccess" class="w-4 h-4 shrink-0 stroke-[2.5px]" />
+            <LucideCopy v-else class="w-4 h-4 shrink-0" />
             {{ copySuccess ? 'Copied!' : 'Copy Link' }}
           </button>
         </div>
       </footer>
 
-      <nav
-        v-if="hasSiblings"
-        class="post-nav"
-        aria-label="Post navigation"
-      >
-        <div class="post-nav-grid">
-          <NuxtLink
-            v-if="olderPost"
-            :to="olderPost.path"
-            class="post-nav-card nav-prev"
-            :class="{ 'nav-full-width': !newerPost }"
-          >
-            <span class="nav-direction">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m15 18-6-6 6-6" />
-              </svg>
+      <nav v-if="hasSiblings" class="mt-4" aria-label="Post navigation">
+        <div class="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+          <NuxtLink v-if="olderPost" :to="olderPost.path" class="flex flex-col gap-3 p-6 rounded-2xl bg-white/5 border border-white/12 backdrop-blur-[24px] no-underline relative overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.3)] items-start group hover:border-accent/25 hover:-translate-y-[3px] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_rgba(139,92,246,0.08),0_0_20px_rgba(139,92,246,0.05)]" :class="{ 'col-span-full': !newerPost }">
+            <div class="absolute inset-0 rounded-inherit bg-[linear-gradient(135deg,rgba(139,92,246,0.06)_0%,rgba(6,182,212,0.04)_50%,rgba(245,158,11,0.03)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <span class="inline-flex items-center gap-1.5 text-[0.7rem] font-bold tracking-[0.12em] uppercase text-accent relative z-10">
+              <LucideArrowLeft class="w-3.5 h-3.5 transition-transform duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-[3px]" />
               Older
             </span>
-            <span class="nav-post-title">{{ olderPost.title }}</span>
-            <span
-              v-if="olderPost.type"
-              class="nav-type-badge"
-              :style="{ '--nav-type-color': olderPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }"
-            >{{ olderPost.type === 'short' ? 'Update' : 'Article' }}</span>
+            <span class="font-display text-[1.1rem] font-bold leading-[1.3] text-text-primary relative z-10 transition-colors duration-250 group-hover:text-[#c4b5fd]">{{ olderPost.title }}</span>
+            <span v-if="olderPost.type" class="text-[0.6rem] font-bold tracking-[0.1em] uppercase px-[0.55rem] py-[0.2rem] rounded-full border relative z-10 w-fit" :style="{ color: 'var(--nav-type-color)', backgroundColor: 'color-mix(in srgb, var(--nav-type-color) 12%, transparent)', borderColor: 'color-mix(in srgb, var(--nav-type-color) 25%, transparent)', '--nav-type-color': olderPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }">{{ olderPost.type === 'short' ? 'Update' : 'Article' }}</span>
           </NuxtLink>
 
-          <NuxtLink
-            v-if="newerPost"
-            :to="newerPost.path"
-            class="post-nav-card nav-next"
-            :class="{ 'nav-full-width': !olderPost }"
-          >
-            <span class="nav-direction">
+          <NuxtLink v-if="newerPost" :to="newerPost.path" class="flex flex-col gap-3 p-6 rounded-2xl bg-white/5 border border-white/12 backdrop-blur-[24px] no-underline relative overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.3)] items-end text-right max-md:items-start max-md:text-left group hover:border-accent/25 hover:-translate-y-[3px] hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_rgba(139,92,246,0.08),0_0_20px_rgba(139,92,246,0.05)]" :class="{ 'col-span-full': !olderPost }">
+            <div class="absolute inset-0 rounded-inherit bg-[linear-gradient(135deg,rgba(139,92,246,0.06)_0%,rgba(6,182,212,0.04)_50%,rgba(245,158,11,0.03)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <span class="inline-flex items-center gap-1.5 text-[0.7rem] font-bold tracking-[0.12em] uppercase text-accent relative z-10">
               Newer
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6" />
-              </svg>
+              <LucideArrowRight class="w-3.5 h-3.5 transition-transform duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[3px]" />
             </span>
-            <span class="nav-post-title">{{ newerPost.title }}</span>
-            <span
-              v-if="newerPost.type"
-              class="nav-type-badge"
-              :style="{ '--nav-type-color': newerPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }"
-            >{{ newerPost.type === 'short' ? 'Update' : 'Article' }}</span>
+            <span class="font-display text-[1.1rem] font-bold leading-[1.3] text-text-primary relative z-10 transition-colors duration-250 group-hover:text-[#c4b5fd]">{{ newerPost.title }}</span>
+            <span v-if="newerPost.type" class="text-[0.6rem] font-bold tracking-[0.1em] uppercase px-[0.55rem] py-[0.2rem] rounded-full border relative z-10 w-fit" :style="{ color: 'var(--nav-type-color)', backgroundColor: 'color-mix(in srgb, var(--nav-type-color) 12%, transparent)', borderColor: 'color-mix(in srgb, var(--nav-type-color) 25%, transparent)', '--nav-type-color': newerPost.type === 'short' ? '#06b6d4' : '#8b5cf6' }">{{ newerPost.type === 'short' ? 'Update' : 'Article' }}</span>
           </NuxtLink>
         </div>
       </nav>
@@ -295,513 +166,9 @@ const copyLink = async () => {
   </div>
 </template>
 
-<style scoped>
-  .post-detail-container {
-    padding: calc(56px + 2rem) 2rem 6rem;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .back-nav {
-    display: flex;
-    margin-bottom: 2rem;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent, #8b5cf6);
-    text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.2s ease, gap 0.2s ease;
-  }
-
-  .back-link:hover {
-    opacity: 1;
-    gap: 0.6rem;
-  }
-
-  .back-link svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .article-body {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    animation: fadeIn 0.4s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .article-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .article-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .post-type-badge {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--type-color, #8b5cf6);
-    background: color-mix(in srgb, var(--type-color, #8b5cf6) 15%, transparent);
-    border: 1px solid color-mix(in srgb, var(--type-color, #8b5cf6) 30%, transparent);
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-  }
-
-  .post-date {
-    font-size: 0.8rem;
-    color: var(--text-muted, #71717a);
-    font-weight: 500;
-  }
-
-  .article-title {
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-    color: var(--text-primary, #f4f4f5);
-    margin: 0;
-  }
-
-  .article-summary {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary, #a1a1aa);
-    margin: 0;
-    max-width: 90%;
-  }
-
-  .tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag-pill {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted, #71717a);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-    backdrop-filter: blur(28px) saturate(1.6);
-    -webkit-backdrop-filter: blur(28px) saturate(1.6);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
-      0 12px 40px rgba(0, 0, 0, 0.3);
-  }
-
-  .prose {
-    padding: 3rem;
-    line-height: 1.8;
-    font-size: 1.05rem;
-    color: var(--text-primary, #f4f4f5);
-  }
-
-  .prose :deep(h1),
-  .prose :deep(h2),
-  .prose :deep(h3) {
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    color: var(--text-primary, #f4f4f5);
-    letter-spacing: -0.02em;
-    margin: 2rem 0 1rem;
-  }
-
-  .prose :deep(h2) {
-    font-size: 1.75rem;
-    font-weight: 700;
-  }
-
-  .prose :deep(h3) {
-    font-size: 1.35rem;
-    font-weight: 600;
-  }
-
-  .prose :deep(p) {
-    margin: 0 0 1.25rem;
-  }
-
-  .prose :deep(a) {
-    color: var(--accent, #8b5cf6);
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, #8b5cf6 40%, transparent);
-    transition: all 0.2s ease;
-  }
-
-  .prose :deep(a:hover) {
-    border-bottom-color: #8b5cf6;
-    background: color-mix(in srgb, #8b5cf6 10%, transparent);
-  }
-
-  .prose :deep(code) {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.9em;
-    background: rgba(139, 92, 246, 0.12);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    padding: 0.15em 0.4em;
-    border-radius: 4px;
-    color: #c4b5fd;
-  }
-
-  .prose :deep(pre) {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    padding: 1.5rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .prose :deep(pre code) {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 0.9rem;
-    color: #e4e4e7;
-  }
-
-  .prose :deep(blockquote) {
-    border-left: 3px solid #8b5cf6;
-    background: linear-gradient(90deg, rgba(139, 92, 246, 0.08) 0%, transparent 100%);
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-    color: var(--text-secondary, #a1a1aa);
-    font-style: italic;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .prose :deep(ul),
-  .prose :deep(ol) {
-    padding-left: 1.5rem;
-    margin: 0.75rem 0 1.25rem;
-  }
-
-  .prose :deep(li) {
-    margin-bottom: 0.5rem;
-  }
-
-  .prose :deep(hr) {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    margin: 2.5rem 0;
-  }
-
-  .article-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .share-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted, #71717a);
-    margin: 0;
-  }
-
-  .share-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .share-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(16px) saturate(1.4);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.06) inset;
-  }
-
-  .share-btn:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
-      0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .share-btn svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-
-  .share-twitter {
-    background: rgba(228, 228, 231, 0.08);
-    border-color: rgba(228, 228, 231, 0.15);
-    color: #e4e4e7;
-  }
-
-  .share-twitter:hover {
-    background: rgba(228, 228, 231, 0.14);
-    border-color: rgba(228, 228, 231, 0.25);
-  }
-
-  .share-linkedin {
-    background: rgba(10, 102, 194, 0.15);
-    border-color: rgba(10, 102, 194, 0.3);
-    color: #60a5fa;
-  }
-
-  .share-linkedin:hover {
-    background: rgba(10, 102, 194, 0.22);
-    border-color: rgba(10, 102, 194, 0.45);
-  }
-
-  .share-reddit {
-    background: rgba(255, 69, 0, 0.1);
-    border-color: rgba(255, 69, 0, 0.22);
-    color: #f97316;
-  }
-
-  .share-reddit:hover {
-    background: rgba(255, 69, 0, 0.16);
-    border-color: rgba(255, 69, 0, 0.35);
-  }
-
-  .share-copy {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.22);
-    color: #a78bfa;
-    font-family: inherit;
-  }
-
-  .share-copy:hover {
-    background: rgba(139, 92, 246, 0.16);
-    border-color: rgba(139, 92, 246, 0.35);
-  }
-
-  .share-copy.copied {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.3);
-    color: #34d399;
-  }
-
-  .post-nav {
-    margin-top: 1rem;
-  }
-
-  .post-nav-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .post-nav-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(24px) saturate(1.6);
-    -webkit-backdrop-filter: blur(24px) saturate(1.6);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
-      0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
-  .post-nav-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.06) 0%,
-      rgba(6, 182, 212, 0.04) 50%,
-      rgba(245, 158, 11, 0.03) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .post-nav-card:hover::before {
-    opacity: 1;
-  }
-
-  .post-nav-card:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.07);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-      0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
-      0 12px 40px rgba(139, 92, 246, 0.08),
-      0 0 20px rgba(139, 92, 246, 0.05);
-  }
-
-  .nav-prev {
-    align-items: flex-start;
-  }
-
-  .nav-next {
-    align-items: flex-end;
-    text-align: right;
-  }
-
-  .nav-full-width {
-    grid-column: 1 / -1;
-  }
-
-  .nav-direction {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent, #8b5cf6);
-    position: relative;
-    z-index: 1;
-  }
-
-  .nav-direction svg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .nav-prev:hover .nav-direction svg {
-    transform: translateX(-3px);
-  }
-
-  .nav-next:hover .nav-direction svg {
-    transform: translateX(3px);
-  }
-
-  .nav-post-title {
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--text-primary, #f4f4f5);
-    position: relative;
-    z-index: 1;
-    transition: color 0.25s ease;
-  }
-
-  .post-nav-card:hover .nav-post-title {
-    color: #c4b5fd;
-  }
-
-  .nav-type-badge {
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--nav-type-color, #8b5cf6);
-    background: color-mix(in srgb, var(--nav-type-color, #8b5cf6) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--nav-type-color, #8b5cf6) 25%, transparent);
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-  }
-
-  @media (max-width: 860px) {
-    .post-detail-container {
-      padding: 1.5rem 1.5rem 4rem;
-    }
-
-    .prose {
-      padding: 1.5rem;
-    }
-
-    .article-title {
-      font-size: 2rem;
-    }
-
-    .post-nav-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .nav-next {
-      align-items: flex-start;
-      text-align: left;
-    }
-  }
-
-  .post-signature {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    color: var(--text-muted, #71717a);
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    opacity: 0.8;
-  }
-
-  .post-signature p {
-    margin: 0 0 0.25rem 0 !important;
-  }
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>

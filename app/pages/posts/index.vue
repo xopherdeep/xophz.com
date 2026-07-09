@@ -11,184 +11,32 @@ const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
 </script>
 
 <template>
-  <div class="posts-index-container">
-    <header class="page-header">
-      <h1 class="page-title">Posts</h1>
-      <p class="page-lead">Thoughts, devlogs, and updates.</p>
+  <div class="pt-[calc(56px+2rem)] px-8 pb-24 max-w-[900px] mx-auto w-full max-md:pt-8 max-md:px-6 max-md:pb-16">
+    <header class="mb-12">
+      <h1 class="font-display text-5xl font-extrabold tracking-[-0.04em] text-text-primary m-0 mb-2 max-md:text-[2.2rem]">Posts</h1>
+      <p class="text-[1.1rem] text-text-secondary m-0">Thoughts, devlogs, and updates.</p>
     </header>
 
-    <div v-if="posts && posts.length" class="post-grid" role="list">
+    <div v-if="posts && posts.length" class="flex flex-col gap-6" role="list">
       <NuxtLink
         v-for="post in posts"
         :key="post.path"
         :to="post.path"
-        class="post-card glass-card"
+        class="group relative overflow-hidden flex flex-col gap-4 px-8 py-6 text-text-primary no-underline transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-white/5 border border-white/15 rounded-2xl backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)] max-md:px-6 max-md:py-5 hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_rgba(0,0,0,0.35),0_0_20px_rgba(139,92,246,0.06)]"
         :style="{ '--type-color': typeColor(post.type ?? 'article') }"
       >
-        <div class="card-meta">
-          <span class="card-badge">{{ typeLabel(post.type ?? 'article') }}</span>
-          <time class="card-date" :datetime="post.date">{{ formatDate(post.date) }}</time>
+        <div class="absolute left-0 top-0 bottom-0 w-1 opacity-50 transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:w-1.5" :style="{ backgroundColor: 'var(--type-color)' }" />
+        <div class="flex items-center gap-3">
+          <span class="text-[0.7rem] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full border" :style="{ color: 'var(--type-color)', backgroundColor: 'color-mix(in srgb, var(--type-color) 15%, transparent)', borderColor: 'color-mix(in srgb, var(--type-color) 25%, transparent)' }">{{ typeLabel(post.type ?? 'article') }}</span>
+          <time class="text-[0.85rem] font-medium text-text-muted" :datetime="post.date">{{ formatDate(post.date) }}</time>
         </div>
-        <h2 class="card-title" v-if="post.type !== 'short'">{{ post.title }}</h2>
-        <p class="card-summary">{{ post.summary }}</p>
+        <h2 class="font-display text-2xl font-bold text-text-primary m-0 leading-[1.3]" v-if="post.type !== 'short'">{{ post.title }}</h2>
+        <p class="text-base leading-[1.6] text-text-secondary m-0">{{ post.summary }}</p>
       </NuxtLink>
     </div>
     
-    <div v-else class="empty-state">
+    <div v-else class="py-16 px-8 text-center text-text-secondary bg-white/5 rounded-2xl border border-dashed border-white/15 backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.25)]">
       <p>No posts yet. Check back soon.</p>
     </div>
   </div>
 </template>
-
-<style scoped>
-.posts-index-container {
-  padding: calc(56px + 2rem) 2rem 6rem;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.page-header {
-  margin-bottom: 3rem;
-}
-
-.page-title {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--text-primary, #f4f4f5);
-  margin: 0 0 0.5rem;
-}
-
-.page-lead {
-  font-size: 1.1rem;
-  color: var(--text-secondary, #a1a1aa);
-  margin: 0;
-}
-
-.post-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.post-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem 2rem;
-  text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.post-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--type-color);
-  opacity: 0.5;
-  transition: opacity 0.2s ease, width 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 1px 0 0 rgba(255, 255, 255, 0.12) inset,
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    0 0 20px rgba(139, 92, 246, 0.06);
-}
-
-.post-card:hover::before {
-  opacity: 1;
-  width: 6px;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.card-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--type-color);
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--type-color) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--type-color) 25%, transparent);
-}
-
-.card-date {
-  font-size: 0.85rem;
-  color: var(--text-muted, #71717a);
-  font-weight: 500;
-}
-
-.card-title {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.3;
-}
-
-.card-summary {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  backdrop-filter: blur(28px) saturate(1.6);
-  -webkit-backdrop-filter: blur(28px) saturate(1.6);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
-    0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-.empty-state {
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 4px 16px rgba(0, 0, 0, 0.25);
-}
-
-@media (max-width: 860px) {
-  .posts-index-container {
-    padding: 2rem 1.5rem 4rem;
-  }
-  
-  .page-title {
-    font-size: 2.2rem;
-  }
-  
-  .post-card {
-    padding: 1.25rem 1.5rem;
-  }
-}
-</style>

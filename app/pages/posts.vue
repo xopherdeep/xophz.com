@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useMediaQuery } from '@vueuse/core'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 let rafId = 0
@@ -21,11 +22,12 @@ function buildNodes(w: number, h: number): Node[] {
   }))
 }
 
+const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+
 onMounted(() => {
   const canvas = canvasRef.value
   if (!canvas) return
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (reducedMotion) return
+  if (reducedMotion.value) return
   const ctx = canvas.getContext('2d')!
   let nodes: Node[] = []
   const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; nodes = buildNodes(canvas.width, canvas.height) }
@@ -64,127 +66,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="posts-layout">
-    <canvas
-      ref="canvasRef"
-      class="particle-canvas"
-      aria-hidden="true"
-    />
-    <div
-      class="orb orb-purple"
-      aria-hidden="true"
-    />
-    <div
-      class="orb orb-cyan"
-      aria-hidden="true"
-    />
-    <div
-      class="orb orb-amber"
-      aria-hidden="true"
-    />
+  <div class="min-h-dvh flex bg-transparent font-body text-text-primary relative overflow-x-hidden">
+    <canvas ref="canvasRef" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40" aria-hidden="true" />
+    
+    <div class="fixed rounded-full blur-[80px] pointer-events-none z-0 animate-[driftOrb_22s_ease-in-out_infinite] w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] -top-[8%] -left-[12%]" aria-hidden="true" />
+    <div class="fixed rounded-full blur-[80px] pointer-events-none z-0 animate-[driftOrb_26s_ease-in-out_infinite_-8s] w-[320px] h-[320px] bg-[radial-gradient(circle,rgba(6,182,212,0.12)_0%,transparent_70%)] bottom-[10%] -right-[8%]" aria-hidden="true" />
+    <div class="fixed rounded-full blur-[80px] pointer-events-none z-0 animate-[driftOrb_30s_ease-in-out_infinite_-15s] w-[240px] h-[240px] bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,transparent_70%)] top-[50%] left-[55%]" aria-hidden="true" />
 
-    <div class="layout-container">
-      <main class="main-content">
+    <div class="flex w-full max-w-[1440px] mx-auto relative z-10">
+      <main class="flex-1 relative bg-transparent flex flex-col md:max-w-full w-full">
         <NuxtPage />
       </main>
     </div>
   </div>
 </template>
-
-<style scoped>
-  .posts-layout {
-    min-height: 100dvh;
-    display: flex;
-    background: transparent;
-    font-family: var(--font-body, 'Inter', sans-serif);
-    color: var(--text-primary, #f4f4f5);
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  .particle-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-    animation: driftOrb 20s ease-in-out infinite;
-  }
-
-  .orb-purple {
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-    top: -8%;
-    left: -12%;
-    animation-duration: 22s;
-  }
-
-  .orb-cyan {
-    width: 320px;
-    height: 320px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-    bottom: 10%;
-    right: -8%;
-    animation-delay: -8s;
-    animation-duration: 26s;
-  }
-
-  .orb-amber {
-    width: 240px;
-    height: 240px;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
-    top: 50%;
-    left: 55%;
-    animation-delay: -15s;
-    animation-duration: 30s;
-  }
-
-  @keyframes driftOrb {
-    0%,
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-      transform: translate(28px, -18px) scale(1.05);
-    }
-
-    66% {
-      transform: translate(-18px, 14px) scale(0.97);
-    }
-  }
-
-  .layout-container {
-    display: flex;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .main-content {
-    flex: 1;
-    position: relative;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media (max-width: 860px) {
-    .main-content {
-      width: 100%;
-    }
-  }
-</style>

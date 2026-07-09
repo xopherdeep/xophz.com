@@ -16,6 +16,11 @@
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
-    "better-sqlite3": "^12.11.1"
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@vueuse/motion": "^3.0.3",
+    "@vueuse/nuxt": "^14.3.0",
+    "better-sqlite3": "^12.11.1",
+    "nuxt-lucide-icons": "^2.1.0"
   }
 }
