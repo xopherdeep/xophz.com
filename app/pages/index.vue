@@ -179,8 +179,8 @@ const motionStagger = {
       >
         <section v-if="activePanel === 'home'" key="home" class="w-full flex flex-col items-center gap-6" aria-label="Home">
           <div class="p-[3px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
-            <div class="w-[88px] h-[88px] rounded-full bg-bg flex items-center justify-center border-[3px] border-bg">
-              <span class="font-display text-[1.75rem] font-bold bg-gradient-hero bg-clip-text text-transparent tracking-[-0.02em]">XP</span>
+            <div class="w-[88px] h-[88px] rounded-full bg-bg flex items-center justify-center border-[3px] border-bg overflow-hidden">
+              <NuxtImg src="/logo.png" alt="Xophz Logo" width="88" height="88" class="w-full h-full object-cover" />
             </div>
           </div>
           
@@ -217,7 +217,10 @@ const motionStagger = {
         </section>
 
         <section v-else-if="activePanel === 'about'" key="about" class="w-full flex flex-col items-center gap-6" aria-label="Who I Am">
-          <h2 class="font-display text-3xl font-bold text-text-primary tracking-[-0.03em] self-start" v-motion="{ initial: { opacity: 0, x: -20 }, enter: { opacity: 1, x: 0 } }">Who I Am</h2>
+          <div class="w-full flex items-center gap-5 self-start" v-motion="{ initial: { opacity: 0, x: -20 }, enter: { opacity: 1, x: 0 } }">
+            <NuxtImg src="/me.jpg" alt="Xopher Pollard" width="80" height="80" class="rounded-full shadow-[0_4px_20px_rgba(139,92,246,0.3)] border-2 border-accent/30" />
+            <h2 class="font-display text-3xl font-bold text-text-primary tracking-[-0.03em]">Who I Am</h2>
+          </div>
           <p class="text-sm leading-[1.7] text-text-secondary self-start" v-motion="{ initial: { opacity: 0, x: -20 }, enter: { opacity: 1, x: 0, transition: { delay: 50 } } }">I'm Xopher - a systems thinker, builder, and architect who has spent 25+ years at the intersection of technology and business impact.</p>
           
           <div class="w-full bg-white/5 border border-white/15 rounded-2xl backdrop-blur-xl p-5 shadow-glass-shadow transition-all duration-200 hover:border-accent/25 hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_rgba(0,0,0,0.4),0_0_20px_rgba(139,92,246,0.06)]" v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 100 } } }">
