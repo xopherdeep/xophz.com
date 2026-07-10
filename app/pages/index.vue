@@ -218,7 +218,7 @@ const motionStagger = {
 
         <section v-else-if="activePanel === 'about'" key="about" class="w-full flex flex-col items-center gap-6" aria-label="Who I Am">
           <div class="w-full flex items-center gap-5 self-start" v-motion="{ initial: { opacity: 0, x: -20 }, enter: { opacity: 1, x: 0 } }">
-            <NuxtImg src="/me.jpg" alt="Xopher Pollard" width="80" height="80" class="rounded-full shadow-[0_4px_20px_rgba(139,92,246,0.3)] border-2 border-accent/30" />
+            <NuxtImg src="/og_social_card.png" alt="Xopher Pollard" width="80" height="80" class="rounded-full object-cover shadow-[0_4px_20px_rgba(139,92,246,0.3)] border-2 border-accent/30" />
             <h2 class="font-display text-3xl font-bold text-text-primary tracking-[-0.03em]">Who I Am</h2>
           </div>
           <p class="text-sm leading-[1.7] text-text-secondary self-start" v-motion="{ initial: { opacity: 0, x: -20 }, enter: { opacity: 1, x: 0, transition: { delay: 50 } } }">I'm Xopher - a systems thinker, builder, and architect who has spent 25+ years at the intersection of technology and business impact.</p>
