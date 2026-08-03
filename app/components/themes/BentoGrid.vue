@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Calendar as LucideCalendar, Briefcase as LucideBriefcase } from '@lucide/vue'
+import { Calendar as LucideCalendar, Briefcase as LucideBriefcase, ArrowUpRight as LucideArrowUpRight } from '@lucide/vue'
 
-const { identity, skillTags, stats, specialties, projects, socialLinks } = useProfileData()
+const { identity, personas, skillTags, stats, specialties, projects, socialLinks } = useProfileData()
 
 const featuredProjects = computed(() => projects.slice(0, 3))
-const topLinks = computed(() => socialLinks.slice(0, 3))
 </script>
 
 <template>
@@ -12,7 +11,7 @@ const topLinks = computed(() => socialLinks.slice(0, 3))
     <div class="w-full max-w-[1100px] grid grid-cols-2 md:grid-cols-4 auto-rows-[minmax(100px,1fr)] gap-3">
 
       <!-- Identity tile (spans 2 cols, 2 rows) -->
-      <div class="col-span-2 row-span-2 flex flex-col items-center justify-center gap-4 p-6 md:p-8 bg-white/5 border border-white/12 rounded-2xl backdrop-blur-xl shadow-glass-shadow transition-all duration-300 hover:border-accent/25 hover:bg-white/8" v-motion="{ initial: { opacity: 0, scale: 0.95 }, enter: { opacity: 1, scale: 1, transition: { duration: 400 } } }">
+      <XCard class="col-span-2 row-span-2 items-center justify-center gap-4 p-6 md:p-8" v-motion="{ initial: { opacity: 0, scale: 0.95 }, enter: { opacity: 1, scale: 1, transition: { duration: 400 } } }">
         <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
           <div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
             <NuxtImg :src="identity.headshot" :alt="identity.name" width="100" height="100" class="w-full h-full object-cover" />
@@ -24,63 +23,71 @@ const topLinks = computed(() => socialLinks.slice(0, 3))
           <p class="text-[0.78rem] leading-[1.6] text-text-secondary max-w-[32ch] mx-auto mt-1">{{ identity.tagline }}</p>
         </div>
         <ul class="flex flex-wrap gap-1.5 justify-center list-none p-0 mt-1">
-          <li v-for="tag in skillTags.slice(0, 4)" :key="tag" class="text-[0.62rem] font-medium tracking-[0.06em] px-2.5 py-1 rounded-full bg-accent/8 border border-accent/20 text-text-muted whitespace-nowrap">{{ tag }}</li>
+          <li v-for="tag in skillTags.slice(0, 4)" :key="tag">
+            <XBadge variant="accent">{{ tag }}</XBadge>
+          </li>
         </ul>
-      </div>
+      </XCard>
 
-      <!-- Stats tile (1 col, 2 rows) -->
-      <div class="row-span-2 flex flex-col gap-3 p-5 bg-white/5 border border-white/12 rounded-2xl backdrop-blur-xl shadow-glass-shadow transition-all duration-300 hover:border-accent/25 hover:bg-white/8" v-motion="{ initial: { opacity: 0, x: 15 }, enter: { opacity: 1, x: 0, transition: { delay: 100 } } }">
-        <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">BY THE NUMBERS</p>
-        <div class="flex-1 flex flex-col justify-around">
-          <div v-for="stat in stats" :key="stat.label" class="text-center py-2">
-            <p class="font-display text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">{{ stat.value }}</p>
-            <p class="text-[0.62rem] text-text-muted mt-0.5 tracking-[0.06em] uppercase">{{ stat.label }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Connect tile (1 col, 2 rows) -->
-      <div class="row-span-2 flex flex-col gap-2.5 p-5 bg-white/5 border border-white/12 rounded-2xl backdrop-blur-xl shadow-glass-shadow transition-all duration-300 hover:border-accent/25 hover:bg-white/8" v-motion="{ initial: { opacity: 0, x: 15 }, enter: { opacity: 1, x: 0, transition: { delay: 150 } } }">
-        <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">CONNECT</p>
-        <div class="flex-1 flex flex-col gap-1">
-          <a v-for="link in socialLinks" :key="link.id" :href="link.href" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-1.5 rounded-lg px-2 text-text-secondary no-underline transition-all duration-200 hover:bg-white/8 hover:text-text-primary" :style="{ '--lc': link.color }">
-            <component :is="link.icon" class="w-3.5 h-3.5 shrink-0 text-[color:var(--lc)]" />
-            <span class="text-[0.7rem] font-medium truncate">{{ link.label }}</span>
-          </a>
-        </div>
-        <NuxtLink to="/connect" class="text-[0.62rem] font-semibold text-accent no-underline opacity-70 hover:opacity-100 self-end">All links →</NuxtLink>
-      </div>
-
-      <!-- Specialties tile (2 cols, 1 row) -->
-      <div class="col-span-2 flex flex-col gap-3 p-5 bg-white/5 border border-white/12 rounded-2xl backdrop-blur-xl shadow-glass-shadow transition-all duration-300 hover:border-accent/25 hover:bg-white/8" v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 200 } } }">
-        <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">WHAT I DO</p>
-        <div class="grid grid-cols-2 gap-2">
-          <div v-for="s in specialties" :key="s.key" class="flex items-start gap-2">
-            <component :is="s.icon" class="w-4 h-4 text-accent-2 shrink-0 mt-0.5" />
-            <div>
-              <p class="text-[0.75rem] font-semibold text-text-primary">{{ s.title }}</p>
-              <p class="text-[0.65rem] leading-[1.5] text-text-muted mt-0.5 line-clamp-2">{{ s.desc }}</p>
+      <!-- Personas tile (2 cols, 2 rows) -->
+      <XCard class="col-span-2 row-span-2 gap-3 p-5" v-motion="{ initial: { opacity: 0, x: 15 }, enter: { opacity: 1, x: 0, transition: { delay: 100 } } }">
+        <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">CREATIVE SPECTRUM &amp; PERSONAS</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 flex-1">
+          <XCard
+            v-for="p in personas"
+            :key="p.key"
+            :href="p.link"
+            interactive
+            padding="p-3"
+            variant="subtle"
+            class="group justify-between"
+            :style="{ '--pc': p.color }"
+          >
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="w-7 h-7 rounded-lg shrink-0 flex items-center justify-center bg-white/5 text-[color:var(--pc)] border border-white/10">
+                <component :is="p.icon" class="w-3.5 h-3.5" />
+              </span>
+              <LucideArrowUpRight class="w-3 h-3 text-text-muted shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-text-primary" />
             </div>
-          </div>
+            <div>
+              <p class="text-[0.78rem] font-bold text-text-primary truncate">{{ p.name }}</p>
+              <p class="text-[0.6rem] font-medium text-[color:var(--pc)] truncate mb-0.5">{{ p.subtitle }}</p>
+              <p class="text-[0.65rem] leading-[1.4] text-text-muted line-clamp-2">{{ p.desc }}</p>
+            </div>
+          </XCard>
         </div>
-      </div>
+      </XCard>
 
       <!-- Projects tile (2 cols, 1 row) -->
-      <div class="col-span-2 flex flex-col gap-3 p-5 bg-white/5 border border-white/12 rounded-2xl backdrop-blur-xl shadow-glass-shadow transition-all duration-300 hover:border-accent/25 hover:bg-white/8" v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 250 } } }">
+      <XCard class="col-span-2 gap-3 p-5" v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 200 } } }">
         <div class="flex items-center justify-between">
           <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">MAGNUM OPUS</p>
           <NuxtLink to="/projects" class="text-[0.62rem] font-semibold text-accent no-underline opacity-70 hover:opacity-100">View all →</NuxtLink>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          <div v-for="p in featuredProjects" :key="p.key" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/8 transition-all duration-200 hover:bg-white/10 hover:border-white/15">
+          <XCard v-for="p in featuredProjects" :key="p.key" variant="subtle" padding="p-2.5" interactive class="flex-row items-center gap-2.5">
             <span class="w-2 h-2 rounded-full shrink-0 shadow-[0_0_8px_var(--pc)]" :style="{ backgroundColor: p.color, '--pc': p.color }" />
             <div class="min-w-0">
               <p class="text-[0.72rem] font-semibold text-text-primary truncate">{{ p.name }}</p>
               <p class="text-[0.6rem] text-text-muted truncate">{{ p.tag }}</p>
             </div>
-          </div>
+          </XCard>
         </div>
-      </div>
+      </XCard>
+
+      <!-- Connect tile (2 cols, 1 row) -->
+      <XCard class="col-span-2 gap-2.5 p-5" v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 250 } } }">
+        <div class="flex items-center justify-between">
+          <p class="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-text-muted">CONNECT &amp; SOCIALS</p>
+          <NuxtLink to="/connect" class="text-[0.62rem] font-semibold text-accent no-underline opacity-70 hover:opacity-100">All links →</NuxtLink>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+          <a v-for="link in socialLinks.slice(0, 8)" :key="link.id" :href="link.href" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-1.5 rounded-lg px-2 text-text-secondary no-underline transition-all duration-200 hover:bg-white/8 hover:text-text-primary" :style="{ '--lc': link.color }">
+            <component :is="link.icon" class="w-3.5 h-3.5 shrink-0 text-[color:var(--lc)]" />
+            <span class="text-[0.68rem] font-medium truncate">{{ link.label }}</span>
+          </a>
+        </div>
+      </XCard>
 
       <!-- Action CTAs tile -->
       <div class="col-span-2 md:col-span-4 flex flex-col sm:flex-row gap-3 justify-center py-2" v-motion="{ initial: { opacity: 0, y: 10 }, enter: { opacity: 1, y: 0, transition: { delay: 350 } } }">
@@ -93,13 +100,16 @@ const topLinks = computed(() => socialLinks.slice(0, 3))
           <LucideCalendar class="w-4 h-4 shrink-0" />
           Book a Meeting
         </a>
-        <NuxtLink
+        <XCard
           to="/projects"
-          class="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-semibold cursor-pointer transition-all duration-200 bg-white/5 border border-white/12 text-text-secondary no-underline hover:border-accent/40 hover:text-text-primary hover:bg-accent/10 hover:-translate-y-0.5"
+          interactive
+          padding="px-6 py-3"
+          variant="glass"
+          class="flex-1 flex-row items-center justify-center gap-2 rounded-xl text-xs font-semibold text-text-secondary no-underline hover:text-text-primary"
         >
           <LucideBriefcase class="w-4 h-4 shrink-0 text-accent" />
           Explore Magnum Opus
-        </NuxtLink>
+        </XCard>
       </div>
     </div>
   </section>

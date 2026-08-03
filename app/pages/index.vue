@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import { useMediaQuery, useLocalStorage } from '@vueuse/core'
+import { useMediaQuery } from '@vueuse/core'
 
 useSeoMeta({
   title: 'Xopher "XP" Pollard',
@@ -9,7 +9,7 @@ useSeoMeta({
 
 // --- Theme state ---
 type ThemeKey = 'cinematic' | 'hud' | 'bento' | 'split'
-const activeTheme = useLocalStorage<ThemeKey>('xophz-theme', 'cinematic')
+const activeTheme = useCookie<ThemeKey>('xophz-theme', { default: () => 'cinematic' })
 
 // --- Canvas particle network ---
 const canvasRef = ref<HTMLCanvasElement | null>(null)
@@ -35,6 +35,13 @@ function buildNodes(w: number, h: number): Node[] {
 const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
 onMounted(() => {
+  if (import.meta.client) {
+    const legacy = localStorage.getItem('xophz-theme')
+    if (legacy) {
+      activeTheme.value = legacy as ThemeKey
+      localStorage.removeItem('xophz-theme')
+    }
+  }
   const canvas = canvasRef.value
   if (!canvas || reducedMotion.value) return
   const ctx = canvas.getContext('2d')!
@@ -67,10 +74,23 @@ onMounted(() => {
     ctx.globalAlpha = 1
     rafId = requestAnimationFrame(draw)
   }
+  const handleVisibilityChange = () => {
+    if (document.hidden) {
+      cancelAnimationFrame(rafId)
+    } else {
+      rafId = requestAnimationFrame(draw)
+    }
+  }
+
   resize()
   window.addEventListener('resize', resize)
+  document.addEventListener('visibilitychange', handleVisibilityChange)
   rafId = requestAnimationFrame(draw)
-  onUnmounted(() => { cancelAnimationFrame(rafId); window.removeEventListener('resize', resize) })
+  onUnmounted(() => {
+    cancelAnimationFrame(rafId)
+    window.removeEventListener('resize', resize)
+    document.removeEventListener('visibilitychange', handleVisibilityChange)
+  })
 })
 </script>
 

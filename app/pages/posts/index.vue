@@ -73,7 +73,7 @@ const filteredPosts = computed(() => {
             v-for="post in filteredPosts"
             :key="post.path"
             :to="post.path"
-            class="group relative overflow-hidden flex flex-col gap-4 px-8 py-6 text-text-primary no-underline transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-white/5 border border-white/15 rounded-2xl backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)] max-md:px-6 max-md:py-5 hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_1px_0_0_rgba(255,255,255,0.12),0_12px_40px_rgba(0,0,0,0.35),0_0_20px_rgba(139,92,246,0.06)]"
+            class="group relative overflow-hidden flex flex-col gap-4 px-8 py-6 text-text-primary no-underline transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-white/5 border border-white/[0.06] rounded-2xl backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03),inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] max-md:px-6 max-md:py-5 hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_12px_40px_rgba(0,0,0,0.35),0_0_20px_rgba(139,92,246,0.06)]"
             :style="{ '--type-color': typeColor(post.type ?? 'article') }"
           >
             <div class="absolute left-0 top-0 bottom-0 w-1 opacity-50 transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:w-1.5" :style="{ backgroundColor: 'var(--type-color)' }" />

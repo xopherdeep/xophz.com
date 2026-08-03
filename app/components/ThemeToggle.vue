@@ -37,7 +37,7 @@ const currentIndex = computed(() => themes.findIndex(t => t.key === props.modelV
       leave-active-class="transition-all duration-200 ease-in"
       leave-to-class="opacity-0 translate-y-2 scale-95"
     >
-      <div v-if="expanded" class="flex flex-col gap-1.5 p-2 rounded-2xl bg-[#0c0c18]/80 backdrop-blur-[32px] border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(255,255,255,0.06)]">
+      <div v-if="expanded" class="flex flex-col gap-1.5 p-2 rounded-2xl bg-[#0c0c18]/80 backdrop-blur-[32px] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(255,255,255,0.03)]">
         <button
           v-for="theme in themes"
           :key="theme.key"
@@ -55,7 +55,7 @@ const currentIndex = computed(() => themes.findIndex(t => t.key === props.modelV
 
     <!-- Toggle pill -->
     <button
-      class="group flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-[#0c0c18]/70 backdrop-blur-[32px] border border-white/15 cursor-pointer transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.06)] hover:border-accent/40 hover:bg-accent/10 hover:shadow-[0_4px_24px_rgba(139,92,246,0.15)]"
+      class="group flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-[#0c0c18]/70 backdrop-blur-[32px] border border-white/[0.08] cursor-pointer transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.03)] hover:border-accent/40 hover:bg-accent/10 hover:shadow-[0_4px_24px_rgba(139,92,246,0.15)]"
       aria-label="Switch theme view"
       @click="toggle"
     >

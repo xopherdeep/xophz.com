@@ -19,10 +19,9 @@ const closeMenu = () => { menuOpen.value = false }
 
 const isLoaded = ref(false)
 onMounted(() => {
-  // Give a small delay to ensure layout and v-motion are settled
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     isLoaded.value = true
-  }, 150)
+  })
 })
 
 const navItems = [
@@ -61,16 +60,26 @@ const navItems = [
 
 <template>
   <div class="flex flex-col min-h-dvh pb-[70px]">
+    <!-- Route Navigation Progress Bar -->
+    <NuxtLoadingIndicator
+      color="linear-gradient(to right, #8b5cf6, #06b6d4, #f59e0b)"
+      :height="3"
+      :duration="2000"
+    />
+
     <!-- Global Page Loader -->
     <Transition
-      leave-active-class="transition-opacity duration-700 ease-in-out"
+      leave-active-class="transition-opacity duration-500 ease-in-out"
       leave-to-class="opacity-0"
     >
       <div
         v-if="!isLoaded"
-        class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0c0618]"
+        class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0c0618]/95 backdrop-blur-2xl"
       >
-        <div class="w-12 h-12 border-[3px] border-white/10 border-t-[#8b5cf6] rounded-full animate-spin shadow-[0_0_15px_rgba(139,92,246,0.3)]"></div>
+        <div class="relative flex items-center justify-center">
+          <div class="w-14 h-14 border-[3px] border-white/10 border-t-[#8b5cf6] border-r-[#06b6d4] rounded-full animate-spin shadow-[0_0_20px_rgba(139,92,246,0.4)]" />
+          <div class="absolute w-3 h-3 rounded-full bg-[#8b5cf6] animate-ping" />
+        </div>
       </div>
     </Transition>
 
@@ -78,7 +87,7 @@ const navItems = [
 
     <button
       id="hamburger-btn"
-      class="fixed top-2 left-2 z-[100] w-10 h-10 flex flex-col items-center justify-center gap-[5px] bg-white/10 border border-white/15 rounded-xl cursor-pointer transition-all duration-300 backdrop-blur-[20px] shadow-glass-highlight hover:bg-accent/15 hover:border-accent/40"
+      class="fixed top-2 left-2 z-[100] w-10 h-10 flex flex-col items-center justify-center gap-[5px] bg-white/5 border border-white/[0.08] rounded-xl cursor-pointer transition-all duration-300 backdrop-blur-[20px] shadow-glass-highlight hover:bg-accent/15 hover:border-accent/40"
       aria-label="Toggle navigation"
       :aria-expanded="menuOpen"
       @click="toggleMenu"
@@ -88,7 +97,7 @@ const navItems = [
       <span class="block w-[18px] h-[2px] bg-text-primary rounded-[2px] transition-all duration-300 origin-center" :class="{ '-translate-y-[7px] -rotate-45': menuOpen }" />
     </button>
 
-    <header class="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-center px-16 bg-[#0c0c18]/45 backdrop-blur-[32px] border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_-1px_0_0_rgba(255,255,255,0.05)]">
+    <header class="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-center px-16 bg-[#0c0c18]/45 backdrop-blur-[32px] border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_-1px_0_0_rgba(255,255,255,0.03)]">
       <span class="absolute left-16 text-base font-bold tracking-[0.18em] uppercase text-accent opacity-70">xophz.com</span>
       <span class="font-display text-sm font-semibold text-text-primary tracking-[-0.01em]">{{ navItems.find(n => n.isActive())?.name ?? 'Home' }}</span>
     </header>
@@ -159,7 +168,7 @@ const navItems = [
 
     <!-- Global App Bar -->
     <nav
-      class="fixed bottom-0 left-0 right-0 z-[1000] h-[70px] bg-[#0c0c18]/55 backdrop-blur-[32px] border-t border-white/15 flex justify-center shadow-[0_-4px_24px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.06)] md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:w-fit md:rounded-full md:border md:border-white/15 md:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.1)] md:h-16 md:px-4"
+      class="fixed bottom-0 left-0 right-0 z-[1000] h-[70px] bg-[#0c0c18]/55 backdrop-blur-[32px] border-t border-white/[0.08] flex justify-center shadow-[0_-4px_24px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.04)] md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:w-fit md:rounded-full md:border md:border-white/[0.08] md:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.04)] md:h-16 md:px-4"
       aria-label="Global navigation"
     >
       <div class="flex items-center justify-around w-full max-w-[600px] h-full px-2 md:gap-2">

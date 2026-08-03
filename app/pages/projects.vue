@@ -57,7 +57,7 @@ const filteredProjects = computed(() => {
             class="px-3 py-1.5 rounded-full text-[0.68rem] font-semibold tracking-[0.04em] border cursor-pointer transition-all duration-200 backdrop-blur-md"
             :class="activeStatusFilter === status
               ? 'bg-accent/20 border-accent/50 text-text-primary shadow-[0_0_10px_rgba(139,92,246,0.15)]'
-              : 'bg-white/5 border-white/15 text-text-muted hover:bg-white/10 hover:border-white/25 hover:text-text-secondary'"
+              : 'bg-white/5 border-white/[0.06] text-text-muted hover:bg-white/10 hover:border-white/25 hover:text-text-secondary'"
             @click="activeStatusFilter = status"
           >{{ status }}</button>
         </div>
@@ -68,7 +68,7 @@ const filteredProjects = computed(() => {
             class="px-3 py-1.5 rounded-full text-[0.68rem] font-semibold tracking-[0.04em] border cursor-pointer transition-all duration-200 backdrop-blur-md"
             :class="activeCategoryFilter === cat
               ? 'bg-accent-2/20 border-accent-2/50 text-text-primary shadow-[0_0_10px_rgba(6,182,212,0.15)]'
-              : 'bg-white/5 border-white/15 text-text-muted hover:bg-white/10 hover:border-white/25 hover:text-text-secondary'"
+              : 'bg-white/5 border-white/[0.06] text-text-muted hover:bg-white/10 hover:border-white/25 hover:text-text-secondary'"
             @click="activeCategoryFilter = cat"
           >{{ cat }}</button>
         </div>
@@ -89,7 +89,7 @@ const filteredProjects = computed(() => {
         leave-to-class="opacity-0 scale-95"
         move-class="transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
       >
-        <div v-for="project in filteredProjects" :key="project.key" class="group relative overflow-hidden bg-white/5 border border-white/15 rounded-2xl backdrop-blur-xl p-5 shadow-glass-shadow transition-all duration-300 hover:border-[color:var(--proj-color)]/30 hover:bg-white/8" :style="{ '--proj-color': project.color }">
+        <div v-for="project in filteredProjects" :key="project.key" class="group relative overflow-hidden bg-white/5 border border-white/[0.06] rounded-2xl backdrop-blur-xl p-5 shadow-glass-shadow transition-all duration-300 hover:border-[color:var(--proj-color)]/30 hover:bg-white/8" :style="{ '--proj-color': project.color }">
           <div class="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-sm shadow-[0_0_12px_var(--proj-color)] transition-shadow duration-300 group-hover:shadow-[0_0_20px_var(--proj-color)]" :style="{ backgroundColor: project.color }" />
           <div class="flex items-center gap-2 mb-2 pl-3">
             <div class="w-2 h-2 rounded-full shrink-0 shadow-[0_0_8px_var(--proj-color)]" :style="{ backgroundColor: project.color }" />
