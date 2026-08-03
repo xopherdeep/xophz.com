@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
-import { computed, ref, resolveComponent, onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
+import {
+  Home as LucideHome,
+  User as LucideUser,
+  Briefcase as LucideBriefcase,
+  FileText as LucideFileText,
+  Mail as LucideMail,
+} from '@lucide/vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -21,33 +28,33 @@ onMounted(() => {
 const navItems = [
   { 
     name: 'Home', 
-    to: '/#home', 
-    isActive: () => isHome.value && (!route.hash || route.hash === '#home'),
-    icon: resolveComponent('LucideHome')
+    to: '/', 
+    isActive: () => route.path === '/',
+    icon: LucideHome
   },
   { 
     name: 'About', 
-    to: '/#about', 
-    isActive: () => isHome.value && route.hash === '#about',
-    icon: resolveComponent('LucideUser')
+    to: '/about', 
+    isActive: () => route.path === '/about',
+    icon: LucideUser
   },
   { 
-    name: 'Magnum Opus', 
-    to: '/#projects', 
-    isActive: () => isHome.value && route.hash === '#projects',
-    icon: resolveComponent('LucideBriefcase')
+    name: 'Opus', 
+    to: '/projects', 
+    isActive: () => route.path === '/projects',
+    icon: LucideBriefcase
   },
   { 
-    name: 'Posts', 
+    name: 'Blog', 
     to: '/posts', 
     isActive: () => route.path.startsWith('/posts'),
-    icon: resolveComponent('LucideFileText')
+    icon: LucideFileText
   },
   { 
     name: 'Connect', 
-    to: '/#connect', 
-    isActive: () => isHome.value && route.hash === '#connect',
-    icon: resolveComponent('LucideMail')
+    to: '/connect', 
+    isActive: () => route.path === '/connect',
+    icon: LucideMail
   }
 ]
 </script>
@@ -113,7 +120,7 @@ const navItems = [
         <div class="px-6 pt-[4.5rem] pb-6 flex items-center gap-4 border-b border-white/5">
           <div class="w-[52px] h-[52px] rounded-full shrink-0 bg-gradient-to-br from-accent to-accent-2 flex items-center justify-center font-display text-base font-bold text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]">XP</div>
           <div>
-            <p class="font-display text-base font-bold text-text-primary mb-1">Xopher Pollard</p>
+            <p class="font-display text-base font-bold text-text-primary mb-1">Xopher "XP" Pollard</p>
             <p class="text-[0.7rem] text-text-muted">Principal Systems Synthesist</p>
           </div>
         </div>
@@ -134,7 +141,7 @@ const navItems = [
           </li>
         </ul>
         <div class="px-6 py-4 border-t border-white/5">
-          <p class="text-[0.7rem] text-text-muted">© {{ new Date().getFullYear() }} Xopher Pollard</p>
+          <p class="text-[0.7rem] text-text-muted">© {{ new Date().getFullYear() }} Xopher "XP" Pollard</p>
         </div>
       </nav>
     </Transition>
