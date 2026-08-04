@@ -14,7 +14,7 @@ const featuredProjects = computed(() => projects.slice(0, 4))
       <!-- Headshot -->
       <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
         <div class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
-          <NuxtImg :src="identity.headshot" :alt="identity.name" width="100" height="100" class="w-full h-full object-cover" />
+          <NuxtImg :src="identity.avatar" :alt="identity.name" width="100" height="100" class="w-full h-full object-cover" />
         </div>
       </div>
 

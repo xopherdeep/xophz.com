@@ -29,6 +29,7 @@ export const useProfileData = () => {
     title: "Architect · Founder · Artist · Polymath",
     tagline:
       "25+ years spanning massive-scale systems architecture, creative worldbuilding, music production, and sovereign digital infrastructure.",
+    avatar: "/xopher_jester.png",
     headshot: "/xp_headshot.png",
     siteLabel: "xophz.com",
   };
@@ -387,6 +388,8 @@ export const useProfileData = () => {
   const navChips = [
     { label: "About", to: "/about", icon: LucideUser },
     { label: "Opus", to: "/projects", icon: LucideBriefcase },
+    { label: "Compass", to: "/compass", icon: LucideCompass },
+    { label: "Sparks", to: "/sparks", icon: LucideSparkles },
     { label: "Blog", to: "/posts", icon: LucideFileText },
     { label: "Connect", to: "/connect", icon: LucideMail },
   ];

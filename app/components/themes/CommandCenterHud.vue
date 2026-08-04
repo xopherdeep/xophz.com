@@ -25,7 +25,7 @@ const parallax = (depth: number) => {
       <div class="relative z-10 flex flex-col items-center gap-4 text-center" :style="parallax(3)" v-motion="{ initial: { opacity: 0, scale: 0.9 }, enter: { opacity: 1, scale: 1, transition: { duration: 500 } } }">
         <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
           <div class="w-[90px] h-[90px] md:w-[110px] md:h-[110px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
-            <NuxtImg :src="identity.headshot" :alt="identity.name" width="110" height="110" class="w-full h-full object-cover" />
+            <NuxtImg :src="identity.avatar" :alt="identity.name" width="110" height="110" class="w-full h-full object-cover" />
           </div>
         </div>
         <h1 class="font-display text-3xl md:text-4xl font-bold tracking-[-0.03em] text-text-primary leading-[1.1]">{{ identity.name }}</h1>

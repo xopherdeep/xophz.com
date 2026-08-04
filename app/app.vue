@@ -5,6 +5,8 @@ import {
   Home as LucideHome,
   User as LucideUser,
   Briefcase as LucideBriefcase,
+  Compass as LucideCompass,
+  Sparkles as LucideSparkles,
   FileText as LucideFileText,
   Mail as LucideMail,
 } from '@lucide/vue'
@@ -42,6 +44,18 @@ const navItems = [
     to: '/projects', 
     isActive: () => route.path === '/projects',
     icon: LucideBriefcase
+  },
+  { 
+    name: 'Compass', 
+    to: '/compass', 
+    isActive: () => route.path === '/compass',
+    icon: LucideCompass
+  },
+  { 
+    name: 'Sparks', 
+    to: '/sparks', 
+    isActive: () => route.path === '/sparks',
+    icon: LucideSparkles
   },
   { 
     name: 'Blog', 

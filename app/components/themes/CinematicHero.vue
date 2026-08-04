@@ -9,7 +9,7 @@ const { identity, skillTags, personas } = useProfileData()
     <!-- Headshot with animated ring -->
     <div class="p-[3px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]" v-motion="{ initial: { opacity: 0, scale: 0.7 }, enter: { opacity: 1, scale: 1, transition: { duration: 600 } } }">
       <div class="w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full bg-bg flex items-center justify-center border-[3px] border-bg overflow-hidden">
-        <NuxtImg :src="identity.headshot" :alt="identity.name" width="140" height="140" class="w-full h-full object-cover" />
+        <NuxtImg :src="identity.avatar" :alt="identity.name" width="140" height="140" class="w-full h-full object-cover" />
       </div>
     </div>
 
