@@ -14,7 +14,7 @@ const { identity, personas, stats, specialties, skills, skillTags } = useProfile
 
 useSeoMeta({
   title: 'About · Xopher "XP" Pollard',
-  description: 'Principal Systems Synthesist, 4x Founder, Artist & Polymath. 25+ years bridging cloud-first systems architecture, sovereign digital infrastructure, and creative worldbuilding.',
+  description: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, enterprise scalability, and sovereign digital infrastructure.',
 })
 
 const philosophies = [
@@ -122,16 +122,13 @@ const milestones = [
           <h2 class="font-display text-sm font-bold tracking-[0.12em] uppercase">Executive Overview</h2>
         </div>
         <p class="text-sm md:text-base leading-[1.75] text-text-secondary">
-          I am a 25+ year veteran software architect, 4x founder, and executive technology leader based out of the
+          I am a 25+ year veteran software architect, serial founder, and executive technology leader based out of the
           Sonoran Desert. As the principal behind <strong>My Compass Consulting</strong>, I specialize in high-stakes
           systems synthesis, carving monolithic legacy systems into resilient, cloud-native architectures without
-          disrupting ongoing operations.
+          disrupting ongoing operations. I partner with elite founders and agencies to deploy sovereign infrastructure (BlackBOX) and provide high-level systems advisory, building the architectural backbone that allows visionary companies to scale effortlessly.
         </p>
         <p class="text-sm md:text-base leading-[1.75] text-text-secondary">
-          Beyond enterprise advisory, <strong>xophz.com</strong> is the central nexus for my polymathic pursuits:
-          sovereign digital infrastructure via the <em>w⁴ Protocol</em>, audio composition as <em>Majora D.</em>, visual
-          art and worldbuilding lore under <em>Jesta Sugjester</em>, tech exploration as <em>Midnight Nerd</em>, gaming roots as <em>[HΩG] Tim</em>, and the broader <em>Hall of the Gods</em>
-          co-operative webwork.
+          Beyond enterprise advisory, welcome to the grand vantage point: a single sovereign perch surveying every mask I wear, every protocol I forge, and the full circus of my creative realms. <strong>xophz.com</strong> serves as the central nexus connecting the <em>w⁴ Protocol</em>, the <em>Hall of the Gods</em> co-operative webwork, audio composition as <em>Majora D.</em>, visual art and worldbuilding lore under <em>Jesta Sugjester</em>, tech exploration as <em>Midnight Nerd</em>, and gaming roots as <em>[HΩG] Tim</em>.
         </p>
       </div>
 

@@ -26,9 +26,9 @@ import {
 export const useProfileData = () => {
   const identity = {
     name: 'Xopher "XP" Pollard',
-    title: "Architect · Founder · Artist · Polymath",
+    title: "Principal Systems Synthesist · Architect · Artist · Polymath",
     tagline:
-      "25+ years spanning massive-scale systems architecture, creative worldbuilding, music production, and sovereign digital infrastructure.",
+      "25+ years architecting sovereign digital infrastructure, modernizing legacy monoliths, and scaling enterprise systems for visionary founders.",
     avatar: "/xopher_jester.png",
     headshot: "/xp_headshot.png",
     siteLabel: "xophz.com",
@@ -40,7 +40,7 @@ export const useProfileData = () => {
     "Sovereign Infrastructure",
     "AWS & Cloud Systems",
     "CTO / Executive Leadership",
-    "4x Founder",
+    "Serial Founder",
   ];
 
   const personas = [
@@ -60,7 +60,7 @@ export const useProfileData = () => {
       subtitle: "Systems Architecture & Advisory",
       icon: LucideCompass,
       color: "#06b6d4",
-      desc: "25+ years of cloud systems architecture, legacy modernization, and strategic technology advisory.",
+      desc: "Principal Systems Synthesist providing high-ticket architecture advisory, sovereign infrastructure deployment, and enterprise legacy modernization.",
       link: "https://www.mycompassconsulting.com",
       linkLabel: "Advisory",
     },
@@ -134,9 +134,9 @@ export const useProfileData = () => {
     },
     {
       key: "found",
-      title: "Founding & Advising",
+      title: "Sovereign Infrastructure",
       icon: LucideRocket,
-      desc: "Multiple founder credits. Helping early-stage teams avoid the pitfalls already survived.",
+      desc: "Deploying BlackBOX sovereign architecture for zero-friction scaling, security, and total digital ownership for elite ventures.",
     },
   ];
 
@@ -182,6 +182,14 @@ export const useProfileData = () => {
       color: "#d9be6f",
       url: "https://www.hallofthegods.com",
       desc: "The Nexus of Limitless Potential - a protective Webwork for creators, brands, and ventures of any scale. Parent company housing the entire ecosystem.",
+    },
+    {
+      key: "compass",
+      name: "My Compass Consulting",
+      tag: "Advisory · Live",
+      color: "rgb(49, 128, 137)",
+      url: "https://www.mycompassconsulting.com",
+      desc: "Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Structural Integrity, Meticulous Performance, Strategic Clarity.",
     },
     {
       key: "webwork",
@@ -270,38 +278,6 @@ export const useProfileData = () => {
       color: "#007bff",
       url: "https://www.glowitheflow.com",
       desc: "A next-gen creator network built on mutual promotion economics. Flow economy, Tributaries, gamified click-value.",
-    },
-    {
-      key: "compass",
-      name: "My Compass Consulting",
-      tag: "Advisory · Live",
-      color: "rgb(49, 128, 137)",
-      url: "https://www.mycompassconsulting.com",
-      desc: "Strategic Synthesis - the rare bridge between executive vision and rigorous engineering. Structural Integrity, Meticulous Performance, Strategic Clarity.",
-    },
-    {
-      key: "bbwg",
-      name: "BlackBOX WhiteGLOVE",
-      tag: "Managed Service · Live",
-      color: "#fff",
-      url: "https://www.blackboxwhiteglove.com",
-      desc: "Premium concierge digital management - Signature, Concierge, and Enterprise tiers. Your entire digital footprint managed.",
-    },
-    {
-      key: "webwork",
-      name: "Worldwide Webwork",
-      tag: "Infrastructure · Live",
-      color: "rgb(61, 238, 152)",
-      url: "https://www.worldwidewebwork.com",
-      desc: "The foundational architecture where sovereignty is anchored. Speed, security, and stability anchoring the entire Hall.",
-    },
-    {
-      key: "youmeos",
-      name: "YouMeOS",
-      tag: "Vision · 100-Year Play",
-      color: "#a78bfa",
-      url: "https://www.youmeos.com",
-      desc: "A spatial OS for the web - Vue + WebGPU over the Compass Engine. HeliOS, NexOS, NoOSphere.",
     },
   ];
 
