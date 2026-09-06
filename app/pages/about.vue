@@ -8,6 +8,7 @@ import {
   Briefcase as LucideBriefcase,
   Sparkles as LucideSparkles,
   Terminal as LucideTerminal,
+  FileBadge as LucideFileBadge,
 } from '@lucide/vue'
 
 const { identity, personas, stats, specialties, skills, skillTags } = useProfileData()
@@ -302,19 +303,26 @@ const milestones = [
           <p class="text-xs text-accent-2 font-semibold mt-1">~Xophz</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-3.5 w-full max-w-[440px] relative z-10 mt-2">
+        <div class="flex flex-col sm:flex-row gap-3.5 w-full max-w-[560px] relative z-10 mt-2">
           <a
             href="https://calendar.app.google/Y732Ak5gxuCMVoHo8"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-200 tracking-[0.01em] bg-gradient-hero border-none text-white shadow-[0_4px_20px_rgba(139,92,246,0.4)] no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(139,92,246,0.55)]"
+            class="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-200 tracking-[0.01em] bg-gradient-hero border-none text-white shadow-[0_4px_20px_rgba(139,92,246,0.4)] no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(139,92,246,0.55)]"
           >
             <LucideCalendar class="w-4 h-4 shrink-0" />
             Book a Meeting
           </a>
           <NuxtLink
+            to="/resume"
+            class="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-200 tracking-[0.01em] bg-white/5 border border-white/[0.08] text-text-secondary backdrop-blur-md no-underline hover:border-accent/40 hover:text-text-primary hover:bg-accent/10 hover:-translate-y-0.5"
+          >
+            <LucideFileBadge class="w-4 h-4 shrink-0 text-accent" />
+            Executive Resume
+          </NuxtLink>
+          <NuxtLink
             to="/projects"
-            class="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-200 tracking-[0.01em] bg-white/5 border border-white/[0.08] text-text-secondary backdrop-blur-md no-underline hover:border-accent/40 hover:text-text-primary hover:bg-accent/10 hover:-translate-y-0.5"
+            class="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer transition-all duration-200 tracking-[0.01em] bg-white/5 border border-white/[0.08] text-text-secondary backdrop-blur-md no-underline hover:border-accent/40 hover:text-text-primary hover:bg-accent/10 hover:-translate-y-0.5"
           >
             <LucideBriefcase class="w-4 h-4 shrink-0 text-accent" />
             Magnum Opus

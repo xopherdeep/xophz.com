@@ -13,7 +13,7 @@ const postSchema = z.object({
 
 const docsPath = resolve(process.cwd(), "docs");
 
-// TEMP DEBUG — remove after diagnosing
+// TEMP DEBUG - remove after diagnosing
 console.log("=== CONTENT CONFIG DEBUG ===");
 console.log("process.cwd():", process.cwd());
 console.log("resolved docs path:", docsPath);

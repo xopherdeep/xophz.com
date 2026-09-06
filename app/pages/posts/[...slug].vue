@@ -112,7 +112,7 @@ const copyLink = async () => {
         <ContentRenderer :value="post" />
         <div class="mt-12 pt-8 border-t border-dashed border-white/10 font-display text-text-muted italic text-[1.1rem] leading-[1.5] opacity-80 [&_p]:!m-0 [&_p]:!mb-1">
           <p>Abracadabra,</p>
-          <p>— Xopher "XP" Pollard 🧞</p>
+          <p>~ Xopher "XP" Pollard 🧞</p>
         </div>
       </div>
 

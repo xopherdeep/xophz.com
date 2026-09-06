@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     head: {
-      title: "xophz — Xopher \"XP\" Pollard",
+      title: "xophz · Xopher \"XP\" Pollard",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "xophz" },
         { property: "og:url", content: "https://xophz.com" },
-        { property: "og:title", content: "xophz — Xopher \"XP\" Pollard" },
+        { property: "og:title", content: "xophz · Xopher \"XP\" Pollard" },
         {
           property: "og:description",
           content:
@@ -63,13 +63,13 @@ export default defineNuxtConfig({
         },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: "Xopher \"XP\" Pollard — xophz" },
+        { property: "og:image:alt", content: "Xopher \"XP\" Pollard · xophz" },
         { property: "og:locale", content: "en_US" },
 
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:site", content: "@xophz" },
         { name: "twitter:creator", content: "@xophz" },
-        { name: "twitter:title", content: "xophz — Xopher \"XP\" Pollard" },
+        { name: "twitter:title", content: "xophz · Xopher \"XP\" Pollard" },
         {
           name: "twitter:description",
           content:
@@ -79,7 +79,7 @@ export default defineNuxtConfig({
           name: "twitter:image",
           content: "https://xophz.com/og_social_card.png",
         },
-        { name: "twitter:image:alt", content: "Xopher \"XP\" Pollard — xophz" },
+        { name: "twitter:image:alt", content: "Xopher \"XP\" Pollard · xophz" },
 
         { name: "theme-color", content: "#0a0a12" },
       ],

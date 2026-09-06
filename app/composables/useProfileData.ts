@@ -363,6 +363,7 @@ export const useProfileData = () => {
 
   const navChips = [
     { label: "About", to: "/about", icon: LucideUser },
+    { label: "Resume", to: "/resume", icon: LucideFileText },
     { label: "Opus", to: "/projects", icon: LucideBriefcase },
     { label: "Compass", to: "/compass", icon: LucideCompass },
     { label: "Sparks", to: "/sparks", icon: LucideSparkles },
