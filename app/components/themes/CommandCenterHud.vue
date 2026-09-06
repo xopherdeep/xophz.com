@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useMouse } from '@vueuse/core'
-import { Calendar as LucideCalendar, Briefcase as LucideBriefcase } from '@lucide/vue'
+import { Calendar as LucideCalendar, Briefcase as LucideBriefcase, FileBadge as LucideFileBadge } from '@lucide/vue'
+import XAvatar from '~/components/atoms/XAvatar.vue'
 
 const { identity, personas, skillTags, stats, specialties, projects, socialLinks } = useProfileData()
 const { x: mouseX, y: mouseY } = useMouse()
@@ -25,12 +26,19 @@ const parallax = (depth: number) => {
       <div class="relative z-10 flex flex-col items-center gap-4 text-center" :style="parallax(3)" v-motion="{ initial: { opacity: 0, scale: 0.9 }, enter: { opacity: 1, scale: 1, transition: { duration: 500 } } }">
         <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
           <div class="w-[90px] h-[90px] md:w-[110px] md:h-[110px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
-            <NuxtImg :src="identity.avatar" :alt="identity.name" width="110" height="110" class="w-full h-full object-cover" />
+            <XAvatar :src="identity.avatar" :alt="identity.name" :size="110" />
           </div>
         </div>
         <h1 class="font-display text-3xl md:text-4xl font-bold tracking-[-0.03em] text-text-primary leading-[1.1]">{{ identity.name }}</h1>
         <p class="text-xs font-semibold text-accent-2">{{ identity.title }}</p>
         <p class="text-[0.8rem] leading-[1.6] text-text-secondary max-w-[36ch]">{{ identity.tagline }}</p>
+        <NuxtLink
+          to="/resume"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-text-secondary text-xs font-semibold tracking-[0.02em] transition-all duration-200 hover:bg-accent/15 hover:border-accent/40 hover:text-text-primary no-underline hover:-translate-y-0.5"
+        >
+          <LucideFileBadge class="w-3.5 h-3.5 text-accent" />
+          <span>Executive Resume (CV)</span>
+        </NuxtLink>
       </div>
 
       <!-- Floating HUD cards (absolute positioned around center) -->
@@ -100,17 +108,24 @@ const parallax = (depth: number) => {
           href="https://calendar.app.google/Y732Ak5gxuCMVoHo8"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-gradient-hero text-white no-underline text-xs font-semibold shadow-[0_4px_16px_rgba(139,92,246,0.35)]"
+          class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-gradient-hero text-white no-underline text-xs font-semibold shadow-[0_4px_16px_rgba(139,92,246,0.35)]"
         >
           <LucideCalendar class="w-3.5 h-3.5" />
           Book Meeting
         </a>
         <NuxtLink
+          to="/resume"
+          class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/[0.06] text-text-secondary no-underline text-xs font-semibold backdrop-blur-xl"
+        >
+          <LucideFileBadge class="w-3.5 h-3.5 text-accent" />
+          Resume
+        </NuxtLink>
+        <NuxtLink
           to="/projects"
-          class="flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/[0.06] text-text-secondary no-underline text-xs font-semibold backdrop-blur-xl"
+          class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/[0.06] text-text-secondary no-underline text-xs font-semibold backdrop-blur-xl"
         >
           <LucideBriefcase class="w-3.5 h-3.5 text-accent" />
-          Explore Opus
+          Opus
         </NuxtLink>
       </div>
     </div>

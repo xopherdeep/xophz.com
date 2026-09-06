@@ -6,7 +6,7 @@ import {
   Briefcase as LucideBriefcase,
   Award as LucideAward,
   Download as LucideDownload
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import ResumeHeader from '~/components/resume/ResumeHeader.vue'
 import ResumeSection from '~/components/resume/ResumeSection.vue'
 import ResumeItem from '~/components/resume/ResumeItem.vue'

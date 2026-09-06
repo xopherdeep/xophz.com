@@ -7,7 +7,7 @@ import {
   MapPin as LucideMapPin,
   Phone as LucidePhone,
   Globe as LucideGlobe
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import IconGithub from '~/components/IconGithub.vue'
 import IconLinkedin from '~/components/IconLinkedin.vue'
 

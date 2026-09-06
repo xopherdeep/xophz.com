@@ -12,6 +12,12 @@ export default defineNuxtConfig({
 
   content: {},
 
+  telemetry: false,
+
+  image: {
+    provider: "none"
+  },
+
   hooks: {
     'content:file:beforeParse': (ctx: any) => {
       if (ctx.file.id.endsWith('.md') && typeof ctx.file.body === 'string') {

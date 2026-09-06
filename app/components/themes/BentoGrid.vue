@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Calendar as LucideCalendar, Briefcase as LucideBriefcase, ArrowUpRight as LucideArrowUpRight } from '@lucide/vue'
+import XAvatar from '~/components/atoms/XAvatar.vue'
 
 const { identity, personas, skillTags, stats, specialties, projects, socialLinks } = useProfileData()
 
@@ -14,7 +15,7 @@ const featuredProjects = computed(() => projects.slice(0, 3))
       <XCard class="col-span-2 row-span-2 items-center justify-center gap-4 p-6 md:p-8" v-motion="{ initial: { opacity: 0, scale: 0.95 }, enter: { opacity: 1, scale: 1, transition: { duration: 400 } } }">
         <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
           <div class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
-            <NuxtImg :src="identity.avatar" :alt="identity.name" width="100" height="100" class="w-full h-full object-cover" />
+            <XAvatar :src="identity.avatar" :alt="identity.name" :size="100" />
           </div>
         </div>
         <div class="text-center flex flex-col gap-1.5">

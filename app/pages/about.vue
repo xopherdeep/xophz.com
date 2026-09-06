@@ -10,6 +10,7 @@ import {
   Terminal as LucideTerminal,
   FileBadge as LucideFileBadge,
 } from '@lucide/vue'
+import XAvatar from '~/components/atoms/XAvatar.vue'
 
 const { identity, personas, stats, specialties, skills, skillTags } = useProfileData()
 
@@ -74,12 +75,10 @@ const milestones = [
           <div
             class="w-[90px] h-[90px] md:w-[105px] md:h-[105px] rounded-full bg-bg border-[3px] border-bg overflow-hidden"
           >
-            <NuxtImg
+            <XAvatar
               :src="identity.headshot"
               :alt="identity.name"
-              width="105"
-              height="105"
-              class="w-full h-full object-cover"
+              :size="105"
             />
           </div>
         </div>

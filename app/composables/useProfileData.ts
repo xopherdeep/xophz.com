@@ -21,6 +21,7 @@ import {
   LucideGamepad2,
   LucideTerminal,
   LucideMoon,
+  LucideFileBadge,
 } from "@lucide/vue";
 
 export const useProfileData = () => {
@@ -288,6 +289,13 @@ export const useProfileData = () => {
       href: "https://calendar.app.google/Y732Ak5gxuCMVoHo8",
       color: "#10b981",
       icon: LucideCalendar,
+    },
+    {
+      id: "link-resume",
+      label: "Executive Resume (CV)",
+      href: "/resume",
+      color: "#8b5cf6",
+      icon: LucideFileBadge,
     },
     {
       id: "link-instagram",

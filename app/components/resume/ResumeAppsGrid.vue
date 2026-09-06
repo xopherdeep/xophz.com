@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpRight as LucideArrowUpRight } from 'lucide-vue-next'
+import { ArrowUpRight as LucideArrowUpRight } from '@lucide/vue'
 
 interface FlagshipApp {
   name: string

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Calendar as LucideCalendar, Briefcase as LucideBriefcase, ArrowUpRight as LucideArrowUpRight } from '@lucide/vue'
+import XAvatar from '~/components/atoms/XAvatar.vue'
 
 const { identity, personas, skillTags, stats, specialties, projects, socialLinks } = useProfileData()
 
@@ -14,7 +15,7 @@ const featuredProjects = computed(() => projects.slice(0, 4))
       <!-- Headshot -->
       <div class="p-[2px] rounded-full bg-gradient-hero animate-[spinGlow_6s_linear_infinite]">
         <div class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] rounded-full bg-bg border-[3px] border-bg overflow-hidden">
-          <NuxtImg :src="identity.avatar" :alt="identity.name" width="100" height="100" class="w-full h-full object-cover" />
+          <XAvatar :src="identity.avatar" :alt="identity.name" :size="100" />
         </div>
       </div>
 
