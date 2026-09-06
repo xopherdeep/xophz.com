@@ -80,7 +80,7 @@ const navItems = [
 </script>
 
 <template>
-  <div class="flex flex-col min-h-dvh pb-[70px]">
+  <div class="flex flex-col min-h-dvh pb-[70px] md:pb-24">
     <!-- Route Navigation Progress Bar -->
     <NuxtLoadingIndicator
       color="linear-gradient(to right, #8b5cf6, #06b6d4, #f59e0b)"
@@ -189,23 +189,23 @@ const navItems = [
 
     <!-- Global App Bar -->
     <nav
-      class="fixed bottom-0 left-0 right-0 z-[1000] h-[70px] bg-[#0c0c18]/55 backdrop-blur-[32px] border-t border-white/[0.08] flex justify-center shadow-[0_-4px_24px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.04)] md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:w-fit md:rounded-full md:border md:border-white/[0.08] md:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.04)] md:h-16 md:px-4"
+      class="fixed bottom-0 left-0 right-0 z-[1000] h-[70px] bg-[#0c0c18]/70 backdrop-blur-[32px] border-t border-white/[0.08] flex justify-center shadow-[0_-4px_24px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.04)] md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:w-fit md:max-w-[calc(100vw-3rem)] md:rounded-full md:border md:border-white/[0.08] md:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.04)] md:h-16 md:px-3 lg:px-4"
       aria-label="Global navigation"
     >
-      <div class="flex items-center justify-around w-full max-w-[600px] h-full px-2 md:gap-2">
+      <div class="flex items-center justify-around w-full md:w-auto h-full px-1 md:px-0 md:gap-1 lg:gap-1.5">
         <NuxtLink
           v-for="item in navItems"
           :key="item.name"
           :to="item.to"
-          class="flex flex-col items-center justify-center gap-1.5 text-text-muted no-underline flex-1 h-full transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-text-secondary md:px-5 md:flex-none"
+          class="flex flex-col items-center justify-center gap-1 text-text-muted no-underline flex-1 min-w-0 h-full transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-text-secondary md:flex-none md:px-3 lg:px-3.5 md:py-1.5 md:rounded-full"
           :class="{ 'text-accent': item.isActive() }"
         >
           <component 
             :is="item.icon" 
-            class="w-[22px] h-[22px] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]" 
+            class="w-5 h-5 md:w-[21px] md:h-[21px] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]" 
             :class="{ '-translate-y-0.5 stroke-[2.5px] drop-shadow-[0_2px_8px_rgba(139,92,246,0.4)]': item.isActive() }" 
           />
-          <span class="text-[0.65rem] font-semibold tracking-[0.05em] uppercase">{{ item.name }}</span>
+          <span class="text-[0.56rem] sm:text-[0.62rem] md:text-[0.64rem] font-semibold tracking-[0.04em] uppercase truncate max-w-full">{{ item.name }}</span>
         </NuxtLink>
       </div>
     </nav>
