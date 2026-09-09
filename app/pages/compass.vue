@@ -25,18 +25,34 @@ import {
   Gauge as LucideGauge,
   Activity as LucideActivity,
   CheckCircle2 as LucideCheckCircle2,
+  Download as LucideDownload
 } from '@lucide/vue'
+import type { CompassPlugin } from '../composables/useCompassPlugins'
 
-const { plugins, categories } = useCompassPlugins()
+const route = useRoute()
+const router = useRouter()
+
+const {
+  plugins,
+  categories,
+  loadPurchasedPlugins,
+  markAsPurchased,
+  isPurchased
+} = useCompassPlugins()
+
+const { fetchLatestRelease, triggerDownload } = useGitHubReleases()
 
 useSeoMeta({
   title: 'My Compass Suite · Xophz & My Compass Consulting',
-  description: 'The Xophz-COMPASS plugin architecture & software suite. 30+ sovereign WordPress extensions, enterprise systems architecture, and legacy modernization.',
+  description: 'The Xophz-COMPASS plugin architecture & software suite. 40+ sovereign WordPress extensions, enterprise systems architecture, and legacy modernization.',
 })
 
 const activeCategory = ref('All')
 const searchQuery = ref('')
 const failedLogos = ref<Record<string, boolean>>({})
+const downloadingKeys = ref<Record<string, boolean>>({})
+const highlightedPluginKey = ref<string | null>(null)
+const purchasedSuccessMessage = ref<string | null>(null)
 
 const onLogoError = (pluginKey: string) => {
   failedLogos.value[pluginKey] = true
@@ -75,9 +91,54 @@ const filteredPlugins = computed(() => {
     const matchesSearch = !query ||
       plugin.name.toLowerCase().includes(query) ||
       plugin.codename.toLowerCase().includes(query) ||
-      plugin.desc.toLowerCase().includes(query)
+      plugin.desc.toLowerCase().includes(query) ||
+      (plugin.marketEqv && plugin.marketEqv.toLowerCase().includes(query))
     return matchesCategory && matchesSearch
   })
+})
+
+const getCheckoutUrl = (plugin: CompassPlugin) => {
+  const returnUrl = `https://xophz.com/compass?purchased=${plugin.githubRepo}`
+  return `https://www.mycompassconsulting.com/buy/${plugin.githubRepo}?return_url=${encodeURIComponent(returnUrl)}`
+}
+
+const onDownloadPlugin = async (plugin: CompassPlugin) => {
+  downloadingKeys.value[plugin.key] = true
+  try {
+    const release = await fetchLatestRelease(plugin.githubRepo, plugin.version)
+    triggerDownload(release.zipUrl, release.zipName)
+  } finally {
+    downloadingKeys.value[plugin.key] = false
+  }
+}
+
+onMounted(async () => {
+  loadPurchasedPlugins()
+
+  const purchasedQuery = route.query.purchased as string | undefined
+  if (purchasedQuery) {
+    const matched = markAsPurchased(purchasedQuery)
+    if (matched) {
+      highlightedPluginKey.value = matched.key
+      purchasedSuccessMessage.value = `Thank you for purchasing ${matched.name}! Your plugin package is downloading automatically.`
+
+      try {
+        const release = await fetchLatestRelease(matched.githubRepo, matched.version)
+        triggerDownload(release.zipUrl, release.zipName)
+      } catch {
+        // Handled inside composable
+      }
+
+      nextTick(() => {
+        const cardElement = document.getElementById(`plugin-${matched.key}`)
+        if (cardElement) {
+          cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+      })
+
+      router.replace({ query: { ...route.query, purchased: undefined } })
+    }
+  }
 })
 
 const consultingFeatures = [
@@ -106,6 +167,25 @@ const consultingFeatures = [
   <main class="min-h-dvh flex flex-col items-center relative">
     <div class="w-full max-w-[1100px] px-4 pt-[80px] pb-[100px] flex flex-col gap-10">
 
+      <!-- Post-Purchase Success Alert Banner -->
+      <div
+        v-if="purchasedSuccessMessage"
+        class="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 text-xs flex items-center justify-between gap-3 shadow-[0_0_25px_rgba(16,185,129,0.25)] backdrop-blur-xl"
+        v-motion="{ initial: { opacity: 0, y: -10 }, enter: { opacity: 1, y: 0 } }"
+      >
+        <div class="flex items-center gap-2.5">
+          <LucideCheckCircle2 class="w-5 h-5 text-emerald-400 shrink-0" />
+          <span class="font-medium">{{ purchasedSuccessMessage }}</span>
+        </div>
+        <button
+          type="button"
+          class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 text-[0.65rem] font-bold uppercase tracking-wider transition-colors cursor-pointer"
+          @click="purchasedSuccessMessage = null"
+        >
+          Dismiss
+        </button>
+      </div>
+
       <!-- Hero Banner -->
       <div
         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f172a]/80 via-[#0c0618]/90 to-[#180e29]/80 border border-white/10 p-6 md:p-10 backdrop-blur-2xl shadow-glass-shadow"
@@ -121,7 +201,7 @@ const consultingFeatures = [
                 <LucideCompass class="w-3.5 h-3.5" />
                 The Software Suite & Advisory
               </span>
-              <span class="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-text-muted">30+ Sovereign Extensions</span>
+              <span class="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-text-muted">40+ Sovereign Extensions</span>
             </div>
 
             <h1 class="font-display text-3xl md:text-5xl font-bold text-text-primary tracking-[-0.03em] leading-[1.1]">
@@ -184,7 +264,7 @@ const consultingFeatures = [
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Search plugins..."
+            placeholder="Search plugins, keywords, replacements..."
             class="w-full pl-10 pr-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all"
           />
         </div>
@@ -195,6 +275,7 @@ const consultingFeatures = [
         <button
           v-for="cat in categories"
           :key="cat"
+          type="button"
           class="px-3.5 py-1.5 rounded-full text-[0.7rem] font-semibold tracking-[0.04em] border cursor-pointer transition-all duration-200 backdrop-blur-md"
           :class="activeCategory === cat
             ? 'bg-accent/20 border-accent/50 text-text-primary shadow-[0_0_12px_rgba(139,92,246,0.2)]'
@@ -210,7 +291,7 @@ const consultingFeatures = [
         Showing {{ filteredPlugins.length }} plugin{{ filteredPlugins.length === 1 ? '' : 's' }}
       </p>
 
-      <!-- Plugin Grid (Direct Uncontained Logo Artwork bleeding off the left edge) -->
+      <!-- Plugin Grid -->
       <TransitionGroup
         tag="div"
         class="grid grid-cols-1 md:grid-cols-2 gap-5"
@@ -222,8 +303,12 @@ const consultingFeatures = [
       >
         <div
           v-for="plugin in filteredPlugins"
+          :id="'plugin-' + plugin.key"
           :key="plugin.key"
-          class="group relative overflow-hidden bg-[#132035]/85 border border-white/10 rounded-2xl backdrop-blur-xl p-4 md:p-5 shadow-glass-shadow transition-all duration-300 hover:border-[color:var(--plug-color)]/60 hover:bg-[#182945]/95 flex items-center justify-between gap-3 min-h-[145px]"
+          class="group relative overflow-hidden bg-[#132035]/85 border rounded-2xl backdrop-blur-xl p-4 md:p-5 shadow-glass-shadow transition-all duration-300 hover:border-[color:var(--plug-color)]/60 hover:bg-[#182945]/95 flex items-center justify-between gap-3 min-h-[155px]"
+          :class="highlightedPluginKey === plugin.key
+            ? 'border-accent ring-2 ring-accent/60 shadow-[0_0_30px_rgba(139,92,246,0.4)]'
+            : 'border-white/10'"
           :style="{ '--plug-color': plugin.color }"
         >
           <!-- Official Live Plugin Logo Image directly bleeding off the left edge without wrapper circle -->
@@ -247,9 +332,21 @@ const consultingFeatures = [
             />
           </div>
 
-          <!-- Middle Details Column (Title, Description, Version & Owner) -->
+          <!-- Middle Details Column (Title, Description, Category, Price & Market Eqv) -->
           <div class="flex-1 flex flex-col justify-between py-1 min-w-0 z-10 pl-1">
             <div>
+              <div class="flex items-center gap-1.5 flex-wrap mb-1">
+                <span class="px-2 py-0.5 rounded-full text-[0.6rem] font-bold tracking-wider uppercase bg-white/5 border border-white/10 text-accent">
+                  {{ plugin.category }}
+                </span>
+                <span v-if="plugin.group" class="px-1.5 py-0.5 rounded text-[0.58rem] font-mono font-semibold bg-white/5 text-text-muted">
+                  {{ plugin.group }}
+                </span>
+                <span class="px-2 py-0.5 rounded bg-accent/15 border border-accent/30 text-text-primary font-mono font-bold text-[0.65rem]">
+                  {{ plugin.price }}
+                </span>
+              </div>
+
               <h3 class="font-display text-lg md:text-xl font-bold text-text-primary group-hover:text-accent transition-colors leading-snug tracking-[-0.01em]">
                 {{ plugin.name }}
               </h3>
@@ -261,35 +358,63 @@ const consultingFeatures = [
 
             <!-- Version & Publisher Footer -->
             <div class="flex flex-wrap items-center gap-1.5 mt-3 text-[0.65rem] font-mono text-text-muted">
-              <span class="font-bold text-text-primary">{{ plugin.version || 'v26.5.3 Active' }}</span>
+              <span class="font-bold text-text-primary">{{ plugin.version || 'v26.9.5' }}</span>
               <span>·</span>
+              <span v-if="plugin.marketEqv" class="text-text-secondary">Eqv: {{ plugin.marketEqv }}</span>
+              <span v-if="plugin.marketEqv">·</span>
               <span>Hall of the Gods, Inc.</span>
             </div>
           </div>
 
-          <!-- Right Action Controls (GO, SYNC, ON Buttons matching My Compass Admin) -->
-          <div class="flex flex-col items-end gap-1.5 shrink-0 z-10 pl-2 border-l border-white/10">
-            <a
-              :href="plugin.repoUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-2.5 py-1 rounded bg-black/40 border border-white/15 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-text-primary hover:bg-accent/30 hover:border-accent/50 transition-all flex items-center gap-1 no-underline"
+          <!-- Right Action Controls (Buy/Download Button + GO, SYNC, ON) -->
+          <div class="flex flex-col items-end gap-2 shrink-0 z-10 pl-2 border-l border-white/10 min-w-[95px]">
+            <!-- Dynamic Download / Buy Action Button -->
+            <button
+              v-if="isPurchased(plugin)"
+              type="button"
+              class="w-full px-2.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-[0.62rem] uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-emerald-500/30 transition-all shadow-[0_0_15px_rgba(16,185,129,0.25)] cursor-pointer"
+              :disabled="downloadingKeys[plugin.key]"
+              @click="onDownloadPlugin(plugin)"
             >
-              GO <LucideArrowUpRight class="w-3 h-3 text-accent" />
-            </a>
+              <LucideDownload class="w-3 h-3" :class="{ 'animate-bounce': downloadingKeys[plugin.key] }" />
+              <span>{{ downloadingKeys[plugin.key] ? 'Loading' : 'Download' }}</span>
+            </button>
 
             <a
-              :href="plugin.repoUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-2.5 py-1 rounded bg-black/40 border border-white/15 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-text-secondary hover:bg-white/20 transition-all flex items-center gap-1 no-underline"
+              v-else
+              :href="getCheckoutUrl(plugin)"
+              class="w-full px-2.5 py-1.5 rounded-lg bg-accent text-white font-bold text-[0.62rem] uppercase tracking-wider flex items-center justify-center gap-1 hover:bg-accent/90 transition-all shadow-[0_0_15px_rgba(139,92,246,0.35)] no-underline text-center"
             >
-              SYNC <LucideRefreshCw class="w-3 h-3" />
+              <LucideShoppingBag class="w-3 h-3" />
+              <span>Get</span>
             </a>
 
-            <span class="px-2.5 py-1 rounded bg-emerald-500/25 border border-emerald-500/50 text-[0.62rem] font-bold uppercase tracking-[0.1em] text-emerald-300 flex items-center gap-1">
-              ON <LucideCheckCircle2 class="w-3 h-3" />
-            </span>
+            <!-- Admin Controls (GO, SYNC, ON) -->
+            <div class="flex items-center gap-1">
+              <a
+                :href="plugin.repoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-2 py-0.5 rounded bg-black/40 border border-white/15 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-text-primary hover:bg-accent/30 hover:border-accent/50 transition-all flex items-center gap-0.5 no-underline"
+                title="View GitHub Repository"
+              >
+                GO <LucideArrowUpRight class="w-2.5 h-2.5 text-accent" />
+              </a>
+
+              <a
+                :href="plugin.repoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-2 py-0.5 rounded bg-black/40 border border-white/15 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-text-secondary hover:bg-white/20 transition-all flex items-center gap-0.5 no-underline"
+                title="Sync from Repository"
+              >
+                SYNC <LucideRefreshCw class="w-2.5 h-2.5" />
+              </a>
+
+              <span class="px-2 py-0.5 rounded bg-emerald-500/25 border border-emerald-500/50 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-emerald-300 flex items-center gap-0.5">
+                ON <LucideCheckCircle2 class="w-2.5 h-2.5" />
+              </span>
+            </div>
           </div>
 
         </div>
