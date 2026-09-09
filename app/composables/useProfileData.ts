@@ -177,6 +177,14 @@ export const useProfileData = () => {
 
   const projects = [
     {
+      key: "chemical-x",
+      name: "Chemical X",
+      tag: "Quantum Architecture · Live",
+      color: "#06b6d4",
+      url: "https://chemicalx.xophz.com",
+      desc: "The Secret Sauce to Vibe Coding: Quantum Architecture and Engineering Standards for zero-hallucination AI coding. Interactive Book, AST Hazard Linter, Benchmarks, and Sponsor Starter Kit Vault by 25-Year Principal Systems Architect Xopher Pollard.",
+    },
+    {
       key: "hotg",
       name: "Hall of the Gods, Inc.",
       tag: "Parent Co · Live",

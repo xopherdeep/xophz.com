@@ -17,6 +17,26 @@ export interface SparkItem {
 export const useSparks = () => {
   const sparks = ref<SparkItem[]>([
     {
+      key: "chemical-x",
+      name: "Chemical X: Secret Sauce",
+      category: "Productivity & Tools",
+      desc: "Quantum Architecture standards, AST hazard linter, and prompt generator for zero-hallucination vibe coding.",
+      tag: "Standards · Featured",
+      color: "#06b6d4",
+      demoUrl: "https://chemicalx.xophz.com",
+      isFeatured: true,
+    },
+    {
+      key: "my-card-vault",
+      name: "Card Vault",
+      category: "Productivity & Tools",
+      desc: "Sovereign digital card collection and asset management vault with forensic sponsor security.",
+      tag: "Vault · Live",
+      color: "#f59e0b",
+      demoUrl: "https://chemicalx.xophz.com/#starter-kit",
+      isFeatured: true,
+    },
+    {
       key: "my-compass",
       name: "My Compass",
       category: "Spatial OS",
