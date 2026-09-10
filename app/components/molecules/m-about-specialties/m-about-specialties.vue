@@ -23,21 +23,23 @@ const specialtyColors = ['cyan', 'violet', 'amber', 'emerald']
           class="xo-card-glow xo-shine-on-hover group rounded-2xl p-6 md:p-7 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl flex flex-col gap-4 transition-all duration-300"
           v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 80 + idx * 80 } } }"
         >
-          <!-- Large Icon Circle -->
-          <div
-            class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
-            :class="[
-              `bg-${specialtyColors[idx]}-500/10`,
-              `text-${specialtyColors[idx]}-600`,
-              `dark:text-${specialtyColors[idx]}-400`
-            ]"
-          >
-            <UIcon :name="item.icon" class="w-7 h-7" />
-          </div>
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-bold font-display text-sm sm:text-base text-zinc-900 dark:text-zinc-100">
+              {{ item.title }}
+            </h3>
 
-          <h3 class="font-bold font-display text-sm sm:text-base text-zinc-900 dark:text-zinc-100">
-            {{ item.title }}
-          </h3>
+            <!-- Large Icon Circle -->
+            <div
+              class="w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
+              :class="[
+                `bg-${specialtyColors[idx]}-500/10`,
+                `text-${specialtyColors[idx]}-600`,
+                `dark:text-${specialtyColors[idx]}-400`
+              ]"
+            >
+              <UIcon :name="item.icon" class="w-6 h-6" />
+            </div>
+          </div>
 
           <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
             {{ item.desc }}

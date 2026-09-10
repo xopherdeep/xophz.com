@@ -21,7 +21,7 @@ const {
       glow-secondary="cyan"
     >
       <template #description>
-        <div class="flex flex-wrap items-center gap-y-2.5 gap-x-5 text-xs text-zinc-500 dark:text-zinc-400 mt-2">
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-y-2.5 gap-x-5 text-xs text-zinc-500 dark:text-zinc-400 mt-2">
           <component
             v-for="item in contactLinks"
             :key="item.label"

@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<PageHeroProps>(), {
   metaText: '',
   glowPrimary: 'violet',
   glowSecondary: 'cyan',
+  centerMobile: true,
 })
 
 const glowMap: Record<string, string> = {
@@ -51,12 +52,14 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
         :class="secondaryGlowClass"
       />
 
-      <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
+      <div
+        class="relative z-10 flex flex-col md:flex-row items-center md:items-center justify-between gap-6 md:gap-8 text-center md:text-left"
+      >
         <!-- Optional Avatar / Media -->
         <slot name="avatar">
           <div
             v-if="props.avatar"
-            class="xo-avatar-glow shrink-0"
+            class="xo-avatar-glow shrink-0 mx-auto md:mx-0"
             v-motion="{ initial: { opacity: 0, scale: 0.85 }, enter: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 200 } } }"
           >
             <UAvatar
@@ -68,9 +71,14 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
           </div>
         </slot>
 
-        <div class="flex-1 max-w-[680px]">
+        <div
+          class="flex-1 max-w-[680px] w-full flex flex-col items-center md:items-start text-center md:text-left"
+        >
           <!-- Badge and Meta Tag -->
-          <div v-if="hasHeaderMeta" class="flex flex-wrap items-center gap-2 mb-3">
+          <div
+            v-if="hasHeaderMeta"
+            class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-3 w-full"
+          >
             <slot name="badge">
               <UBadge v-if="hasBadge" color="primary" variant="subtle" size="sm" class="flex items-center gap-1.5">
                 <UIcon v-if="props.badgeIcon" :name="props.badgeIcon" class="w-3.5 h-3.5" />
@@ -86,20 +94,20 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
 
           <!-- Title -->
           <slot name="title">
-            <h1 class="font-display text-3xl md:text-5xl font-bold xo-gradient-text tracking-tight leading-[1.1]">
+            <h1 class="font-display text-3xl md:text-5xl font-bold xo-gradient-text tracking-tight leading-[1.1] text-center md:text-left w-full">
               {{ props.title }}
             </h1>
           </slot>
 
           <!-- Subtitle -->
           <slot name="subtitle">
-            <p v-if="props.subtitle" class="text-sm sm:text-base text-violet-600 dark:text-violet-400 font-semibold mt-1">
+            <p v-if="props.subtitle" class="text-sm sm:text-base text-violet-600 dark:text-violet-400 font-semibold mt-1 text-center md:text-left w-full">
               {{ props.subtitle }}
             </p>
           </slot>
 
           <!-- Description -->
-          <div class="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-300 mt-3">
+          <div class="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-300 mt-3 text-center md:text-left w-full">
             <slot name="description">
               <p v-if="props.description">{{ props.description }}</p>
             </slot>

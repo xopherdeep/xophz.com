@@ -10,3 +10,11 @@
     border-bottom-color: rgba(255, 255, 255, 0.06);
   }
 }
+
+:deep([data-slot="body"]) {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  height: 100%;
+  min-height: 0;
+}

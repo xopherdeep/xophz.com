@@ -18,7 +18,7 @@ const resolveColorClass = (color?: string) => colorThemeMap[color || 'violet'] |
 const resolveCardLayoutClass = (idx: number) => {
   const isFoundationCard = idx === 6
   return isFoundationCard
-    ? 'sm:col-span-2 lg:col-span-3 sm:flex-row sm:items-center sm:gap-6'
+    ? 'sm:col-span-2 lg:col-span-3'
     : ''
 }
 </script>
@@ -41,23 +41,23 @@ const resolveCardLayoutClass = (idx: number) => {
           :class="resolveCardLayoutClass(idx)"
           v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 100 + idx * 100 } } }"
         >
-          <!-- Gradient Icon Circle -->
-          <div
-            class="w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
-            :class="resolveColorClass(item.color)"
-          >
-            <UIcon :name="item.icon" class="w-6 h-6" />
-          </div>
-
-          <div class="flex flex-col gap-1.5">
+          <div class="flex items-start justify-between gap-4">
             <h3 class="font-bold font-display text-base text-zinc-900 dark:text-zinc-100">
               {{ item.title }}
             </h3>
 
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              {{ item.desc }}
-            </p>
+            <!-- Gradient Icon Circle -->
+            <div
+              class="w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
+              :class="resolveColorClass(item.color)"
+            >
+              <UIcon :name="item.icon" class="w-6 h-6" />
+            </div>
           </div>
+
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            {{ item.desc }}
+          </p>
         </div>
       </div>
     </UContainer>

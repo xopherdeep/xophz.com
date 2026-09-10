@@ -22,4 +22,5 @@ export interface PageHeroProps {
   readonly glowSecondary?: 'violet' | 'cyan' | 'amber' | 'emerald' | 'rose'
   readonly primaryAction?: PageHeroAction
   readonly secondaryAction?: PageHeroAction
+  readonly centerMobile?: boolean
 }

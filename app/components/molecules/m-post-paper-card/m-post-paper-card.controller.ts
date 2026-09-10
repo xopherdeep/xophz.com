@@ -24,7 +24,7 @@ export function usePostPaperCardController(props: PostPaperCardProps) {
 
   // Stage 1: Atomic Concept Declarations
   const isShortType = computed(() => props.post.type === 'short')
-  const hasTitle = computed(() => !isShortType.value && Boolean(props.post.title))
+  const hasTitle = computed(() => Boolean(props.post.title))
   const hasSummary = computed(() => Boolean(props.post.summary))
 
   // Stage 2: Unified Computed Descriptors
