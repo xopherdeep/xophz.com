@@ -41,9 +41,6 @@ export default defineNuxtConfig({
           const metaYaml = match[1].trim();
           ctx.file.body = ctx.file.body.replace(metaBlockPattern, '').trimEnd();
           ctx.file.body = `---\n${metaYaml}\n---\n\n${ctx.file.body}`;
-          if (ctx.file.id.includes('25-years')) {
-            require('fs').writeFileSync('/tmp/nuxt-body-debug.md', ctx.file.body);
-          }
         }
       }
     }
@@ -115,6 +112,23 @@ export default defineNuxtConfig({
         { name: "theme-color", content: "#0a0a12" },
       ],
       script: [
+        {
+          innerHTML: `(() => {
+  try {
+    const storageKey = 'nuxt-color-mode';
+    const stored = localStorage.getItem(storageKey);
+    const isAuto = !stored || stored === 'system';
+    if (isAuto) {
+      const hour = new Date().getHours();
+      const isDay = hour >= 6 && hour < 18;
+      const theme = isDay ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-color-mode-forced', theme);
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(theme);
+    }
+  } catch (e) {}
+})();`,
+        },
         {
           src: "https://www.googletagmanager.com/gtag/js?id=G-6FERWGTH0W",
           async: true,

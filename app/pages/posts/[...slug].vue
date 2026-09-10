@@ -9,6 +9,10 @@ const { data: post } = await useAsyncData(`post-${normalizedPath}`, () =>
   queryCollection('posts').path(normalizedPath).first()
 )
 
+if (!post.value) {
+  throw createError({ statusCode: 404, message: `Post not found: ${normalizedPath}` })
+}
+
 const { data: allPosts } = await useAsyncData('all-posts-nav', () =>
   queryCollection('posts')
     .order('date', 'DESC')
@@ -35,9 +39,6 @@ const olderPost = computed(() => {
 
 const hasSiblings = computed(() => !!newerPost.value || !!olderPost.value)
 
-if (!post.value) {
-  throw createError({ statusCode: 404, message: 'Post not found' })
-}
 
 useSeoMeta({
   title: `${post.value.title} · xophz.com`,

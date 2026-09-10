@@ -26,96 +26,14 @@ export function useCommandPalette() {
 
   // 1. Static Pages
   const staticPages = computed<CommandItem[]>(() => [
-    {
-      id: 'page-home',
-      title: 'Home',
-      subtitle: 'Xopher "XP" Pollard: Systems Architect, Polymath & Founder',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-home',
-      iconColor: '#8b5cf6',
-      route: '/',
-      keywords: ['home', 'root', 'index', 'xp', 'profile']
-    },
-    {
-      id: 'page-about',
-      title: 'About XP',
-      subtitle: 'Biography, executive milestones, philosophies, and specialties',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-user',
-      iconColor: '#06b6d4',
-      route: '/about',
-      keywords: ['about', 'bio', 'story', 'history', 'philosophy', 'skills']
-    },
-    {
-      id: 'page-resume',
-      title: 'Executive Resume',
-      subtitle: 'Principal Systems Synthesist, career timeline, and competencies',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-file-badge',
-      iconColor: '#10b981',
-      route: '/resume',
-      keywords: ['resume', 'cv', 'experience', 'career', 'leadership', 'cto']
-    },
-    {
-      id: 'page-projects',
-      title: 'Opus: Ecosystem Catalog',
-      subtitle: 'The Hall of the Gods platform portfolio, products, and architecture',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-briefcase',
-      iconColor: '#f59e0b',
-      route: '/projects',
-      keywords: ['projects', 'opus', 'ecosystem', 'portfolio', 'architecture']
-    },
-    {
-      id: 'page-compass',
-      title: 'My Compass Suite',
-      subtitle: '40+ sovereign WordPress extensions and modernization tooling',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-compass',
-      logoUrl: '/icons/plugins/xophz-compass.svg',
-      iconColor: '#62c9ff',
-      route: '/my-compass',
-      keywords: ['compass', 'plugins', 'wordpress', 'suite', 'tools', 'catalog']
-    },
-    {
-      id: 'page-sparks',
-      title: 'YouMeOS Sparks Suite',
-      subtitle: '50+ spatial applications, tools, retro games, and PWAs',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-sparkles',
-      logoUrl: '/icons/sparks/spark-u-spark-plugs.svg',
-      iconColor: '#06b6d4',
-      route: '/sparks',
-      keywords: ['sparks', 'youmeos', 'apps', 'widgets', 'games', 'tools']
-    },
-    {
-      id: 'page-posts',
-      title: 'Writing & Devlogs',
-      subtitle: 'Field notes, systems breakdowns, and sovereign digital philosophy',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-file-text',
-      iconColor: '#a855f7',
-      route: '/posts',
-      keywords: ['posts', 'blog', 'writing', 'devlogs', 'articles', 'essays']
-    },
-    {
-      id: 'page-connect',
-      title: 'Connect with XP',
-      subtitle: 'Direct communication line, inquiries, and advisory bookings',
-      category: 'pages',
-      categoryLabel: 'Page',
-      icon: 'i-lucide-mail',
-      iconColor: '#ec4899',
-      route: '/connect',
-      keywords: ['connect', 'contact', 'email', 'message', 'book', 'inquiry']
-    }
+    { id: 'page-home', title: 'Home', subtitle: 'Xopher "XP" Pollard: Systems Architect, Polymath & Founder', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-home', iconColor: '#8b5cf6', route: '/', keywords: ['home', 'root', 'index', 'xp', 'profile'] },
+    { id: 'page-about', title: 'About XP', subtitle: 'Biography, executive milestones, philosophies, and specialties', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-user', iconColor: '#06b6d4', route: '/about', keywords: ['about', 'bio', 'story', 'history', 'philosophy', 'skills'] },
+    { id: 'page-resume', title: 'Executive Resume', subtitle: 'Principal Systems Synthesist, career timeline, and competencies', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-file-badge', iconColor: '#10b981', route: '/resume', keywords: ['resume', 'cv', 'experience', 'career', 'leadership', 'cto'] },
+    { id: 'page-projects', title: 'Opus: Ecosystem Catalog', subtitle: 'The Hall of the Gods platform portfolio, products, and architecture', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-briefcase', iconColor: '#f59e0b', route: '/projects', keywords: ['projects', 'opus', 'ecosystem', 'portfolio', 'architecture'] },
+    { id: 'page-compass', title: 'My Compass Suite', subtitle: '40+ sovereign WordPress extensions and modernization tooling', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-compass', logoUrl: '/icons/plugins/xophz-compass.svg', iconColor: '#62c9ff', route: '/my-compass', keywords: ['compass', 'plugins', 'wordpress', 'suite', 'tools', 'catalog'] },
+    { id: 'page-sparks', title: 'YouMeOS Sparks Suite', subtitle: '50+ spatial applications, tools, retro games, and PWAs', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-sparkles', logoUrl: '/icons/sparks/spark-u-spark-plugs.svg', iconColor: '#06b6d4', route: '/sparks', keywords: ['sparks', 'youmeos', 'apps', 'widgets', 'games', 'tools'] },
+    { id: 'page-posts', title: 'Writing & Devlogs', subtitle: 'Field notes, systems breakdowns, and sovereign digital philosophy', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-file-text', iconColor: '#a855f7', route: '/posts', keywords: ['posts', 'blog', 'writing', 'devlogs', 'articles', 'essays'] },
+    { id: 'page-connect', title: 'Connect with XP', subtitle: 'Direct communication line, inquiries, and advisory bookings', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-mail', iconColor: '#ec4899', route: '/connect', keywords: ['connect', 'contact', 'email', 'message', 'book', 'inquiry'] }
   ])
 
   // 2. Compass Plugins Catalog
@@ -203,7 +121,7 @@ export function useCommandPalette() {
     {
       id: 'action-toggle-theme',
       title: colorMode.value === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode',
-      subtitle: 'Toggle interface color palette theme',
+      subtitle: colorMode.preference === 'system' ? 'Override circadian theme with manual mode' : 'Toggle manual color palette theme',
       category: 'actions',
       categoryLabel: 'Action',
       icon: colorMode.value === 'dark' ? 'i-lucide-sun' : 'i-lucide-moon',
@@ -213,6 +131,19 @@ export function useCommandPalette() {
       },
       keywords: ['theme', 'dark', 'light', 'mode', 'color', 'toggle']
     },
+    ...(colorMode.preference !== 'system' ? [{
+      id: 'action-auto-theme',
+      title: 'Reset to Auto Theme (Time of Day)',
+      subtitle: 'Synchronize theme with circadian rhythm / local time of day',
+      category: 'actions' as const,
+      categoryLabel: 'Action',
+      icon: 'i-lucide-clock',
+      iconColor: '#8b5cf6',
+      action: () => {
+        colorMode.preference = 'system'
+      },
+      keywords: ['theme', 'auto', 'circadian', 'time', 'day', 'reset']
+    }] : []),
     {
       id: 'action-copy-url',
       title: 'Copy Page Link',
