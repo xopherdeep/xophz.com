@@ -38,6 +38,12 @@ export function useAboutPhilosophiesController() {
       icon: 'i-lucide-sparkles',
       desc: 'Breakthroughs occur at discipline intersections. Technical architecture, music production, and visual art inform one another to build software with soul.',
       color: 'indigo'
+    },
+    {
+      title: 'GlowitheFlow',
+      icon: 'i-lucide-waves',
+      desc: 'Effortless navigation of external currents anchored by resilient inner peace and expressed through active human flourishing. Moving with life\'s natural momentum while radiating purposeful excellence.',
+      color: 'blue'
     }
   ])
 

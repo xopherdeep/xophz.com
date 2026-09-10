@@ -248,7 +248,7 @@ export const useProfileData = () => {
     },
     {
       key: "mro-wizard",
-      name: "MRO Planner Wizard",
+      name: "My Remarkably Organized Planner Wizard",
       tag: "Productivity · Live",
       color: "#0ea5e9",
       url: "https://planner.mycompassconsulting.com",

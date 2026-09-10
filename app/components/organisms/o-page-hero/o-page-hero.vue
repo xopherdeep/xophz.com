@@ -55,13 +55,13 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
         <!-- Optional Avatar / Media -->
         <slot name="avatar">
           <div
-            v-if="avatar"
+            v-if="props.avatar"
             class="xo-avatar-glow shrink-0"
             v-motion="{ initial: { opacity: 0, scale: 0.85 }, enter: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 200 } } }"
           >
             <UAvatar
-              :src="avatar"
-              :alt="avatarAlt || title"
+              :src="props.avatar"
+              :alt="props.avatarAlt || props.title"
               size="3xl"
               class="ring-2 ring-violet-500/20 shadow-xl w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44"
             />
@@ -73,13 +73,13 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
           <div v-if="hasHeaderMeta" class="flex flex-wrap items-center gap-2 mb-3">
             <slot name="badge">
               <UBadge v-if="hasBadge" color="primary" variant="subtle" size="sm" class="flex items-center gap-1.5">
-                <UIcon v-if="badgeIcon" :name="badgeIcon" class="w-3.5 h-3.5" />
-                <span v-if="badgeText">{{ badgeText }}</span>
+                <UIcon v-if="props.badgeIcon" :name="props.badgeIcon" class="w-3.5 h-3.5" />
+                <span v-if="props.badgeText">{{ props.badgeText }}</span>
               </UBadge>
             </slot>
             <slot name="meta">
               <span v-if="hasMeta" class="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-zinc-400 dark:text-zinc-500">
-                {{ metaText }}
+                {{ props.metaText }}
               </span>
             </slot>
           </div>
@@ -87,21 +87,21 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
           <!-- Title -->
           <slot name="title">
             <h1 class="font-display text-3xl md:text-5xl font-bold xo-gradient-text tracking-tight leading-[1.1]">
-              {{ title }}
+              {{ props.title }}
             </h1>
           </slot>
 
           <!-- Subtitle -->
           <slot name="subtitle">
-            <p v-if="subtitle" class="text-sm sm:text-base text-violet-600 dark:text-violet-400 font-semibold mt-1">
-              {{ subtitle }}
+            <p v-if="props.subtitle" class="text-sm sm:text-base text-violet-600 dark:text-violet-400 font-semibold mt-1">
+              {{ props.subtitle }}
             </p>
           </slot>
 
           <!-- Description -->
           <div class="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-300 mt-3">
             <slot name="description">
-              <p v-if="description">{{ description }}</p>
+              <p v-if="props.description">{{ props.description }}</p>
             </slot>
           </div>
         </div>
@@ -111,30 +111,30 @@ const hasActions = computed(() => Boolean(props.primaryAction || props.secondary
           <slot name="actions">
             <template v-if="hasActions">
               <UButton
-                v-if="primaryAction"
-                :to="primaryAction.to"
-                :target="primaryAction.target"
-                :color="primaryAction.color || 'primary'"
-                :variant="primaryAction.variant || 'solid'"
+                v-if="props.primaryAction"
+                :to="props.primaryAction.to"
+                :target="props.primaryAction.target"
+                :color="props.primaryAction.color || 'primary'"
+                :variant="props.primaryAction.variant || 'solid'"
                 size="md"
-                :icon="primaryAction.icon"
-                :trailing-icon="primaryAction.trailingIcon"
-                :class="primaryAction.class || 'shadow-glow-violet'"
+                :icon="props.primaryAction.icon"
+                :trailing-icon="props.primaryAction.trailingIcon"
+                :class="props.primaryAction.class || 'shadow-glow-violet'"
               >
-                {{ primaryAction.label }}
+                {{ props.primaryAction.label }}
               </UButton>
               <UButton
-                v-if="secondaryAction"
-                :to="secondaryAction.to"
-                :target="secondaryAction.target"
-                :color="secondaryAction.color || 'neutral'"
-                :variant="secondaryAction.variant || 'outline'"
+                v-if="props.secondaryAction"
+                :to="props.secondaryAction.to"
+                :target="props.secondaryAction.target"
+                :color="props.secondaryAction.color || 'neutral'"
+                :variant="props.secondaryAction.variant || 'outline'"
                 size="md"
-                :icon="secondaryAction.icon"
-                :trailing-icon="secondaryAction.trailingIcon"
-                :class="secondaryAction.class"
+                :icon="props.secondaryAction.icon"
+                :trailing-icon="props.secondaryAction.trailingIcon"
+                :class="props.secondaryAction.class"
               >
-                {{ secondaryAction.label }}
+                {{ props.secondaryAction.label }}
               </UButton>
             </template>
           </slot>

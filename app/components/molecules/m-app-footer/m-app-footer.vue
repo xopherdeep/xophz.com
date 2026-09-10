@@ -46,13 +46,13 @@ const { currentYear, socialLinks, hasSocials, footerNav } = useAppFooterControll
           <span class="text-[0.65rem] font-bold tracking-[0.12em] uppercase text-zinc-400 dark:text-zinc-500 mb-1">
             Connect
           </span>
-          <div v-if="hasSocials" class="flex items-center gap-1">
+          <div v-if="hasSocials" class="flex items-center flex-wrap gap-1">
             <UButton
               v-for="link in socialLinks"
               :key="link.label"
               :to="link.href"
               :icon="link.icon"
-              target="_blank"
+              :target="link.href.startsWith('mailto:') ? undefined : '_blank'"
               color="neutral"
               variant="ghost"
               size="xs"

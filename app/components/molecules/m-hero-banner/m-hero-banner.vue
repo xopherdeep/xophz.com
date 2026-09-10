@@ -5,9 +5,15 @@ const { profile, canDisplayHero } = useHeroBannerController()
 </script>
 
 <template>
-  <section v-if="canDisplayHero" class="m-hero-banner relative py-16 md:py-28 overflow-hidden">
+  <section
+    v-if="canDisplayHero"
+    class="m-hero-banner relative py-16 md:py-28 overflow-hidden"
+  >
     <!-- Gradient mesh background -->
-    <div class="m-hero-banner__mesh" aria-hidden="true" />
+    <div
+      class="m-hero-banner__mesh"
+      aria-hidden="true"
+    />
 
     <UContainer class="max-w-4xl relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14 text-center md:text-left">
@@ -70,7 +76,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               size="lg"
               class="shadow-glow-violet"
             >
-              Explore Profile
+              About Me
             </UButton>
             <UButton
               to="/projects"
@@ -79,7 +85,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               variant="outline"
               size="lg"
             >
-              View Projects
+              My Magnum Opus
             </UButton>
             <UButton
               to="/resume"
@@ -90,6 +96,15 @@ const { profile, canDisplayHero } = useHeroBannerController()
             >
               Resume
             </UButton>
+            <UButton
+              to="/connect"
+              icon="i-lucide-mail"
+              color="neutral"
+              variant="ghost"
+              size="lg"
+            >
+              Connect with Me
+            </UButton>
           </div>
         </div>
       </div>
@@ -98,5 +113,5 @@ const { profile, canDisplayHero } = useHeroBannerController()
 </template>
 
 <style scoped lang="scss">
-@use './m-hero-banner';
+  @use './m-hero-banner';
 </style>

@@ -7,8 +7,14 @@ export function useAppFooterController() {
 
   const socialLinks = computed<readonly FooterSocialLink[]>(() => [
     { label: 'GitHub', href: 'https://github.com/xopherdeep', icon: 'i-lucide-github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/xopherdeep', icon: 'i-lucide-linkedin' },
-    { label: 'Twitter', href: 'https://twitter.com/xopherdeep', icon: 'i-lucide-twitter' }
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/xophz', icon: 'i-lucide-linkedin' },
+    { label: 'Twitter', href: 'https://twitter.com/xopherdeep', icon: 'i-lucide-twitter' },
+    { label: 'Instagram', href: 'https://instagram.com/jestasugjester', icon: 'i-lucide-instagram' },
+    { label: 'SoundCloud', href: 'https://soundcloud.com/realmajorad', icon: 'i-lucide-music' },
+    { label: 'Email', href: 'mailto:sayhi@xophz.com', icon: 'i-lucide-mail' },
+    { label: 'Cash App', href: 'https://cash.app/$xopherdeep', icon: 'i-lucide-banknote' },
+    { label: 'Venmo', href: 'https://venmo.com/u/xopherdeep', icon: 'i-lucide-banknote' },
+    { label: 'Discord', href: 'https://discord.gg/2QDwKKxEqb', icon: 'i-lucide-message-square' }
   ])
 
   const footerNav = computed(() => [

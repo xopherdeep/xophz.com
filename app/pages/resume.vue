@@ -22,7 +22,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
 
 <template>
   <main class="min-h-dvh flex flex-col items-center relative resume-page py-8">
-    <UContainer class="max-w-4xl flex flex-col gap-8 print:p-0 print:max-w-none">
+    <UContainer class="max-w-[1100px] w-full flex flex-col gap-8 print:p-0 print:max-w-none">
       
       <!-- Resume Header -->
       <ResumeHeader />
@@ -53,11 +53,6 @@ const { competencies, flagshipApps, experience } = useResumeData()
         </div>
       </ResumeSection>
 
-      <!-- Flagship Applications & Sovereign Platforms -->
-      <ResumeSection title="Flagship Applications &amp; Sovereign Platforms" :icon="LucideLayers" badge="Live Ecosystem">
-        <ResumeAppsGrid :apps="flagshipApps" />
-      </ResumeSection>
-
       <!-- Professional Experience -->
       <ResumeSection title="Professional Experience" :icon="LucideBriefcase">
         <div class="flex flex-col gap-5">
@@ -71,6 +66,11 @@ const { competencies, flagshipApps, experience } = useResumeData()
             :bullets="job.bullets"
           />
         </div>
+      </ResumeSection>
+
+      <!-- Flagship Applications & Sovereign Platforms -->
+      <ResumeSection title="Flagship Applications &amp; Sovereign Platforms" :icon="LucideLayers" badge="Live Ecosystem">
+        <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
 
       <!-- Applied Academic Equivalency -->
@@ -95,6 +95,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
           </div>
           <UButton
             to="/xp_pollard_resume.pdf"
+            external
             download="Xopher_Pollard_Resume.pdf"
             icon="i-lucide-download"
             color="primary"
@@ -102,7 +103,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
             size="md"
             class="shadow-glow-violet shrink-0"
           >
-            Download Resume PDF
+            Download Resume
           </UButton>
         </div>
       </div>

@@ -6,10 +6,14 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="w-full flex flex-col py-8">
+  <div class="w-full flex flex-col py-8 gap-8">
     <MAboutHero />
+    <MAboutBio />
     <MAboutPhilosophies />
+    <MAboutPersonas />
     <MAboutMilestones />
     <MAboutSpecialties />
+    <MAboutSkills />
+    <MAboutManifesto />
   </div>
 </template>

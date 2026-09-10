@@ -10,9 +10,17 @@ const colorThemeMap: Record<string, string> = {
   emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
   rose: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
   indigo: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
+  blue: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
 }
 
 const resolveColorClass = (color?: string) => colorThemeMap[color || 'violet'] || colorThemeMap.violet
+
+const resolveCardLayoutClass = (idx: number) => {
+  const isFoundationCard = idx === 6
+  return isFoundationCard
+    ? 'sm:col-span-2 lg:col-span-3 sm:flex-row sm:items-center sm:gap-6'
+    : ''
+}
 </script>
 
 <template>
@@ -30,23 +38,26 @@ const resolveColorClass = (color?: string) => colorThemeMap[color || 'violet'] |
           v-for="(item, idx) in philosophies"
           :key="item.title"
           class="xo-card-glow xo-shine-on-hover group rounded-2xl p-6 md:p-7 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl flex flex-col gap-4 transition-all duration-300"
+          :class="resolveCardLayoutClass(idx)"
           v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 100 + idx * 100 } } }"
         >
           <!-- Gradient Icon Circle -->
           <div
-            class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
+            class="w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
             :class="resolveColorClass(item.color)"
           >
             <UIcon :name="item.icon" class="w-6 h-6" />
           </div>
 
-          <h3 class="font-bold font-display text-base text-zinc-900 dark:text-zinc-100">
-            {{ item.title }}
-          </h3>
+          <div class="flex flex-col gap-1.5">
+            <h3 class="font-bold font-display text-base text-zinc-900 dark:text-zinc-100">
+              {{ item.title }}
+            </h3>
 
-          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {{ item.desc }}
-          </p>
+            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              {{ item.desc }}
+            </p>
+          </div>
         </div>
       </div>
     </UContainer>

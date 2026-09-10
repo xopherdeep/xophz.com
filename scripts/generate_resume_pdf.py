@@ -245,7 +245,7 @@ class ResumeBuilder:
             ("YouMeOS (Spatial Web Operating System):", "Architected browser-based spatial OS using Vue 3 and WebGPU rendering pipelines (HeliOS, NexOS, NoOSphere) for dense volumetric 3D information spaces with native frame stability."),
             ("COMPASS Engine & Sparks Platform:", "Designed bespoke personal application platform and unified tool ecosystem (CRM, quest logs, analytics) built on rigid Atomic Design with zero-latency local execution."),
             ("BlackBOX & w4 Protocol:", "Engineered sovereign proprietary server infrastructure nodes with automated self-healing runtimes, multi-tenant container orchestration, and w4 hyper-cube distributed protocol."),
-            ("MRO Planner Wizard:", "Built enterprise digital planning tool and automated onboarding ecosystems providing structural clarity and validation to mission-critical daily workflows."),
+            ("My Remarkably Organized Planner Wizard:", "Built enterprise digital planning tool and automated onboarding ecosystems providing structural clarity and validation to mission-critical daily workflows."),
             ("Do It For The XP & GlowtheFlow:", "Created gamified productivity progression engines and creator mutual promotion networks featuring decentralized engagement mechanics and flow economics.")
         ]
         for lead, body in apps:
