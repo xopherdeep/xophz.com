@@ -26,6 +26,7 @@ const { featuredList, hasProjects } = useFeaturedProjectsController()
           color="primary"
           trailing-icon="i-lucide-arrow-right"
           size="sm"
+          aria-label="View all selected works and projects"
         >
           All Works
         </UButton>
@@ -73,6 +74,7 @@ const { featuredList, hasProjects } = useFeaturedProjectsController()
               color="primary"
               size="xs"
               trailing-icon="i-lucide-arrow-up-right"
+              :aria-label="'Launch ' + proj.name"
             >
               Launch
             </UButton>

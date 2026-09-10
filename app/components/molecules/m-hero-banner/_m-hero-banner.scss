@@ -4,13 +4,16 @@
 
   &__mesh {
     position: absolute;
-    inset: 0;
+    inset: -5%;
+    width: 110%;
+    height: 110%;
     background:
       radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
       radial-gradient(ellipse 60% 50% at 80% 60%, rgba(6, 182, 212, 0.06) 0%, transparent 70%),
       radial-gradient(ellipse 50% 40% at 50% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
     animation: hero-mesh-shift 18s ease-in-out infinite;
     pointer-events: none;
+    will-change: transform, opacity;
   }
 
   :root.dark & {
@@ -25,11 +28,11 @@
 
 @keyframes hero-mesh-shift {
   0%, 100% {
-    background-position: 0% 50%;
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
   50% {
-    background-position: 100% 50%;
-    opacity: 0.8;
+    transform: translate3d(-2%, 1%, 0) scale(1.04);
+    opacity: 0.85;
   }
 }

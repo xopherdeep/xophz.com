@@ -51,6 +51,7 @@ watch(leadLogoUrl, () => { failedLeadLogo.value = false })
         class="m-command-bar__input font-medium"
         autocomplete="off"
         spellcheck="false"
+        aria-label="Search documentation, projects, and commands"
         @focus="handleFocus"
         @click="handleFocus"
         @keydown="handleKeydown"
@@ -69,7 +70,7 @@ watch(leadLogoUrl, () => { failedLeadLogo.value = false })
         </button>
         <div v-else class="hidden sm:flex items-center gap-1 opacity-75">
           <UKbd size="sm">{{ palette.shortcutLabel.value }}</UKbd>
-          <span class="text-xs text-zinc-400">or</span>
+          <span class="text-xs text-zinc-600 dark:text-zinc-400">or</span>
           <UKbd size="sm">/</UKbd>
         </div>
       </div>

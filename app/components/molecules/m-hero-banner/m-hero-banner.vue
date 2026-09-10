@@ -18,10 +18,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
     <UContainer class="max-w-4xl relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14 text-center md:text-left">
         <!-- Animated Avatar -->
-        <div
-          class="xo-avatar-glow shrink-0"
-          v-motion="{ initial: { opacity: 0, scale: 0.8 }, enter: { opacity: 1, scale: 1, transition: { duration: 500, type: 'spring', stiffness: 200 } } }"
-        >
+        <div class="xo-avatar-glow shrink-0">
           <UAvatar
             :src="profile.avatar"
             :alt="profile.name"
@@ -34,7 +31,6 @@ const { profile, canDisplayHero } = useHeroBannerController()
           <!-- Skill Tags -->
           <div
             class="flex flex-wrap justify-center md:justify-start gap-2"
-            v-motion="{ initial: { opacity: 0, y: 10 }, enter: { opacity: 1, y: 0, transition: { delay: 150 } } }"
           >
             <UBadge
               v-for="tag in profile.skillTags"
@@ -50,7 +46,6 @@ const { profile, canDisplayHero } = useHeroBannerController()
           <!-- Name -->
           <h1
             class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display xo-gradient-text leading-[1.1]"
-            v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 250 } } }"
           >
             {{ profile.name }}
           </h1>
@@ -58,7 +53,6 @@ const { profile, canDisplayHero } = useHeroBannerController()
           <!-- Tagline -->
           <p
             class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl font-body"
-            v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 350 } } }"
           >
             {{ profile.tagline }}
           </p>
@@ -66,7 +60,6 @@ const { profile, canDisplayHero } = useHeroBannerController()
           <!-- CTAs -->
           <div
             class="flex flex-wrap justify-center md:justify-start gap-3 pt-2"
-            v-motion="{ initial: { opacity: 0, y: 15 }, enter: { opacity: 1, y: 0, transition: { delay: 450 } } }"
           >
             <UButton
               to="/about"
@@ -75,6 +68,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               variant="solid"
               size="lg"
               class="shadow-glow-violet"
+              aria-label="About Xopher Pollard"
             >
               About Me
             </UButton>
@@ -84,6 +78,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               color="neutral"
               variant="outline"
               size="lg"
+              aria-label="View Magnum Opus Projects"
             >
               My Magnum Opus
             </UButton>
@@ -93,6 +88,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               color="neutral"
               variant="ghost"
               size="lg"
+              aria-label="View Executive Resume"
             >
               Resume
             </UButton>
@@ -102,6 +98,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               color="neutral"
               variant="ghost"
               size="lg"
+              aria-label="Connect with Xopher"
             >
               Connect with Me
             </UButton>

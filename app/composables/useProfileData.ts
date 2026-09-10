@@ -4,8 +4,8 @@ export const useProfileData = () => {
     title: "Principal Systems Synthesist · Architect · Artist · Polymath",
     tagline:
       "25+ years architecting sovereign digital infrastructure, modernizing legacy monoliths, and scaling enterprise systems for visionary founders.",
-    avatar: "/xp_headshot.png",
-    headshot: "/xopher_jester.png",
+    avatar: "/xp_headshot.webp",
+    headshot: "/xopher_jester.webp",
     siteLabel: "xophz.com",
   };
 

@@ -62,7 +62,11 @@
     color: inherit;
 
     &::placeholder {
-      color: rgba(161, 161, 170, 0.85);
+      color: rgba(113, 113, 122, 0.95);
+
+      :root.dark & {
+        color: rgba(161, 161, 170, 0.85);
+      }
     }
   }
 

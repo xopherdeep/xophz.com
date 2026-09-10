@@ -5,9 +5,20 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const normalizedPath = route.path.replace(/\/$/, '') || '/'
 
-const { data: post } = await useAsyncData(`post-${normalizedPath}`, () =>
-  queryCollection('posts').path(normalizedPath).first()
-)
+const { data: post } = await useAsyncData(`post-${normalizedPath}`, async () => {
+  const directMatch = await queryCollection('posts').path(normalizedPath).first()
+  if (directMatch) return directMatch
+
+  const slugifiedPath = decodeURIComponent(normalizedPath)
+    .toLowerCase()
+    .replace(/[^\w\s/.-]/g, '')
+    .replace(/[\s_]+/g, '-')
+
+  if (slugifiedPath !== normalizedPath) {
+    return await queryCollection('posts').path(slugifiedPath).first()
+  }
+  return null
+})
 
 if (!post.value) {
   throw createError({ statusCode: 404, message: `Post not found: ${normalizedPath}` })

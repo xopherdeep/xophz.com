@@ -48,10 +48,27 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "github-pages",
+    prerender: {
+      failOnError: false,
+      crawlLinks: true,
+    },
   },
 
   routeRules: {
     '/compass': { redirect: { to: '/my-compass', statusCode: 301 } },
+    '/_nuxt/**': {
+      headers: {
+        'cache-control': 'public, max-age=31536000, immutable',
+      },
+    },
+    '/**': {
+      headers: {
+        'X-Content-Type-Options': 'nosniff',
+        'X-Frame-Options': 'SAMEORIGIN',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+      },
+    },
   },
 
   runtimeConfig: {
@@ -129,16 +146,6 @@ export default defineNuxtConfig({
   } catch (e) {}
 })();`,
         },
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=G-6FERWGTH0W",
-          async: true,
-        },
-        {
-          innerHTML: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6FERWGTH0W');`,
-        },
       ],
       link: [
         {
@@ -147,12 +154,37 @@ export default defineNuxtConfig({
           href: "/favicon.png",
         },
         {
+          rel: "preload",
+          as: "image",
+          type: "image/webp",
+          href: "/xp_headshot.webp",
+          fetchpriority: "high",
+        },
+        {
           rel: "preconnect",
           href: "https://fonts.googleapis.com",
         },
         {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
+        },
+        {
+          rel: "preload",
+          as: "style",
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap",
+        },
+        {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap",
+          media: "print",
+          onload: "this.media='all'",
+        },
+      ],
+      noscript: [
+        {
+          innerHTML:
+            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap">',
         },
       ],
     },
