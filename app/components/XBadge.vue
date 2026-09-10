@@ -1,25 +1,29 @@
 <script setup lang="ts">
+import XBadgeAtom from './atoms/XBadge.vue'
+
 interface Props {
-  variant?: 'accent' | 'muted' | 'outline'
-  size?: 'sm' | 'md'
+  variant?: 'solid' | 'outline' | 'soft' | 'subtle'
+  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error' | 'info'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
-withDefaults(defineProps<Props>(), {
-  variant: 'accent',
-  size: 'sm'
-})
+defineProps<Props>()
 </script>
 
 <template>
-  <span
-    class="x-badge inline-flex items-center gap-1.5 rounded-full font-medium tracking-[0.06em] whitespace-nowrap transition-all duration-200"
-    :class="[
-      size === 'sm' ? 'text-[0.62rem] px-2.5 py-1' : 'text-xs px-3 py-1.5',
-      variant === 'accent' ? 'bg-accent/10 border border-accent/20 text-accent' : '',
-      variant === 'muted' ? 'bg-white/[0.04] border border-white/[0.06] text-text-muted' : '',
-      variant === 'outline' ? 'bg-transparent border border-white/[0.08] text-text-secondary' : ''
-    ]"
+  <XBadgeAtom
+    :variant
+    :color
+    :size
   >
-    <slot />
-  </span>
+    <template #leading="scope">
+      <slot name="leading" v-bind="scope || {}" />
+    </template>
+    <template #default="scope">
+      <slot v-bind="scope || {}" />
+    </template>
+    <template #trailing="scope">
+      <slot name="trailing" v-bind="scope || {}" />
+    </template>
+  </XBadgeAtom>
 </template>

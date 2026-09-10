@@ -1,0 +1,113 @@
+// Scoped styles for m-post-paper-card
+.m-post-paper-card {
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.03), 0 10px 28px rgba(0, 0, 0, 0.06);
+  --card-hover-bg: #ffffff;
+  --card-hover-border: rgba(139, 92, 246, 0.45);
+  --card-hover-shadow: 0 16px 36px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(139, 92, 246, 0.2);
+  --card-divider: rgba(0, 0, 0, 0.06);
+  --card-divider-accent: rgba(139, 92, 246, 0.4);
+  --card-title: #18181b;
+  --card-summary: #52525b;
+  --card-action: #7c3aed;
+  --card-dogear-bg: rgba(0, 0, 0, 0.04);
+  --card-dogear-border: rgba(0, 0, 0, 0.09);
+  --card-spine: rgba(0, 0, 0, 0.06);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1 / 1.414;
+  width: 100%;
+  padding: 1.5rem 1.35rem 1.25rem;
+  border-radius: 0.875rem;
+  text-decoration: none;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    background: var(--card-hover-bg);
+    border-color: var(--card-hover-border);
+    box-shadow: var(--card-hover-shadow);
+  }
+
+  &__spine {
+    position: absolute; top: 0; left: 0; bottom: 0; width: 6px;
+    background: linear-gradient(90deg, var(--card-spine) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  &__dogear {
+    position: absolute; top: 0; right: 0; width: 18px; height: 18px;
+    background: linear-gradient(135deg, transparent 50%, var(--card-dogear-bg) 50%);
+    border-bottom: 1px solid var(--card-dogear-border);
+    border-left: 1px solid var(--card-dogear-border);
+    border-bottom-left-radius: 3px; pointer-events: none;
+  }
+
+  &__accent {
+    position: absolute; top: 0; left: 0; right: 18px; height: 2.5px; opacity: 0.85;
+    transition: opacity 0.2s ease, height 0.2s ease;
+  }
+  &:hover &__accent { opacity: 1; height: 3.5px; }
+
+  &__header {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+    padding-bottom: 0.85rem; border-bottom: 1px solid var(--card-divider);
+  }
+
+  &__body {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; gap: 0.75rem; flex: 1 1 auto; padding: 1.25rem 0.5rem; overflow: hidden;
+  }
+
+  &__title {
+    font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; line-height: 1.35;
+    color: var(--card-title); text-align: center; margin: 0; display: -webkit-box;
+    -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  &__divider {
+    width: 2rem; height: 1.5px; background: var(--card-divider-accent);
+    margin: 0 auto; border-radius: 9999px;
+  }
+
+  &__summary {
+    font-family: var(--font-body); font-size: 0.8rem; line-height: 1.55;
+    color: var(--card-summary); text-align: center; margin: 0; display: -webkit-box;
+    -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  &__footer {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+    padding-top: 0.75rem; border-top: 1px solid var(--card-divider);
+  }
+
+  &__footer-action {
+    display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem;
+    font-weight: 600; color: var(--card-action); letter-spacing: 0.02em; text-transform: uppercase;
+  }
+}
+
+:root.dark, .dark {
+  .m-post-paper-card {
+    --card-bg: rgba(255, 255, 255, 0.035);
+    --card-border: rgba(255, 255, 255, 0.07);
+    --card-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --card-hover-bg: rgba(255, 255, 255, 0.06);
+    --card-hover-border: rgba(139, 92, 246, 0.35);
+    --card-hover-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 16px 36px rgba(0, 0, 0, 0.45);
+    --card-divider: rgba(255, 255, 255, 0.06);
+    --card-divider-accent: rgba(139, 92, 246, 0.6);
+    --card-title: #f4f4f5; --card-summary: #a1a1aa; --card-action: #a78bfa;
+    --card-dogear-bg: rgba(255, 255, 255, 0.08); --card-dogear-border: rgba(255, 255, 255, 0.12);
+    --card-spine: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+}

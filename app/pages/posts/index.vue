@@ -1,23 +1,45 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useContextualSearch } from '~/composables/useContextualSearch'
+import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
+
+useSeoMeta({
+  title: 'Writing & Devlogs : Xopher "XP" Pollard',
+  description: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher "XP" Pollard.',
+})
 
 const { data: posts } = await useAsyncData('posts-feed', () =>
   queryCollection('posts').order('date', 'DESC').all()
 )
 
-const formatDate = (raw: string) =>
-  new Date(raw).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-
-const typeLabel = (type: string) => (type === 'short' ? 'Update' : 'Article')
-const typeColor = (type: string) => (type === 'short' ? '#06b6d4' : '#8b5cf6')
-
 const selectedFolder = ref('all')
+const searchQuery = ref('')
+
+const postSearchItems = computed(() =>
+  (posts.value || []).map((post: any) => ({
+    id: `dispatch-${post.path}`,
+    title: post.title,
+    subtitle: post.summary || post.date,
+    category: 'posts' as const,
+    categoryLabel: 'Dispatch',
+    icon: 'i-lucide-file-text',
+    iconColor: '#a855f7',
+    route: post.path,
+    keywords: [post.title, post.summary || '', ...(post.tags || []), 'post', 'blog']
+  }))
+)
+
+useContextualSearch({
+  placeholder: 'Search writing, devlogs, dispatches...',
+  query: searchQuery,
+  categoryLabel: 'Dispatches',
+  items: postSearchItems
+})
 
 const folders = computed(() => {
   if (!posts.value) return []
   const uniqueFolders = new Set<string>()
   posts.value.forEach(post => {
-    // Determine folder from path (e.g. /posts/tech/filename -> 'tech')
     const parts = post.path.split('/')
     if (parts.length > 3) {
       uniqueFolders.add(parts[2])
@@ -28,88 +50,152 @@ const folders = computed(() => {
 
 const filteredPosts = computed(() => {
   if (!posts.value) return []
-  if (selectedFolder.value === 'all') return posts.value
+  const query = searchQuery.value.toLowerCase().trim()
   
   return posts.value.filter(post => {
-    const parts = post.path.split('/')
-    if (parts.length > 3) {
-      return parts[2] === selectedFolder.value
-    }
-    return false
+    const matchesFolder = selectedFolder.value === 'all' || (() => {
+      const parts = post.path.split('/')
+      return parts.length > 3 && parts[2] === selectedFolder.value
+    })()
+
+    const matchesSearch = !query ||
+      post.title.toLowerCase().includes(query) ||
+      (post.summary && post.summary.toLowerCase().includes(query)) ||
+      (post.tags && post.tags.some((t: string) => t.toLowerCase().includes(query)))
+
+    return matchesFolder && matchesSearch
   })
 })
+
+// Two-stage atomic boolean composition
+const hasPosts = computed(() => Boolean(posts.value && posts.value.length > 0))
+const hasFolders = computed(() => folders.value.length > 0)
+const hasFilteredPosts = computed(() => filteredPosts.value.length > 0)
+const postCountText = computed(() => `${posts.value?.length || 0}+ Dispatches`)
+
+const selectFolder = (folder: string) => {
+  selectedFolder.value = folder
+}
 </script>
 
 <template>
-  <div class="pt-[calc(56px+2rem)] px-8 pb-24 max-w-[900px] mx-auto w-full max-md:pt-8 max-md:px-6 max-md:pb-16">
-    <header class="mb-12">
-      <h1 class="font-display text-5xl font-extrabold tracking-[-0.04em] text-text-primary m-0 mb-2 max-md:text-[2.2rem]">Posts</h1>
-      <p class="text-[1.1rem] text-text-secondary m-0">Thoughts, devlogs, and updates.</p>
-    </header>
+  <UContainer class="max-w-[1100px] w-full flex flex-col gap-8 py-10">
+    <OPageHero
+      title="Writing & Devlogs"
+      badge-text="Field Notes & Essays"
+      badge-icon="i-lucide-book-open"
+      :meta-text="postCountText"
+      glow-primary="violet"
+      glow-secondary="cyan"
+      :primary-action="{
+        label: 'Connect with XP',
+        to: '/connect',
+        color: 'primary',
+        variant: 'solid',
+        icon: 'i-lucide-mail',
+        class: 'shadow-glow-violet'
+      }"
+      :secondary-action="{
+        label: 'Executive Resume',
+        to: '/resume',
+        color: 'neutral',
+        variant: 'outline',
+        trailingIcon: 'i-lucide-arrow-right'
+      }"
+    >
+      <template #description>
+        Field notes, systems architecture breakdowns, and sovereign digital philosophy by
+        <span class="text-zinc-900 dark:text-zinc-100 font-semibold">Xopher "XP" Pollard</span>.
+      </template>
+    </OPageHero>
 
-    <div v-if="posts && posts.length">
-      <div v-if="folders.length > 0" class="flex flex-wrap gap-3 mb-8">
-        <button 
-          @click="selectedFolder = 'all'" 
-          class="px-4 py-1.5 rounded-full text-[0.85rem] font-bold tracking-[0.05em] uppercase transition-all duration-200 cursor-pointer border"
-          :class="selectedFolder === 'all' ? 'bg-accent/20 text-text-primary border-accent/40 shadow-[0_0_15px_rgba(139,92,246,0.2)]' : 'bg-white/5 text-text-muted border-white/10 hover:bg-white/10 hover:text-text-secondary'"
-        >
-          All
-        </button>
-        <button 
-          v-for="folder in folders" 
-          :key="folder"
-          @click="selectedFolder = folder" 
-          class="px-4 py-1.5 rounded-full text-[0.85rem] font-bold tracking-[0.05em] uppercase transition-all duration-200 cursor-pointer border"
-          :class="selectedFolder === folder ? 'bg-accent/20 text-text-primary border-accent/40 shadow-[0_0_15px_rgba(139,92,246,0.2)]' : 'bg-white/5 text-text-muted border-white/10 hover:bg-white/10 hover:text-text-secondary'"
-        >
-          {{ folder }}
-        </button>
+    <div v-if="hasPosts" class="flex flex-col gap-6">
+      <!-- Topic Filter Pills & Active Search Status -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div v-if="hasFolders" class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-zinc-400 dark:text-zinc-500 shrink-0 mr-1">
+            Topic:
+          </span>
+          <UButton
+            :variant="selectedFolder === 'all' ? 'solid' : 'ghost'"
+            :color="selectedFolder === 'all' ? 'primary' : 'neutral'"
+            size="xs"
+            class="rounded-lg transition-all capitalize"
+            @click="selectFolder('all')"
+          >
+            All Topics
+          </UButton>
+          <UButton
+            v-for="folder in folders"
+            :key="folder"
+            :variant="selectedFolder === folder ? 'solid' : 'ghost'"
+            :color="selectedFolder === folder ? 'primary' : 'neutral'"
+            size="xs"
+            class="rounded-lg transition-all capitalize"
+            @click="selectFolder(folder)"
+          >
+            {{ folder }}
+          </UButton>
+        </div>
+        <div v-if="searchQuery" class="flex items-center gap-2">
+          <span class="text-xs text-zinc-500">
+            Filtered by "<span class="text-violet-600 dark:text-cyan-400 font-semibold">{{ searchQuery }}</span>"
+          </span>
+          <UButton
+            size="xs"
+            variant="ghost"
+            color="neutral"
+            icon="i-lucide-x"
+            @click="searchQuery = ''"
+          >
+            Clear
+          </UButton>
+        </div>
       </div>
 
       <div class="relative">
-        <TransitionGroup name="list" tag="div" v-if="filteredPosts.length" class="flex flex-col gap-6 relative" role="list">
-          <NuxtLink
-            v-for="post in filteredPosts"
+        <TransitionGroup
+          v-if="hasFilteredPosts"
+          name="paper-grid"
+          tag="div"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
+          role="list"
+        >
+          <MPostPaperCard
+            v-for="(post, index) in filteredPosts"
             :key="post.path"
-            :to="post.path"
-            class="group relative overflow-hidden flex flex-col gap-4 px-8 py-6 text-text-primary no-underline transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-white/5 border border-white/[0.06] rounded-2xl backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03),inset_0_1px_0_0_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] max-md:px-6 max-md:py-5 hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_1px_0_0_rgba(255,255,255,0.08),0_12px_40px_rgba(0,0,0,0.35),0_0_20px_rgba(139,92,246,0.06)]"
-            :style="{ '--type-color': typeColor(post.type ?? 'article') }"
-          >
-            <div class="absolute left-0 top-0 bottom-0 w-1 opacity-50 transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:w-1.5" :style="{ backgroundColor: 'var(--type-color)' }" />
-            <div class="flex items-center gap-3">
-               <span class="text-[0.7rem] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full border" :style="{ color: 'var(--type-color)', backgroundColor: 'color-mix(in srgb, var(--type-color) 15%, transparent)', borderColor: 'color-mix(in srgb, var(--type-color) 25%, transparent)' }">{{ typeLabel(post.type ?? 'article') }}</span>
-              <time class="text-[0.85rem] font-medium text-text-muted" :datetime="post.date">{{ formatDate(post.date) }}</time>
-            </div>
-            <h2 class="font-display text-2xl font-bold text-text-primary m-0 leading-[1.3]" v-if="post.type !== 'short'">{{ post.title }}</h2>
-            <p class="text-base leading-[1.6] text-text-secondary m-0">{{ post.summary }}</p>
-          </NuxtLink>
+            :post
+            :index
+          />
         </TransitionGroup>
         
-        <div v-else class="py-16 px-8 text-center text-text-secondary bg-white/5 rounded-2xl border border-dashed border-white/15 backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.25)]">
-          <p>No posts found in this category.</p>
+        <div
+          v-else
+          class="py-16 px-8 text-center text-zinc-500 dark:text-zinc-400 bg-zinc-50/50 dark:bg-white/[0.02] rounded-2xl border border-dashed border-zinc-200 dark:border-white/10 backdrop-blur-xl"
+        >
+          <p class="m-0 text-sm">No posts found in this category.</p>
         </div>
       </div>
     </div>
     
-    <div v-else class="py-16 px-8 text-center text-text-secondary bg-white/5 rounded-2xl border border-dashed border-white/15 backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.25)]">
-      <p>No posts yet. Check back soon.</p>
+    <div
+      v-else
+      class="py-16 px-8 text-center text-zinc-500 dark:text-zinc-400 bg-zinc-50/50 dark:bg-white/[0.02] rounded-2xl border border-dashed border-zinc-200 dark:border-white/10 backdrop-blur-xl"
+    >
+      <p class="m-0 text-sm">No posts yet. Check back soon.</p>
     </div>
-  </div>
+  </UContainer>
 </template>
 
-<style>
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.4s ease;
+<style scoped>
+.paper-grid-enter-active,
+.paper-grid-leave-active {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.list-enter-from,
-.list-leave-to {
+.paper-grid-enter-from,
+.paper-grid-leave-to {
   opacity: 0;
-  transform: translateY(15px);
-}
-.list-leave-active {
-  position: absolute;
-  width: 100%;
+  transform: translateY(12px) scale(0.97);
 }
 </style>
+

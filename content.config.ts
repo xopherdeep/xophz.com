@@ -1,5 +1,4 @@
 import { resolve } from "path";
-import { readdirSync, existsSync } from "fs";
 import { defineContentConfig, defineCollection, z } from "@nuxt/content";
 
 const postSchema = z.object({
@@ -12,18 +11,6 @@ const postSchema = z.object({
 });
 
 const docsPath = resolve(process.cwd(), "docs");
-
-// TEMP DEBUG - remove after diagnosing
-console.log("=== CONTENT CONFIG DEBUG ===");
-console.log("process.cwd():", process.cwd());
-console.log("resolved docs path:", docsPath);
-console.log("docs path exists:", existsSync(docsPath));
-try {
-  console.log("docs contents:", readdirSync(docsPath));
-} catch (e) {
-  console.log("readdirSync error:", e.message);
-}
-console.log("=============================");
 
 export default defineContentConfig({
   collections: {

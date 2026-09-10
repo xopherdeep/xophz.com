@@ -2,13 +2,27 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: [
+    "@nuxt/ui",
     "@nuxt/content",
-    "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
     "@nuxt/image",
     "nuxt-lucide-icons"
   ],
+
+  components: {
+    dirs: [
+      { path: '~/components/organisms', extensions: ['.vue'], pathPrefix: false },
+      { path: '~/components/molecules', extensions: ['.vue'], pathPrefix: false },
+      { path: '~/components', extensions: ['.vue'] }
+    ]
+  },
+
+  css: ["~/assets/css/main.css"],
+
+  ui: {
+    fonts: false
+  },
 
   content: {},
 
@@ -37,6 +51,17 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "github-pages",
+  },
+
+  routeRules: {
+    '/compass': { redirect: { to: '/my-compass', statusCode: 301 } },
+  },
+
+  runtimeConfig: {
+    public: {
+      compassCheckoutUrl: process.env.NUXT_PUBLIC_COMPASS_CHECKOUT_URL || "https://www.mycompassconsulting.com",
+      compassApiUrl: process.env.NUXT_PUBLIC_COMPASS_API_URL || "https://www.mycompassconsulting.com/wp-json/xophz/v1",
+    }
   },
 
   app: {

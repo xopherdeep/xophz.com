@@ -7,39 +7,37 @@ interface Props {
   rel?: string
   interactive?: boolean
   padding?: string
-  variant?: 'glass' | 'subtle' | 'outline'
+  variant?: 'outline' | 'subtle' | 'soft' | 'solid'
 }
 
 withDefaults(defineProps<Props>(), {
   as: 'div',
   interactive: false,
-  padding: 'p-5',
-  variant: 'glass'
+  variant: 'outline'
 })
 </script>
 
 <template>
-  <component
-    :is="to ? 'NuxtLink' : href ? 'a' : as"
-    :to="to"
-    :href="href"
-    :target="target"
-    :rel="rel"
-    class="x-card relative flex flex-col rounded-2xl backdrop-blur-xl transition-all duration-300 shadow-glass-shadow"
+  <UCard
+    :as
+    :to
+    :href
+    :target
+    :rel
+    :variant
     :class="[
-      padding,
-      variant === 'glass' ? 'bg-white/[0.04] border border-white/[0.07] hover:border-accent/30' : '',
-      variant === 'subtle' ? 'bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.12]' : '',
-      variant === 'outline' ? 'bg-transparent border border-white/[0.08] hover:border-accent/40' : '',
-      interactive ? 'hover:bg-white/[0.08] hover:-translate-y-0.5 cursor-pointer' : ''
+      interactive ? 'transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-500/50 cursor-pointer' : '',
+      padding
     ]"
   >
-    <slot />
-  </component>
+    <template #header="scope">
+      <slot name="header" v-bind="scope || {}" />
+    </template>
+    <template #default="scope">
+      <slot v-bind="scope || {}" />
+    </template>
+    <template #footer="scope">
+      <slot name="footer" v-bind="scope || {}" />
+    </template>
+  </UCard>
 </template>
-
-<style scoped>
-.x-card {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
-}
-</style>

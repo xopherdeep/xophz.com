@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { ArrowUpRight as LucideArrowUpRight } from '@lucide/vue'
-
 interface FlagshipApp {
   name: string
   category: string
   tagline: string
   desc: string
   url?: string
-  color: string
 }
 
 interface Props {
@@ -19,37 +16,43 @@ defineProps<Props>()
 
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-    <div
+    <UCard
       v-for="app in apps"
       :key="app.name"
-      class="group relative flex flex-col justify-between p-4 sm:p-5 bg-white/[0.03] border border-white/[0.06] rounded-xl transition-all duration-300 hover:border-[color:var(--app-c)]/40 hover:bg-white/[0.06]"
-      :style="{ '--app-c': app.color }"
+      variant="outline"
+      class="flex flex-col justify-between hover:border-primary-500/50 transition-colors"
     >
       <div class="flex flex-col gap-2">
         <div class="flex items-center justify-between">
-          <span class="text-[0.62rem] font-bold tracking-[0.14em] uppercase text-[color:var(--app-c)] px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
-            {{ app.category }}
-          </span>
-          <a
-            v-if="app.url"
-            :href="app.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-[0.65rem] font-semibold text-text-muted hover:text-text-primary flex items-center gap-1 transition-colors no-underline"
+          <UBadge
+            color="primary"
+            variant="subtle"
+            size="xs"
           >
-            Visit <LucideArrowUpRight class="w-3 h-3" />
-          </a>
+            {{ app.category }}
+          </UBadge>
+          <UButton
+            v-if="app.url"
+            :to="app.url"
+            target="_blank"
+            variant="ghost"
+            color="neutral"
+            size="xs"
+            trailing-icon="i-lucide-arrow-up-right"
+          >
+            Visit
+          </UButton>
         </div>
-        <h4 class="font-display text-sm sm:text-base font-bold text-text-primary group-hover:text-[color:var(--app-c)] transition-colors">
+        <h3 class="font-display text-sm sm:text-base font-bold text-neutral-900 dark:text-neutral-100">
           {{ app.name }}
-        </h4>
-        <p class="text-xs font-medium text-accent-2">
+        </h3>
+        <p class="text-xs font-medium text-primary-600 dark:text-primary-400">
           {{ app.tagline }}
         </p>
-        <p class="text-xs text-text-secondary leading-[1.6]">
+        <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
           {{ app.desc }}
         </p>
       </div>
-    </div>
+    </UCard>
   </div>
 </template>

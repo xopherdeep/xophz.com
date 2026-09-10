@@ -3,6 +3,10 @@ export interface GitHubReleaseInfo {
   zipUrl: string
   zipName: string
   publishedAt: string
+  sha256?: string
+  sizeBytes?: number
+  sizeFormatted?: string
+  htmlUrl?: string
 }
 
 interface CachedRelease {
@@ -75,15 +79,24 @@ export const useGitHubReleases = () => {
 
       const release = await res.json()
       const tagName = release.tag_name || fallbackVersion
-      const zipAsset = release.assets?.find((asset: { name: string; browser_download_url: string }) =>
+      const zipAsset = release.assets?.find((asset: { name: string; browser_download_url: string; digest?: string; size?: number }) =>
         asset.name.endsWith('.zip')
       )
+
+      const rawDigest = zipAsset?.digest
+      const sha256 = rawDigest ? rawDigest.replace(/^sha256:/i, '') : undefined
+      const sizeBytes = zipAsset?.size
+      const sizeFormatted = sizeBytes ? `${(sizeBytes / (1024 * 1024)).toFixed(2)} MB` : undefined
 
       const releaseInfo: GitHubReleaseInfo = {
         tagName,
         zipUrl: zipAsset ? zipAsset.browser_download_url : `https://github.com/HalloftheGods/${repo}/archive/refs/tags/${tagName}.zip`,
         zipName: zipAsset ? zipAsset.name : `${repo}-${tagName}.zip`,
-        publishedAt: release.published_at || new Date().toISOString()
+        publishedAt: release.published_at || new Date().toISOString(),
+        sha256,
+        sizeBytes,
+        sizeFormatted,
+        htmlUrl: release.html_url || `https://github.com/HalloftheGods/${repo}/releases/tag/${tagName}`
       }
 
       setCachedRelease(repo, releaseInfo)
