@@ -3,8 +3,10 @@ import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import MConnectChannels from '~/components/molecules/m-connect-channels/m-connect-channels.vue'
 
 useSeoMeta({
-  title: 'Connect · Xopher "XP" Pollard',
-  description: 'Get in touch with Xopher "XP" Pollard. Book a meeting, find social profiles, or reach out directly.',
+  title: 'Connect · Xopher (XP) Pollard',
+  ogTitle: 'Connect · Xopher (XP) Pollard',
+  description: 'Get in touch with Xopher (XP) Pollard. Book a meeting, find social profiles, or reach out directly.',
+  ogDescription: 'Get in touch with Xopher (XP) Pollard. Book a meeting, find social profiles, or reach out directly.',
 })
 
 const { data: recentPosts } = await useAsyncData('recent-posts-connect', () =>

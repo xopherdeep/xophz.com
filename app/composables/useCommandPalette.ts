@@ -26,7 +26,7 @@ export function useCommandPalette() {
 
   // 1. Static Pages
   const staticPages = computed<CommandItem[]>(() => [
-    { id: 'page-home', title: 'Home', subtitle: 'Xopher "XP" Pollard: Systems Architect, Polymath & Founder', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-home', iconColor: '#8b5cf6', route: '/', keywords: ['home', 'root', 'index', 'xp', 'profile'] },
+    { id: 'page-home', title: 'Home', subtitle: 'Xopher (XP) Pollard: Systems Architect, Polymath & Founder', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-home', iconColor: '#8b5cf6', route: '/', keywords: ['home', 'root', 'index', 'xp', 'profile'] },
     { id: 'page-about', title: 'About XP', subtitle: 'Biography, executive milestones, philosophies, and specialties', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-user', iconColor: '#06b6d4', route: '/about', keywords: ['about', 'bio', 'story', 'history', 'philosophy', 'skills'] },
     { id: 'page-resume', title: 'Executive Resume', subtitle: 'Principal Systems Synthesist, career timeline, and competencies', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-file-badge', iconColor: '#10b981', route: '/resume', keywords: ['resume', 'cv', 'experience', 'career', 'leadership', 'cto'] },
     { id: 'page-projects', title: 'Opus: Ecosystem Catalog', subtitle: 'The Hall of the Gods platform portfolio, products, and architecture', category: 'pages', categoryLabel: 'Page', icon: 'i-lucide-briefcase', iconColor: '#f59e0b', route: '/projects', keywords: ['projects', 'opus', 'ecosystem', 'portfolio', 'architecture'] },

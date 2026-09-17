@@ -66,7 +66,7 @@ const { currentYear, socialLinks, hasSocials, footerNav } = useAppFooterControll
 
       <!-- Bottom bar -->
       <div class="mt-8 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/40 flex flex-col items-center text-center gap-1 text-[0.65rem] leading-relaxed text-zinc-600 dark:text-zinc-400">
-        <p>&copy;&nbsp;&nbsp;{{ currentYear }}&nbsp;Xopher "XP" Pollard.</p>
+        <p>&copy;&nbsp;&nbsp;{{ currentYear }}&nbsp;Xopher (XP) Pollard.</p>
         <p class="text-zinc-600 dark:text-zinc-400">
           Built with Nuxt, Vue, and relentless precision.
         </p>

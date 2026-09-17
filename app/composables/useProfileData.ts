@@ -1,6 +1,6 @@
 export const useProfileData = () => {
   const identity = {
-    name: 'Xopher "XP" Pollard',
+    name: 'Xopher (XP) Pollard',
     title: "Principal Systems Synthesist · Architect · Artist · Polymath",
     tagline:
       "25+ years architecting sovereign digital infrastructure, modernizing legacy monoliths, and scaling enterprise systems for visionary founders.",
