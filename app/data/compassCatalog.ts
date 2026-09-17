@@ -113,9 +113,9 @@ export const compassCatalog: CompassPlugin[] = [
     "iconName": "shield",
     "repoUrl": "https://github.com/HalloftheGods/xophz-compass-card-vault",
     "githubRepo": "xophz-compass-card-vault",
-    "price": "$79/yr",
-    "priceNumber": 79,
-    "marketEqv": "Collector POS",
+    "price": "$99/yr",
+    "priceNumber": 99,
+    "marketEqv": "Card Dealer Pro / BinderPOS",
     "version": "v26.9.6-234",
     "logoUrl": "/icons/plugins/xophz-compass-card-vault.svg"
   },

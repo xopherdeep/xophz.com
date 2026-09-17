@@ -14,7 +14,7 @@ export const useProfileData = () => {
     "Legacy Modernization",
     "Sovereign Infrastructure",
     "AWS & Cloud Systems",
-    "CTO / Executive Leadership",
+    // "CTO / Executive Leadership",
     "Serial Founder",
   ];
 
@@ -159,6 +159,14 @@ export const useProfileData = () => {
       desc: "The Secret Sauce to Vibe Coding: Quantum Architecture and Engineering Standards for zero-hallucination AI coding. Interactive Book, AST Hazard Linter, Benchmarks, and Sponsor Starter Kit Vault by 25-Year Principal Systems Architect Xopher Pollard.",
     },
     {
+      key: "forthexp",
+      name: "Do It for the XP",
+      tag: "Productivity · Live",
+      color: "#f30b0b",
+      url: "https://doit.forthexp.com",
+      desc: "Turn productivity into an adventure worth playing. A gamified progression system translating real-world grinds into tangible, rewarding mechanics.",
+    },
+    {
       key: "hotg",
       name: "Hall of the Gods, Inc.",
       tag: "Parent Co · Live",
@@ -237,14 +245,6 @@ export const useProfileData = () => {
       color: "#8d105e",
       url: "https://www.midnightnerd.com",
       desc: "The ultimate secret weapon. Deep-code alchemy and meticulous late-night engineering keeping the ecosystem's architecture flawless.",
-    },
-    {
-      key: "forthexp",
-      name: "Do It for the XP",
-      tag: "Productivity · Live",
-      color: "#f30b0b",
-      url: "https://doit.forthexp.com",
-      desc: "Turn productivity into an adventure worth playing. A gamified progression system translating real-world grinds into tangible, rewarding mechanics.",
     },
     {
       key: "mro-wizard",

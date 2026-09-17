@@ -18,7 +18,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
     <UContainer class="max-w-4xl relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14 text-center md:text-left">
         <!-- Animated Avatar -->
-        <div class="xo-avatar-glow shrink-0">
+        <div class="xo-avatar-glow shrink-0 animate-ios-spring">
           <UAvatar
             :src="profile.avatar"
             :alt="profile.name"
@@ -30,7 +30,8 @@ const { profile, canDisplayHero } = useHeroBannerController()
         <div class="flex-1 flex flex-col gap-5">
           <!-- Skill Tags -->
           <div
-            class="flex flex-wrap justify-center md:justify-start gap-2"
+            class="flex flex-wrap justify-center md:justify-start gap-2 animate-ios-spring"
+            :style="{ animationDelay: '40ms' }"
           >
             <UBadge
               v-for="tag in profile.skillTags"
@@ -45,21 +46,24 @@ const { profile, canDisplayHero } = useHeroBannerController()
 
           <!-- Name -->
           <h1
-            class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display xo-gradient-text leading-[1.1]"
+            class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display xo-gradient-text leading-[1.1] animate-ios-spring"
+            :style="{ animationDelay: '80ms' }"
           >
             {{ profile.name }}
           </h1>
 
           <!-- Tagline -->
           <p
-            class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl font-body"
+            class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl font-body animate-ios-spring"
+            :style="{ animationDelay: '120ms' }"
           >
             {{ profile.tagline }}
           </p>
 
           <!-- CTAs -->
           <div
-            class="flex flex-wrap justify-center md:justify-start gap-3 pt-2"
+            class="flex flex-wrap justify-center md:justify-start gap-3 pt-2 animate-ios-spring"
+            :style="{ animationDelay: '160ms' }"
           >
             <UButton
               to="/about"

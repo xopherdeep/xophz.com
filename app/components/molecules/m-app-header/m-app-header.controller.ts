@@ -14,6 +14,7 @@ export function useAppHeaderController() {
     { label: 'Home', to: '/', icon: 'i-lucide-home' },
     { label: 'About', to: '/about', icon: 'i-lucide-user' },
     { label: 'Resume', to: '/resume', icon: 'i-lucide-file-badge' },
+    { label: 'Timeline', to: '/timeline', icon: 'i-lucide-history' },
     { label: 'Opus', to: '/projects', icon: 'i-lucide-briefcase' },
     { label: 'Compass', to: '/my-compass', icon: 'i-lucide-compass' },
     { label: 'Sparks', to: '/sparks', icon: 'i-lucide-sparkles' },

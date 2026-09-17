@@ -6,7 +6,7 @@ export function useFeaturedProjectsController() {
   const { projects } = useProfileData()
 
   const featuredList = computed<FeaturedProjectItem[]>(() =>
-    projects.slice(0, 4).map(p => ({
+    projects.slice(0, 6).map(p => ({
       name: p.name,
       desc: p.desc,
       tag: p.tag,

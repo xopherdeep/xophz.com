@@ -14,8 +14,8 @@ const statColors = ['violet', 'cyan', 'emerald', 'amber']
         <div
           v-for="(stat, idx) in featureStats"
           :key="stat.label"
-          class="xo-card-glow xo-shine-on-hover group rounded-2xl p-5 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl text-center transition-all duration-300"
-          v-motion="{ initial: { opacity: 0, y: 20 }, enter: { opacity: 1, y: 0, transition: { delay: 80 * idx } } }"
+          class="xo-card-glow xo-shine-on-hover group rounded-2xl p-5 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl text-center transition-all duration-300 animate-ios-spring"
+          :style="{ animationDelay: `${200 + idx * 35}ms` }"
         >
           <div class="flex items-center justify-center mb-3">
             <div
