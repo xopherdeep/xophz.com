@@ -5,4 +5,3 @@ import MResumeHero from '~/components/molecules/m-resume-hero/m-resume-hero.vue'
 <template>
   <MResumeHero />
 </template>
-

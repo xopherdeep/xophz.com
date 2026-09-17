@@ -8,8 +8,10 @@ const router = useRouter()
 const { projects } = useProfileData()
 
 useSeoMeta({
-  title: 'Magnum Opus · Xopher "XP" Pollard',
-  description: 'The Hall of the Gods ecosystem. Infrastructure, services, and visions built by Xopher "XP" Pollard.',
+  title: 'Magnum Opus · Xopher (XP) Pollard',
+  ogTitle: 'Magnum Opus · Xopher (XP) Pollard',
+  description: 'The Hall of the Gods ecosystem. Infrastructure, services, and visions built by Xopher (XP) Pollard.',
+  ogDescription: 'The Hall of the Gods ecosystem. Infrastructure, services, and visions built by Xopher (XP) Pollard.',
 })
 
 const extractStatus = (tag: string): string => {

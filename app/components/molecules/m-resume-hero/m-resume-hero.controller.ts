@@ -3,7 +3,7 @@ import type { ContactLink, ResumeIdentity } from './types'
 
 export function useResumeHeroController() {
   const identity: ResumeIdentity = {
-    name: 'Xopher "XP" Pollard',
+    name: 'Xopher (XP) Pollard',
     role: 'Principal Systems Architect & Systems Synthesist'
   }
 

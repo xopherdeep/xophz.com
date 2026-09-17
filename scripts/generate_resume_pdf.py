@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate executive vector PDF resume for Xopher "XP" Pollard.
+Generate executive vector PDF resume for Xopher (XP) Pollard.
 Uses Cairo and Pango for pixel-perfect typography, vector lines, and exact single-page Letter fit.
 """
 
@@ -65,7 +65,7 @@ class ResumeBuilder:
 
     def render_header(self):
         # Name
-        name_text = '<span letter_spacing="1800"><b>XOPHER "XP" POLLARD</b></span>'
+        name_text = '<span letter_spacing="1800"><b>XOPHER (XP) POLLARD</b></span>'
         layout_name = self.create_layout(name_text, "Liberation Sans Bold 15", align=Pango.Alignment.CENTER)
         self.cr.set_source_rgb(*COLOR_PRIMARY)
         self.cr.move_to(MARGIN_X, self.y)

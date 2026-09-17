@@ -4,8 +4,10 @@ import { useContextualSearch } from '~/composables/useContextualSearch'
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 
 useSeoMeta({
-  title: 'Writing & Devlogs : Xopher "XP" Pollard',
-  description: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher "XP" Pollard.',
+  title: 'Writing & Devlogs : Xopher (XP) Pollard',
+  ogTitle: 'Writing & Devlogs : Xopher (XP) Pollard',
+  description: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher (XP) Pollard.',
+  ogDescription: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher (XP) Pollard.',
 })
 
 const { data: posts } = await useAsyncData('posts-feed', () =>
@@ -105,7 +107,7 @@ const selectFolder = (folder: string) => {
     >
       <template #description>
         Field notes, systems architecture breakdowns, and sovereign digital philosophy by
-        <span class="text-zinc-900 dark:text-zinc-100 font-semibold">Xopher "XP" Pollard</span>.
+        <span class="text-zinc-900 dark:text-zinc-100 font-semibold">Xopher (XP) Pollard</span>.
       </template>
     </OPageHero>
 
