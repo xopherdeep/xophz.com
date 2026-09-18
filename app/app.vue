@@ -5,7 +5,7 @@ useHead({
 </script>
 
 <template>
-  <UApp>
+  <UApp :toaster="null">
     <NuxtLoadingIndicator
       color="var(--ui-primary)"
       :height="3"

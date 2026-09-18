@@ -24,6 +24,16 @@ export default defineNuxtConfig({
     fonts: false
   },
 
+  build: {
+    transpile: ['reka-ui']
+  },
+
+  vite: {
+    resolve: {
+      dedupe: ['vue', '@unhead/vue']
+    }
+  },
+
   content: {},
 
   telemetry: false,
