@@ -191,22 +191,6 @@ export const timelineCatalog: readonly TimelineItem[] = [
     skills: ['Financial Systems', 'Data Pipelines', 'Security Compliance', 'Database Architecture']
   },
   {
-    id: 'affordable-computer-services',
-    company: 'Affordable Computer Services',
-    role: 'Owner / Operator',
-    period: 'Aug 2004 - May 2014',
-    startDate: '2004-08',
-    endDate: '2014-05',
-    duration: '9 yrs 10 mos',
-    url: 'https://www.affordablecomputerservices.com',
-    logoUrl: null,
-    isCurrent: false,
-    category: 'Infrastructure & Tech',
-    eraKey: 'agency',
-    highlight: 'Comprehensive IT services firm providing small business network infrastructure, disaster recovery, hardware synthesis, and server deployments.',
-    skills: ['Network Infrastructure', 'Disaster Recovery', 'Server Administration', 'Hardware']
-  },
-  {
     id: 'simpleview',
     company: 'Simpleview',
     role: 'CMS Developer',
@@ -237,6 +221,22 @@ export const timelineCatalog: readonly TimelineItem[] = [
     eraKey: 'agency',
     highlight: 'Advanced hardware component diagnostics, enterprise workstation configurations, and network troubleshooting.',
     skills: ['Hardware Diagnostics', 'System Optimization', 'Troubleshooting']
+  },
+  {
+    id: 'affordable-computer-services',
+    company: 'Affordable Computer Services',
+    role: 'Founder & On-Site Computer Repair Specialist',
+    period: 'Aug 2004 - Nov 2011',
+    startDate: '2004-08',
+    endDate: '2011-11',
+    duration: '7 yrs 4 mos',
+    url: 'https://acs.tucsonerd.com',
+    logoUrl: null,
+    isCurrent: false,
+    category: 'Infrastructure & Tech',
+    eraKey: 'agency',
+    highlight: 'Founded and operated on-site computer repair and tech services following tenure at ACR, providing diagnostic repairs, small business network infrastructure, and system recovery.',
+    skills: ['On-Site Repair', 'Network Infrastructure', 'Disaster Recovery', 'Hardware Diagnostics']
   },
   {
     id: 'vertical-assessment-associates',
