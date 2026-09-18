@@ -233,7 +233,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://acs.tucsonerd.com',
     logoUrl: null,
     isCurrent: false,
-    category: 'Infrastructure & Tech',
+    category: 'Founding & Advisory',
     eraKey: 'agency',
     highlight: 'Founded and operated on-site computer repair and tech services following tenure at ACR, providing diagnostic repairs, small business network infrastructure, and system recovery.',
     skills: ['On-Site Repair', 'Network Infrastructure', 'Disaster Recovery', 'Hardware Diagnostics']
