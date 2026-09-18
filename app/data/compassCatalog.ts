@@ -144,7 +144,8 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Clio Legal",
     "version": "v26.9.6",
-    "logoUrl": "/icons/plugins/xophz-compass-diego-lawfirm.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-diego-lawfirm.svg",
+    "isPrivate": true
   },
   {
     "key": "fresh-mints",
@@ -258,7 +259,8 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Nook OS Spatial",
     "version": "v26.9.4",
-    "logoUrl": "/icons/plugins/xophz-nook-phone.svg"
+    "logoUrl": "/icons/plugins/xophz-nook-phone.svg",
+    "isPrivate": true
   },
   {
     "key": "thoth-reader",

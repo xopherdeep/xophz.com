@@ -37,6 +37,7 @@ export interface CompassPlugin {
   showcaseUrl?: string;
   showcaseLabel?: string;
   saasOffer?: CompassSaaSOffer;
+  isPrivate?: boolean;
 }
 
 const STORAGE_KEY = "xophz_purchased_plugins";
