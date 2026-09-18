@@ -38,10 +38,13 @@ const closeModal = () => {
 }
 
 const onDownloadPlugin = async (plugin: CompassPlugin) => {
+  if (plugin.isPrivate) return
   downloadingKeys.value[plugin.key] = true
   try {
-    const release = await fetchLatestRelease(plugin.githubRepo, plugin.version)
-    triggerDownload(release.zipUrl, release.zipName)
+    const release = await fetchLatestRelease(plugin.githubRepo, plugin.version, plugin.repoUrl)
+    if (release.zipUrl) {
+      triggerDownload(release.zipUrl, release.zipName)
+    }
   } finally {
     downloadingKeys.value[plugin.key] = false
   }
@@ -80,8 +83,10 @@ onMounted(async () => {
       purchasedSuccessMessage.value = `Thank you for purchasing ${matched.name}! Your plugin package is downloading automatically.`
 
       try {
-        const release = await fetchLatestRelease(matched.githubRepo, matched.version)
-        triggerDownload(release.zipUrl, release.zipName)
+        const release = await fetchLatestRelease(matched.githubRepo, matched.version, matched.repoUrl)
+        if (release.zipUrl) {
+          triggerDownload(release.zipUrl, release.zipName)
+        }
       } catch {
         // Handled inside composable
       }

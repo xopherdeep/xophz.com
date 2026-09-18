@@ -250,6 +250,12 @@ const handleBackdropClick = (event: MouseEvent) => {
                 <span v-if="plugin.saasOffer?.badge || plugin.showcaseUrl" class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-emerald-50 dark:bg-white/5 border border-emerald-200 dark:border-white/10 text-emerald-600 dark:text-emerald-400">
                   {{ plugin.saasOffer?.badge || 'Live App' }}
                 </span>
+                <span
+                  v-if="isPrivateOrMissing"
+                  class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-400/20 text-amber-700 dark:text-amber-400"
+                >
+                  Commercial Source
+                </span>
                 <span class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-sky-50 dark:bg-white/5 border border-sky-200 dark:border-white/10 text-sky-600 dark:text-sky-400">
                   {{ formattedPrice }} License
                 </span>
@@ -331,15 +337,15 @@ const handleBackdropClick = (event: MouseEvent) => {
                 </span>
               </div>
               <div>
-                <span class="block text-[0.62rem] uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Market Eqv</span>
-                <span class="text-xs font-medium text-zinc-600 dark:text-zinc-400 mt-0.5 block truncate" :title="plugin.marketEqv || 'Custom Core'">
-                  {{ plugin.marketEqv || 'Custom Core' }}
+                <span class="block text-[0.62rem] uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Access</span>
+                <span class="text-xs font-medium text-zinc-600 dark:text-zinc-400 mt-0.5 block truncate">
+                  {{ isPrivateOrMissing ? 'Commercial / SaaS' : 'Public Repository' }}
                 </span>
               </div>
               <div>
                 <span class="block text-[0.62rem] uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Package Size</span>
                 <span class="font-mono text-xs font-semibold text-zinc-800 dark:text-zinc-200 mt-0.5 block">
-                  {{ releaseInfo?.sizeFormatted || 'Standard Zip' }}
+                  {{ releaseInfo?.sizeFormatted || (isPrivateOrMissing ? 'Commercial' : 'Standard Zip') }}
                 </span>
               </div>
               <div>
@@ -348,8 +354,11 @@ const handleBackdropClick = (event: MouseEvent) => {
               </div>
             </div>
 
-            <!-- SHA-256 -->
-            <div class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-black/30 border border-zinc-200/80 dark:border-white/10 flex items-center justify-between gap-3">
+            <!-- SHA-256 or Sovereign Source Notice -->
+            <div
+              v-if="!isPrivateOrMissing"
+              class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-black/30 border border-zinc-200/80 dark:border-white/10 flex items-center justify-between gap-3"
+            >
               <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
                 <LucideShieldCheck class="w-4 h-4" />
                 <span class="tracking-wide">SHA-256 Checksum</span>
@@ -365,11 +374,21 @@ const handleBackdropClick = (event: MouseEvent) => {
                 {{ checksumCopyLabel }}
               </UButton>
             </div>
+            <div
+              v-else
+              class="p-3.5 rounded-2xl bg-zinc-50 dark:bg-black/30 border border-zinc-200/80 dark:border-white/10 flex items-center justify-between gap-3 text-xs"
+            >
+              <div class="flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400">
+                <LucideShieldCheck class="w-4 h-4 text-violet-500" />
+                <span>Sovereign Source: Packaged and distributed upon license activation.</span>
+              </div>
+            </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="relative z-10 pt-4 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
             <UButton
+              v-if="canViewSource"
               :to="plugin.repoUrl"
               target="_blank"
               color="neutral"
@@ -380,6 +399,7 @@ const handleBackdropClick = (event: MouseEvent) => {
             >
               View Source
             </UButton>
+            <div v-else />
 
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
               <UButton
@@ -395,6 +415,7 @@ const handleBackdropClick = (event: MouseEvent) => {
               </UButton>
 
               <UButton
+                v-if="canDownload"
                 color="primary"
                 :variant="hasShowcaseUrl ? 'subtle' : 'solid'"
                 size="sm"
