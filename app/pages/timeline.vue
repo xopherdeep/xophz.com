@@ -5,8 +5,10 @@ import MTimelineStream from '~/components/molecules/m-timeline-stream/m-timeline
 import { useTimelineData } from '~/composables/useTimelineData'
 
 useSeoMeta({
-  title: 'Career Timeline · Xopher "XP" Pollard',
-  description: 'Interactive chronological career archive spanning 24+ years of systems architecture, platform engineering, and venture leadership from 2002 to present.'
+  title: 'Career Timeline · Xopher (XP) Pollard',
+  ogTitle: 'Career Timeline · Xopher (XP) Pollard',
+  description: 'Interactive chronological career archive spanning 24+ years of systems architecture, platform engineering, and venture leadership from 2002 to present.',
+  ogDescription: 'Interactive chronological career archive spanning 24+ years of systems architecture, platform engineering, and venture leadership from 2002 to present.',
 })
 
 const { items, searchQuery, selectedCategory, sortOrder, stats } = useTimelineData()

@@ -4,13 +4,7 @@ import type { TimelineCardProps } from './types'
 
 const props = defineProps<TimelineCardProps>()
 
-const {
-  companyInitials,
-  hasCompanyLogo,
-  isCurrentRole,
-  hasSkills,
-  canDisplayLink
-} = useTimelineCardController(props)
+const { companyInitials, hasCompanyLogo, isCurrentRole, hasSkills, canDisplayLink } = useTimelineCardController(props)
 </script>
 
 <template>
