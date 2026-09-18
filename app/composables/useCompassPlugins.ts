@@ -118,12 +118,64 @@ export const useCompassPlugins = () => {
       plugins.value = plugins.value.map((plugin) => {
         const live = liveModules[plugin.codename] || liveModules[plugin.githubRepo];
         if (!live) return plugin;
+
+        const liveSaas = live.saas_offer || live.saasOffer;
+        const saasOffer = liveSaas
+          ? {
+              headline: liveSaas.headline || liveSaas.title || plugin.saasOffer?.headline || '',
+              audience: liveSaas.audience || liveSaas.desc || plugin.saasOffer?.audience || '',
+              badge: liveSaas.badge || plugin.saasOffer?.badge,
+              url: liveSaas.url || plugin.saasOffer?.url,
+              price: liveSaas.price || plugin.saasOffer?.price,
+            }
+          : plugin.saasOffer;
+
+        const isLivePrivate = typeof live.is_private === "boolean"
+          ? live.is_private
+          : typeof live.isPrivate === "boolean"
+            ? live.isPrivate
+            : plugin.isPrivate;
+
+        const isBoilerplateDesc =
+          typeof live.description === "string" &&
+          live.description
+            .toLowerCase()
+            .startsWith("standalone wordpress backend and router for the");
+        const resolvedDesc =
+          isBoilerplateDesc && plugin.desc
+            ? plugin.desc
+            : live.description || plugin.desc;
+
+        const isBoilerplateEqv =
+          typeof live.market_equivalent === "string" &&
+          live.market_equivalent.toLowerCase().includes("custom sveltekit api");
+        const resolvedMarketEqv =
+          isBoilerplateEqv && plugin.marketEqv
+            ? plugin.marketEqv
+            : live.market_equivalent || plugin.marketEqv;
+
+        let resolvedLogoUrl = plugin.logoUrl;
+        if (
+          plugin.logoUrl &&
+          plugin.logoUrl.includes("xophz-compass.svg") &&
+          live.icon
+        ) {
+          resolvedLogoUrl = live.icon.startsWith("http")
+            ? live.icon
+            : `https://www.mycompassconsulting.com${live.icon.startsWith("/") ? "" : "/"}${live.icon}`;
+        }
+
         return {
           ...plugin,
           price: live.price_display || plugin.price,
           priceNumber: typeof live.price === "number" ? live.price : plugin.priceNumber,
-          marketEqv: live.market_equivalent || plugin.marketEqv,
-          desc: live.description || plugin.desc,
+          marketEqv: resolvedMarketEqv,
+          desc: resolvedDesc,
+          logoUrl: resolvedLogoUrl,
+          showcaseUrl: live.showcase_url || live.showcaseUrl || plugin.showcaseUrl,
+          showcaseLabel: live.showcase_label || live.showcaseLabel || plugin.showcaseLabel,
+          saasOffer,
+          isPrivate: isLivePrivate,
         };
       });
     } catch {
