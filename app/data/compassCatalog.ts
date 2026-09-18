@@ -117,7 +117,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 99,
     "marketEqv": "Card Dealer Pro / BinderPOS",
     "version": "v26.9.6-234",
-    "logoUrl": "/icons/plugins/xophz-compass-card-vault.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-card-vault.svg",
+    "showcaseUrl": "https://cardvault.worldwidewebwork.com/",
+    "showcaseLabel": "Live Showcase",
+    "saasOffer": {
+      "headline": "Online Catalog Solution for Card Shops & Card Shows",
+      "audience": "Turnkey cloud catalog for local card shops, card show organizers, and floor vendors.",
+      "badge": "Hosted SaaS",
+      "url": "https://cardvault.worldwidewebwork.com/"
+    }
   },
   {
     "key": "diego-lawfirm",
@@ -802,6 +810,14 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 49,
     "marketEqv": "Custom SvelteKit API",
     "version": "v1.0.0",
-    "logoUrl": "/icons/plugins/xophz-compass.svg"
+    "logoUrl": "/icons/plugins/xophz-compass.svg",
+    "showcaseUrl": "https://dodoair.forthexp.com/",
+    "showcaseLabel": "Flight Tracker",
+    "saasOffer": {
+      "headline": "Live Passenger Router & Flight Operations Gateway",
+      "audience": "Live flight tracking and passenger manifest operations bridge.",
+      "badge": "Live App",
+      "url": "https://dodoair.forthexp.com/"
+    }
   }
 ]

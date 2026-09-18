@@ -211,6 +211,15 @@ const filteredPlugins = computed(() => {
               >
                 {{ plugin.group }}
               </span>
+              <UBadge
+                v-if="plugin.saasOffer?.badge || plugin.showcaseUrl"
+                color="success"
+                variant="subtle"
+                size="xs"
+                class="font-mono"
+              >
+                {{ plugin.saasOffer?.badge || 'Live App' }}
+              </UBadge>
               <UBadge color="primary" variant="outline" size="xs" class="font-mono">
                 {{ plugin.price.startsWith('$') ? plugin.price : '$' + plugin.price }}
               </UBadge>
@@ -235,15 +244,29 @@ const filteredPlugins = computed(() => {
               <span>Hall of the Gods, Inc.</span>
             </div>
 
-            <UButton
-              color="primary"
-              variant="soft"
-              size="xs"
-              trailing-icon="i-lucide-arrow-up-right"
-              @click.stop="emit('openModal', plugin)"
-            >
-              More Details
-            </UButton>
+            <div class="flex items-center gap-2 flex-wrap">
+              <UButton
+                v-if="plugin.showcaseUrl"
+                :to="plugin.showcaseUrl"
+                target="_blank"
+                color="neutral"
+                variant="outline"
+                size="xs"
+                trailing-icon="i-lucide-external-link"
+                @click.stop
+              >
+                {{ plugin.showcaseLabel || 'Live App' }}
+              </UButton>
+              <UButton
+                color="primary"
+                variant="soft"
+                size="xs"
+                trailing-icon="i-lucide-arrow-up-right"
+                @click.stop="emit('openModal', plugin)"
+              >
+                More Details
+              </UButton>
+            </div>
           </div>
         </div>
       </div>

@@ -25,7 +25,10 @@ import {
   Flag as LucideFlag,
   Gauge as LucideGauge,
   Moon as LucideMoon,
-  CheckCircle2 as LucideCheckCircle2
+  CheckCircle2 as LucideCheckCircle2,
+  Cloud as LucideCloud,
+  Server as LucideServer,
+  ExternalLink as LucideExternalLink
 } from '@lucide/vue'
 import { getCompassCheckoutUrl, type CompassPlugin } from '../composables/useCompassPlugins'
 import type { GitHubReleaseInfo } from '../composables/useGitHubReleases'
@@ -104,6 +107,15 @@ const checkoutUrl = computed(() => {
 const formattedPrice = computed(() => {
   if (!props.plugin?.price) return ''
   return props.plugin.price.startsWith('$') ? props.plugin.price : `$${props.plugin.price}`
+})
+
+const hasShowcaseUrl = computed(() => Boolean(props.plugin?.showcaseUrl))
+const hasSaaSOffer = computed(() => Boolean(props.plugin?.saasOffer))
+const isCloudEligible = computed(() => hasShowcaseUrl.value || hasSaaSOffer.value)
+const showcaseTargetUrl = computed(() => props.plugin?.showcaseUrl || props.plugin?.saasOffer?.url || '')
+const showcaseActionText = computed(() => {
+  if (props.plugin?.showcaseLabel) return `Open ${props.plugin.showcaseLabel}`
+  return 'Launch Live Showcase'
 })
 
 const canCopyChecksum = computed(() => Boolean(releaseInfo.value?.sha256))
@@ -211,8 +223,11 @@ const handleBackdropClick = (event: MouseEvent) => {
                 <span v-if="plugin.group" class="px-2 py-0.5 rounded text-[0.62rem] font-mono font-semibold bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-500 dark:text-zinc-400">
                   {{ plugin.group }}
                 </span>
-                <span class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-emerald-50 dark:bg-white/5 border border-emerald-200 dark:border-white/10 text-emerald-600 dark:text-emerald-400">
-                  {{ formattedPrice }}
+                <span v-if="plugin.saasOffer?.badge || plugin.showcaseUrl" class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-emerald-50 dark:bg-white/5 border border-emerald-200 dark:border-white/10 text-emerald-600 dark:text-emerald-400">
+                  {{ plugin.saasOffer?.badge || 'Live App' }}
+                </span>
+                <span class="px-2.5 py-0.5 rounded text-[0.65rem] font-mono font-bold bg-sky-50 dark:bg-white/5 border border-sky-200 dark:border-white/10 text-sky-600 dark:text-sky-400">
+                  {{ formattedPrice }} License
                 </span>
                 <span v-if="plugin.tag" class="text-[0.65rem] font-medium text-zinc-400 dark:text-zinc-500">
                   {{ plugin.tag }}
@@ -234,6 +249,53 @@ const handleBackdropClick = (event: MouseEvent) => {
             <div>
               <h3 class="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-zinc-400 dark:text-zinc-500 mb-1.5">Description</h3>
               <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{{ plugin.desc }}</p>
+            </div>
+
+            <!-- Turnkey Cloud SaaS Showcase Banner -->
+            <div
+              v-if="isCloudEligible"
+              class="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-cyan-500/5 to-transparent border border-emerald-500/20 dark:border-emerald-400/20 flex flex-col gap-3"
+            >
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                    <LucideCloud class="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                      {{ plugin.saasOffer?.badge || 'Turnkey Cloud SaaS' }}
+                    </span>
+                    <h4 class="font-display text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                      {{ plugin.saasOffer?.headline || 'Hosted Cloud Solution' }}
+                    </h4>
+                  </div>
+                </div>
+                <UButton
+                  v-if="hasShowcaseUrl"
+                  :to="showcaseTargetUrl"
+                  target="_blank"
+                  color="success"
+                  variant="solid"
+                  size="xs"
+                  trailing-icon="i-lucide-external-link"
+                >
+                  {{ showcaseActionText }}
+                </UButton>
+              </div>
+
+              <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {{ plugin.saasOffer?.audience || 'Fully managed high-performance cloud instance with zero DevOps or server maintenance required.' }}
+              </p>
+
+              <div class="pt-2 border-t border-emerald-500/15 dark:border-emerald-400/15 flex items-center justify-between flex-wrap gap-2 text-[0.7rem] text-zinc-500 dark:text-zinc-400">
+                <span class="flex items-center gap-1.5">
+                  <LucideServer class="w-3.5 h-3.5 text-zinc-400" />
+                  Also available as self-hosted plugin with sovereign site license
+                </span>
+                <span class="font-mono font-semibold text-zinc-700 dark:text-zinc-300">
+                  {{ formattedPrice }}
+                </span>
+              </div>
             </div>
 
             <!-- Specs Grid -->
@@ -282,7 +344,7 @@ const handleBackdropClick = (event: MouseEvent) => {
           </div>
 
           <!-- Action Buttons -->
-          <div class="relative z-10 pt-4 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-around gap-2.5">
+          <div class="relative z-10 pt-4 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
             <UButton
               :to="plugin.repoUrl"
               target="_blank"
@@ -295,29 +357,45 @@ const handleBackdropClick = (event: MouseEvent) => {
               View Source
             </UButton>
 
-            <UButton
-              :to="checkoutUrl"
-              target="_blank"
-              color="primary"
-              variant="soft"
-              size="sm"
-              icon="i-lucide-shopping-bag"
-              class="justify-center"
-            >
-              Buy Site License · {{ formattedPrice }}
-            </UButton>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <UButton
+                :to="checkoutUrl"
+                target="_blank"
+                color="primary"
+                variant="soft"
+                size="sm"
+                icon="i-lucide-shopping-bag"
+                class="justify-center"
+              >
+                Buy Site License · {{ formattedPrice }}
+              </UButton>
 
-            <UButton
-              color="primary"
-              variant="solid"
-              size="sm"
-              icon="i-lucide-download"
-              class="justify-center shadow-glow-violet"
-              :loading="isDownloading"
-              @click="onDownloadClick"
-            >
-              {{ isDownloading ? 'Downloading...' : 'Download Now' }}
-            </UButton>
+              <UButton
+                color="primary"
+                :variant="hasShowcaseUrl ? 'subtle' : 'solid'"
+                size="sm"
+                icon="i-lucide-download"
+                class="justify-center"
+                :class="{ 'shadow-glow-violet': !hasShowcaseUrl }"
+                :loading="isDownloading"
+                @click="onDownloadClick"
+              >
+                {{ isDownloading ? 'Downloading...' : 'Download Now' }}
+              </UButton>
+
+              <UButton
+                v-if="hasShowcaseUrl"
+                :to="showcaseTargetUrl"
+                target="_blank"
+                color="primary"
+                variant="solid"
+                size="sm"
+                trailing-icon="i-lucide-external-link"
+                class="justify-center shadow-glow-violet"
+              >
+                {{ showcaseActionText }}
+              </UButton>
+            </div>
           </div>
         </div>
       </div>

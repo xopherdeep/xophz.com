@@ -7,6 +7,14 @@ export type CompassCategory =
   | "Castle Walls"
   | "Wizard's Tower";
 
+export interface CompassSaaSOffer {
+  headline: string;
+  audience: string;
+  badge?: string;
+  url?: string;
+  price?: string;
+}
+
 export interface CompassPlugin {
   key: string;
   name: string;
@@ -26,6 +34,9 @@ export interface CompassPlugin {
   marketEqv?: string;
   isCore?: boolean;
   version?: string;
+  showcaseUrl?: string;
+  showcaseLabel?: string;
+  saasOffer?: CompassSaaSOffer;
 }
 
 const STORAGE_KEY = "xophz_purchased_plugins";
