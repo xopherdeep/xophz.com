@@ -7,6 +7,8 @@ export interface GitHubReleaseInfo {
   sizeBytes?: number
   sizeFormatted?: string
   htmlUrl?: string
+  isNotFound?: boolean
+  isPrivate?: boolean
 }
 
 interface CachedRelease {
@@ -50,17 +52,36 @@ export const useGitHubReleases = () => {
     }
   }
 
+  const parseRepoCoordinates = (repo: string, repoUrl?: string): { org: string; repoName: string } => {
+    let org = 'HalloftheGods'
+    let repoName = repo
+
+    if (repoUrl && repoUrl.includes('github.com/')) {
+      const pathPart = repoUrl.split('github.com/')[1] || ''
+      const parts = pathPart.split('/')
+      if (parts.length >= 2) {
+        org = parts[0]
+        repoName = parts[1].replace(/\.git$/, '').replace(/\/+$/, '')
+      }
+    }
+
+    return { org, repoName }
+  }
+
   const fetchLatestRelease = async (
     repo: string,
-    fallbackVersion = 'v26.9.6'
+    fallbackVersion = 'v26.9.6',
+    repoUrl?: string
   ): Promise<GitHubReleaseInfo> => {
     const cached = getCachedRelease(repo)
     if (cached) return cached
 
+    const { org, repoName } = parseRepoCoordinates(repo, repoUrl)
+
     const fallbackInfo: GitHubReleaseInfo = {
       tagName: fallbackVersion,
-      zipUrl: `https://github.com/HalloftheGods/${repo}/archive/refs/tags/${fallbackVersion}.zip`,
-      zipName: `${repo}-${fallbackVersion}.zip`,
+      zipUrl: `https://github.com/${org}/${repoName}/archive/refs/tags/${fallbackVersion}.zip`,
+      zipName: `${repoName}-${fallbackVersion}.zip`,
       publishedAt: new Date().toISOString()
     }
 
@@ -68,9 +89,31 @@ export const useGitHubReleases = () => {
     error.value = null
 
     try {
-      const res = await fetch(`https://api.github.com/repos/HalloftheGods/${repo}/releases/latest`, {
+      const res = await fetch(`https://api.github.com/repos/${org}/${repoName}/releases/latest`, {
         headers: { Accept: 'application/vnd.github.v3+json' }
       })
+
+      if (res.status === 404) {
+        try {
+          const repoRes = await fetch(`https://api.github.com/repos/${org}/${repoName}`, {
+            headers: { Accept: 'application/vnd.github.v3+json' }
+          })
+          if (repoRes.status === 404) {
+            const privateInfo: GitHubReleaseInfo = {
+              tagName: fallbackVersion,
+              zipUrl: '',
+              zipName: '',
+              publishedAt: '',
+              isNotFound: true,
+              isPrivate: true
+            }
+            setCachedRelease(repo, privateInfo)
+            return privateInfo
+          }
+        } catch {
+          // Fall through to standard fallback
+        }
+      }
 
       if (!res.ok) {
         setCachedRelease(repo, fallbackInfo)
@@ -90,13 +133,13 @@ export const useGitHubReleases = () => {
 
       const releaseInfo: GitHubReleaseInfo = {
         tagName,
-        zipUrl: zipAsset ? zipAsset.browser_download_url : `https://github.com/HalloftheGods/${repo}/archive/refs/tags/${tagName}.zip`,
-        zipName: zipAsset ? zipAsset.name : `${repo}-${tagName}.zip`,
+        zipUrl: zipAsset ? zipAsset.browser_download_url : `https://github.com/${org}/${repoName}/archive/refs/tags/${tagName}.zip`,
+        zipName: zipAsset ? zipAsset.name : `${repoName}-${tagName}.zip`,
         publishedAt: release.published_at || new Date().toISOString(),
         sha256,
         sizeBytes,
         sizeFormatted,
-        htmlUrl: release.html_url || `https://github.com/HalloftheGods/${repo}/releases/tag/${tagName}`
+        htmlUrl: release.html_url || `https://github.com/${org}/${repoName}/releases/tag/${tagName}`
       }
 
       setCachedRelease(repo, releaseInfo)

@@ -65,13 +65,25 @@ const iconMap: Record<string, any> = {
 const resolveIcon = (iconName?: string) => iconMap[iconName || ''] || LucideCompass
 
 const loadReleaseData = async (targetPlugin: CompassPlugin) => {
+  if (targetPlugin.isPrivate) {
+    releaseInfo.value = {
+      tagName: targetPlugin.version || 'v26.9.6',
+      zipUrl: '',
+      zipName: '',
+      publishedAt: '',
+      isNotFound: true,
+      isPrivate: true
+    }
+    return
+  }
+
   isLoadingRelease.value = true
   releaseInfo.value = null
   logoLoadFailed.value = false
   isCopied.value = false
 
   try {
-    const data = await fetchLatestRelease(targetPlugin.githubRepo, targetPlugin.version)
+    const data = await fetchLatestRelease(targetPlugin.githubRepo, targetPlugin.version, targetPlugin.repoUrl)
     releaseInfo.value = data
   } finally {
     isLoadingRelease.value = false
@@ -118,6 +130,15 @@ const showcaseActionText = computed(() => {
   return 'Launch Live Showcase'
 })
 
+const isPrivateOrMissing = computed(() => {
+  if (props.plugin?.isPrivate) return true
+  if (releaseInfo.value?.isPrivate || releaseInfo.value?.isNotFound) return true
+  return false
+})
+
+const canViewSource = computed(() => !isPrivateOrMissing.value && Boolean(props.plugin?.repoUrl))
+const canDownload = computed(() => !isPrivateOrMissing.value && Boolean(releaseInfo.value?.zipUrl))
+
 const canCopyChecksum = computed(() => Boolean(releaseInfo.value?.sha256))
 
 const checksumCopyLabel = computed(() => {
@@ -128,6 +149,7 @@ const checksumCopyLabel = computed(() => {
 })
 
 const directZipUrl = computed(() => {
+  if (isPrivateOrMissing.value) return '#'
   if (releaseInfo.value?.zipUrl) return releaseInfo.value.zipUrl
   if (!props.plugin) return '#'
   const repo = props.plugin.githubRepo
@@ -136,11 +158,13 @@ const directZipUrl = computed(() => {
 })
 
 const onDownloadClick = async () => {
-  if (!props.plugin) return
+  if (!props.plugin || !canDownload.value) return
   isDownloading.value = true
   try {
-    const currentRelease = releaseInfo.value || await fetchLatestRelease(props.plugin.githubRepo, props.plugin.version)
-    triggerDownload(currentRelease.zipUrl, currentRelease.zipName)
+    const currentRelease = releaseInfo.value || await fetchLatestRelease(props.plugin.githubRepo, props.plugin.version, props.plugin.repoUrl)
+    if (currentRelease.zipUrl) {
+      triggerDownload(currentRelease.zipUrl, currentRelease.zipName)
+    }
   } finally {
     isDownloading.value = false
   }
