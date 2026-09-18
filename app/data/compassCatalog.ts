@@ -40,7 +40,15 @@ export const compassCatalog: CompassPlugin[] = [
     "marketEqv": "Custom Portal SaaS",
     "isCore": true,
     "version": "v26.9.6-131",
-    "logoUrl": "/icons/plugins/xophz-compass-event-horizon.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-event-horizon.svg",
+    "showcaseUrl": "https://youmeos.com/",
+    "showcaseLabel": "Spatial OS",
+    "saasOffer": {
+      "headline": "Spatial Operating System & Interactive Microverse Portal",
+      "audience": "Bring transparency to user-to-media connectivity by observing a 3D interactive heat map from micro to macro.",
+      "badge": "Spatial OS",
+      "url": "https://youmeos.com/"
+    }
   },
   {
     "key": "magic-hat",
@@ -164,7 +172,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "LeadIQ Pro",
     "version": "v26.9.5",
-    "logoUrl": "/icons/plugins/xophz-compass-fresh-mints.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-fresh-mints.svg",
+    "showcaseUrl": "https://freshmints.worldwidewebwork.com/",
+    "showcaseLabel": "Live Platform",
+    "saasOffer": {
+      "headline": "Turnkey Lead Discovery & Skip-Tracing Intelligence",
+      "audience": "Turnkey lead discovery, license registry audit, skip-tracing, and practice website launcher platform.",
+      "badge": "Live Platform",
+      "url": "https://freshmints.worldwidewebwork.com/"
+    }
   },
   {
     "key": "glowitheflow",
@@ -183,7 +199,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Linktree Pro",
     "version": "v26.9.6",
-    "logoUrl": "/icons/plugins/xophz-compass-glowitheflow.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-glowitheflow.svg",
+    "showcaseUrl": "https://glowitheflow.com/",
+    "showcaseLabel": "Live Network",
+    "saasOffer": {
+      "headline": "Flow Economy Engine & Creator Tributaries Network",
+      "audience": "Creator tributaries, cross-promotional click credit ledger, and viral sharing mechanics.",
+      "badge": "Live Network",
+      "url": "https://glowitheflow.com/"
+    }
   },
   {
     "key": "produce",
@@ -221,7 +245,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Linktree Enterprise",
     "version": "v26.9.5",
-    "logoUrl": "/icons/plugins/xophz-compass-yellow-links.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-yellow-links.svg",
+    "showcaseUrl": "https://yellowlinks.worldwidewebwork.com/",
+    "showcaseLabel": "Live Directory",
+    "saasOffer": {
+      "headline": "Unified Sovereign Link Aggregator & Municipal Directory",
+      "audience": "Civic resources, verified business registry, and public web index portal.",
+      "badge": "Live Directory",
+      "url": "https://yellowlinks.worldwidewebwork.com/"
+    }
   },
   {
     "key": "kitchen-synk",
@@ -240,7 +272,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Admin Bar Manager",
     "version": "v26.9.4",
-    "logoUrl": "/icons/plugins/xophz-kitchen-synk.svg"
+    "logoUrl": "/icons/plugins/xophz-kitchen-synk.svg",
+    "showcaseUrl": "https://kitchensynk.app/",
+    "showcaseLabel": "Live App",
+    "saasOffer": {
+      "headline": "Universal Cross-App Data Synchronization & State Replication",
+      "audience": "Standalone admin bar command center and state replication mesh for the Kitchen Synk web app.",
+      "badge": "Live App",
+      "url": "https://kitchensynk.app/"
+    }
   },
   {
     "key": "nook-phone",
@@ -260,7 +300,15 @@ export const compassCatalog: CompassPlugin[] = [
     "marketEqv": "Nook OS Spatial",
     "version": "v26.9.4",
     "logoUrl": "/icons/plugins/xophz-nook-phone.svg",
-    "isPrivate": true
+    "isPrivate": true,
+    "showcaseUrl": "https://nookphone.app/",
+    "showcaseLabel": "Live App",
+    "saasOffer": {
+      "headline": "Standalone Spatial Phone Interface & App Dashboard",
+      "audience": "Spatial phone interface, island companion widget suite, and communication gateway.",
+      "badge": "Live App",
+      "url": "https://nookphone.app/"
+    }
   },
   {
     "key": "thoth-reader",
@@ -299,7 +347,15 @@ export const compassCatalog: CompassPlugin[] = [
     "marketEqv": "GamiPress Pro",
     "isCore": true,
     "version": "v26.9.5",
-    "logoUrl": "/icons/plugins/xophz-compass-xp.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-xp.svg",
+    "showcaseUrl": "https://forthexp.com/",
+    "showcaseLabel": "Live Platform",
+    "saasOffer": {
+      "headline": "Turnkey Gamification & Experience Engine",
+      "audience": "Gamification engine introducing XP, levels, achievement badges, and reward mechanics across the entire webwork.",
+      "badge": "Live Platform",
+      "url": "https://forthexp.com/"
+    }
   },
   {
     "key": "quests",
@@ -660,7 +716,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 79,
     "marketEqv": "Twilio Gateway",
     "version": "v26.9.5",
-    "logoUrl": "/icons/plugins/xophz-compass-phone.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-phone.svg",
+    "showcaseUrl": "https://phone.mycompassconsulting.com/",
+    "showcaseLabel": "Live Gateway",
+    "saasOffer": {
+      "headline": "Mobile Telephony Bridge & 2FA SMS Gateway",
+      "audience": "Mobile telephony bridge, SMS dispatch, and two-factor authentication gateway for sovereign identities.",
+      "badge": "Live Gateway",
+      "url": "https://phone.mycompassconsulting.com/"
+    }
   },
   {
     "key": "enchiridion",
@@ -717,7 +781,15 @@ export const compassCatalog: CompassPlugin[] = [
     "priceNumber": 99,
     "marketEqv": "Zendesk Suite",
     "version": "v26.9.5",
-    "logoUrl": "/icons/plugins/xophz-compass-midnight-nerd.svg"
+    "logoUrl": "/icons/plugins/xophz-compass-midnight-nerd.svg",
+    "showcaseUrl": "https://www.youmeos.com/u/?sparks=midnight-nerd&fullspark=true&name=Midnight+Nerd&icon=fal+fa-dice-d20&color=%238d105e",
+    "showcaseLabel": "Launch Spark",
+    "saasOffer": {
+      "headline": "24/7 ITSM Helpdesk & Architect Support Spark",
+      "audience": "Sovereign support ticketing system and interactive YouMeOS spark connecting users to senior technical architects.",
+      "badge": "Live Spark",
+      "url": "https://www.youmeos.com/u/?sparks=midnight-nerd&fullspark=true&name=Midnight+Nerd&icon=fal+fa-dice-d20&color=%238d105e"
+    }
   },
   {
     "key": "magic-cloak",
