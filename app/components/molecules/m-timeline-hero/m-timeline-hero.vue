@@ -3,33 +3,44 @@ import { useTimelineHeroController } from './m-timeline-hero.controller'
 import type { TimelineHeroProps } from './types'
 
 const props = withDefaults(defineProps<TimelineHeroProps>(), {
-  totalYears: 24,
-  totalRoles: 17,
-  activeVentures: 3
+  totalYears: 36,
+  totalRoles: 20,
+  activeVentures: 4
 })
 
 const { heroStats, canRenderHero } = useTimelineHeroController(props)
 </script>
 
 <template>
-  <header v-if="canRenderHero" class="m-timeline-hero pt-8 pb-4">
+  <header
+    v-if="canRenderHero"
+    class="m-timeline-hero pt-8 pb-4"
+  >
     <UContainer class="max-w-[1100px] w-full flex flex-col gap-6">
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-2">
-          <UBadge color="primary" variant="subtle" size="sm" class="font-mono">
+          <UBadge
+            color="primary"
+            variant="subtle"
+            size="sm"
+            class="font-mono"
+          >
             Chronological Archive
           </UBadge>
           <span class="text-xs text-zinc-500 dark:text-zinc-400">
-            2002 to Present
+            200X to Present
           </span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-display tracking-tight text-zinc-900 dark:text-zinc-50">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold font-display tracking-tight text-zinc-900 dark:text-zinc-50"
+        >
           Career <span class="xo-gradient-text">Timeline</span>
         </h1>
 
         <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-          Over two decades of systems architecture, enterprise cloud modernization, and sovereign venture engineering across 17 verified career milestones.
+          Over two decades of systems architecture, enterprise cloud modernization, and sovereign venture engineering
+          across {{ totalRoles }} verified career milestones.
         </p>
       </div>
 
@@ -56,5 +67,5 @@ const { heroStats, canRenderHero } = useTimelineHeroController(props)
 </template>
 
 <style scoped lang="scss">
-@use './m-timeline-hero';
+  @use './m-timeline-hero';
 </style>

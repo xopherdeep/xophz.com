@@ -44,7 +44,7 @@ export function useResumeData() {
     {
       group: "Agentic Systems & Architecture",
       items:
-        "Disciplined Atomic Design, Context-Isolated AI Agent Workflows, Prompt Architecture, Automated Self-Healing Runtimes.",
+        "Model Context Protocol (MCP), Agentic Evals & Behavioral Benchmarks, AST Hazard Linting, Deterministic Tool-Calling Runtimes, Context-Isolated Agent Workflows, Disciplined Atomic Design.",
     },
   ];
 
@@ -161,6 +161,11 @@ export function useResumeData() {
           title: "Next-Gen Spatial Computing",
           detail:
             "Engineered browser-based spatial operating system prototypes (YouMeOS), stress-testing WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.",
+        },
+        {
+          title: "Agentic AI & Quantum Architecture",
+          detail:
+            "Engineered Chemical X zero-hallucination agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across autonomous agent runtimes.",
         },
       ],
     },

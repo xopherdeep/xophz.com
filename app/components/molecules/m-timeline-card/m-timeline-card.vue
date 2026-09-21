@@ -10,23 +10,13 @@ const { companyInitials, hasCompanyLogo, isCurrentRole, hasSkills, canDisplayLin
 <template>
   <article
     class="m-timeline-card xo-card-glow rounded-2xl p-5 sm:p-6 bg-white dark:bg-white/[0.03] border backdrop-blur-xl flex flex-col gap-4"
-    :class="[
-      isCurrentRole
-        ? 'border-violet-500/40 dark:border-violet-500/30'
-        : 'border-zinc-200/80 dark:border-white/[0.06]'
-    ]"
+    :class="[isCurrentRole ? 'border-violet-500/40 dark:border-violet-500/30' : 'border-zinc-200/80 dark:border-white/[0.06]']"
   >
     <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
       <div class="flex items-start gap-3.5">
         <!-- Company Logo or Monogram -->
         <div class="m-timeline-card__logo bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200/60 dark:border-white/[0.08]">
-          <img
-            v-if="hasCompanyLogo"
-            :src="item.logoUrl!"
-            :alt="item.company"
-            class="w-full h-full object-contain p-1"
-            loading="lazy"
-          >
+          <img v-if="hasCompanyLogo" :src="item.logoUrl!" :alt="item.company" class="w-full h-full object-contain p-1" loading="lazy">
           <span v-else class="text-xs font-bold font-mono text-violet-600 dark:text-violet-400">
             {{ companyInitials }}
           </span>
@@ -51,6 +41,9 @@ const { companyInitials, hasCompanyLogo, isCurrentRole, hasSkills, canDisplayLin
 
             <UBadge v-if="isCurrentRole" color="primary" variant="subtle" size="xs">
               Active Venture
+            </UBadge>
+            <UBadge color="neutral" variant="subtle" size="xs" class="font-mono text-[10px]">
+              {{ item.engagementType }}
             </UBadge>
           </div>
 

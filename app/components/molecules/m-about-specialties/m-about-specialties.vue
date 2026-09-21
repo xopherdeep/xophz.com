@@ -3,7 +3,7 @@ import { useAboutSpecialtiesController } from './m-about-specialties.controller'
 
 const { specialtyItems, hasSpecialties } = useAboutSpecialtiesController()
 
-const specialtyColors = ['cyan', 'violet', 'amber', 'emerald']
+const specialtyColors = ['cyan', 'violet', 'fuchsia', 'amber', 'emerald']
 </script>
 
 <template>
@@ -32,9 +32,9 @@ const specialtyColors = ['cyan', 'violet', 'amber', 'emerald']
             <div
               class="w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110"
               :class="[
-                `bg-${specialtyColors[idx]}-500/10`,
-                `text-${specialtyColors[idx]}-600`,
-                `dark:text-${specialtyColors[idx]}-400`
+                `bg-${specialtyColors[idx % specialtyColors.length]}-500/10`,
+                `text-${specialtyColors[idx % specialtyColors.length]}-600`,
+                `dark:text-${specialtyColors[idx % specialtyColors.length]}-400`
               ]"
             >
               <UIcon :name="item.icon" class="w-6 h-6" />

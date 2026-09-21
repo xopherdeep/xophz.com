@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import type { TimelineFilterProps, TimelineFilterEmits, FilterCategoryOption } from './types'
+import type { TimelineViewMode } from '~/composables/useTimelineData'
 
 export function useTimelineFilterController(
   props: TimelineFilterProps,
@@ -17,7 +18,8 @@ export function useTimelineFilterController(
   // 2. Two-Stage Atomic Booleans
   const isDescending = computed(() => props.sortOrder === 'desc')
   const hasActiveQuery = computed(() => props.search.trim().length > 0)
-  const isFiltered = computed(() => hasActiveQuery.value || props.category !== 'All')
+  const isFeaturedMode = computed(() => props.viewMode === 'featured')
+  const isFiltered = computed(() => hasActiveQuery.value || props.category !== 'All' || isFeaturedMode.value)
 
   // 3. Helper Methods & Actions
   const selectCategory = (category: FilterCategoryOption) => {
@@ -29,6 +31,10 @@ export function useTimelineFilterController(
     emit('update:sortOrder', nextOrder)
   }
 
+  const setViewMode = (mode: TimelineViewMode) => {
+    emit('update:viewMode', mode)
+  }
+
   const onSearchChange = (query: string) => {
     emit('update:search', query)
   }
@@ -36,14 +42,17 @@ export function useTimelineFilterController(
   const clearFilters = () => {
     emit('update:search', '')
     emit('update:category', 'All')
+    emit('update:viewMode', 'all')
   }
 
   return {
     categoryOptions,
     isDescending,
+    isFeaturedMode,
     isFiltered,
     selectCategory,
     toggleSortOrder,
+    setViewMode,
     onSearchChange,
     clearFilters
   }

@@ -9,6 +9,14 @@ export type TimelineEraKey =
   | 'enterprise'
   | 'agency'
   | 'foundational'
+  | 'genesis'
+
+export type TimelineEngagementType =
+  | 'Venture Founder'
+  | 'Strategic Advisory'
+  | 'Enterprise Architecture'
+  | 'Client SOW'
+  | 'Foundational Tech'
 
 export interface TimelineEra {
   readonly key: TimelineEraKey
@@ -28,6 +36,8 @@ export interface TimelineItem {
   readonly url: string
   readonly logoUrl: string | null
   readonly isCurrent: boolean
+  readonly isFeatured: boolean
+  readonly engagementType: TimelineEngagementType
   readonly category: TimelineCategory
   readonly eraKey: TimelineEraKey
   readonly highlight: string
@@ -56,12 +66,36 @@ export const TIMELINE_ERAS: readonly TimelineEra[] = [
   {
     key: 'foundational',
     title: 'Foundational Systems & Hardware Engineering',
-    period: '2002 - 2004',
-    desc: 'Hardware diagnosis, network field engineering, and early commercial web design.'
+    period: '2001 - 2004',
+    desc: 'Campus IT leadership, hardware diagnosis, network field engineering, and early commercial web design.'
+  },
+  {
+    key: 'genesis',
+    title: 'Pre-Digital Showmanship & Illusion',
+    period: '1990 - 199X',
+    desc: 'Apprentice magician tenure, stage illusion, family state fair road tours, and foundational crowd psychology.'
   }
 ]
 
 export const timelineCatalog: readonly TimelineItem[] = [
+  {
+    id: 'chemical-x',
+    company: 'Chemical X',
+    role: 'Principal Agentic Architect & Author',
+    period: 'Jan 2026 - Present',
+    startDate: '2026-01',
+    endDate: null,
+    duration: '9+ mos',
+    url: 'https://chemicalx.xophz.com',
+    logoUrl: null,
+    isCurrent: true,
+    isFeatured: true,
+    engagementType: 'Venture Founder',
+    category: 'Founding & Advisory',
+    eraKey: 'sovereign',
+    highlight: 'Engineering Quantum Architecture standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites for zero-hallucination AI software development.',
+    skills: ['Agentic Systems', 'Model Context Protocol (MCP)', 'Quantum Architecture', 'AST Linting', 'Deterministic Tooling']
+  },
   {
     id: 'worldwide-webwork',
     company: 'Worldwide Webwork',
@@ -73,6 +107,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.worldwidewebwork.com',
     logoUrl: null,
     isCurrent: true,
+    isFeatured: true,
+    engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
     highlight: 'Architecting decentralized hyper-cube node topology and sovereign web protocols connecting modern distributed nodes.',
@@ -89,6 +125,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.mycompassconsulting.com',
     logoUrl: null,
     isCurrent: true,
+    isFeatured: true,
+    engagementType: 'Strategic Advisory',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
     highlight: 'Bespoke systems architecture advisory, enterprise legacy monolith modernization, and 40+ modular production extensions.',
@@ -105,6 +143,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.hallofthegods.com',
     logoUrl: null,
     isCurrent: true,
+    isFeatured: true,
+    engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
     highlight: 'Foundational parent holding entity providing sovereign governance, technical direction, and infrastructure across platform ventures.',
@@ -121,6 +161,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.vi.co',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/32117ab5-b097-4c27-b7fe-8d72192919da.png',
     isCurrent: false,
+    isFeatured: true,
+    engagementType: 'Enterprise Architecture',
     category: 'Enterprise Systems',
     eraKey: 'enterprise',
     highlight: 'Enterprise transition to containerized AWS and Kubernetes platforms, automated SRE pipelines, and 99.99% uptime delivery.',
@@ -137,6 +179,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://maddenmedia.com',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/dbaf77ba-fc7e-4896-b5ab-1f11877cc473.png',
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Enterprise Architecture',
     category: 'Software Engineering',
     eraKey: 'enterprise',
     highlight: 'Designed and deployed high-performance responsive web applications, interactive visual tools, and destination marketing platforms.',
@@ -153,6 +197,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://midnightnerd.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Client SOW',
     category: 'Founding & Advisory',
     eraKey: 'enterprise',
     highlight: 'Specialized digital engineering agency delivering tailored software development, systems integration, and cloud management.',
@@ -169,6 +215,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.trackingfirst.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Enterprise Architecture',
     category: 'Software Engineering',
     eraKey: 'enterprise',
     highlight: 'Automated digital analytics governance, real-time campaign parameter validation, and enterprise integration workflows.',
@@ -185,7 +233,9 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.jdmellbergfinancial.com',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/e53c23ce-3059-4754-bc30-e0cfd92c0b2e.png',
     isCurrent: false,
-    category: 'Software Engineering',
+    isFeatured: true,
+    engagementType: 'Enterprise Architecture',
+    category: 'Enterprise Systems',
     eraKey: 'enterprise',
     highlight: 'Engineered high-throughput financial lead parsing pipelines, secure CRM integrations, and data validation layers saving $1.2M annually.',
     skills: ['Financial Systems', 'Data Pipelines', 'Security Compliance', 'Database Architecture']
@@ -201,6 +251,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.simpleviewinc.com',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/44fa9a9f-891a-45f4-9803-9f1aa1c12451.png',
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Client SOW',
     category: 'Software Engineering',
     eraKey: 'agency',
     highlight: 'Enterprise CMS module development for destination marketing organizations, custom APIs, and high-traffic portal integrations.',
@@ -217,6 +269,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://hitechcomputers.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'agency',
     highlight: 'Advanced hardware component diagnostics, enterprise workstation configurations, and network troubleshooting.',
@@ -233,6 +287,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://acs.tucsonerd.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'agency',
     highlight: 'Founded and operated on-site computer repair and tech services following tenure at ACR, providing diagnostic repairs, small business network infrastructure, and system recovery.',
@@ -249,7 +305,9 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://verticalassessment.com',
     logoUrl: null,
     isCurrent: false,
-    category: 'Software Engineering',
+    isFeatured: false,
+    engagementType: 'Enterprise Architecture',
+    category: 'Enterprise Systems',
     eraKey: 'agency',
     highlight: 'Engineered web-based assessment reporting platforms, relational schema design, and automated survey calculation tools.',
     skills: ['Web Applications', 'Relational Databases', 'Report Generation']
@@ -265,6 +323,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://affordablecomputerrepair.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
     highlight: 'On-site enterprise and consumer network installations, hardware repair, and system restoration across southern Arizona.',
@@ -281,6 +341,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://todaysgraphics.com',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Client SOW',
     category: 'Software Engineering',
     eraKey: 'foundational',
     highlight: 'Digital vector illustration, graphic identity creation, and standards-compliant early commercial web layouts.',
@@ -297,6 +359,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://en.wikipedia.org/wiki/EMachines',
     logoUrl: null,
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
     highlight: 'Factory-certified computer bench diagnostics, OEM motherboard repair, and high-volume hardware troubleshooting.',
@@ -313,6 +377,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.microsoft.com',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/59c7de16-7b30-4412-b62d-cc65f7959735.png',
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
     highlight: 'Windows environment diagnostics, client workstation troubleshooting, and operating system registry optimizations.',
@@ -329,9 +395,47 @@ export const timelineCatalog: readonly TimelineItem[] = [
     url: 'https://www.yahoo.com',
     logoUrl: 'https://companies-data-service-static-production.alphasights.com/logos/419e0836-8449-435d-96dc-f93f8d9ef494.png',
     isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
     highlight: 'Early broadband DSL connectivity configuration, dialup gateway routing, and technical client support during Web 1.0 expansion.',
     skills: ['DSL & Broadband', 'Network Gateways', 'TCP/IP', 'Client Support']
+  },
+  {
+    id: 'southern-arizona-community-academy',
+    company: 'Southern Arizona Community Academy',
+    role: 'Lead Student IT Technician',
+    period: 'Aug 2000 - May 2001',
+    startDate: '2000-08',
+    endDate: '2001-05',
+    duration: '10 mos',
+    url: 'https://saca-az.org',
+    logoUrl: null,
+    isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
+    category: 'Infrastructure & Tech',
+    eraKey: 'foundational',
+    highlight: 'Early graduation tenure managing campus hardware diagnostics, local area network maintenance, lab workstation deployment, and faculty technical support.',
+    skills: ['Campus IT Support', 'Workstation Deployment', 'Hardware Diagnostics', 'LAN Infrastructure', 'System Maintenance']
+  },
+  {
+    id: 'showplace-novelty-magic',
+    company: 'Showplace Novelty & Magic',
+    role: 'Apprentice Magician & Demonstrator',
+    period: '1990 - 199X',
+    startDate: '1990-01',
+    endDate: '1998-05',
+    duration: '8+ yrs',
+    url: '',
+    logoUrl: null,
+    isCurrent: false,
+    isFeatured: false,
+    engagementType: 'Foundational Tech',
+    category: 'Infrastructure & Tech',
+    eraKey: 'genesis',
+    highlight: 'Apprentice magician and novelty demonstrator at family magic shop in Salt Lake City, touring regional state fairs, mastering sleight of hand, stage mechanics, and crowd psychology.',
+    skills: ['Stage Magic', 'Sleight of Hand', 'Crowd Psychology', 'Demonstration Sales', 'Live Performance']
   }
 ]

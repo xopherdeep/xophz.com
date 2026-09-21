@@ -6,17 +6,17 @@ export function useTimelineHeroController(props: TimelineHeroProps) {
   const heroStats = computed<TimelineHeroStat[]>(() => [
     {
       label: "Career Span",
-      value: `${props.totalYears ?? 25}+ Years`,
-      subtitle: "2002 - Present",
+      value: `${props.totalYears ?? 36}+ Years`,
+      subtitle: "200X - Present",
     },
     {
       label: "Verified Positions",
-      value: `${props.totalRoles ?? 17} Roles`,
+      value: `${props.totalRoles ?? 20} Roles`,
       subtitle: "Corporate & Founding",
     },
     {
       label: "Active Ventures",
-      value: `${props.activeVentures ?? 3} Active`,
+      value: `${props.activeVentures ?? 4} Active`,
       subtitle: "Concurrent Leadership",
     },
   ]);

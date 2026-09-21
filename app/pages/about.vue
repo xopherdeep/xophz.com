@@ -2,8 +2,8 @@
 useSeoMeta({
   title: 'About · Xopher (XP) Pollard',
   ogTitle: 'About · Xopher (XP) Pollard',
-  description: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, enterprise scalability, and sovereign digital infrastructure.',
-  ogDescription: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, enterprise scalability, and sovereign digital infrastructure.',
+  description: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
+  ogDescription: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
 })
 </script>
 

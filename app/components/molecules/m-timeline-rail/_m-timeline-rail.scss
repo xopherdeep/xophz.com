@@ -1,0 +1,33 @@
+.m-timeline-rail {
+  position: relative;
+  width: 100%;
+
+  &__tree-container {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.3);
+      border-radius: 9999px;
+    }
+  }
+
+  &__branch {
+    border-radius: 12px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  &__node-btn {
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+      transform: translateX(2px);
+    }
+  }
+}

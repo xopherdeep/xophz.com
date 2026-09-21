@@ -5,11 +5,11 @@ export function useTimelineStreamController(props: TimelineStreamProps) {
   // 1. Two-Stage Atomic Booleans
   const hasItems = computed(() => props.items.length > 0)
   const isEmpty = computed(() => !hasItems.value)
-  const itemCount = computed(() => props.items.length)
+  const hasEraGroups = computed(() => Boolean(props.eraGroups && props.eraGroups.length > 0))
 
   return {
     hasItems,
     isEmpty,
-    itemCount
+    hasEraGroups
   }
 }

@@ -1,4 +1,9 @@
+import { fileURLToPath } from 'node:url'
+
 export default defineNuxtConfig({
+  alias: {
+    uqr: fileURLToPath(new URL('./node_modules/.pnpm/uqr@0.1.3/node_modules/uqr/dist/index.mjs', import.meta.url))
+  },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: [

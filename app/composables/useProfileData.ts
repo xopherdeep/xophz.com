@@ -3,7 +3,7 @@ export const useProfileData = () => {
     name: 'Xopher (XP) Pollard',
     title: "Principal Systems Synthesist · Architect · Artist · Polymath",
     tagline:
-      "25+ years architecting sovereign digital infrastructure, modernizing legacy monoliths, and scaling enterprise systems for visionary founders.",
+      "25+ years architecting sovereign digital infrastructure, agentic AI systems, and enterprise platforms for visionary founders.",
     avatar: "/xp_headshot.webp",
     headshot: "/xopher_jester.webp",
     siteLabel: "xophz.com",
@@ -11,6 +11,8 @@ export const useProfileData = () => {
 
   const skillTags = [
     "Principal Systems Synthesist",
+    "Agentic AI Architecture",
+    "Model Context Protocol (MCP)",
     "Legacy Modernization",
     "Sovereign Infrastructure",
     "AWS & Cloud Systems",
@@ -90,6 +92,12 @@ export const useProfileData = () => {
 
   const specialties = [
     {
+      key: "agentic",
+      title: "Agentic AI & Quantum Architecture",
+      icon: "i-lucide-cpu",
+      desc: "Architecting zero-hallucination agentic runtimes, Model Context Protocol (MCP) servers, AST hazard linting, and automated evaluation harnesses.",
+    },
+    {
       key: "modernize",
       title: "Legacy Modernization",
       icon: "i-lucide-zap",
@@ -116,6 +124,15 @@ export const useProfileData = () => {
   ];
 
   const skills = [
+    {
+      group: "Agentic & AI Systems",
+      items: [
+        "Model Context Protocol (MCP)",
+        "Agentic Evals & Benchmarks",
+        "AST Hazard Linting",
+        "Deterministic Tool Runtimes",
+      ],
+    },
     {
       group: "Architecture",
       items: [
@@ -301,11 +318,11 @@ export const useProfileData = () => {
       color: "#06b6d4",
       links: [
         {
-          id: "link-resume",
-          label: "Executive Resume (CV)",
-          href: "/resume",
-          color: "#8b5cf6",
-          icon: "i-lucide-file-badge",
+          id: "link-github",
+          label: "GitHub",
+          href: "https://github.com/xopherdeep",
+          color: "#e4e4e7",
+          icon: "i-lucide-github",
         },
         {
           id: "link-compass",
@@ -330,11 +347,11 @@ export const useProfileData = () => {
       color: "#a855f7",
       links: [
         {
-          id: "link-github",
-          label: "XopherDeep (GitHub)",
-          href: "https://github.com/xopherdeep",
+          id: "link-twitter",
+          label: "X / Twitter",
+          href: "https://twitter.com/xopherdeep",
           color: "#e4e4e7",
-          icon: "i-lucide-github",
+          icon: "i-lucide-twitter",
         },
         {
           id: "link-realmajorad",
@@ -359,11 +376,11 @@ export const useProfileData = () => {
       color: "#f59e0b",
       links: [
         {
-          id: "link-twitter",
-          label: "X / Twitter",
-          href: "https://twitter.com/xopherdeep",
-          color: "#e4e4e7",
-          icon: "i-lucide-twitter",
+          id: "link-paypal",
+          label: "PayPal",
+          href: "https://www.paypal.com/biz/profile/xophz",
+          color: "#0070BA",
+          icon: "i-lucide-credit-card",
         },
         {
           id: "link-cash",

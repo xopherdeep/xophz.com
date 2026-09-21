@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import MCommandBar from '~/components/molecules/m-command-bar/m-command-bar.vue'
+import { MQrdModal } from '~/components/molecules/m-qrd-modal'
+
+const { isOpen, closeQrd } = useQrdModal()
 </script>
 
 <template>
@@ -22,5 +25,8 @@ import MCommandBar from '~/components/molecules/m-command-bar/m-command-bar.vue'
     >
       <MCommandBar />
     </aside>
+
+    <!-- Global Q'rd Digital Business Card Modal -->
+    <MQrdModal :is-open="isOpen" @close="closeQrd" />
   </div>
 </template>

@@ -14,9 +14,9 @@ import { useResumeData } from '~/composables/useResumeData'
 
 useSeoMeta({
   title: 'Resume · Xopher (XP) Pollard',
-  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, sovereign infrastructure, and spatial web platforms.',
+  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
   ogTitle: 'Resume · Xopher (XP) Pollard',
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, self-healing platforms.',
+  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
 })
 
 const { competencies, flagshipApps, experience } = useResumeData()
@@ -32,7 +32,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
       <!-- Executive Profile Section -->
       <ResumeSection title="Executive Profile" :icon="LucideTerminal" badge="25+ Years Experience">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          A results-driven Principal Systems Architect and Practice Lead with over 25 years of experience designing, modernizing, and orchestrating mission-critical distributed infrastructure. Proven track record deploying automated, multi-tenant cloud and edge networks supporting 25+ production platforms processing 160,000+ aggregate monthly requests with 99.99% availability. Deep technical authority across Kubernetes, Infrastructure as Code (Terraform), event-driven streaming pipelines, sovereign protocol design (w4 Protocol), and modern browser-based spatial rendering engines (WebGPU). Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, self-healing platforms.
+          A results-driven Principal Systems Architect and Practice Lead with over 25 years of experience designing, modernizing, and orchestrating mission-critical distributed infrastructure. Proven track record deploying automated, multi-tenant cloud and edge networks supporting 25+ production platforms processing 160,000+ aggregate monthly requests with 99.99% availability. Deep technical authority across Kubernetes, Infrastructure as Code (Terraform), event-driven streaming pipelines, Model Context Protocol (MCP) agentic architectures, sovereign protocol design (w4 Protocol), and modern browser-based spatial rendering engines (WebGPU). Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, self-healing platforms.
         </p>
       </ResumeSection>
 

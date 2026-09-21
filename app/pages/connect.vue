@@ -9,6 +9,8 @@ useSeoMeta({
   ogDescription: 'Get in touch with Xopher (XP) Pollard. Book a meeting, find social profiles, or reach out directly.',
 })
 
+const { openQrd } = useQrdModal()
+
 const { data: recentPosts } = await useAsyncData('recent-posts-connect', () =>
   queryCollection('posts').order('date', 'DESC').limit(3).all()
 )
@@ -27,25 +29,42 @@ const formatShortDate = (raw: string) =>
         meta-text="Advisory, Architecture & Inquiries"
         glow-primary="violet"
         glow-secondary="cyan"
-        :primary-action="{
-          label: 'Book Consultation',
-          to: 'https://calendar.app.google/Y732Ak5gxuCMVoHo8',
-          target: '_blank',
-          color: 'primary',
-          variant: 'solid',
-          icon: 'i-lucide-calendar',
-          class: 'shadow-glow-violet'
-        }"
-        :secondary-action="{
-          label: 'Executive Resume',
-          to: '/resume',
-          color: 'neutral',
-          variant: 'outline',
-          trailingIcon: 'i-lucide-arrow-right'
-        }"
       >
         <template #description>
           Schedule an executive systems consultation, discuss sovereign infrastructure, or connect across our digital networks.
+        </template>
+        <template #actions>
+          <UButton
+            to="https://calendar.app.google/Y732Ak5gxuCMVoHo8"
+            target="_blank"
+            color="primary"
+            variant="solid"
+            size="md"
+            icon="i-lucide-calendar"
+            class="shadow-glow-violet justify-center"
+          >
+            Book Consultation
+          </UButton>
+          <UButton
+            color="primary"
+            variant="soft"
+            size="md"
+            icon="i-lucide-qr-code"
+            class="justify-center"
+            @click="openQrd"
+          >
+            My Q'rd
+          </UButton>
+          <UButton
+            to="/resume"
+            color="neutral"
+            variant="outline"
+            size="md"
+            trailing-icon="i-lucide-arrow-right"
+            class="justify-center"
+          >
+            Executive Resume
+          </UButton>
         </template>
       </OPageHero>
 

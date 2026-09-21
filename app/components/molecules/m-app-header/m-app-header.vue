@@ -55,18 +55,9 @@ const { navItems, isOpen, closeMenu } = useAppHeaderController()
           </NuxtLink>
         </nav>
 
-        <!-- Bottom Connect Button -->
+        <!-- Bottom Action Buttons -->
         <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80 mt-auto shrink-0">
-          <UButton
-            to="/connect"
-            color="primary"
-            variant="solid"
-            size="xl"
-            icon="i-lucide-mail"
-            block
-            class="shadow-glow-violet py-3.5 text-base font-semibold justify-center"
-            @click="closeMenu"
-          >
+          <UButton to="/connect" color="primary" variant="solid" size="xl" icon="i-lucide-mail" block class="shadow-glow-violet py-3.5 text-base font-semibold justify-center" @click="closeMenu">
             Connect
           </UButton>
         </div>
