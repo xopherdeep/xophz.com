@@ -6,13 +6,16 @@ export function useFeaturedProjectsController() {
   const { projects } = useProfileData()
 
   const featuredList = computed<FeaturedProjectItem[]>(() =>
-    projects.slice(0, 6).map(p => ({
-      name: p.name,
-      desc: p.desc,
-      tag: p.tag,
-      url: p.url,
-      color: p.color
-    }))
+    projects
+      .filter(p => p.tier === 'engineering')
+      .slice(0, 6)
+      .map(p => ({
+        name: p.name,
+        desc: p.desc,
+        tag: p.tag,
+        url: p.url,
+        color: p.color
+      }))
   )
 
   const hasProjects = computed(() => featuredList.value.length > 0)

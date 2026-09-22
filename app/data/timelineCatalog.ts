@@ -17,6 +17,7 @@ export type TimelineEngagementType =
   | 'Enterprise Architecture'
   | 'Client SOW'
   | 'Foundational Tech'
+  | 'Family Venture'
 
 export interface TimelineEra {
   readonly key: TimelineEraKey
@@ -432,8 +433,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     logoUrl: null,
     isCurrent: false,
     isFeatured: false,
-    engagementType: 'Foundational Tech',
-    category: 'Infrastructure & Tech',
+    engagementType: 'Family Venture',
+    category: 'Founding & Advisory',
     eraKey: 'genesis',
     highlight: 'Apprentice magician and novelty demonstrator at family magic shop in Salt Lake City, touring regional state fairs, mastering sleight of hand, stage mechanics, and crowd psychology.',
     skills: ['Stage Magic', 'Sleight of Hand', 'Crowd Psychology', 'Demonstration Sales', 'Live Performance']

@@ -1,4 +1,4 @@
-export interface PersonaItem {
+export interface CreativeExplorationItem {
   readonly key: string
   readonly name: string
   readonly subtitle: string
@@ -7,5 +7,4 @@ export interface PersonaItem {
   readonly desc: string
   readonly link: string
   readonly linkLabel: string
-  readonly group?: string
 }

@@ -7,7 +7,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
 <template>
   <section
     v-if="canDisplayHero"
-    class="m-hero-banner relative py-16 md:py-28 overflow-hidden"
+    class="m-hero-banner relative pt-12 md:pt-16 pb-6 md:pb-10 overflow-hidden"
   >
     <!-- Gradient mesh background -->
     <div

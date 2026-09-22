@@ -1,18 +1,19 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Xopher (XP) Pollard · Principal Systems Synthesist',
+  title: 'Xopher (XP) Pollard · Principal Systems Architect',
   ogTitle: 'xophz · Xopher (XP) Pollard',
   twitterTitle: 'xophz · Xopher (XP) Pollard',
-  description: 'Principal Systems Synthesist, Architect & Polymath. 25+ years building distributed cloud platforms, agentic AI systems, and sovereign infrastructure.',
-  ogDescription: 'Principal Systems Synthesist, Architect & Polymath. 25+ years building distributed cloud platforms, agentic AI systems, and sovereign infrastructure.',
-  twitterDescription: 'Principal Systems Synthesist, Architect & Polymath. 25+ years building distributed cloud platforms, agentic AI systems, and sovereign infrastructure.',
+  description: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
+  ogDescription: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
+  twitterDescription: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
 })
 </script>
 
 <template>
-  <div class="w-full flex flex-col">
+  <div class="w-full flex flex-col gap-6 md:gap-12">
     <MHeroBanner />
     <MFeatureStrip />
     <MFeaturedProjects />
+    <MCreativeStrip />
   </div>
 </template>

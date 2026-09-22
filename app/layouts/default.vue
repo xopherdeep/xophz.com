@@ -13,7 +13,7 @@ const { isOpen, closeQrd } = useQrdModal()
     <div class="xo-ambient-orb xo-ambient-orb--amber" aria-hidden="true" />
 
     <MAppHeader />
-    <UMain class="flex-1 flex flex-col w-full relative z-10 pb-8">
+    <UMain class="flex-1 flex flex-col w-full relative z-10 pb-28 md:pb-36">
       <slot />
     </UMain>
     <MAppFooter />

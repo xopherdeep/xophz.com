@@ -8,13 +8,16 @@ const statColors = ['violet', 'cyan', 'emerald', 'amber']
 </script>
 
 <template>
-  <section v-if="hasStats" class="m-feature-strip py-10">
-    <UContainer class="max-w-4xl">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <section
+    v-if="hasStats"
+    class="m-feature-strip pt-2 pb-10 md:pb-14"
+  >
+    <UContainer class="max-w-6xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4">
         <div
           v-for="(stat, idx) in featureStats"
           :key="stat.label"
-          class="xo-card-glow xo-shine-on-hover group rounded-2xl p-5 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl text-center transition-all duration-300 animate-ios-spring"
+          class="xo-card-glow xo-shine-on-hover group rounded-2xl p-5 md:p-4 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl text-center transition-all duration-300 animate-ios-spring"
           :style="{ animationDelay: `${200 + idx * 35}ms` }"
         >
           <div class="flex items-center justify-center mb-3">
@@ -26,10 +29,14 @@ const statColors = ['violet', 'cyan', 'emerald', 'amber']
                 `dark:text-${statColors[idx]}-400`
               ]"
             >
-              <UIcon :name="statIcons[idx]" class="w-5 h-5" />
+              <UIcon
+                :name="statIcons[idx]"
+                class="w-5 h-5"
+              />
             </div>
           </div>
-          <p class="text-2xl sm:text-3xl font-bold font-display text-zinc-900 dark:text-zinc-50 mb-1 xo-gradient-text">
+          <p
+            class="text-xl sm:text-2xl md:text-3xl font-bold font-display text-zinc-900 dark:text-zinc-50 mb-1 xo-gradient-text">
             {{ stat.value }}
           </p>
           <p class="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 font-body">
@@ -42,5 +49,5 @@ const statColors = ['violet', 'cyan', 'emerald', 'amber']
 </template>
 
 <style scoped lang="scss">
-@use './m-feature-strip';
+  @use './m-feature-strip';
 </style>

@@ -5,19 +5,19 @@ const { featuredList, hasProjects } = useFeaturedProjectsController()
 </script>
 
 <template>
-  <section v-if="hasProjects" class="m-featured-projects py-14">
+  <section v-if="hasProjects" class="m-featured-projects pt-8 pb-16 md:pt-12 md:pb-24">
     <UContainer class="max-w-4xl">
       <!-- Section Header -->
       <div
-        class="flex items-center justify-between mb-8 animate-ios-spring"
+        class="flex items-center justify-between mb-10 animate-ios-spring"
         :style="{ animationDelay: '260ms' }"
       >
         <div>
           <h2 class="text-xl sm:text-2xl font-bold font-display text-zinc-900 dark:text-zinc-50">
-            Selected Works
+            Engineering Labs &amp; Systems R&amp;D
           </h2>
           <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-            Infrastructure platforms, spatial computing engines, and sovereign tools.
+            Distributed platforms, low-latency spatial engines, and deterministic AI runtimes.
           </p>
         </div>
         <UButton
@@ -33,11 +33,11 @@ const { featuredList, hasProjects } = useFeaturedProjectsController()
       </div>
 
       <!-- Project Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
         <div
           v-for="(proj, idx) in featuredList"
           :key="proj.name"
-          class="xo-shine-on-hover group rounded-2xl p-5 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl transition-all duration-300 hover:border-[color:var(--proj-color)]/40 dark:hover:border-[color:var(--proj-color)]/40 hover:shadow-[0_8px_32px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 flex flex-col justify-between animate-ios-spring"
+          class="xo-shine-on-hover group rounded-2xl p-6 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl transition-all duration-300 hover:border-[color:var(--proj-color)]/40 dark:hover:border-[color:var(--proj-color)]/40 hover:shadow-[0_8px_32px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 flex flex-col justify-between animate-ios-spring"
           :style="{ '--proj-color': proj.color || '#8b5cf6', animationDelay: `${300 + idx * 35}ms` }"
         >
           <div class="flex flex-col gap-3">
