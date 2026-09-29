@@ -57,81 +57,18 @@ export function useResumeData() {
       url: "https://www.youmeos.com",
     },
     {
+      name: "Chemical X",
+      category: "Agentic AI & Architectural Standards",
+      tagline: "Engineering Standards for Deterministic AI Coding",
+      desc: "Architectural standards specification and AST hazard linter for deterministic, zero-regression agentic software development and tool-calling execution.",
+      url: "https://chemicalx.xophz.com",
+    },
+    {
       name: "My Compass Consulting & Software Suite",
       category: "Enterprise Systems & Architecture Advisory",
       tagline: "Strategic Systems Synthesis & Bespoke Software Engine",
       desc: "High-stakes technology advisory, enterprise legacy monolith modernization, and bespoke modular software engine engineered on rigid Atomic Design principles.",
       url: "https://www.mycompassconsulting.com",
-    },
-    {
-      name: "Chemical X",
-      category: "Agentic AI & Quantum Architecture",
-      tagline: "Engineering Standards for Zero-Hallucination AI Coding",
-      desc: "Quantum Architecture and engineering standards specification for zero-hallucination agentic software development, AST hazard linter, and architectural benchmarks.",
-      url: "https://chemicalx.xophz.com",
-    },
-    {
-      name: "Do It for the XP",
-      category: "Gamification & Productivity Engine",
-      tagline: "Gamified Progression & Real-World RPG Mechanics",
-      desc: "A gamified progression engine translating real-world grinds, productivity goals, and executive habits into tangible, rewarding RPG game mechanics.",
-      url: "https://doit.forthexp.com",
-    },
-    {
-      name: "BlackBOX WhiteGLOVE",
-      category: "Managed Concierge Infrastructure",
-      tagline: "Managed Sovereign Cloud Deployments",
-      desc: "Proprietary sovereign infrastructure paired with premium concierge digital management, deploying resilient BlackBOX nodes and high-stakes systems advisory for visionary founders.",
-      url: "https://www.blackboxwhiteglove.com",
-    },
-    {
-      name: "BlackBOX Sovereign DIY Nodes",
-      category: "Sovereign Infrastructure Hardware",
-      tagline: "Self-Healing Bare-Metal Server Nodes",
-      desc: "Proprietary sovereign server nodes and Builder Blocks featuring automated self-healing runtimes, multi-tenant container orchestration, and zero-dependency bare-metal efficiency.",
-      url: "https://www.buildablox.com",
-    },
-    {
-      name: "w⁴ Hyper-cube Protocol",
-      category: "Decentralized Networking Topology",
-      tagline: "Sovereign Hyper-cube Node Protocol",
-      desc: "Decentralized sovereign networking protocol and federated node topology anchoring the Worldwide Webwork without monolithic cloud vendor lock-in.",
-      url: "https://www.worldwidewebwork.com",
-    },
-    {
-      name: "My Remarkably Organized Planner Wizard",
-      category: "Workflow & Productivity Instrument",
-      tagline: "Enterprise Daily Planning & Digital Onboarding",
-      desc: "Comprehensive digital planning instrument and onboarding ecosystem designed to bring structural integrity, automated clarity, and rigid validation to mission-critical daily workflows.",
-      url: "https://planner.mycompassconsulting.com",
-    },
-    {
-      name: "GlowitheFlow",
-      category: "Creator Economics & Social Platform",
-      tagline: "Flow Economy & Mutual Promotion Mechanics",
-      desc: "A next-generation creator network engineered on mutual promotion economics, flow economy dynamics, and gamified engagement value.",
-      url: "https://www.glowitheflow.com",
-    },
-    {
-      name: "Sacred Realm",
-      category: "Sovereign Community & Cultural Nexus",
-      tagline: "Transformative Art & Decentralized Connection",
-      desc: "A sovereign digital space dedicated to transformative creative expression, deep worldbuilding lore, and decentralized connection for visionary creators.",
-      url: "https://www.sacredrealm.org",
-    },
-    {
-      name: "Hall of the Gods, Inc.",
-      category: "Parent Holding & Webwork Umbrella",
-      tagline: "Sovereign Digital Webwork & Ecosystem Hub",
-      desc: "The foundational parent holding company and protective ecosystem hub providing sovereign governance, technical direction, and infrastructure across all ventures.",
-      url: "https://www.hallofthegods.com",
-    },
-    {
-      name: "Triforce of the Gods",
-      category: "Architectural Framework & Systems Lore",
-      tagline: "Sacred Systems Architecture & First Principles",
-      desc: "Philosophical and architectural framework bridging sacred geometry, systems synthesis, and decentralized web mechanics into a unified system for creation.",
-      url: "https://www.triforceofthegods.com",
     },
   ];
 
@@ -150,7 +87,7 @@ export function useResumeData() {
         {
           title: "Sovereign Systems & Platform Engineering",
           detail:
-            "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes and developer utilities), reducing ongoing maintenance overhead by 80%.",
+            "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes and developer utilities), reducing ongoing maintenance overhead by 75%.",
         },
         {
           title: "B2B Systems Advisory",
@@ -196,7 +133,7 @@ export function useResumeData() {
       role: "Senior Software Architect (Data-Intensive Systems)",
       company: "J.D. Mellberg Financial / Tracking First",
       location: "Tucson, AZ",
-      period: "08/2015 - 10/2019",
+      period: "06/2015 - 10/2019",
       bullets: [
         {
           title: "High-Throughput Ingestion",

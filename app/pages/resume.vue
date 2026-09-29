@@ -75,10 +75,10 @@ const { competencies, flagshipApps, experience } = useResumeData()
         <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
 
-      <!-- Applied Academic Equivalency -->
-      <ResumeSection title="Applied Academic Equivalency &amp; Verification" :icon="LucideAward">
+      <!-- Production Experience & Verification -->
+      <ResumeSection title="Production Experience &amp; Verification" :icon="LucideAward">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300">
-          25+ years of self-directed technical mastery, production systems architecture, and distributed platform design meeting and exceeding formal academic requirements for an advanced degree in Computer Science. Consulting and corporate records verifiable via IRS filings, state corporate registries, and client delivery attestations.
+          25 years of self-directed technical mastery, production systems architecture, and distributed platform design. Consulting and corporate records verifiable upon request.
         </p>
       </ResumeSection>
 

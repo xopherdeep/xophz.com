@@ -397,20 +397,6 @@ export const useProfileData = () => {
           color: "#0070BA",
           icon: "i-lucide-credit-card",
         },
-        {
-          id: "link-cash",
-          label: "Cash App",
-          href: "https://cash.app/$xopherdeep",
-          color: "#00D632",
-          icon: "i-lucide-banknote",
-        },
-        {
-          id: "link-venmo",
-          label: "Venmo",
-          href: "https://venmo.com/u/xopherdeep",
-          color: "#008CFF",
-          icon: "i-lucide-banknote",
-        },
       ],
     },
   ];

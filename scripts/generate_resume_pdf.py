@@ -239,14 +239,12 @@ class ResumeBuilder:
 
         self.y = max(y1, y2) + 2.0
 
-        # 3. FLAGSHIP APPLICATIONS & SOVEREIGN PLATFORMS DEVELOPED
-        self.render_section_title("FLAGSHIP APPLICATIONS & SOVEREIGN PLATFORMS DEVELOPED")
+        # 3. FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED
+        self.render_section_title("FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED")
         apps = [
-            ("YouMeOS (Spatial Web Operating System):", "Architected browser-based spatial OS using Vue 3 and WebGPU rendering pipelines (HeliOS, NexOS, NoOSphere) for dense volumetric 3D information spaces with native frame stability."),
-            ("COMPASS Engine & Sparks Platform:", "Designed bespoke personal application platform and unified tool ecosystem (CRM, quest logs, analytics) built on rigid Atomic Design with zero-latency local execution."),
-            ("BlackBOX & w4 Protocol:", "Engineered sovereign proprietary server infrastructure nodes with automated self-healing runtimes, multi-tenant container orchestration, and w4 hyper-cube distributed protocol."),
-            ("My Remarkably Organized Planner Wizard:", "Built enterprise digital planning tool and automated onboarding ecosystems providing structural clarity and validation to mission-critical daily workflows."),
-            ("Do It For The XP & GlowtheFlow:", "Created gamified productivity progression engines and creator mutual promotion networks featuring decentralized engagement mechanics and flow economics.")
+            ("YouMeOS (Spatial Web Operating System):", "Architected browser-based spatial OS using Vue 3 and WebGPU rendering pipelines for dense volumetric 3D information spaces with steady 60 FPS performance."),
+            ("Chemical X (Agentic AI & Engineering Standards):", "Engineered architectural standards specification and AST hazard linter for deterministic, zero-regression agentic software development and tool-calling execution."),
+            ("My Compass Consulting & Software Suite:", "High-stakes technology advisory, enterprise legacy monolith modernization, and bespoke modular software engine engineered on rigid Atomic Design principles.")
         ]
         for lead, body in apps:
             self.render_bullet(lead, body, font_str="Liberation Sans 7.0", space_below=1.0)
@@ -263,7 +261,7 @@ class ResumeBuilder:
         )
         r1_bullets = [
             ("Federated Network Operations:", "Architected, deployed, and manage multi-tenant edge infrastructure spanning 25+ active production web platforms, routing 160,000+ monthly requests with automated edge caching and 99.99% uptime."),
-            ("Sovereign Systems & Platform Engineering:", "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes), reducing ongoing maintenance overhead by 60%."),
+            ("Sovereign Systems & Platform Engineering:", "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes), reducing ongoing maintenance overhead by 75%."),
             ("B2B Systems Advisory:", "Directed technical infrastructure engagements for commercial clients, conducting full-stack architecture audits, eliminating DNS and data bottlenecks, and migrating on-prem setups into secure cloud environments."),
             ("Next-Gen Spatial Computing:", "Engineered browser-based spatial OS prototypes (YouMeOS), stress-testing WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.")
         ]
@@ -274,7 +272,7 @@ class ResumeBuilder:
         # Role 2
         self.render_role_header(
             "Principal Systems Architect & Cloud Modernization Lead",
-            "Keyence Corporation • Enterprise Modernization",
+            "Vi • Enterprise Cloud Modernization",
             "12/2021 - 01/2026"
         )
         r2_bullets = [
@@ -300,12 +298,11 @@ class ResumeBuilder:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.95", space_below=0.8)
         self.y += 2.0
 
-        # 5. APPLIED ACADEMIC EQUIVALENCY & VERIFICATION
-        self.render_section_title("APPLIED ACADEMIC EQUIVALENCY & VERIFICATION")
+        # 5. PRODUCTION EXPERIENCE & VERIFICATION
+        self.render_section_title("PRODUCTION EXPERIENCE & VERIFICATION")
         equiv_text = (
-            "25+ years of self-directed technical mastery, production systems architecture, and distributed platform "
-            "design meeting and exceeding formal academic requirements for an advanced degree in Computer Science. "
-            "Consulting and corporate records verifiable via IRS filings, state corporate registries, and client delivery attestations."
+            "25 years of self-directed technical mastery, production systems architecture, and distributed platform "
+            "design. Consulting and corporate records verifiable upon request."
         )
         self.render_paragraph(equiv_text, "Liberation Sans 7.0", line_spacing=1.08)
 
