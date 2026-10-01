@@ -2,7 +2,7 @@ import type { QrdContact } from './types'
 
 export const XP_CONTACT: QrdContact = {
   name: 'Xopher Dee Pollard',
-  title: 'Principal Systems Architect & Synthesist',
+  title: 'Principal Software Architect',
   organization: 'Hall of the Gods Inc.',
   phone: '+1 520.762.4947',
   email: 'sayhi@xophz.com',
@@ -16,7 +16,7 @@ export const XP_CONTACT: QrdContact = {
   birthday: 'May 7',
   location: 'Tucson, AZ',
   avatar: '/xp_headshot.webp',
-  note: 'Principal Systems Synthesist : Sovereign Infrastructure : Legacy Modernization'
+  note: 'Principal Software Architect : Sovereign Infrastructure : Legacy Modernization'
 }
 
 export function generateQrVcard(contact: QrdContact): string {

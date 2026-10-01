@@ -1,20 +1,20 @@
 export const useProfileData = () => {
   const identity = {
     name: 'Xopher (XP) Pollard',
-    title: 'Principal Systems Architect · Distributed Platforms & AI Systems',
+    title: 'System Architect · Distributed Platforms & AI Systems',
     tagline:
-      '25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture & cloud platforms.',
+      '20+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture & cloud platforms.',
     avatar: '/xp_headshot.webp',
     headshot: '/xopher_jester.webp',
     siteLabel: 'xophz.com',
   };
 
   const skillTags = [
-    'Principal Systems Architect',
+    'System Architect',
     'Distributed Infrastructure',
     'Agentic AI Architecture (MCP)',
     'Enterprise Legacy Modernization',
-    'Sovereign Cloud Platforms',
+    'Cloud-Native Platforms',
     'AWS & Cloud Systems',
     'Serial Founder',
   ];
@@ -94,16 +94,32 @@ export const useProfileData = () => {
   const personas = [...executivePersonas, ...creativePersonas];
 
   const stats = [
-    { value: '25+', label: 'Years Track Record' },
-    { value: 'Enterprise', label: 'Cloud & Distributed Systems' },
-    { value: 'Sovereign', label: 'Zero-Trust Infrastructure' },
-    { value: 'AI Runtimes', label: 'Deterministic Agentic Systems' },
+    {
+      value: '$1.2M',
+      label: 'Annual Pipeline Savings',
+      desc: 'Five9 & Salesforce CRM lead validation',
+    },
+    {
+      value: '99.99%',
+      label: 'Production Uptime',
+      desc: 'Distributed cloud & microservice reliability',
+    },
+    {
+      value: '25+',
+      label: 'Active Edge Platforms',
+      desc: 'Multi-tenant high-availability networks',
+    },
+    {
+      value: '20+',
+      label: 'Years Production Delivery',
+      desc: 'Enterprise architecture & venture leadership',
+    },
   ];
 
   const specialties = [
     {
       key: "agentic",
-      title: "Agentic AI & Quantum Architecture",
+      title: "Agentic AI & Modular Architecture",
       icon: "i-lucide-cpu",
       desc: "Architecting deterministic agentic runtimes, Model Context Protocol (MCP) servers, AST hazard linting, and automated evaluation harnesses.",
     },
@@ -248,15 +264,6 @@ export const useProfileData = () => {
       url: 'https://www.blackboxwhiteglove.com',
       desc: 'Concierge sovereign infrastructure and automated node orchestration networked via the w⁴ distributed protocol.',
       tier: 'engineering' as const,
-    },
-    {
-      key: 'hotg',
-      name: 'Hall of the Gods, Inc.',
-      tag: 'Parent Organization · Live',
-      color: '#d9be6f',
-      url: 'https://www.hallofthegods.com',
-      desc: 'Parent venture organization anchoring distributed infrastructure platforms, creative protocols, and software labs.',
-      tier: 'enterprise' as const,
     },
     {
       key: 'tucsonerd',

@@ -9,7 +9,7 @@ export function useFeatureStripController() {
     stats.map(s => ({
       value: s.value,
       label: s.label,
-      desc: 'Architectural Domain'
+      desc: s.desc ?? 'Architectural Domain'
     }))
   )
 

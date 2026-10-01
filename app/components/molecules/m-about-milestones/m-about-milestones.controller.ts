@@ -6,13 +6,13 @@ export function useAboutMilestonesController() {
     {
       period: 'Dual-Tenure Track Record',
       title: 'Enterprise Architecture & Leadership',
-      role: 'Principal Systems Architect & Founder Leadership',
+      role: 'System Architect & Founder Leadership',
       desc: 'Architecting distributed cloud systems, modernizing complex legacy monoliths, and scaling engineering teams and architectures across high-growth ventures and enterprise clients.'
     },
     {
       period: 'Consulting & Advisory',
       title: 'My Compass Consulting',
-      role: 'Principal Systems Synthesist',
+      role: 'Lead Solutions Architect',
       desc: 'Serving as the strategic tip of the spear for organizations requiring high-integrity technical blueprints, performance optimization, and executive technology direction.'
     },
     {

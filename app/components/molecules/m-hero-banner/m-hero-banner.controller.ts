@@ -1,12 +1,17 @@
 import { computed } from 'vue'
+import { useClipboard } from '@vueuse/core'
 import { useProfileData } from '~/composables/useProfileData'
 import type { HeroProfile } from './types'
 
 export function useHeroBannerController() {
   // 1. Composables & Stores
   const { identity, skillTags } = useProfileData()
+  const { copy, copied } = useClipboard({ copiedDuring: 2000 })
 
-  // 2. Computed State & 2-Stage Booleans
+  // 2. Reactive Primitives
+  const auditCommand = 'npx chemx audit'
+
+  // 3. Computed State & 2-Stage Booleans
   const profile = computed<HeroProfile>(() => ({
     name: identity.name,
     title: identity.title,
@@ -19,9 +24,16 @@ export function useHeroBannerController() {
   const isProfileComplete = computed(() => Boolean(profile.value.name && profile.value.title))
   const canDisplayHero = computed(() => isProfileComplete.value && hasTags.value)
 
+  // 4. Helper Methods & Actions
+  const copyAuditCommand = async () => {
+    await copy(auditCommand)
+  }
+
   return {
     profile,
-    hasTags,
-    canDisplayHero
+    canDisplayHero,
+    auditCommand,
+    copied,
+    copyAuditCommand
   }
 }

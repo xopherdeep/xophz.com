@@ -90,7 +90,7 @@ export function useTimelineData() {
     const featuredPositions = timelineCatalog.filter((item) => item.isFeatured)
 
     return {
-      totalYears: 36,
+      totalYears: 20,
       totalRoles: timelineCatalog.length,
       featuredRoles: featuredPositions.length,
       activeVentures: activePositions.length,

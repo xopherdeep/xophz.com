@@ -15,10 +15,8 @@ export function useAppHeaderController() {
     { label: 'About', to: '/about', icon: 'i-lucide-user' },
     { label: 'Resume', to: '/resume', icon: 'i-lucide-file-badge' },
     { label: 'Timeline', to: '/timeline', icon: 'i-lucide-history' },
-    { label: 'Opus', to: '/projects', icon: 'i-lucide-briefcase' },
-    { label: 'Compass', to: '/my-compass', icon: 'i-lucide-compass' },
-    { label: 'Sparks', to: '/sparks', icon: 'i-lucide-sparkles' },
-    { label: 'Blog', to: '/posts', icon: 'i-lucide-file-text' }
+    { label: 'Works', to: '/projects', icon: 'i-lucide-briefcase' },
+    { label: 'Writing', to: '/posts', icon: 'i-lucide-file-text' }
   ])
 
   const hasActiveRoute = computed(() => Boolean(route.path))

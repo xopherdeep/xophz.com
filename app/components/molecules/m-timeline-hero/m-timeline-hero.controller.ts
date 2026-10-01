@@ -6,7 +6,7 @@ export function useTimelineHeroController(props: TimelineHeroProps) {
   const heroStats = computed<TimelineHeroStat[]>(() => [
     {
       label: "Career Span",
-      value: `${props.totalYears ?? 36}+ Years`,
+      value: `${props.totalYears ?? 20}+ Years`,
       subtitle: "200X - Present",
     },
     {

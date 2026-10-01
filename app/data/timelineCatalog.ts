@@ -94,13 +94,13 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
-    highlight: 'Authoring open Quantum Architecture standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites for deterministic agentic software development.',
-    skills: ['Agentic Systems', 'Model Context Protocol (MCP)', 'Quantum Architecture', 'AST Linting', 'Deterministic Tooling']
+    highlight: 'Authoring open Modular Architecture standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites for deterministic agentic software development.',
+    skills: ['Agentic Systems', 'Model Context Protocol (MCP)', 'Modular Architecture', 'AST Linting', 'Deterministic Tooling']
   },
   {
     id: 'worldwide-webwork',
     company: 'Worldwide Webwork',
-    role: 'Founder & Principal Systems Synthesist',
+    role: 'Founder & Lead Systems Architect',
     period: 'Oct 2019 - Present',
     startDate: '2019-10',
     endDate: null,
@@ -112,8 +112,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
-    highlight: 'Architecting decentralized hyper-cube node topology and sovereign web protocols connecting modern distributed nodes.',
-    skills: ['Sovereign Protocols', 'Distributed Systems', 'Edge Architecture', 'w4 Protocol']
+    highlight: 'Architecting decentralized hyper-cube node topology and resilient edge protocols connecting modern distributed nodes.',
+    skills: ['Decentralized Protocols', 'Distributed Systems', 'Edge Architecture', 'Node Topology']
   },
   {
     id: 'my-compass-consulting',

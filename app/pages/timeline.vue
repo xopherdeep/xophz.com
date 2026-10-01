@@ -8,8 +8,8 @@ import { useTimelineData } from '~/composables/useTimelineData'
 useSeoMeta({
   title: 'Career Timeline · Xopher (XP) Pollard',
   ogTitle: 'Career Timeline · Xopher (XP) Pollard',
-  description: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
-  ogDescription: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
+  description: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
+  ogDescription: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
 })
 
 const {

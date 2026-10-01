@@ -65,7 +65,7 @@ class ResumeBuilder:
 
     def render_header(self):
         # Name
-        name_text = '<span letter_spacing="1800"><b>XOPHER (XP) POLLARD</b></span>'
+        name_text = '<span letter_spacing="1500"><b>CHRISTOPHER "XOPHER" POLLARD</b></span>'
         layout_name = self.create_layout(name_text, "Liberation Sans Bold 15", align=Pango.Alignment.CENTER)
         self.cr.set_source_rgb(*COLOR_PRIMARY)
         self.cr.move_to(MARGIN_X, self.y)
@@ -73,7 +73,7 @@ class ResumeBuilder:
         self.y += self.get_layout_height(layout_name) + 1.5
 
         # Subtitle
-        sub_text = '<span letter_spacing="1200"><b>PRINCIPAL SYSTEMS ARCHITECT &amp; SYSTEMS SYNTHESIST</b></span>'
+        sub_text = '<span letter_spacing="1200"><b>PRINCIPAL SOFTWARE ARCHITECT • FULL-STACK, AWS &amp; AI TOOLING</b></span>'
         layout_sub = self.create_layout(sub_text, "Liberation Sans Bold 7.8", align=Pango.Alignment.CENTER)
         self.cr.set_source_rgb(*COLOR_ACCENT)
         self.cr.move_to(MARGIN_X, self.y)
@@ -82,7 +82,7 @@ class ResumeBuilder:
 
         # Contact meta line
         meta_items = [
-            "Tucson, AZ",
+            "Tucson, AZ (Remote)",
             "520-762-4947",
             "hello@xophz.com",
             "linkedin.com/in/xophz",
@@ -179,15 +179,11 @@ class ResumeBuilder:
         # 1. EXECUTIVE PROFILE
         self.render_section_title("EXECUTIVE PROFILE")
         profile_text = (
-            "A results-driven Principal Systems Architect and Practice Lead with over 25 years of entrepreneurial "
-            "tech and digital systems experience, including 12+ years designing, modernizing, and orchestrating "
-            "mission-critical enterprise software and distributed platforms. Proven track record bridging frontend applications "
-            "with complex backend microservices, deploying containerized applications across AWS cloud infrastructure, "
-            "modernizing monolithic codebases, and managing multi-tenant client networks sustaining 99.99% availability. "
-            "Deep technical authority across TypeScript, Vue 3, Node.js, telemetry streaming pipelines processing millions "
-            "of transaction records, Model Context Protocol (MCP) agentic architectures, and deterministic code generation tooling. "
-            "Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business "
-            "and scientific requirements into durable, production platforms."
+            "Principal software architect with 20+ years building web platforms and digital systems, "
+            "including 12+ years in enterprise architecture. Experienced bridging frontend applications "
+            "with distributed backend services, containerizing and deploying on AWS, and modernizing "
+            "monolithic codebases. Currently focused on architecture audits and guardrails for teams "
+            "adopting AI-assisted development, including MCP tooling and deterministic code generation."
         )
         self.render_paragraph(profile_text, "Liberation Sans 7.0", line_spacing=1.07)
         self.y += 2.5
@@ -197,12 +193,12 @@ class ResumeBuilder:
         col_w = (PRINT_WIDTH - 12.0) / 2.0  # ~264 pt
         
         col1_items = [
-            ("Cloud Systems & Architecture:", "Docker Containerization, AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Monolith Modernization, Service Decomposition, Edge Caching, Sovereign Protocols (w4)."),
-            ("Full-Stack, Graphics & Spatial Systems:", "TypeScript, JavaScript, Node.js, Python, Vue 3 & Nuxt, React, Linux Systems Administration & Bash, WebGL & Experimental WebGPU Pipelines.")
+            ("Frontend & Full-Stack:", "TypeScript, JavaScript, Vue 3/Nuxt, React, Node.js, Python, REST/GraphQL APIs."),
+            ("Cloud & Infrastructure:", "AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Docker, CI/CD, Edge Caching, Linux/Bash.")
         ]
         col2_items = [
-            ("Data Integration & Observability:", "REST & GraphQL APIs, Telemetry Streaming, Real-Time Dashboards, MySQL / MariaDB, Redis, SQLite, Application Monitoring, Distributed State Management."),
-            ("Agentic Systems & Architecture:", "Model Context Protocol (MCP), Agentic Evals & Behavioral Benchmarks, AST Hazard Linting, Deterministic Tool-Calling Runtimes, Context-Isolated Agent Workflows, Disciplined Atomic Design.")
+            ("Data & Observability:", "MySQL/MariaDB, Redis, SQLite, Telemetry Streaming, Real-Time Dashboards."),
+            ("AI & Agentic Systems:", "Model Context Protocol (MCP), AST-Based Linting, Agent Evals, Context-Isolated Agent Workflows.")
         ]
 
         start_y = self.y
@@ -244,9 +240,9 @@ class ResumeBuilder:
         # 3. FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED
         self.render_section_title("FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED")
         apps = [
-            ("YouMeOS (Spatial Web Operating System):", "Browser-based spatial desktop environment built on Vue 3 and headless REST/event-driven backends, with active R&D into custom WebGPU render pipelines."),
-            ("Chemical X (Agentic AI & Engineering Standards):", "Architectural standards specification, MCP runtime tooling, and AST hazard linter authored for deterministic, zero-regression agentic software development."),
-            ("My Compass Consulting & Software Suite:", "High-stakes technology advisory, enterprise legacy monolith modernization, and bespoke modular software engine engineered on rigid Atomic Design principles.")
+            ("Chemical X (Agentic AI & Engineering Standards):", "Open-source toolkit that audits codebases for AI-readiness, deterministic tool-calling, and AST hazard prevention (npx chemx audit)."),
+            ("YouMeOS (Spatial Web Operating System):", "Browser-based spatial desktop on Vue 3 with a headless REST/event-driven backend."),
+            ("My Compass Consulting & Software Suite:", "Enterprise legacy monolith modernization and bespoke modular software engine engineered on rigid Atomic Design principles.")
         ]
         for lead, body in apps:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.9", space_below=0.8)
@@ -257,15 +253,14 @@ class ResumeBuilder:
 
         # Role 1
         self.render_role_header(
-            "Managing Practice Lead & Principal Architect",
-            "Hall of the Gods, Inc. / My Compass Consulting • Tucson, AZ",
-            "12/2004 - Present"
+            "System Architect",
+            "Vi • Remote",
+            "12/2021 - 01/2026"
         )
         r1_bullets = [
-            ("Federated Network Operations:", "Architected, deployed, and maintain multi-tenant edge infrastructure spanning 25+ active production web platforms, delivering high-availability client operations with automated edge caching and 99.99% uptime."),
-            ("Sovereign Systems & Platform Engineering:", "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes), reducing ongoing maintenance overhead by 75%."),
-            ("B2B Systems Advisory:", "Directed technical infrastructure engagements for commercial clients, conducting full-stack architecture audits, eliminating DNS and data bottlenecks, and migrating on-prem setups into secure cloud environments."),
-            ("Agentic Systems & Spatial Prototypes:", "Authored Chemical X agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across agent runtimes.")
+            ("Frontend Architecture & Systems Bridge:", "Led architecture and development of the core frontend codebase, serving as the architectural bridge between product interfaces and distributed backend services."),
+            ("Containerization & Cloud Reliability:", "Collaborated on containerizing services with Docker on AWS and defined clear API contracts, sustaining 99.99% availability."),
+            ("CI/CD & Engineering Velocity:", "Implemented automated CI/CD workflows and modular component architecture, speeding feature delivery while keeping quality consistent.")
         ]
         for lead, body in r1_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
@@ -273,14 +268,15 @@ class ResumeBuilder:
 
         # Role 2
         self.render_role_header(
-            "System Architect",
-            "Vi • Enterprise Systems Architecture",
-            "12/2021 - 01/2026"
+            "Founder & Principal Architect",
+            "My Compass Consulting / Hall of the Gods, Inc. • Tucson, AZ",
+            "12/2004 - Present"
         )
         r2_bullets = [
-            ("Frontend Architecture & Systems Bridge:", "Led architecture and development of the core frontend application codebase, serving as the primary architectural bridge between product interfaces and complex distributed backend services."),
-            ("Containerization & Cloud Reliability:", "Collaborated on containerizing services with Docker across AWS environments, establishing clear API contracts and sustaining continuous 99.99% availability."),
-            ("CI/CD & Engineering Velocity:", "Implemented automated CI/CD workflows and modular component architecture, accelerating feature delivery cycles while enforcing consistent quality standards across releases.")
+            ("Edge Infrastructure Operations:", "Run multi-tenant edge infrastructure for 25+ production web platforms with automated edge caching and 99.99% uptime."),
+            ("Platform & Workflow Engineering:", "Delivered containerized client platforms and workflow engines, reducing ongoing maintenance overhead by 75%."),
+            ("Full-Stack Architecture Audits:", "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS."),
+            ("Chemical X Authoring:", "Author Chemical X, an open standard and CLI for deterministic AI-assisted coding, plus MCP tool bridges and an AST hazard linter.")
         ]
         for lead, body in r2_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
@@ -293,8 +289,8 @@ class ResumeBuilder:
             "01/2020 - 10/2021"
         )
         r3_bullets = [
-            ("Destination Web Platforms:", "Architected and deployed high-performance responsive web applications, interactive visual tools, and destination marketing platforms for premier travel clients."),
-            ("AWS Infrastructure & Deployment:", "Managed core AWS cloud infrastructure and deployment pipelines, optimizing asset delivery, caching policies, and reliability across client production sites.")
+            ("Destination Web Platforms:", "Architected and deployed high-performance web applications and interactive tools for travel and destination clients."),
+            ("AWS Infrastructure & Deployment:", "Managed AWS infrastructure and deployment pipelines, optimizing asset delivery, caching policies, and reliability across client sites.")
         ]
         for lead, body in r3_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
@@ -303,22 +299,22 @@ class ResumeBuilder:
         # Role 4
         self.render_role_header(
             "Senior Full-Stack Developer",
-            "J.D. Mellberg Financial / Tracking First • FinTech Infrastructure",
+            "J.D. Mellberg Financial / Tracking First • Tucson, AZ",
             "06/2015 - 10/2019"
         )
         r4_bullets = [
-            ("Operational Integration Dashboard:", "Architected and engineered real-time operational dashboard integrating Five9 telephony, Salesforce CRM, and marketing API endpoints, delivering actionable visibility into millions of lead and call records."),
-            ("Lead Validation & Operational Savings:", "Engineered automated data validation and analytics transparency layers, eliminating invalid financial lead acquisition and manual data-cleansing operations to save an estimated $1.2M annually.")
+            ("Operations Dashboard:", "Built a real-time operations dashboard integrating Five9 telephony, Salesforce CRM, and marketing APIs across millions of lead and call records."),
+            ("Lead Validation & Operational Savings:", "Engineered automated validation that eliminated invalid lead spend and manual data cleanup, saving an estimated $1.2M annually.")
         ]
         for lead, body in r4_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
         self.y += 1.6
 
-        # 5. EDUCATION, CREDENTIALS & VERIFICATION
-        self.render_section_title("EDUCATION, CREDENTIALS & VERIFICATION")
+        # 5. EDUCATION & CREDENTIALS
+        self.render_section_title("EDUCATION & CREDENTIALS")
         equiv_text = (
-            "Self-Directed Technical Mastery & Early Industry Apprentice. Verifiable corporate employment records, "
-            "technical consulting engagements, client references, and OEM technical certifications available upon request."
+            "Self-taught; early industry apprentice. OEM Certified Support Specialist "
+            "(Microsoft / Broadband Network Diagnostics). References available on request."
         )
         self.render_paragraph(equiv_text, "Liberation Sans 6.9", line_spacing=1.06)
 

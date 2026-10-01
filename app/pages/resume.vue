@@ -13,10 +13,10 @@ import ResumeAppsGrid from '~/components/resume/ResumeAppsGrid.vue'
 import { useResumeData } from '~/composables/useResumeData'
 
 useSeoMeta({
-  title: 'Resume · Xopher (XP) Pollard',
-  description: 'Principal Systems Architect and Systems Synthesist. 25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture & cloud platforms.',
-  ogTitle: 'Resume · Xopher (XP) Pollard',
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture.',
+  title: 'Resume · Christopher "Xopher" Pollard',
+  description: 'Principal Software Architect | Full-Stack, AWS & AI Tooling. 20+ years building web platforms and digital systems, including 12+ years in enterprise architecture.',
+  ogTitle: 'Resume · Christopher "Xopher" Pollard',
+  ogDescription: 'Principal Software Architect | Full-Stack, AWS & AI Tooling. 20+ years building web platforms and digital systems, including 12+ years in enterprise architecture.',
 })
 
 const { competencies, flagshipApps, experience } = useResumeData()
@@ -30,9 +30,9 @@ const { competencies, flagshipApps, experience } = useResumeData()
       <ResumeHeader />
 
       <!-- Executive Profile Section -->
-      <ResumeSection title="Executive Profile" :icon="LucideTerminal" badge="25+ Yrs Tech &amp; Venture | 12+ Yrs Architecture">
+      <ResumeSection title="Executive Summary" :icon="LucideTerminal" badge="20+ Yrs Tech &amp; Venture | 12+ Yrs Architecture">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          A results-driven Principal Systems Architect and Practice Lead with over 25 years of entrepreneurial tech and digital systems experience, including 12+ years designing, modernizing, and orchestrating mission-critical enterprise software and distributed platforms. Proven track record bridging frontend applications with complex backend microservices, deploying containerized applications across AWS cloud infrastructure, modernizing monolithic codebases, and managing multi-tenant client networks sustaining 99.99% availability. Deep technical authority across TypeScript, Vue 3, Node.js, telemetry streaming pipelines processing millions of transaction records, Model Context Protocol (MCP) agentic architectures, and deterministic code generation tooling. Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, production platforms.
+          Principal software architect with 20+ years building web platforms and digital systems, including 12+ years in enterprise architecture. Experienced bridging frontend applications with distributed backend services, containerizing and deploying on AWS, and modernizing monolithic codebases. Currently focused on architecture audits and guardrails for teams adopting AI-assisted development, including MCP tooling and deterministic code generation.
         </p>
       </ResumeSection>
 
@@ -75,10 +75,10 @@ const { competencies, flagshipApps, experience } = useResumeData()
         <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
 
-      <!-- Education, Credentials & Verification -->
-      <ResumeSection title="Education, Credentials &amp; Verification" :icon="LucideAward">
+      <!-- Education & Credentials -->
+      <ResumeSection title="Education &amp; Credentials" :icon="LucideAward">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300">
-          <strong>Education &amp; Background:</strong> Self-Directed Technical Mastery &amp; Early Industry Apprentice. Verifiable corporate employment records, technical consulting engagements, client references, and OEM technical certifications available upon request.
+          Self-taught; early industry apprentice. OEM Certified Support Specialist (Microsoft / Broadband Network Diagnostics). References available on request.
         </p>
       </ResumeSection>
 
@@ -98,7 +98,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
           <UButton
             to="/xp_pollard_resume.pdf"
             external
-            download="Xopher_Pollard_Resume.pdf"
+            download="Christopher_Pollard_Resume.pdf"
             icon="i-lucide-download"
             color="primary"
             variant="solid"

@@ -105,7 +105,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
+            "Principal Software Architect · 20+ years building high-availability web platforms & digital systems · CTO, Architect, Founder.",
         },
 
         { property: "og:type", content: "website" },
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
+            "Principal Software Architect · 20+ years building high-availability web platforms & digital systems · CTO, Architect, Founder.",
         },
         {
           property: "og:image",
@@ -133,7 +133,7 @@ export default defineNuxtConfig({
         {
           name: "twitter:description",
           content:
-            "Principal Systems Synthesist · 25+ years building massive-scale software · CTO, Architect, Founder.",
+            "Principal Software Architect · 20+ years building high-availability web platforms & digital systems · CTO, Architect, Founder.",
         },
         {
           name: "twitter:image",

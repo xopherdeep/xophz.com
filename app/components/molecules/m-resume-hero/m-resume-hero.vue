@@ -16,7 +16,7 @@ const {
       :subtitle="identity.role"
       badge-text="Executive Curriculum Vitae"
       badge-icon="i-lucide-file-badge"
-      meta-text="25+ Years Production Architecture"
+      meta-text="20+ Years Production Systems"
       glow-primary="violet"
       glow-secondary="cyan"
     >
@@ -43,7 +43,7 @@ const {
           <UButton
             to="/xp_pollard_resume.pdf"
             external
-            download="Xopher_Pollard_Resume.pdf"
+            download="Christopher_Pollard_Resume.pdf"
             icon="i-lucide-download"
             color="primary"
             variant="solid"
