@@ -1,8 +1,8 @@
 import type { QrdContact } from './types'
 
 export const XP_CONTACT: QrdContact = {
-  name: 'Xopher Dee Pollard',
-  title: 'Principal Systems Architect & Synthesist',
+  name: 'Christopher "Xopher" Pollard',
+  title: 'Computer Repair, Web Design & Tech Consulting',
   organization: 'Hall of the Gods Inc.',
   phone: '+1 520.762.4947',
   email: 'sayhi@xophz.com',
@@ -16,7 +16,7 @@ export const XP_CONTACT: QrdContact = {
   birthday: 'May 7',
   location: 'Tucson, AZ',
   avatar: '/xp_headshot.webp',
-  note: 'Principal Systems Synthesist : Sovereign Infrastructure : Legacy Modernization'
+  note: 'Computer repair · Website design · Tech consulting · Tucson, AZ'
 }
 
 export function generateQrVcard(contact: QrdContact): string {
@@ -24,7 +24,7 @@ export function generateQrVcard(contact: QrdContact): string {
   return [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    'N:Pollard;Xopher;Dee;;',
+    'N:Pollard;Christopher;;;',
     `FN:${contact.name}`,
     `ORG:${contact.organization}`,
     'BDAY:--05-07',
@@ -40,9 +40,9 @@ export function generateFullVcard(contact: QrdContact): string {
   return [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    'N:Pollard;Xopher;Dee;;',
+    'N:Pollard;Christopher;;;',
     `FN:${contact.name}`,
-    'NICKNAME:XP',
+    'NICKNAME:Xopher',
     `TITLE:${contact.title}`,
     `ORG:${contact.organization}`,
     'BDAY:--05-07',

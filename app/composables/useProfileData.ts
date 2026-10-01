@@ -1,22 +1,22 @@
 export const useProfileData = () => {
   const identity = {
-    name: 'Xopher (XP) Pollard',
-    title: 'Principal Systems Architect · Distributed Platforms & AI Systems',
+    name: 'Xopher Pollard',
+    title: 'Computer Repair · Web Design · Tech Consulting',
+    legalName: 'Christopher Pollard',
     tagline:
-      '25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
+      'Computer repair, website design, and tech consulting for people and small businesses in Tucson, AZ. 25+ years of fixing, building, and figuring things out.',
     avatar: '/xp_headshot.webp',
     headshot: '/xopher_jester.webp',
     siteLabel: 'xophz.com',
   };
 
   const skillTags = [
-    'Principal Systems Architect',
-    'Distributed Infrastructure',
-    'Agentic AI Architecture (MCP)',
-    'Enterprise Legacy Modernization',
-    'Sovereign Cloud Platforms',
-    'AWS & Cloud Systems',
-    'Serial Founder',
+    'Computer Repair',
+    'Website Design',
+    'Tech Consulting',
+    'Tucson, AZ',
+    'Small Business IT',
+    'Cloud & Architecture',
   ];
 
   const executivePersonas = [
@@ -404,6 +404,7 @@ export const useProfileData = () => {
   const socialLinks = channelGroups.flatMap((group) => group.links);
 
   const navChips = [
+    { label: "Work with me", to: "/work-with-me", icon: "i-lucide-handshake" },
     { label: "About", to: "/about", icon: "i-lucide-user" },
     { label: "Resume", to: "/resume", icon: "i-lucide-file-text" },
     { label: "Opus", to: "/projects", icon: "i-lucide-briefcase" },

@@ -51,6 +51,12 @@ const { profile, canDisplayHero } = useHeroBannerController()
           >
             {{ profile.name }}
           </h1>
+          <p
+            class="-mt-3 text-sm text-zinc-500 dark:text-zinc-400 font-body animate-ios-spring"
+            :style="{ animationDelay: '100ms' }"
+          >
+            Christopher to my clients, Xopher to everyone else.
+          </p>
 
           <!-- Tagline -->
           <p
@@ -66,12 +72,22 @@ const { profile, canDisplayHero } = useHeroBannerController()
             :style="{ animationDelay: '160ms' }"
           >
             <UButton
-              to="/about"
-              icon="i-lucide-user"
+              to="/work-with-me"
+              icon="i-lucide-handshake"
               color="primary"
               variant="solid"
               size="lg"
               class="shadow-glow-violet"
+              aria-label="Work with Xopher Pollard"
+            >
+              Work with me
+            </UButton>
+            <UButton
+              to="/about"
+              icon="i-lucide-user"
+              color="neutral"
+              variant="outline"
+              size="lg"
               aria-label="About Xopher Pollard"
             >
               About Me
@@ -80,7 +96,7 @@ const { profile, canDisplayHero } = useHeroBannerController()
               to="/projects"
               icon="i-lucide-briefcase"
               color="neutral"
-              variant="outline"
+              variant="ghost"
               size="lg"
               aria-label="View Magnum Opus Projects"
             >

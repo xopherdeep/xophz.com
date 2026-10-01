@@ -13,9 +13,9 @@ import ResumeAppsGrid from '~/components/resume/ResumeAppsGrid.vue'
 import { useResumeData } from '~/composables/useResumeData'
 
 useSeoMeta({
-  title: 'Resume · Xopher (XP) Pollard',
+  title: 'Resume · Xopher Pollard',
   description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
-  ogTitle: 'Resume · Xopher (XP) Pollard',
+  ogTitle: 'Resume · Xopher Pollard',
   ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
 })
 

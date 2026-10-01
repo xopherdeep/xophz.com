@@ -3,10 +3,10 @@ import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import MConnectChannels from '~/components/molecules/m-connect-channels/m-connect-channels.vue'
 
 useSeoMeta({
-  title: 'Connect · Xopher (XP) Pollard',
-  ogTitle: 'Connect · Xopher (XP) Pollard',
-  description: 'Get in touch with Xopher (XP) Pollard. Book a meeting, find social profiles, or reach out directly.',
-  ogDescription: 'Get in touch with Xopher (XP) Pollard. Book a meeting, find social profiles, or reach out directly.',
+  title: 'Connect · Xopher Pollard',
+  ogTitle: 'Connect · Xopher Pollard',
+  description: 'Get in touch with Christopher "Xopher" Pollard for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.',
+  ogDescription: 'Get in touch with Christopher "Xopher" Pollard for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.',
 })
 
 const { openQrd } = useQrdModal()
@@ -26,12 +26,12 @@ const formatShortDate = (raw: string) =>
         title="Connect"
         badge-text="Direct Channels"
         badge-icon="i-lucide-mail"
-        meta-text="Advisory, Architecture & Inquiries"
+        meta-text="Repair, Websites & Consulting"
         glow-primary="violet"
         glow-secondary="cyan"
       >
         <template #description>
-          Schedule an executive systems consultation, discuss sovereign infrastructure, or connect across our digital networks.
+          Need a computer fixed, a website built, or a second opinion on your tech? Book a quick call or send an email and we'll figure out if it's a fit.
         </template>
         <template #actions>
           <UButton
@@ -43,7 +43,7 @@ const formatShortDate = (raw: string) =>
             icon="i-lucide-calendar"
             class="shadow-glow-violet justify-center"
           >
-            Book Consultation
+            Book a call
           </UButton>
           <UButton
             color="primary"

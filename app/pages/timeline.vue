@@ -6,8 +6,8 @@ import MTimelineStream from '~/components/molecules/m-timeline-stream/m-timeline
 import { useTimelineData } from '~/composables/useTimelineData'
 
 useSeoMeta({
-  title: 'Career Timeline · Xopher (XP) Pollard',
-  ogTitle: 'Career Timeline · Xopher (XP) Pollard',
+  title: 'Career Timeline · Xopher Pollard',
+  ogTitle: 'Career Timeline · Xopher Pollard',
   description: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
   ogDescription: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
 })

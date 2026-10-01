@@ -30,8 +30,8 @@ const { navItems, isOpen, closeMenu } = useAppHeaderController()
 
     <template #right>
       <div class="flex items-center gap-1.5">
-        <UButton to="/connect" color="primary" variant="soft" size="xs" icon="i-lucide-mail" class="hidden sm:inline-flex">
-          Connect
+        <UButton to="/work-with-me" color="primary" variant="soft" size="xs" icon="i-lucide-handshake" class="hidden sm:inline-flex">
+          Work with me
         </UButton>
         <UColorModeButton />
         <UButton to="https://github.com/xopherdeep" target="_blank" icon="i-lucide-github" color="neutral" variant="ghost" size="sm" aria-label="GitHub Profile" />
@@ -57,8 +57,8 @@ const { navItems, isOpen, closeMenu } = useAppHeaderController()
 
         <!-- Bottom Action Buttons -->
         <div class="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80 mt-auto shrink-0">
-          <UButton to="/connect" color="primary" variant="solid" size="xl" icon="i-lucide-mail" block class="shadow-glow-violet py-3.5 text-base font-semibold justify-center" @click="closeMenu">
-            Connect
+          <UButton to="/work-with-me" color="primary" variant="solid" size="xl" icon="i-lucide-handshake" block class="shadow-glow-violet py-3.5 text-base font-semibold justify-center" @click="closeMenu">
+            Work with me
           </UButton>
         </div>
       </div>

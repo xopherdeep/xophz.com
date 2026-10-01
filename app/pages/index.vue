@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Xopher (XP) Pollard · Principal Systems Architect',
-  ogTitle: 'xophz · Xopher (XP) Pollard',
-  twitterTitle: 'xophz · Xopher (XP) Pollard',
-  description: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
-  ogDescription: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
-  twitterDescription: 'Principal Systems Architect. 25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
+  title: 'Xopher Pollard · Computer Repair, Web Design & Tech Consulting in Tucson',
+  ogTitle: 'xophz · Xopher Pollard',
+  twitterTitle: 'xophz · Xopher Pollard',
+  description: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
+  ogDescription: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
+  twitterDescription: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
 })
 </script>
 
