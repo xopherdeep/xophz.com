@@ -179,28 +179,30 @@ class ResumeBuilder:
         # 1. EXECUTIVE PROFILE
         self.render_section_title("EXECUTIVE PROFILE")
         profile_text = (
-            "A results-driven Principal Systems Architect and Practice Lead with over 25 years of experience "
-            "designing, modernizing, and orchestrating mission-critical distributed infrastructure. Proven track record "
-            "deploying automated, multi-tenant cloud and edge networks supporting 25+ production platforms processing "
-            "160,000+ aggregate monthly requests with 99.99% availability. Deep technical authority across Kubernetes, "
-            "Infrastructure as Code (Terraform), event-driven streaming pipelines, sovereign protocol design (w4 Protocol), "
-            "and modern browser-based spatial rendering engines (WebGPU). Adept at leading cross-functional engineering teams, "
-            "eliminating technical debt, and translating ambitious business and scientific requirements into durable, self-healing platforms."
+            "A results-driven Principal Systems Architect and Practice Lead with over 25 years of entrepreneurial "
+            "tech and digital systems experience, including 12+ years designing, modernizing, and orchestrating "
+            "mission-critical enterprise software and distributed platforms. Proven track record bridging frontend applications "
+            "with complex backend microservices, deploying containerized applications across AWS cloud infrastructure, "
+            "modernizing monolithic codebases, and managing multi-tenant client networks sustaining 99.99% availability. "
+            "Deep technical authority across TypeScript, Vue 3, Node.js, telemetry streaming pipelines processing millions "
+            "of transaction records, Model Context Protocol (MCP) agentic architectures, and deterministic code generation tooling. "
+            "Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business "
+            "and scientific requirements into durable, production platforms."
         )
-        self.render_paragraph(profile_text, "Liberation Sans 7.1", line_spacing=1.09)
-        self.y += 3.0
+        self.render_paragraph(profile_text, "Liberation Sans 7.0", line_spacing=1.07)
+        self.y += 2.5
 
         # 2. CORE ARCHITECTURE & ENGINEERING COMPETENCIES (2 Balanced Columns)
         self.render_section_title("CORE ARCHITECTURE & ENGINEERING COMPETENCIES")
         col_w = (PRINT_WIDTH - 12.0) / 2.0  # ~264 pt
         
         col1_items = [
-            ("Cloud-Native & Distributed Systems:", "Kubernetes, Docker, AWS (20+ services), GCP, Terraform (IaC), Microservices, Multi-Tenancy, Zero-Trust Networking, Edge Caching, Sovereign Protocols (w4)."),
-            ("Full-Stack, Graphics & Spatial Computing:", "TypeScript, Node.js, Python, C#, WebGPU/WebGL Shaders, Vue.js/Nuxt, React, Linux Internals, Distributed State Orchestration.")
+            ("Cloud Systems & Architecture:", "Docker Containerization, AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Monolith Modernization, Service Decomposition, Edge Caching, Sovereign Protocols (w4)."),
+            ("Full-Stack, Graphics & Spatial Systems:", "TypeScript, JavaScript, Node.js, Python, Vue 3 & Nuxt, React, Linux Systems Administration & Bash, WebGL & Experimental WebGPU Pipelines.")
         ]
         col2_items = [
-            ("High-Throughput Data & Observability:", "Event-Driven Pipelines, Asynchronous Queuing, Telemetry Streaming, REST/GraphQL APIs, Prometheus, OpenTelemetry, SRE Runbooks, Distributed Caching."),
-            ("Agentic Systems & Architecture:", "Disciplined Atomic Design (Atoms/Molecules/Organisms), Context-Isolated AI Agent Workflows, Prompt Architecture, Automated Self-Healing Runtimes.")
+            ("Data Integration & Observability:", "REST & GraphQL APIs, Telemetry Streaming, Real-Time Dashboards, MySQL / MariaDB, Redis, SQLite, Application Monitoring, Distributed State Management."),
+            ("Agentic Systems & Architecture:", "Model Context Protocol (MCP), Agentic Evals & Behavioral Benchmarks, AST Hazard Linting, Deterministic Tool-Calling Runtimes, Context-Isolated Agent Workflows, Disciplined Atomic Design.")
         ]
 
         start_y = self.y
@@ -213,12 +215,12 @@ class ResumeBuilder:
             self.cr.fill()
 
             content = f'<b>{esc(lead)}</b> {esc(body)}'
-            layout = self.create_layout(content, "Liberation Sans 6.95", width=col_w - 7.0)
-            layout.set_line_spacing(1.05)
+            layout = self.create_layout(content, "Liberation Sans 6.85", width=col_w - 7.0)
+            layout.set_line_spacing(1.04)
             self.cr.set_source_rgb(*COLOR_TEXT)
             self.cr.move_to(MARGIN_X + 7.0, y1)
             PangoCairo.show_layout(self.cr, layout)
-            y1 += self.get_layout_height(layout) + 1.5
+            y1 += self.get_layout_height(layout) + 1.2
 
         # Col 2
         y2 = start_y
@@ -230,25 +232,25 @@ class ResumeBuilder:
             self.cr.fill()
 
             content = f'<b>{esc(lead)}</b> {esc(body)}'
-            layout = self.create_layout(content, "Liberation Sans 6.95", width=col_w - 7.0)
-            layout.set_line_spacing(1.05)
+            layout = self.create_layout(content, "Liberation Sans 6.85", width=col_w - 7.0)
+            layout.set_line_spacing(1.04)
             self.cr.set_source_rgb(*COLOR_TEXT)
             self.cr.move_to(col2_x + 7.0, y2)
             PangoCairo.show_layout(self.cr, layout)
-            y2 += self.get_layout_height(layout) + 1.5
+            y2 += self.get_layout_height(layout) + 1.2
 
-        self.y = max(y1, y2) + 2.0
+        self.y = max(y1, y2) + 1.5
 
         # 3. FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED
         self.render_section_title("FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED")
         apps = [
-            ("YouMeOS (Spatial Web Operating System):", "Architected browser-based spatial OS using Vue 3 and WebGPU rendering pipelines for dense volumetric 3D information spaces with steady 60 FPS performance."),
-            ("Chemical X (Agentic AI & Engineering Standards):", "Engineered architectural standards specification and AST hazard linter for deterministic, zero-regression agentic software development and tool-calling execution."),
+            ("YouMeOS (Spatial Web Operating System):", "Browser-based spatial desktop environment built on Vue 3 and headless REST/event-driven backends, with active R&D into custom WebGPU render pipelines."),
+            ("Chemical X (Agentic AI & Engineering Standards):", "Architectural standards specification, MCP runtime tooling, and AST hazard linter authored for deterministic, zero-regression agentic software development."),
             ("My Compass Consulting & Software Suite:", "High-stakes technology advisory, enterprise legacy monolith modernization, and bespoke modular software engine engineered on rigid Atomic Design principles.")
         ]
         for lead, body in apps:
-            self.render_bullet(lead, body, font_str="Liberation Sans 7.0", space_below=1.0)
-        self.y += 2.0
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.9", space_below=0.8)
+        self.y += 1.5
 
         # 4. PROFESSIONAL EXPERIENCE
         self.render_section_title("PROFESSIONAL EXPERIENCE")
@@ -260,51 +262,65 @@ class ResumeBuilder:
             "12/2004 - Present"
         )
         r1_bullets = [
-            ("Federated Network Operations:", "Architected, deployed, and manage multi-tenant edge infrastructure spanning 25+ active production web platforms, routing 160,000+ monthly requests with automated edge caching and 99.99% uptime."),
+            ("Federated Network Operations:", "Architected, deployed, and maintain multi-tenant edge infrastructure spanning 25+ active production web platforms, delivering high-availability client operations with automated edge caching and 99.99% uptime."),
             ("Sovereign Systems & Platform Engineering:", "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes), reducing ongoing maintenance overhead by 75%."),
             ("B2B Systems Advisory:", "Directed technical infrastructure engagements for commercial clients, conducting full-stack architecture audits, eliminating DNS and data bottlenecks, and migrating on-prem setups into secure cloud environments."),
-            ("Next-Gen Spatial Computing:", "Engineered browser-based spatial OS prototypes (YouMeOS), stress-testing WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.")
+            ("Agentic Systems & Spatial Prototypes:", "Authored Chemical X agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across agent runtimes.")
         ]
         for lead, body in r1_bullets:
-            self.render_bullet(lead, body, font_str="Liberation Sans 6.95", space_below=0.8)
-        self.y += 1.8
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
+        self.y += 1.4
 
         # Role 2
         self.render_role_header(
-            "Principal Systems Architect & Cloud Modernization Lead",
-            "Vi • Enterprise Cloud Modernization",
+            "System Architect",
+            "Vi • Enterprise Systems Architecture",
             "12/2021 - 01/2026"
         )
         r2_bullets = [
-            ("Cloud Modernization:", "Spearheaded enterprise transition from monolithic legacy systems to containerized cloud-native platforms on AWS and Kubernetes, sustaining continuous 99.99% availability without operational disruption."),
-            ("Observability & Reliability:", "Built automated SRE monitoring frameworks and APM telemetry pipelines, cutting incident mean-time-to-resolution (MTTR) by 45% and establishing strict on-call operational runbooks."),
-            ("DevSecOps Standard:", "Implemented multi-repository CI/CD automation and modular Terraform IaC frameworks, accelerating feature delivery velocity while enforcing rigid compliance and security boundaries.")
+            ("Frontend Architecture & Systems Bridge:", "Led architecture and development of the core frontend application codebase, serving as the primary architectural bridge between product interfaces and complex distributed backend services."),
+            ("Containerization & Cloud Reliability:", "Collaborated on containerizing services with Docker across AWS environments, establishing clear API contracts and sustaining continuous 99.99% availability."),
+            ("CI/CD & Engineering Velocity:", "Implemented automated CI/CD workflows and modular component architecture, accelerating feature delivery cycles while enforcing consistent quality standards across releases.")
         ]
         for lead, body in r2_bullets:
-            self.render_bullet(lead, body, font_str="Liberation Sans 6.95", space_below=0.8)
-        self.y += 1.8
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
+        self.y += 1.4
 
         # Role 3
         self.render_role_header(
-            "Senior Software Architect (Data-Intensive Systems)",
+            "Senior Front-End Engineer & AWS Cloud Manager",
+            "Madden Media • Tucson, AZ",
+            "01/2020 - 10/2021"
+        )
+        r3_bullets = [
+            ("Destination Web Platforms:", "Architected and deployed high-performance responsive web applications, interactive visual tools, and destination marketing platforms for premier travel clients."),
+            ("AWS Infrastructure & Deployment:", "Managed core AWS cloud infrastructure and deployment pipelines, optimizing asset delivery, caching policies, and reliability across client production sites.")
+        ]
+        for lead, body in r3_bullets:
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
+        self.y += 1.4
+
+        # Role 4
+        self.render_role_header(
+            "Senior Full-Stack Developer",
             "J.D. Mellberg Financial / Tracking First • FinTech Infrastructure",
             "06/2015 - 10/2019"
         )
-        r3_bullets = [
-            ("High-Throughput Data Pipelines:", "Architected enterprise telemetry pipelines and distributed document databases, parsing and validating millions of transaction records in real time with near-zero latency and strict auditability."),
-            ("Operational Cost Reduction:", "Engineered dynamic analytics transparency layers and automated data validation services, eliminating processing redundancies and saving an estimated $1.2M in annual operational waste.")
+        r4_bullets = [
+            ("Operational Integration Dashboard:", "Architected and engineered real-time operational dashboard integrating Five9 telephony, Salesforce CRM, and marketing API endpoints, delivering actionable visibility into millions of lead and call records."),
+            ("Lead Validation & Operational Savings:", "Engineered automated data validation and analytics transparency layers, eliminating invalid financial lead acquisition and manual data-cleansing operations to save an estimated $1.2M annually.")
         ]
-        for lead, body in r3_bullets:
-            self.render_bullet(lead, body, font_str="Liberation Sans 6.95", space_below=0.8)
-        self.y += 2.0
+        for lead, body in r4_bullets:
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
+        self.y += 1.6
 
-        # 5. PRODUCTION EXPERIENCE & VERIFICATION
-        self.render_section_title("PRODUCTION EXPERIENCE & VERIFICATION")
+        # 5. EDUCATION, CREDENTIALS & VERIFICATION
+        self.render_section_title("EDUCATION, CREDENTIALS & VERIFICATION")
         equiv_text = (
-            "25 years of self-directed technical mastery, production systems architecture, and distributed platform "
-            "design. Consulting and corporate records verifiable upon request."
+            "Self-Directed Technical Mastery & Early Industry Apprentice. Verifiable corporate employment records, "
+            "technical consulting engagements, client references, and OEM technical certifications available upon request."
         )
-        self.render_paragraph(equiv_text, "Liberation Sans 7.0", line_spacing=1.08)
+        self.render_paragraph(equiv_text, "Liberation Sans 6.9", line_spacing=1.06)
 
         # Bottom margin calculation
         print(f"Total height used: {self.y:.1f} pt out of {PAGE_HEIGHT} pt (Margin remaining: {PAGE_HEIGHT - self.y:.1f} pt)")

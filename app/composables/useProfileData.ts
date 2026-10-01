@@ -3,7 +3,7 @@ export const useProfileData = () => {
     name: 'Xopher (XP) Pollard',
     title: 'Principal Systems Architect · Distributed Platforms & AI Systems',
     tagline:
-      '25+ years architecting sovereign digital infrastructure, enterprise distributed platforms, and deterministic agentic AI runtimes.',
+      '25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture & cloud platforms.',
     avatar: '/xp_headshot.webp',
     headshot: '/xopher_jester.webp',
     siteLabel: 'xophz.com',
@@ -105,7 +105,7 @@ export const useProfileData = () => {
       key: "agentic",
       title: "Agentic AI & Quantum Architecture",
       icon: "i-lucide-cpu",
-      desc: "Architecting zero-hallucination agentic runtimes, Model Context Protocol (MCP) servers, AST hazard linting, and automated evaluation harnesses.",
+      desc: "Architecting deterministic agentic runtimes, Model Context Protocol (MCP) servers, AST hazard linting, and automated evaluation harnesses.",
     },
     {
       key: "modernize",
@@ -121,9 +121,9 @@ export const useProfileData = () => {
     },
     {
       key: "lead",
-      title: "Engineering Leadership",
+      title: "Principal & Founder Leadership",
       icon: "i-lucide-target",
-      desc: "CTO / VP Eng experience. Building teams, processes, and culture that ship product fast, reliably, and with pride.",
+      desc: "Guiding cross-functional engineering teams, architecture standards, and product execution from inception to scale.",
     },
     {
       key: "found",
@@ -155,9 +155,9 @@ export const useProfileData = () => {
     {
       group: "Cloud & Infra",
       items: [
-        "AWS (20+ services)",
-        "Terraform",
-        "Docker / ECS",
+        "AWS (Core Services)",
+        "Docker Containerization",
+        "Linux Systems & Bash",
         "CI/CD Pipelines",
       ],
     },
@@ -172,7 +172,7 @@ export const useProfileData = () => {
     },
     {
       group: "Backend",
-      items: ["Node.js", "GraphQL", "REST APIs", "PostgreSQL · Redis"],
+      items: ["Node.js", "REST APIs", "MySQL / MariaDB", "Redis · SQLite"],
     },
   ];
 

@@ -27,19 +27,19 @@ export interface FlagshipApp {
 export function useResumeData() {
   const competencies: readonly ResumeCompetency[] = [
     {
-      group: "Cloud-Native & Distributed Systems",
+      group: "Cloud Systems & Architecture",
       items:
-        "Kubernetes, Docker, AWS (20+ core services), GCP, Terraform (IaC), Microservices, Multi-Tenancy, Zero-Trust Networking, Edge Caching, Sovereign Protocols (w4).",
+        "Docker Containerization, AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Monolith Modernization, Service Decomposition, Edge Caching, Sovereign Protocols (w4).",
     },
     {
-      group: "High-Throughput Data & Observability",
+      group: "Data Integration & Observability",
       items:
-        "Event-Driven Pipelines, Asynchronous Queuing, Telemetry Streaming, REST & GraphQL APIs, Prometheus, OpenTelemetry, SRE Runbooks, Distributed Caching.",
+        "REST & GraphQL APIs, Telemetry Streaming, Real-Time Dashboards, MySQL / MariaDB, Redis, SQLite, Application Monitoring, Distributed State Management.",
     },
     {
-      group: "Full-Stack, Graphics & Spatial Computing",
+      group: "Full-Stack, Graphics & Spatial Systems",
       items:
-        "TypeScript, Node.js, Python, C#, WebGPU & WebGL Shaders, Vue 3 & Nuxt, React & Next.js, Linux Internals, Distributed State Orchestration.",
+        "TypeScript, JavaScript, Node.js, Python, Vue 3 & Nuxt, React, Linux Systems Administration & Bash, WebGL & Experimental WebGPU Pipelines.",
     },
     {
       group: "Agentic Systems & Architecture",
@@ -52,15 +52,15 @@ export function useResumeData() {
     {
       name: "YouMeOS",
       category: "Spatial Web Operating System",
-      tagline: "Vue 3 + WebGPU Spatial Environment",
-      desc: "Browser-based spatial computing operating system leveraging custom WebGPU render pipelines for dense volumetric 3D information spaces with steady 60 FPS performance.",
+      tagline: "Vue 3 Spatial Desktop & Headless Kernel",
+      desc: "Browser-based spatial desktop environment built on Vue 3 and headless REST/event-driven backends, with active R&D into custom WebGPU render pipelines.",
       url: "https://www.youmeos.com",
     },
     {
       name: "Chemical X",
       category: "Agentic AI & Architectural Standards",
-      tagline: "Engineering Standards for Deterministic AI Coding",
-      desc: "Architectural standards specification and AST hazard linter for deterministic, zero-regression agentic software development and tool-calling execution.",
+      tagline: "Open Engineering Standards for Deterministic AI Coding",
+      desc: "Architectural standards specification, MCP runtime tooling, and AST hazard linter authored for deterministic, zero-regression agentic software development.",
       url: "https://chemicalx.xophz.com",
     },
     {
@@ -82,7 +82,7 @@ export function useResumeData() {
         {
           title: "Federated Network Operations",
           detail:
-            "Architected, deployed, and manage multi-tenant edge infrastructure spanning 25+ active production web platforms and utilities, routing 160,000+ monthly requests with automated edge caching and 99.99% uptime.",
+            "Architected, deployed, and maintain multi-tenant edge infrastructure spanning 25+ active production web platforms and utilities, delivering high-availability client operations with automated edge caching and 99.99% uptime.",
         },
         {
           title: "Sovereign Systems & Platform Engineering",
@@ -97,53 +97,71 @@ export function useResumeData() {
         {
           title: "Next-Gen Spatial Computing",
           detail:
-            "Engineered browser-based spatial operating system prototypes (YouMeOS), stress-testing WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.",
+            "Engineered browser-based spatial operating system prototypes (YouMeOS), exploring WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.",
         },
         {
           title: "Agentic AI & Quantum Architecture",
           detail:
-            "Engineered Chemical X zero-hallucination agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across autonomous agent runtimes.",
+            "Authored Chemical X agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across agentic runtimes.",
         },
       ],
     },
     {
-      role: "Principal Systems Architect & Cloud Modernization Lead",
+      role: "System Architect",
       company: "Vi",
       location: "Remote",
       period: "12/2021 - 01/2026",
       bullets: [
         {
-          title: "Cloud Modernization",
+          title: "Frontend Architecture & Systems Bridge",
           detail:
-            "Spearheaded enterprise transition from monolithic legacy systems to containerized cloud-native platforms on AWS and Kubernetes, sustaining continuous 99.99% availability without operational disruption.",
+            "Led architecture and development of the core frontend application codebase, serving as the primary architectural bridge between product interfaces and complex distributed backend services.",
         },
         {
-          title: "Observability & Reliability",
+          title: "Containerization & Cloud Reliability",
           detail:
-            "Built automated SRE monitoring frameworks and APM telemetry pipelines, cutting incident mean-time-to-resolution (MTTR) by 45% and establishing strict on-call operational runbooks.",
+            "Collaborated on containerizing services with Docker across AWS environments, establishing clear API contracts and sustaining continuous 99.99% availability.",
         },
         {
-          title: "DevSecOps Standard",
+          title: "CI/CD & Engineering Velocity",
           detail:
-            "Implemented multi-repository CI/CD automation and modular Terraform IaC frameworks, accelerating feature delivery velocity while enforcing rigid compliance and security boundaries.",
+            "Implemented automated CI/CD workflows and modular component architecture, accelerating feature delivery cycles while enforcing consistent quality standards across releases.",
         },
       ],
     },
     {
-      role: "Senior Software Architect (Data-Intensive Systems)",
+      role: "Senior Front-End Engineer & AWS Cloud Manager",
+      company: "Madden Media",
+      location: "Tucson, AZ",
+      period: "01/2020 - 10/2021",
+      bullets: [
+        {
+          title: "Destination Web Platforms",
+          detail:
+            "Architected and deployed high-performance responsive web applications, interactive visual tools, and destination marketing platforms for premier travel clients.",
+        },
+        {
+          title: "AWS Infrastructure & Deployment",
+          detail:
+            "Managed core AWS cloud infrastructure and deployment pipelines, optimizing asset delivery, caching policies, and reliability across client production sites.",
+        },
+      ],
+    },
+    {
+      role: "Senior Full-Stack Developer",
       company: "J.D. Mellberg Financial / Tracking First",
       location: "Tucson, AZ",
       period: "06/2015 - 10/2019",
       bullets: [
         {
-          title: "High-Throughput Ingestion",
+          title: "Operational Integration Dashboard",
           detail:
-            "Architected enterprise telemetry pipelines and distributed document databases, parsing and validating millions of transaction records in real time with near-zero latency and strict auditability.",
+            "Architected and engineered real-time operational dashboard integrating Five9 telephony, Salesforce CRM, and marketing API endpoints, delivering actionable visibility into millions of lead and call records.",
         },
         {
-          title: "Operational Cost Reduction",
+          title: "Lead Validation & Operational Savings",
           detail:
-            "Engineered dynamic analytics transparency layers and automated data validation services, eliminating processing redundancies and saving an estimated $1.2M in annual operational waste.",
+            "Engineered automated data validation and analytics transparency layers, eliminating invalid financial lead acquisition and manual data-cleansing operations to save an estimated $1.2M annually.",
         },
       ],
     },

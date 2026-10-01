@@ -4,10 +4,10 @@ import type { MilestoneItem } from './types'
 export function useAboutMilestonesController() {
   const milestones = computed<MilestoneItem[]>(() => [
     {
-      period: '25+ Years Experience',
+      period: 'Dual-Tenure Track Record',
       title: 'Enterprise Architecture & Leadership',
-      role: 'CTO / VP of Engineering / Principal Architect',
-      desc: 'Architecting distributed cloud systems, modernizing complex legacy monoliths, and scaling engineering teams from early-stage ventures to Fortune 500 enterprises.'
+      role: 'Principal Systems Architect & Founder Leadership',
+      desc: 'Architecting distributed cloud systems, modernizing complex legacy monoliths, and scaling engineering teams and architectures across high-growth ventures and enterprise clients.'
     },
     {
       period: 'Consulting & Advisory',

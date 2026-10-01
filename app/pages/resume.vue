@@ -14,9 +14,9 @@ import { useResumeData } from '~/composables/useResumeData'
 
 useSeoMeta({
   title: 'Resume · Xopher (XP) Pollard',
-  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
+  description: 'Principal Systems Architect and Systems Synthesist. 25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture & cloud platforms.',
   ogTitle: 'Resume · Xopher (XP) Pollard',
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
+  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years in entrepreneurial tech & digital systems | 12+ years in enterprise software architecture.',
 })
 
 const { competencies, flagshipApps, experience } = useResumeData()
@@ -30,9 +30,9 @@ const { competencies, flagshipApps, experience } = useResumeData()
       <ResumeHeader />
 
       <!-- Executive Profile Section -->
-      <ResumeSection title="Executive Profile" :icon="LucideTerminal" badge="25+ Years Experience">
+      <ResumeSection title="Executive Profile" :icon="LucideTerminal" badge="25+ Yrs Tech &amp; Venture | 12+ Yrs Architecture">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          A results-driven Principal Systems Architect and Practice Lead with over 25 years of experience designing, modernizing, and orchestrating mission-critical distributed infrastructure. Proven track record deploying automated, multi-tenant cloud and edge networks supporting 25+ production platforms processing 160,000+ aggregate monthly requests with 99.99% availability. Deep technical authority across Kubernetes, Infrastructure as Code (Terraform), event-driven streaming pipelines, Model Context Protocol (MCP) agentic architectures, sovereign protocol design (w4 Protocol), and modern browser-based spatial rendering engines (WebGPU). Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, self-healing platforms.
+          A results-driven Principal Systems Architect and Practice Lead with over 25 years of entrepreneurial tech and digital systems experience, including 12+ years designing, modernizing, and orchestrating mission-critical enterprise software and distributed platforms. Proven track record bridging frontend applications with complex backend microservices, deploying containerized applications across AWS cloud infrastructure, modernizing monolithic codebases, and managing multi-tenant client networks sustaining 99.99% availability. Deep technical authority across TypeScript, Vue 3, Node.js, telemetry streaming pipelines processing millions of transaction records, Model Context Protocol (MCP) agentic architectures, and deterministic code generation tooling. Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, production platforms.
         </p>
       </ResumeSection>
 
@@ -75,10 +75,10 @@ const { competencies, flagshipApps, experience } = useResumeData()
         <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
 
-      <!-- Production Experience & Verification -->
-      <ResumeSection title="Production Experience &amp; Verification" :icon="LucideAward">
+      <!-- Education, Credentials & Verification -->
+      <ResumeSection title="Education, Credentials &amp; Verification" :icon="LucideAward">
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300">
-          25 years of self-directed technical mastery, production systems architecture, and distributed platform design. Consulting and corporate records verifiable upon request.
+          <strong>Education &amp; Background:</strong> Self-Directed Technical Mastery &amp; Early Industry Apprentice. Verifiable corporate employment records, technical consulting engagements, client references, and OEM technical certifications available upon request.
         </p>
       </ResumeSection>
 
