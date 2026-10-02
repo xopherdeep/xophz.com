@@ -27,123 +27,136 @@ export interface FlagshipApp {
 export function useResumeData() {
   const competencies: readonly ResumeCompetency[] = [
     {
-      group: "Cloud-Native & Distributed Systems",
+      group: "Frontend & Full-Stack",
       items:
-        "Kubernetes, Docker, AWS (20+ core services), GCP, Terraform (IaC), Microservices, Multi-Tenancy, Zero-Trust Networking, Edge Caching, Sovereign Protocols (w4).",
+        "TypeScript, JavaScript, Vue 3/Nuxt, React, Node.js, Python, REST/GraphQL APIs.",
     },
     {
-      group: "High-Throughput Data & Observability",
+      group: "Cloud & Infrastructure",
       items:
-        "Event-Driven Pipelines, Asynchronous Queuing, Telemetry Streaming, REST & GraphQL APIs, Prometheus, OpenTelemetry, SRE Runbooks, Distributed Caching.",
+        "AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Docker, CI/CD, Edge Caching, Linux/Bash.",
     },
     {
-      group: "Full-Stack, Graphics & Spatial Computing",
+      group: "Data & Observability",
       items:
-        "TypeScript, Node.js, Python, C#, WebGPU & WebGL Shaders, Vue 3 & Nuxt, React & Next.js, Linux Internals, Distributed State Orchestration.",
+        "MySQL/MariaDB, Redis, SQLite, Telemetry Streaming, Real-Time Dashboards.",
     },
     {
-      group: "Agentic Systems & Architecture",
+      group: "AI & Agentic Systems",
       items:
-        "Model Context Protocol (MCP), Agentic Evals & Behavioral Benchmarks, AST Hazard Linting, Deterministic Tool-Calling Runtimes, Context-Isolated Agent Workflows, Disciplined Atomic Design.",
+        "Model Context Protocol (MCP), AST-Based Linting, Agent Evals, Context-Isolated Agent Workflows.",
     },
   ];
 
   const flagshipApps: readonly FlagshipApp[] = [
     {
-      name: "YouMeOS",
-      category: "Spatial Web Operating System",
-      tagline: "Vue 3 + WebGPU Spatial Environment",
-      desc: "Browser-based spatial computing operating system leveraging custom WebGPU render pipelines for dense volumetric 3D information spaces with steady 60 FPS performance.",
-      url: "https://www.youmeos.com",
+      name: "Chemical X",
+      category: "Agentic AI & Engineering Standards",
+      tagline: "npx chemx audit",
+      desc: "Open-source toolkit that audits codebases for AI-readiness, deterministic tool-calling, and AST hazard prevention (npx chemx audit).",
+      url: "https://chemicalx.xophz.com",
     },
     {
-      name: "Chemical X",
-      category: "Agentic AI & Architectural Standards",
-      tagline: "Engineering Standards for Deterministic AI Coding",
-      desc: "Architectural standards specification and AST hazard linter for deterministic, zero-regression agentic software development and tool-calling execution.",
-      url: "https://chemicalx.xophz.com",
+      name: "YouMeOS",
+      category: "Spatial Web Operating System",
+      tagline: "Vue 3 Spatial Desktop & Headless Kernel",
+      desc: "Browser-based spatial desktop on Vue 3 with a headless REST/event-driven backend.",
+      url: "https://www.youmeos.com",
     },
     {
       name: "My Compass Consulting & Software Suite",
       category: "Enterprise Systems & Architecture Advisory",
-      tagline: "Strategic Systems Synthesis & Bespoke Software Engine",
-      desc: "High-stakes technology advisory, enterprise legacy monolith modernization, and bespoke modular software engine engineered on rigid Atomic Design principles.",
+      tagline: "Legacy Modernization & Modular Systems",
+      desc: "Enterprise legacy monolith modernization and bespoke modular software engine engineered on rigid Atomic Design principles.",
       url: "https://www.mycompassconsulting.com",
     },
   ];
 
   const experience: readonly ResumeJob[] = [
     {
-      role: "Managing Practice Lead & Principal Architect",
-      company: "Hall of the Gods, Inc. / My Compass Consulting",
-      location: "Tucson, AZ",
-      period: "12/2004 - Present",
-      bullets: [
-        {
-          title: "Federated Network Operations",
-          detail:
-            "Architected, deployed, and manage multi-tenant edge infrastructure spanning 25+ active production web platforms and utilities, routing 160,000+ monthly requests with automated edge caching and 99.99% uptime.",
-        },
-        {
-          title: "Sovereign Systems & Platform Engineering",
-          detail:
-            "Designed and delivered scalable, containerized client platforms and workflow engines (including BlackBOX self-healing nodes and developer utilities), reducing ongoing maintenance overhead by 75%.",
-        },
-        {
-          title: "B2B Systems Advisory",
-          detail:
-            "Directed technical infrastructure engagements for commercial and enterprise clients, conducting full-stack architecture audits, resolving DNS and database bottlenecks, and migrating fragmented on-prem setups into secure cloud environments.",
-        },
-        {
-          title: "Next-Gen Spatial Computing",
-          detail:
-            "Engineered browser-based spatial operating system prototypes (YouMeOS), stress-testing WebGPU rendering pipelines and complex state coordination for dense volumetric information spaces.",
-        },
-        {
-          title: "Agentic AI & Quantum Architecture",
-          detail:
-            "Engineered Chemical X zero-hallucination agent standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites enforcing deterministic code generation across autonomous agent runtimes.",
-        },
-      ],
-    },
-    {
-      role: "Principal Systems Architect & Cloud Modernization Lead",
+      role: "System Architect",
       company: "Vi",
       location: "Remote",
       period: "12/2021 - 01/2026",
       bullets: [
         {
-          title: "Cloud Modernization",
+          title: "Frontend Architecture & Systems Bridge",
           detail:
-            "Spearheaded enterprise transition from monolithic legacy systems to containerized cloud-native platforms on AWS and Kubernetes, sustaining continuous 99.99% availability without operational disruption.",
+            "Led architecture and development of the core frontend codebase, serving as the architectural bridge between product interfaces and distributed backend services.",
         },
         {
-          title: "Observability & Reliability",
+          title: "Containerization & Cloud Reliability",
           detail:
-            "Built automated SRE monitoring frameworks and APM telemetry pipelines, cutting incident mean-time-to-resolution (MTTR) by 45% and establishing strict on-call operational runbooks.",
+            "Collaborated on containerizing services with Docker on AWS and defined clear API contracts, sustaining 99.99% availability.",
         },
         {
-          title: "DevSecOps Standard",
+          title: "CI/CD & Engineering Velocity",
           detail:
-            "Implemented multi-repository CI/CD automation and modular Terraform IaC frameworks, accelerating feature delivery velocity while enforcing rigid compliance and security boundaries.",
+            "Implemented automated CI/CD workflows and modular component architecture, speeding feature delivery while keeping quality consistent.",
         },
       ],
     },
     {
-      role: "Senior Software Architect (Data-Intensive Systems)",
+      role: "Founder & Principal Architect",
+      company: "My Compass Consulting / Hall of the Gods, Inc.",
+      location: "Tucson, AZ",
+      period: "12/2004 - Present",
+      bullets: [
+        {
+          title: "Edge Infrastructure Operations",
+          detail:
+            "Run multi-tenant edge infrastructure for 25+ production web platforms with automated edge caching and 99.99% uptime.",
+        },
+        {
+          title: "Platform & Workflow Engineering",
+          detail:
+            "Delivered containerized client platforms and workflow engines, reducing ongoing maintenance overhead by 75%.",
+        },
+        {
+          title: "Full-Stack Architecture Audits",
+          detail:
+            "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS.",
+        },
+        {
+          title: "Chemical X Authoring",
+          detail:
+            "Author Chemical X, an open standard and CLI for deterministic AI-assisted coding, plus MCP tool bridges and an AST hazard linter.",
+        },
+      ],
+    },
+    {
+      role: "Senior Front-End Engineer & AWS Cloud Manager",
+      company: "Madden Media",
+      location: "Tucson, AZ",
+      period: "01/2020 - 10/2021",
+      bullets: [
+        {
+          title: "Destination Web Platforms",
+          detail:
+            "Architected and deployed high-performance web applications and interactive tools for travel and destination clients.",
+        },
+        {
+          title: "AWS Infrastructure & Deployment",
+          detail:
+            "Managed AWS infrastructure and deployment pipelines, optimizing asset delivery, caching policies, and reliability across client sites.",
+        },
+      ],
+    },
+    {
+      role: "Senior Full-Stack Developer",
       company: "J.D. Mellberg Financial / Tracking First",
       location: "Tucson, AZ",
       period: "06/2015 - 10/2019",
       bullets: [
         {
-          title: "High-Throughput Ingestion",
+          title: "Operations Dashboard",
           detail:
-            "Architected enterprise telemetry pipelines and distributed document databases, parsing and validating millions of transaction records in real time with near-zero latency and strict auditability.",
+            "Built a real-time operations dashboard integrating Five9 telephony, Salesforce CRM, and marketing APIs across millions of lead and call records.",
         },
         {
-          title: "Operational Cost Reduction",
+          title: "Lead Validation & Operational Savings",
           detail:
-            "Engineered dynamic analytics transparency layers and automated data validation services, eliminating processing redundancies and saving an estimated $1.2M in annual operational waste.",
+            "Engineered automated validation that eliminated invalid lead spend and manual data cleanup, saving an estimated $1.2M annually.",
         },
       ],
     },

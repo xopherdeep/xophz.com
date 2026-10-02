@@ -3,7 +3,7 @@ import { useTimelineHeroController } from './m-timeline-hero.controller'
 import type { TimelineHeroProps } from './types'
 
 const props = withDefaults(defineProps<TimelineHeroProps>(), {
-  totalYears: 36,
+  totalYears: 20,
   totalRoles: 20,
   activeVentures: 4
 })

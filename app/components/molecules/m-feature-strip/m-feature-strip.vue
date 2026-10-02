@@ -3,7 +3,7 @@ import { useFeatureStripController } from './m-feature-strip.controller'
 
 const { featureStats, hasStats } = useFeatureStripController()
 
-const statIcons = ['i-lucide-clock', 'i-lucide-cloud', 'i-lucide-shield', 'i-lucide-sparkles']
+const statIcons = ['i-lucide-trending-up', 'i-lucide-shield-check', 'i-lucide-network', 'i-lucide-award']
 const statColors = ['violet', 'cyan', 'emerald', 'amber']
 </script>
 
@@ -39,8 +39,11 @@ const statColors = ['violet', 'cyan', 'emerald', 'amber']
             class="text-xl sm:text-2xl md:text-3xl font-bold font-display text-zinc-900 dark:text-zinc-50 mb-1 xo-gradient-text">
             {{ stat.value }}
           </p>
-          <p class="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 font-body">
+          <p class="text-xs sm:text-sm font-semibold text-zinc-800 dark:text-zinc-200 font-body">
             {{ stat.label }}
+          </p>
+          <p class="text-[0.68rem] text-zinc-500 dark:text-zinc-400 font-body mt-1 leading-tight">
+            {{ stat.desc }}
           </p>
         </div>
       </div>

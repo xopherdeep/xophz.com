@@ -25,19 +25,30 @@ const { competencies, flagshipApps, experience } = useResumeData()
 <template>
   <main class="min-h-dvh flex flex-col items-center relative resume-page py-8">
     <UContainer class="max-w-[1100px] w-full flex flex-col gap-8 print:p-0 print:max-w-none">
-      
+
       <!-- Resume Header -->
       <ResumeHeader />
 
       <!-- Executive Profile Section -->
-      <ResumeSection title="Executive Profile" :icon="LucideTerminal" badge="25+ Years Experience">
+      <ResumeSection
+        title="Executive Summary"
+        :icon="LucideTerminal"
+        badge="20+ Yrs Tech &amp; Venture | 12+ Yrs Architecture"
+      >
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          A results-driven Principal Systems Architect and Practice Lead with over 25 years of experience designing, modernizing, and orchestrating mission-critical distributed infrastructure. Proven track record deploying automated, multi-tenant cloud and edge networks supporting 25+ production platforms processing 160,000+ aggregate monthly requests with 99.99% availability. Deep technical authority across Kubernetes, Infrastructure as Code (Terraform), event-driven streaming pipelines, Model Context Protocol (MCP) agentic architectures, sovereign protocol design (w4 Protocol), and modern browser-based spatial rendering engines (WebGPU). Adept at leading cross-functional engineering teams, eliminating technical debt, and translating ambiguous business and scientific requirements into durable, self-healing platforms.
+          Principal software architect with 20+ years building web platforms and digital systems, including 12+ years in
+          enterprise architecture. Experienced bridging frontend applications with distributed backend services,
+          containerizing and deploying on AWS, and modernizing monolithic codebases. Currently focused on architecture
+          audits and guardrails for teams adopting AI-assisted development, including MCP tooling and deterministic code
+          generation.
         </p>
       </ResumeSection>
 
       <!-- Core Architecture Competencies -->
-      <ResumeSection title="Core Architecture &amp; Engineering Competencies" :icon="LucideCpu">
+      <ResumeSection
+        title="Core Architecture &amp; Engineering Competencies"
+        :icon="LucideCpu"
+      >
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div
             v-for="(c, idx) in competencies"
@@ -56,7 +67,10 @@ const { competencies, flagshipApps, experience } = useResumeData()
       </ResumeSection>
 
       <!-- Professional Experience -->
-      <ResumeSection title="Professional Experience" :icon="LucideBriefcase">
+      <ResumeSection
+        title="Professional Experience"
+        :icon="LucideBriefcase"
+      >
         <div class="flex flex-col gap-5">
           <ResumeItem
             v-for="job in experience"
@@ -71,14 +85,22 @@ const { competencies, flagshipApps, experience } = useResumeData()
       </ResumeSection>
 
       <!-- Flagship Applications & Sovereign Platforms -->
-      <ResumeSection title="Flagship Applications &amp; Sovereign Platforms" :icon="LucideLayers" badge="Live Ecosystem">
+      <ResumeSection
+        title="Flagship Applications &amp; Sovereign Platforms"
+        :icon="LucideLayers"
+        badge="Live Ecosystem"
+      >
         <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
 
-      <!-- Production Experience & Verification -->
-      <ResumeSection title="Production Experience &amp; Verification" :icon="LucideAward">
+      <!-- Education & Credentials -->
+      <ResumeSection
+        title="Education &amp; Credentials"
+        :icon="LucideAward"
+      >
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300">
-          25 years of self-directed technical mastery, production systems architecture, and distributed platform design. Consulting and corporate records verifiable upon request.
+          Self-taught; early industry apprentice. OEM Certified Support Specialist (Microsoft / Broadband Network
+          Diagnostics). References available on request.
         </p>
       </ResumeSection>
 
@@ -98,7 +120,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
           <UButton
             to="/xp_pollard_resume.pdf"
             external
-            download="Xopher_Pollard_Resume.pdf"
+            download="Christopher_Pollard_Resume.pdf"
             icon="i-lucide-download"
             color="primary"
             variant="solid"
@@ -115,17 +137,22 @@ const { competencies, flagshipApps, experience } = useResumeData()
 </template>
 
 <style>
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #111111 !important;
+  @media print {
+    body {
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+
+    header,
+    nav,
+    #hamburger-btn,
+    .print\:hidden {
+      display: none !important;
+    }
+
+    .resume-page {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
   }
-  header, nav, #hamburger-btn, .print\:hidden {
-    display: none !important;
-  }
-  .resume-page {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-}
 </style>

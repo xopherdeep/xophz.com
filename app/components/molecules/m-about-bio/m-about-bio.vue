@@ -25,12 +25,12 @@ const { bioTitle, hasBio } = useAboutBioController()
         </div>
 
         <p class="text-sm sm:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
-          I am a 25+ year veteran software architect, serial founder, and executive technology leader based out of the
-          Sonoran Desert. As the principal behind <strong>My Compass Consulting</strong>, I specialize in high-stakes
-          systems synthesis, carving monolithic legacy systems into resilient, cloud-native architectures without
-          disrupting ongoing operations. I partner with elite founders and agencies to deploy sovereign infrastructure
-          (BlackBOX) and provide high-level systems advisory, building the architectural backbone that allows visionary
-          companies to scale effortlessly.
+          I am a 20+ year tech entrepreneur, System Architect, and founder based out of the
+          Sonoran Desert. With over 12 years dedicated to enterprise software architecture as the principal behind
+          <strong>My Compass Consulting</strong>, I specialize in high-stakes systems architecture, carving monolithic
+          legacy systems into resilient, cloud-native architectures without disrupting ongoing operations. I partner
+          with founders and agencies to deploy sovereign infrastructure (BlackBOX) and provide high-level systems
+          advisory, building the architectural backbone that allows visionary companies to scale effortlessly.
         </p>
 
         <p class="text-sm sm:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">

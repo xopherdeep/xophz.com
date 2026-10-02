@@ -14,6 +14,6 @@ useSeoMeta({
     <MHeroBanner />
     <MFeatureStrip />
     <MFeaturedProjects />
-    <MCreativeStrip />
+    <MHomeCta />
   </div>
 </template>

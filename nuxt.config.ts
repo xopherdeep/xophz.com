@@ -1,8 +1,13 @@
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath } from "node:url";
 
 export default defineNuxtConfig({
   alias: {
-    uqr: fileURLToPath(new URL('./node_modules/.pnpm/uqr@0.1.3/node_modules/uqr/dist/index.mjs', import.meta.url))
+    uqr: fileURLToPath(
+      new URL(
+        "./node_modules/.pnpm/uqr@0.1.3/node_modules/uqr/dist/index.mjs",
+        import.meta.url,
+      ),
+    ),
   },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -12,31 +17,39 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@vueuse/motion/nuxt",
     "@nuxt/image",
-    "nuxt-lucide-icons"
+    "nuxt-lucide-icons",
   ],
 
   components: {
     dirs: [
-      { path: '~/components/organisms', extensions: ['.vue'], pathPrefix: false },
-      { path: '~/components/molecules', extensions: ['.vue'], pathPrefix: false },
-      { path: '~/components', extensions: ['.vue'] }
-    ]
+      {
+        path: "~/components/organisms",
+        extensions: [".vue"],
+        pathPrefix: false,
+      },
+      {
+        path: "~/components/molecules",
+        extensions: [".vue"],
+        pathPrefix: false,
+      },
+      { path: "~/components", extensions: [".vue"] },
+    ],
   },
 
   css: ["~/assets/css/main.css"],
 
   ui: {
-    fonts: false
+    fonts: false,
   },
 
   build: {
-    transpile: ['reka-ui']
+    transpile: ["reka-ui"],
   },
 
   vite: {
     resolve: {
-      dedupe: ['vue', '@unhead/vue']
-    }
+      dedupe: ["vue", "@unhead/vue"],
+    },
   },
 
   content: {},
@@ -44,21 +57,21 @@ export default defineNuxtConfig({
   telemetry: false,
 
   image: {
-    provider: "none"
+    provider: "none",
   },
 
   hooks: {
-    'content:file:beforeParse': (ctx: any) => {
-      if (ctx.file.id.endsWith('.md') && typeof ctx.file.body === 'string') {
+    "content:file:beforeParse": (ctx: any) => {
+      if (ctx.file.id.endsWith(".md") && typeof ctx.file.body === "string") {
         const metaBlockPattern = /```meta\s*\n([\s\S]*?)\n```\s*(\n|$)/;
         const match = ctx.file.body.match(metaBlockPattern);
         if (match) {
           const metaYaml = match[1].trim();
-          ctx.file.body = ctx.file.body.replace(metaBlockPattern, '').trimEnd();
+          ctx.file.body = ctx.file.body.replace(metaBlockPattern, "").trimEnd();
           ctx.file.body = `---\n${metaYaml}\n---\n\n${ctx.file.body}`;
         }
       }
-    }
+    },
   },
 
   nitro: {
@@ -70,27 +83,31 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/compass': { redirect: { to: '/my-compass', statusCode: 301 } },
-    '/_nuxt/**': {
+    "/compass": { redirect: { to: "/my-compass", statusCode: 301 } },
+    "/_nuxt/**": {
       headers: {
-        'cache-control': 'public, max-age=31536000, immutable',
+        "cache-control": "public, max-age=31536000, immutable",
       },
     },
-    '/**': {
+    "/**": {
       headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'X-Frame-Options': 'SAMEORIGIN',
-        'Referrer-Policy': 'strict-origin-when-cross-origin',
-        'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
       },
     },
   },
 
   runtimeConfig: {
     public: {
-      compassCheckoutUrl: process.env.NUXT_PUBLIC_COMPASS_CHECKOUT_URL || "https://www.mycompassconsulting.com",
-      compassApiUrl: process.env.NUXT_PUBLIC_COMPASS_API_URL || "https://www.mycompassconsulting.com/wp-json/xophz/v1",
-    }
+      compassCheckoutUrl:
+        process.env.NUXT_PUBLIC_COMPASS_CHECKOUT_URL ||
+        "https://www.mycompassconsulting.com",
+      compassApiUrl:
+        process.env.NUXT_PUBLIC_COMPASS_API_URL ||
+        "https://www.mycompassconsulting.com/wp-json/xophz/v1",
+    },
   },
 
   app: {
@@ -101,11 +118,11 @@ export default defineNuxtConfig({
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "robots", content: "index, follow" },
-        { name: "author", content: "Christopher \"Xopher\" Pollard" },
+        { name: "author", content: 'Christopher "Xopher" Pollard' },
         {
           name: "description",
           content:
-            "Computer repair, website design and tech consulting in Tucson, AZ. Christopher \"Xopher\" Pollard has 25+ years of experience helping people and small businesses.",
+            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
         },
 
         { property: "og:type", content: "website" },
@@ -115,7 +132,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Computer repair, website design and tech consulting in Tucson, AZ. Christopher \"Xopher\" Pollard has 25+ years of experience helping people and small businesses.",
+            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
         },
         {
           property: "og:image",
@@ -133,7 +150,7 @@ export default defineNuxtConfig({
         {
           name: "twitter:description",
           content:
-            "Computer repair, website design and tech consulting in Tucson, AZ. Christopher \"Xopher\" Pollard has 25+ years of experience helping people and small businesses.",
+            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
         },
         {
           name: "twitter:image",

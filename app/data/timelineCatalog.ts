@@ -56,7 +56,7 @@ export const TIMELINE_ERAS: readonly TimelineEra[] = [
     key: 'enterprise',
     title: 'Enterprise Modernization & Cloud Scale',
     period: '2014 - 2026',
-    desc: 'Kubernetes containerization, high-throughput financial pipelines, and SRE observability.'
+    desc: 'Cloud modernization, high-throughput financial pipelines, and system reliability.'
   },
   {
     key: 'agency',
@@ -94,13 +94,13 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
-    highlight: 'Engineering Quantum Architecture standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites for zero-hallucination AI software development.',
-    skills: ['Agentic Systems', 'Model Context Protocol (MCP)', 'Quantum Architecture', 'AST Linting', 'Deterministic Tooling']
+    highlight: 'Authoring open Modular Architecture standards, Model Context Protocol (MCP) tool bridges, and AST hazard validation suites for deterministic agentic software development.',
+    skills: ['Agentic Systems', 'Model Context Protocol (MCP)', 'Modular Architecture', 'AST Linting', 'Deterministic Tooling']
   },
   {
     id: 'worldwide-webwork',
     company: 'Worldwide Webwork',
-    role: 'Founder & Principal Systems Synthesist',
+    role: 'Founder & Lead Systems Architect',
     period: 'Oct 2019 - Present',
     startDate: '2019-10',
     endDate: null,
@@ -112,8 +112,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Venture Founder',
     category: 'Founding & Advisory',
     eraKey: 'sovereign',
-    highlight: 'Architecting decentralized hyper-cube node topology and sovereign web protocols connecting modern distributed nodes.',
-    skills: ['Sovereign Protocols', 'Distributed Systems', 'Edge Architecture', 'w4 Protocol']
+    highlight: 'Architecting decentralized hyper-cube node topology and resilient edge protocols connecting modern distributed nodes.',
+    skills: ['Decentralized Protocols', 'Distributed Systems', 'Edge Architecture', 'Node Topology']
   },
   {
     id: 'my-compass-consulting',
@@ -166,8 +166,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Enterprise Architecture',
     category: 'Enterprise Systems',
     eraKey: 'enterprise',
-    highlight: 'Enterprise transition to containerized AWS and Kubernetes platforms, automated SRE pipelines, and 99.99% uptime delivery.',
-    skills: ['AWS', 'Kubernetes', 'Terraform', 'SRE & Observability', 'Docker']
+    highlight: 'Architected core frontend application infrastructure, bridged distributed backend services, and collaborated on containerized AWS deployments with 99.99% uptime.',
+    skills: ['Frontend Architecture', 'System Architecture', 'AWS', 'Docker', 'API Contracts', 'TypeScript']
   },
   {
     id: 'madden-media',
@@ -238,7 +238,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Enterprise Architecture',
     category: 'Enterprise Systems',
     eraKey: 'enterprise',
-    highlight: 'Engineered high-throughput financial lead parsing pipelines, secure CRM integrations, and data validation layers saving $1.2M annually.',
+    highlight: 'Engineered high-throughput financial lead parsing pipelines and automated data validation layers, eliminating invalid lead acquisition and saving an estimated $1.2M annually.',
     skills: ['Financial Systems', 'Data Pipelines', 'Security Compliance', 'Database Architecture']
   },
   {
@@ -351,8 +351,8 @@ export const timelineCatalog: readonly TimelineItem[] = [
   },
   {
     id: 'emachines',
-    company: 'eMachines',
-    role: 'Certified Sr. Technician',
+    company: 'eMachines (OEM Certified Partner)',
+    role: 'OEM Certified Computer Technician',
     period: 'Jul 2003 - Jan 2004',
     startDate: '2003-07',
     endDate: '2004-01',
@@ -364,13 +364,13 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
-    highlight: 'Factory-certified computer bench diagnostics, OEM motherboard repair, and high-volume hardware troubleshooting.',
+    highlight: 'Factory-certified computer bench diagnostics, OEM motherboard repair, and hardware quality assurance across high-volume systems.',
     skills: ['OEM Certification', 'Hardware Repair', 'Quality Assurance']
   },
   {
     id: 'microsoft',
-    company: 'Microsoft',
-    role: 'Certified Technician',
+    company: 'Microsoft (OEM Certified Support)',
+    role: 'Certified Desktop Support Specialist',
     period: 'Jan 2003 - Jul 2003',
     startDate: '2003-01',
     endDate: '2003-07',
@@ -382,13 +382,13 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
-    highlight: 'Windows environment diagnostics, client workstation troubleshooting, and operating system registry optimizations.',
+    highlight: 'Certified Windows client workstation troubleshooting, hardware diagnostics, and operating system registry optimizations.',
     skills: ['Windows OS', 'Registry Tuning', 'System Administration']
   },
   {
     id: 'yahoo',
-    company: 'Yahoo!',
-    role: 'Certified SBC Yahoo! Technician',
+    company: 'SBC Yahoo! (Authorized DSL Support)',
+    role: 'Certified Broadband Technical Specialist',
     period: 'May 2002 - Jan 2003',
     startDate: '2002-05',
     endDate: '2003-01',
@@ -400,7 +400,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
     engagementType: 'Foundational Tech',
     category: 'Infrastructure & Tech',
     eraKey: 'foundational',
-    highlight: 'Early broadband DSL connectivity configuration, dialup gateway routing, and technical client support during Web 1.0 expansion.',
+    highlight: 'Broadband DSL connectivity routing, gateway diagnostics, and technical subscriber support during Web 1.0 infrastructure expansion.',
     skills: ['DSL & Broadband', 'Network Gateways', 'TCP/IP', 'Client Support']
   },
   {
