@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { IDENTITY } from '~/constants/identity'
 
 const route = useRoute()
 const normalizedPath = route.path.replace(/\/$/, '') || '/'
@@ -124,7 +125,7 @@ const copyLink = async () => {
         <ContentRenderer :value="post" />
         <div class="mt-12 pt-8 border-t border-dashed border-white/10 font-display text-text-muted italic text-[1.1rem] leading-[1.5] opacity-80 [&_p]:!m-0 [&_p]:!mb-1">
           <p>Abracadabra,</p>
-          <p>~ Xopher Pollard 🧞</p>
+          <p>~ {{ IDENTITY.name }} 🧞</p>
         </div>
       </div>
 

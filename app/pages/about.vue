@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { IDENTITY } from '~/constants/identity'
+
 useSeoMeta({
-  title: 'About · Xopher Pollard',
-  ogTitle: 'About · Xopher Pollard',
-  description: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
-  ogDescription: 'Principal Systems Synthesist, Architect, Artist & Polymath. 25+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
+  title: `About · ${IDENTITY.name}`,
+  ogTitle: `About · ${IDENTITY.name}`,
+  description: 'Principal Systems Synthesist, Architect, Artist & Polymath. 20+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
+  ogDescription: 'Principal Systems Synthesist, Architect, Artist & Polymath. 20+ years bridging cloud-first systems architecture, agentic AI systems, and sovereign digital infrastructure.',
 })
 </script>
 

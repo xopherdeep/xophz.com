@@ -2,12 +2,13 @@
 import { ref, computed } from 'vue'
 import { useContextualSearch } from '~/composables/useContextualSearch'
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
+import { IDENTITY } from '~/constants/identity'
 
 useSeoMeta({
-  title: 'Writing & Devlogs : Xopher Pollard',
-  ogTitle: 'Writing & Devlogs : Xopher Pollard',
-  description: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher Pollard.',
-  ogDescription: 'Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by Xopher Pollard.',
+  title: `Writing & Devlogs : ${IDENTITY.name}`,
+  ogTitle: `Writing & Devlogs : ${IDENTITY.name}`,
+  description: `Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by ${IDENTITY.name}.`,
+  ogDescription: `Thoughts, systems architecture breakdowns, devlogs, and sovereign philosophy by ${IDENTITY.name}.`,
 })
 
 const { data: posts } = await useAsyncData('posts-feed', () =>
@@ -107,7 +108,7 @@ const selectFolder = (folder: string) => {
     >
       <template #description>
         Field notes, systems architecture breakdowns, and sovereign digital philosophy by
-        <span class="text-zinc-900 dark:text-zinc-100 font-semibold">Xopher Pollard</span>.
+        <span class="text-zinc-900 dark:text-zinc-100 font-semibold">{{ IDENTITY.name }}</span>.
       </template>
     </OPageHero>
 

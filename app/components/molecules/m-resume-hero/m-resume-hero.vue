@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
+import { IDENTITY } from '~/constants/identity'
 import { useResumeHeroController } from './m-resume-hero.controller'
 
 const {
@@ -41,9 +42,9 @@ const {
       <template #actions>
         <div class="flex flex-col sm:flex-row md:flex-col gap-2.5 shrink-0 print:hidden w-full md:w-auto">
           <UButton
-            to="/xp_pollard_resume.pdf"
+            :to="IDENTITY.resumePdfPath"
             external
-            download="Christopher_Pollard_Resume.pdf"
+            :download="IDENTITY.resumeFilename"
             icon="i-lucide-download"
             color="primary"
             variant="solid"

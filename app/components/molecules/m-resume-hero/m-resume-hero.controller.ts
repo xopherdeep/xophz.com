@@ -1,9 +1,10 @@
 import { computed } from "vue";
+import { IDENTITY } from "~/constants/identity";
 import type { ContactLink, ResumeIdentity } from "./types";
 
 export function useResumeHeroController() {
   const identity: ResumeIdentity = {
-    name: 'Christopher "Xopher" Pollard',
+    name: IDENTITY.fullName,
     role: "Principal Software Architect | Full-Stack, AWS & AI Tooling",
   };
 

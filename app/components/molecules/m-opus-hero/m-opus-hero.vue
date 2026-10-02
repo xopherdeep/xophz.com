@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
+import { IDENTITY } from '~/constants/identity'
 </script>
 
 <template>
@@ -20,7 +21,7 @@ import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
       class: 'shadow-glow-violet'
     }"
     :secondary-action="{
-      label: 'Connect with XP',
+      label: `Connect with ${IDENTITY.handle}`,
       to: '/connect',
       color: 'neutral',
       variant: 'outline',
@@ -29,8 +30,8 @@ import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
   >
     <template #description>
       The Hall of the Gods ecosystem. Infrastructure, services, and sovereign platforms built by
-      <span class="text-zinc-900 dark:text-zinc-100 font-semibold">Xopher Pollard</span> across
-      <span class="text-cyan-600 dark:text-cyan-400 font-semibold">25+ years</span> of systems synthesis.
+      <span class="text-zinc-900 dark:text-zinc-100 font-semibold">{{ IDENTITY.name }}</span> across
+      <span class="text-cyan-600 dark:text-cyan-400 font-semibold">20+ years</span> of systems synthesis.
     </template>
   </OPageHero>
 </template>

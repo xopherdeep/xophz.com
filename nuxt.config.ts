@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { IDENTITY } from "./app/constants/identity";
 
 export default defineNuxtConfig({
   alias: {
@@ -19,6 +20,10 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-lucide-icons",
   ],
+
+  imports: {
+    dirs: ["constants"],
+  },
 
   components: {
     dirs: [
@@ -113,26 +118,26 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     head: {
-      title: "xophz · Xopher Pollard",
+      title: `xophz · ${IDENTITY.name}`,
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "robots", content: "index, follow" },
-        { name: "author", content: 'Christopher "Xopher" Pollard' },
+        { name: "author", content: IDENTITY.fullName },
         {
           name: "description",
           content:
-            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
+            `Computer repair, website design and tech consulting in Tucson, AZ. ${IDENTITY.fullName} has 25+ years of experience helping people and small businesses.`,
         },
 
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "xophz" },
-        { property: "og:url", content: "https://xophz.com" },
-        { property: "og:title", content: "xophz · Xopher Pollard" },
+        { property: "og:url", content: IDENTITY.siteUrl },
+        { property: "og:title", content: `xophz · ${IDENTITY.name}` },
         {
           property: "og:description",
           content:
-            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
+            `Computer repair, website design and tech consulting in Tucson, AZ. ${IDENTITY.fullName} has 25+ years of experience helping people and small businesses.`,
         },
         {
           property: "og:image",
@@ -140,23 +145,23 @@ export default defineNuxtConfig({
         },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: "Xopher Pollard · xophz" },
+        { property: "og:image:alt", content: `${IDENTITY.name} · xophz` },
         { property: "og:locale", content: "en_US" },
 
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:site", content: "@xophz" },
         { name: "twitter:creator", content: "@xophz" },
-        { name: "twitter:title", content: "xophz · Xopher Pollard" },
+        { name: "twitter:title", content: `xophz · ${IDENTITY.name}` },
         {
           name: "twitter:description",
           content:
-            'Computer repair, website design and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard has 25+ years of experience helping people and small businesses.',
+            `Computer repair, website design and tech consulting in Tucson, AZ. ${IDENTITY.fullName} has 25+ years of experience helping people and small businesses.`,
         },
         {
           name: "twitter:image",
           content: "https://xophz.com/og_social_card.png",
         },
-        { name: "twitter:image:alt", content: "Xopher Pollard · xophz" },
+        { name: "twitter:image:alt", content: `${IDENTITY.name} · xophz` },
 
         { name: "theme-color", content: "#0a0a12" },
       ],

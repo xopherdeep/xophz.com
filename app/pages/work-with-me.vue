@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import { BOOKING_URL, CONTACT_EMAIL, workServices, workSteps, workCaseStudies } from '~/data/workCatalog'
+import { IDENTITY } from '~/constants/identity'
 
 const description =
-  'Computer repair, website design, and tech consulting in Tucson, AZ from Christopher "Xopher" Pollard. 25+ years of experience. Book a quick call.'
+  `Computer repair, website design, and tech consulting in Tucson, AZ from ${IDENTITY.fullName}. 25+ years of experience. Book a quick call.`
 
 useSeoMeta({
-  title: 'Work with Me · Xopher Pollard',
-  ogTitle: 'Work with Me · Xopher Pollard',
-  twitterTitle: 'Work with Me · Xopher Pollard',
+  title: `Work with Me · ${IDENTITY.name}`,
+  ogTitle: `Work with Me · ${IDENTITY.name}`,
+  twitterTitle: `Work with Me · ${IDENTITY.name}`,
   description,
   ogDescription: description,
   twitterDescription: description,
@@ -27,7 +28,7 @@ useSeoMeta({
         glow-secondary="violet"
       >
         <template #description>
-          I'm Christopher "Xopher" Pollard. I fix computers, build websites, and help with tech decisions for people and
+          I'm {{ IDENTITY.fullName }}. I fix computers, build websites, and help with tech decisions for people and
           small businesses, with 25+ years of experience. I take jobs as they come, big or small.
         </template>
         <template #actions>

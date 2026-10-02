@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import MConnectChannels from '~/components/molecules/m-connect-channels/m-connect-channels.vue'
+import { IDENTITY } from '~/constants/identity'
+
+const description = `Get in touch with ${IDENTITY.fullName} for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.`
 
 useSeoMeta({
-  title: 'Connect · Xopher Pollard',
-  ogTitle: 'Connect · Xopher Pollard',
-  description: 'Get in touch with Christopher "Xopher" Pollard for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.',
-  ogDescription: 'Get in touch with Christopher "Xopher" Pollard for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.',
+  title: `Connect · ${IDENTITY.name}`,
+  ogTitle: `Connect · ${IDENTITY.name}`,
+  description,
+  ogDescription: description,
 })
 
 const { openQrd } = useQrdModal()

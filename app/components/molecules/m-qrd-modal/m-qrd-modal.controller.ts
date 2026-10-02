@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import { useTimeoutFn } from '@vueuse/core'
 import { getQrPathData, QrEcc } from '~/utils/qr'
 import { XP_CONTACT, generateQrVcard, generateFullVcard } from './vcard'
+import { IDENTITY } from '~/constants/identity'
 import type { Props, Emits } from './types'
 
 export function useQrdModalController(_props: Props, emit: Emits) {
@@ -38,7 +39,7 @@ export function useQrdModalController(_props: Props, emit: Emits) {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'Xopher_XP_Pollard.vcf'
+    link.download = IDENTITY.vcardFilename
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)

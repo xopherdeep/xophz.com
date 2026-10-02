@@ -4,12 +4,13 @@ import MTimelineRail from '~/components/molecules/m-timeline-rail/m-timeline-rai
 import MTimelineFilter from '~/components/molecules/m-timeline-filter/m-timeline-filter.vue'
 import MTimelineStream from '~/components/molecules/m-timeline-stream/m-timeline-stream.vue'
 import { useTimelineData } from '~/composables/useTimelineData'
+import { IDENTITY } from '~/constants/identity'
 
 useSeoMeta({
-  title: 'Career Timeline · Xopher Pollard',
-  ogTitle: 'Career Timeline · Xopher Pollard',
-  description: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
-  ogDescription: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
+  title: `Career Timeline · ${IDENTITY.name}`,
+  ogTitle: `Career Timeline · ${IDENTITY.name}`,
+  description: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
+  ogDescription: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
 })
 
 const {

@@ -1,22 +1,23 @@
+import { IDENTITY } from "~/constants/identity";
 import type { QrdContact } from "./types";
 
 export const XP_CONTACT: QrdContact = {
-  name: 'Christopher "Xopher" Pollard',
-  title: "Computer Repair, Web Design & Tech Consulting",
+  name: IDENTITY.fullName,
+  title: IDENTITY.title,
   organization: "Hall of the Gods Inc.",
-  phone: "+1 520.762.4947",
-  email: "sayhi@xophz.com",
-  website: "https://www.xophz.com",
+  phone: IDENTITY.formattedPhone,
+  email: IDENTITY.vcardEmail,
+  website: IDENTITY.siteUrl,
   websites: [
-    "https://www.xophz.com",
+    IDENTITY.siteUrl,
     "https://www.mycompassconsulting.com",
     "https://www.youmeos.com",
     "https://www.hallofthegods.com",
   ],
   birthday: "May 7",
-  location: "Tucson, AZ",
+  location: IDENTITY.location,
   avatar: "/xp_headshot.webp",
-  note: "Computer repair · Website design · Tech consulting · Principal Software Architect · Sovereign Infrastructure · Legacy Modernization · Tucson, AZ",
+  note: `${IDENTITY.title} · Principal Software Architect · Sovereign Infrastructure · Legacy Modernization · ${IDENTITY.location}`,
 };
 
 export function generateQrVcard(contact: QrdContact): string {
@@ -24,7 +25,7 @@ export function generateQrVcard(contact: QrdContact): string {
   return [
     "BEGIN:VCARD",
     "VERSION:3.0",
-    "N:Pollard;Christopher;;;",
+    `N:${IDENTITY.lastName};${IDENTITY.firstName};;;`,
     `FN:${contact.name}`,
     `ORG:${contact.organization}`,
     "BDAY:--05-07",
@@ -40,9 +41,9 @@ export function generateFullVcard(contact: QrdContact): string {
   return [
     "BEGIN:VCARD",
     "VERSION:3.0",
-    "N:Pollard;Christopher;;;",
+    `N:${IDENTITY.lastName};${IDENTITY.firstName};;;`,
     `FN:${contact.name}`,
-    "NICKNAME:Xopher",
+    `NICKNAME:${IDENTITY.nickname}`,
     `TITLE:${contact.title}`,
     `ORG:${contact.organization}`,
     "BDAY:--05-07",
@@ -51,7 +52,7 @@ export function generateFullVcard(contact: QrdContact): string {
     ...urlLines,
     "URL;TYPE=LinkedIn:https://linkedin.com/in/xophz",
     "URL;TYPE=GitHub:https://github.com/xopherdeep",
-    "ADR;TYPE=HOME:;;;Tucson;AZ;;USA",
+    `ADR;TYPE=HOME:;;;${IDENTITY.location};;;USA`,
     `NOTE:${contact.note}`,
     "END:VCARD",
   ].join("\r\n");

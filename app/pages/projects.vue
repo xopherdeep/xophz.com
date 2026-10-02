@@ -3,15 +3,16 @@ import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useContextualSearch } from '~/composables/useContextualSearch'
 import MOpusHero from '~/components/molecules/m-opus-hero/m-opus-hero.vue'
+import { IDENTITY } from '~/constants/identity'
 
 const router = useRouter()
 const { projects } = useProfileData()
 
 useSeoMeta({
-  title: 'Magnum Opus · Xopher Pollard',
-  ogTitle: 'Magnum Opus · Xopher Pollard',
-  description: 'The Hall of the Gods ecosystem. Infrastructure, services, and visions built by Xopher Pollard.',
-  ogDescription: 'The Hall of the Gods ecosystem. Infrastructure, services, and visions built by Xopher Pollard.',
+  title: `Magnum Opus · ${IDENTITY.name}`,
+  ogTitle: `Magnum Opus · ${IDENTITY.name}`,
+  description: `The Hall of the Gods ecosystem. Infrastructure, services, and visions built by ${IDENTITY.name}.`,
+  ogDescription: `The Hall of the Gods ecosystem. Infrastructure, services, and visions built by ${IDENTITY.name}.`,
 })
 
 const extractStatus = (tag: string): string => {

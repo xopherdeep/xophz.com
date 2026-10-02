@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { IDENTITY } from '~/constants/identity'
 import { useHeroBannerController } from './m-hero-banner.controller'
 
 const { profile, canDisplayHero, auditCommand, copied, copyAuditCommand } = useHeroBannerController()
@@ -50,7 +51,7 @@ const { profile, canDisplayHero, auditCommand, copied, copyAuditCommand } = useH
             class="-mt-3 text-sm text-zinc-500 dark:text-zinc-400 font-body animate-ios-spring"
             :style="{ animationDelay: '100ms' }"
           >
-            Call me Xopher
+            Call me {{ IDENTITY.nickname }}
           </p>
 
           <!-- Tagline -->
@@ -73,7 +74,7 @@ const { profile, canDisplayHero, auditCommand, copied, copyAuditCommand } = useH
               variant="solid"
               size="lg"
               class="shadow-glow-violet"
-              aria-label="Work with Xopher Pollard"
+              :aria-label="`Work with ${profile.name}`"
             >
               Work with me
             </UButton>
@@ -83,7 +84,7 @@ const { profile, canDisplayHero, auditCommand, copied, copyAuditCommand } = useH
               color="neutral"
               variant="outline"
               size="lg"
-              aria-label="About Xopher Pollard"
+              :aria-label="`About ${profile.name}`"
             >
               About Me
             </UButton>

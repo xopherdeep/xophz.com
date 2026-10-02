@@ -1,13 +1,15 @@
+import { IDENTITY } from "~/constants/identity";
+
 export const useProfileData = () => {
   const identity = {
-    name: "Xopher Pollard",
-    title: "Computer Repair · Web Design · Tech Consulting",
-    legalName: "Christopher Pollard",
+    name: IDENTITY.name,
+    title: IDENTITY.title,
+    legalName: IDENTITY.legalName,
     tagline:
       "Computer repair, website design, and tech consulting for people and small businesses in Tucson, AZ. 25+ years of fixing, building, and figuring things out.",
     avatar: "/xp_headshot.webp",
     headshot: "/xopher_jester.webp",
-    siteLabel: "xophz.com",
+    siteLabel: IDENTITY.siteLabel,
   };
 
   const skillTags = [
@@ -206,7 +208,7 @@ export const useProfileData = () => {
       tag: "Agentic AI Runtimes · Live",
       color: "#06b6d4",
       url: "https://chemicalx.xophz.com",
-      desc: "Deterministic agentic AI runtime standards, AST hazard linter, evaluation benchmarks, and sponsor starter kit vault by 25-Year Principal Systems Architect Xopher Pollard.",
+      desc: `Deterministic agentic AI runtime standards, AST hazard linter, evaluation benchmarks, and sponsor starter kit vault by 20-Year Principal Systems Architect ${IDENTITY.name}.`,
       tier: "engineering" as const,
     },
     {

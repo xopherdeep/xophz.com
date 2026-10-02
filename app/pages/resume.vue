@@ -11,12 +11,13 @@ import ResumeSection from '~/components/resume/ResumeSection.vue'
 import ResumeItem from '~/components/resume/ResumeItem.vue'
 import ResumeAppsGrid from '~/components/resume/ResumeAppsGrid.vue'
 import { useResumeData } from '~/composables/useResumeData'
+import { IDENTITY } from '~/constants/identity'
 
 useSeoMeta({
-  title: 'Resume · Xopher Pollard',
-  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
-  ogTitle: 'Resume · Xopher Pollard',
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
+  title: `Resume · ${IDENTITY.fullName}`,
+  description: 'Principal Systems Architect and Systems Synthesist with 20+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
+  ogTitle: `Resume · ${IDENTITY.fullName}`,
+  ogDescription: 'Principal Systems Architect and Systems Synthesist. 20+ years experience designing high-throughput, agent-native platforms.',
 })
 
 const { competencies, flagshipApps, experience } = useResumeData()
@@ -118,9 +119,9 @@ const { competencies, flagshipApps, experience } = useResumeData()
             </p>
           </div>
           <UButton
-            to="/xp_pollard_resume.pdf"
+            :to="IDENTITY.resumePdfPath"
             external
-            download="Christopher_Pollard_Resume.pdf"
+            :download="IDENTITY.resumeFilename"
             icon="i-lucide-download"
             color="primary"
             variant="solid"

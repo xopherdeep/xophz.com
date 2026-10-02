@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { IDENTITY } from '~/constants/identity'
+
+const description = `Computer repair, website design, and tech consulting in Tucson, AZ. ${IDENTITY.fullName}: 25+ years helping people and small businesses.`
+
 useSeoMeta({
-  title: 'Xopher Pollard · Computer Repair, Web Design & Tech Consulting in Tucson',
-  ogTitle: 'xophz · Xopher Pollard',
-  twitterTitle: 'xophz · Xopher Pollard',
-  description: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
-  ogDescription: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
-  twitterDescription: 'Computer repair, website design, and tech consulting in Tucson, AZ. Christopher "Xopher" Pollard: 25+ years helping people and small businesses.',
+  title: `${IDENTITY.name} · Computer Repair, Web Design & Tech Consulting in Tucson`,
+  ogTitle: `xophz · ${IDENTITY.name}`,
+  twitterTitle: `xophz · ${IDENTITY.name}`,
+  description,
+  ogDescription: description,
+  twitterDescription: description,
 })
 </script>
 
