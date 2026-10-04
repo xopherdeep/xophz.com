@@ -1,0 +1,18 @@
+// Scoped styling for m-home-enterprise
+.m-home-enterprise {
+  width: 100%;
+
+  &__panel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__dot {
+    background-color: var(--platform-color);
+    box-shadow: 0 0 8px var(--platform-color);
+  }
+
+  &__link:hover &__name {
+    color: var(--platform-color);
+  }
+}

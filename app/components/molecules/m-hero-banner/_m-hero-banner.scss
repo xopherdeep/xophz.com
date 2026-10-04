@@ -36,3 +36,26 @@
     opacity: 0.85;
   }
 }
+
+// Staggered entrance for the text column, kept out of the template so the
+// markup carries no inline styles (4-Tier rule, Level 3).
+.m-hero-banner {
+  &__stagger > * {
+    animation: xo-ios-spring 0.4s var(--xo-transition-spring) both;
+  }
+
+  @for $i from 1 through 7 {
+    &__stagger > *:nth-child(#{$i}) {
+      animation-delay: #{40 + ($i - 1) * 35}ms;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m-hero-banner__stagger > * {
+    animation: none;
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}

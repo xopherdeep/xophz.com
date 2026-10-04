@@ -1,39 +1,32 @@
 import { computed } from 'vue'
-import { useClipboard } from '@vueuse/core'
 import { useProfileData } from '~/composables/useProfileData'
+import { BOOKING_URL } from '~/data/workCatalog'
 import type { HeroProfile } from './types'
 
 export function useHeroBannerController() {
   // 1. Composables & Stores
-  const { identity, skillTags } = useProfileData()
-  const { copy, copied } = useClipboard({ copiedDuring: 2000 })
+  const { identity, heroTags } = useProfileData()
 
   // 2. Reactive Primitives
-  const auditCommand = 'npx chemx audit'
+  const bookingUrl = BOOKING_URL
 
   // 3. Computed State & 2-Stage Booleans
   const profile = computed<HeroProfile>(() => ({
     name: identity.name,
     title: identity.title,
     tagline: identity.tagline,
+    origin: identity.origin,
     avatar: identity.avatar,
-    skillTags
+    tags: heroTags
   }))
 
-  const hasTags = computed(() => profile.value.skillTags.length > 0)
+  const hasTags = computed(() => profile.value.tags.length > 0)
   const isProfileComplete = computed(() => Boolean(profile.value.name && profile.value.title))
   const canDisplayHero = computed(() => isProfileComplete.value && hasTags.value)
-
-  // 4. Helper Methods & Actions
-  const copyAuditCommand = async () => {
-    await copy(auditCommand)
-  }
 
   return {
     profile,
     canDisplayHero,
-    auditCommand,
-    copied,
-    copyAuditCommand
+    bookingUrl
   }
 }

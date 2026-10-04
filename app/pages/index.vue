@@ -14,10 +14,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-6 md:gap-12">
+  <div class="w-full flex flex-col">
     <MHeroBanner />
-    <MFeatureStrip />
-    <MFeaturedProjects />
+    <MHomeServices />
+    <MHomeSteps />
+    <MHomeEnterprise />
     <MHomeCta />
   </div>
 </template>

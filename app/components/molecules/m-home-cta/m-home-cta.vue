@@ -1,31 +1,38 @@
 <script setup lang="ts">
 import { useHomeCtaController } from './m-home-cta.controller'
 
-const { bookingUrl, canDisplay } = useHomeCtaController()
+const { bookingUrl, emailUrl, canDisplay } = useHomeCtaController()
 </script>
 
 <template>
-  <section v-if="canDisplay" class="m-home-cta pt-4 pb-16 md:pb-24">
+  <section
+    v-if="canDisplay"
+    class="m-home-cta pt-4 pb-16 md:pb-24"
+  >
     <UContainer class="max-w-4xl">
       <div
         class="m-home-cta__card xo-card-glow rounded-3xl p-8 sm:p-12 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-2xl text-center relative overflow-hidden animate-ios-spring"
       >
         <div
-          class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(139,92,246,0.18),transparent_70%)] pointer-events-none"
+          class="m-home-cta__wash absolute inset-0 pointer-events-none"
           aria-hidden="true"
         />
 
         <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-4">
-          <UBadge color="primary" variant="subtle" size="sm">
-            Advisory &amp; Architecture
+          <UBadge
+            color="primary"
+            variant="subtle"
+            size="sm"
+          >
+            Open for jobs
           </UBadge>
 
           <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight leading-tight">
-            Architecting Durable Platforms &amp; Deterministic AI Systems
+            Got something that needs fixing or building?
           </h2>
 
-          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-body max-w-xl">
-            Available for fractional CTO leadership, enterprise architecture audits, and deterministic AI/agentic tooling implementations.
+          <p class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-body max-w-xl">
+            Book a quick call and we'll see if it's a fit. It takes a few minutes and costs nothing.
           </p>
 
           <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -37,29 +44,19 @@ const { bookingUrl, canDisplay } = useHomeCtaController()
               variant="solid"
               size="lg"
               class="shadow-glow-violet font-semibold"
-              aria-label="Schedule 30-Minute Architecture Review"
+              aria-label="Book a call"
             >
-              Book Consultation
+              Book a call
             </UButton>
             <UButton
-              to="/resume"
-              icon="i-lucide-file-badge"
+              :to="emailUrl"
+              icon="i-lucide-mail"
               color="neutral"
               variant="outline"
               size="lg"
-              aria-label="View Executive Resume"
+              aria-label="Email me"
             >
-              Executive Resume
-            </UButton>
-            <UButton
-              to="/connect"
-              icon="i-lucide-mail"
-              color="neutral"
-              variant="ghost"
-              size="lg"
-              aria-label="Direct Inquiries"
-            >
-              Direct Inquiries
+              Email me
             </UButton>
           </div>
         </div>

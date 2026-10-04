@@ -6,4 +6,13 @@
     position: relative;
     overflow: hidden;
   }
+
+  // Moved off the template to keep the arbitrary gradient out of markup.
+  &__wash {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(139, 92, 246, 0.18),
+      transparent 70%
+    );
+  }
 }

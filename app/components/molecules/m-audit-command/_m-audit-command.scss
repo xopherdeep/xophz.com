@@ -1,0 +1,11 @@
+// Scoped styling for m-audit-command
+.m-audit-command {
+  &__badge {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &__badge--copied {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: rgb(110, 231, 183);
+  }
+}

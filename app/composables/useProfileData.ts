@@ -6,11 +6,20 @@ export const useProfileData = () => {
     title: IDENTITY.title,
     legalName: IDENTITY.legalName,
     tagline:
-      "Computer repair, website design, and tech consulting for people and small businesses in Tucson, AZ. 25+ years of fixing, building, and figuring things out.",
+      "Computer repair, website design, and tech consulting for people and small businesses in Tucson, AZ.",
+    origin:
+      "I built my first webpage in 8th grade and wrote my first game in QBasic by 10th. I've been doing this professionally since 2001.",
     avatar: "/xp_headshot.webp",
     headshot: "/xopher_jester.webp",
     siteLabel: IDENTITY.siteLabel,
   };
+
+  const heroTags = [
+    "Computer Repair",
+    "Website Design",
+    "Tech Consulting",
+    "Tucson, AZ",
+  ];
 
   const skillTags = [
     "Computer Repair",
@@ -102,28 +111,6 @@ export const useProfileData = () => {
 
   const personas = [...executivePersonas, ...creativePersonas];
 
-  const stats = [
-    {
-      value: "$1.2M",
-      label: "Annual Pipeline Savings",
-      desc: "Five9 & Salesforce CRM lead validation",
-    },
-    {
-      value: "99.99%",
-      label: "Production Uptime",
-      desc: "Distributed cloud & microservice reliability",
-    },
-    {
-      value: "25+",
-      label: "Active Edge Platforms",
-      desc: "Multi-tenant high-availability networks",
-    },
-    {
-      value: "20+",
-      label: "Years Production Delivery",
-      desc: "Enterprise architecture & venture leadership",
-    },
-  ];
 
   const specialties = [
     {
@@ -436,7 +423,7 @@ export const useProfileData = () => {
     executivePersonas,
     creativePersonas,
     skillTags,
-    stats,
+    heroTags,
     specialties,
     skills,
     projects,
