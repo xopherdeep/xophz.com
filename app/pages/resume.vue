@@ -15,9 +15,9 @@ import { IDENTITY } from '~/constants/identity'
 
 useSeoMeta({
   title: `Resume · ${IDENTITY.fullName}`,
-  description: 'Principal Systems Architect and Systems Synthesist with 20+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
+  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
   ogTitle: `Resume · ${IDENTITY.fullName}`,
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 20+ years experience designing high-throughput, agent-native platforms.',
+  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
 })
 
 const { competencies, flagshipApps, experience } = useResumeData()
@@ -34,10 +34,10 @@ const { competencies, flagshipApps, experience } = useResumeData()
       <ResumeSection
         title="Executive Summary"
         :icon="LucideTerminal"
-        badge="20+ Yrs Tech &amp; Venture | 12+ Yrs Architecture"
+        badge="25+ Yrs Tech &amp; Venture | 12+ Yrs Architecture"
       >
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          Principal software architect with 20+ years building web platforms and digital systems, including 12+ years in
+          Principal software architect with 25+ years building web platforms and digital systems, including 12+ years in
           enterprise architecture. Experienced bridging frontend applications with distributed backend services,
           containerizing and deploying on AWS, and modernizing monolithic codebases. Currently focused on architecture
           audits and guardrails for teams adopting AI-assisted development, including MCP tooling and deterministic code

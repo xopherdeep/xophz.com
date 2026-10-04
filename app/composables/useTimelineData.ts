@@ -15,6 +15,10 @@ export interface TimelineEraGroup {
   readonly items: readonly TimelineItem[]
 }
 
+// Career span is anchored to the Dec 2001 industry start rather than the
+// catalog's earliest entry, which predates the tech career.
+const CAREER_START_YEAR = 2001;
+
 export function useTimelineData() {
   // 1. Reactive Primitives
   const searchQuery = ref('')
@@ -90,7 +94,7 @@ export function useTimelineData() {
     const featuredPositions = timelineCatalog.filter((item) => item.isFeatured)
 
     return {
-      totalYears: 20,
+      totalYears: new Date().getFullYear() - CAREER_START_YEAR,
       totalRoles: timelineCatalog.length,
       featuredRoles: featuredPositions.length,
       activeVentures: activePositions.length,

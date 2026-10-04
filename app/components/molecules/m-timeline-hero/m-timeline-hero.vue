@@ -39,7 +39,7 @@ const { heroStats, canRenderHero } = useTimelineHeroController(props)
         </h1>
 
         <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-          Over two decades of systems architecture, enterprise cloud modernization, and sovereign venture engineering
+          Over 25 years of systems architecture, enterprise cloud modernization, and sovereign venture engineering
           across {{ totalRoles }} verified career milestones.
         </p>
       </div>

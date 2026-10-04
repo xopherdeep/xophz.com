@@ -21,7 +21,7 @@ const consultingFeatures = [
   {
     title: 'Systems & Cloud Advisory',
     icon: LucideBuilding2,
-    desc: '20+ years of distributed systems engineering, AWS cloud optimization, and CTO-level technical leadership.',
+    desc: '25+ years of distributed systems engineering, AWS cloud optimization, and CTO-level technical leadership.',
     color: '#f59e0b'
   }
 ]

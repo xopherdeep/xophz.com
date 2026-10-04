@@ -31,7 +31,7 @@ import { IDENTITY } from '~/constants/identity'
     <template #description>
       The Hall of the Gods ecosystem. Infrastructure, services, and sovereign platforms built by
       <span class="text-zinc-900 dark:text-zinc-100 font-semibold">{{ IDENTITY.name }}</span> across
-      <span class="text-cyan-600 dark:text-cyan-400 font-semibold">20+ years</span> of systems synthesis.
+      <span class="text-cyan-600 dark:text-cyan-400 font-semibold">25+ years</span> of systems synthesis.
     </template>
   </OPageHero>
 </template>

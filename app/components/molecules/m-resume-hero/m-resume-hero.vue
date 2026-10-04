@@ -17,7 +17,7 @@ const {
       :subtitle="identity.role"
       badge-text="Executive Curriculum Vitae"
       badge-icon="i-lucide-file-badge"
-      meta-text="20+ Years Production Systems"
+      meta-text="25+ Years Production Systems"
       glow-primary="violet"
       glow-secondary="cyan"
     >

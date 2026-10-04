@@ -23,7 +23,7 @@ const { currentYear, socialLinks, hasSocials, footerNav } = useAppFooterControll
             </span>
           </NuxtLink>
           <p class="text-[0.7rem] sm:text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed text-center sm:text-left sm:max-w-[220px] whitespace-nowrap sm:whitespace-normal">
-            <span>System Architect.</span> <span class="whitespace-nowrap">20+ years building at scale.</span>
+            <span>System Architect.</span> <span class="whitespace-nowrap">25+ years building at scale.</span>
           </p>
         </div>
 

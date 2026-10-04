@@ -25,7 +25,7 @@ const { bioTitle, hasBio } = useAboutBioController()
         </div>
 
         <p class="text-sm sm:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
-          I am a 20+ year tech entrepreneur, System Architect, and founder based out of the
+          I am a 25+ year tech entrepreneur, System Architect, and founder based out of the
           Sonoran Desert. With over 12 years dedicated to enterprise software architecture as the principal behind
           <strong>My Compass Consulting</strong>, I specialize in high-stakes systems architecture, carving monolithic
           legacy systems into resilient, cloud-native architectures without disrupting ongoing operations. I partner

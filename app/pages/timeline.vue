@@ -9,8 +9,8 @@ import { IDENTITY } from '~/constants/identity'
 useSeoMeta({
   title: `Career Timeline · ${IDENTITY.name}`,
   ogTitle: `Career Timeline · ${IDENTITY.name}`,
-  description: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
-  ogDescription: 'Interactive chronological career archive spanning 20+ years of systems architecture, platform engineering, and venture leadership from 200X to Present.',
+  description: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 2001 to Present.',
+  ogDescription: 'Interactive chronological career archive spanning 25+ years of systems architecture, platform engineering, and venture leadership from 2001 to Present.',
 })
 
 const {
