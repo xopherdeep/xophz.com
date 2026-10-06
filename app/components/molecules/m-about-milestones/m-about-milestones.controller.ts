@@ -12,7 +12,7 @@ export function useAboutMilestonesController() {
     {
       period: 'Consulting & Advisory',
       title: 'My Compass Consulting',
-      role: 'Lead Solutions Architect',
+      role: 'Founder & Custom Solutions Architect',
       desc: 'Serving as the strategic tip of the spear for organizations requiring high-integrity technical blueprints, performance optimization, and executive technology direction.'
     },
     {

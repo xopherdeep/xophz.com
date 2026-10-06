@@ -100,7 +100,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
   {
     id: 'worldwide-webwork',
     company: 'Worldwide Webwork',
-    role: 'Founder & Lead Systems Architect',
+    role: 'Founder & Principal Systems Architect',
     period: 'Oct 2019 - Present',
     startDate: '2019-10',
     endDate: null,
