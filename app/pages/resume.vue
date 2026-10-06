@@ -37,7 +37,7 @@ const { competencies, flagshipApps, experience } = useResumeData()
         badge="25+ Yrs Tech &amp; Venture | 12+ Yrs Architecture"
       >
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          Principal software architect with 25+ years building web platforms and digital systems, including 12+ years in
+          Principal systems architect with 25+ years building web platforms and distributed systems, including 12+ years in
           enterprise architecture. Experienced bridging frontend applications with distributed backend services,
           containerizing and deploying on AWS, and modernizing monolithic codebases. Currently focused on architecture
           audits and guardrails for teams adopting AI-assisted development, including MCP tooling and deterministic code

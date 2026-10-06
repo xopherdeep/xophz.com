@@ -50,13 +50,6 @@ export function useResumeData() {
 
   const flagshipApps: readonly FlagshipApp[] = [
     {
-      name: "Chemical X",
-      category: "Agentic AI & Engineering Standards",
-      tagline: "npx chemx audit",
-      desc: "Open-source toolkit that audits codebases for AI-readiness, deterministic tool-calling, and AST hazard prevention (npx chemx audit).",
-      url: "https://chemicalx.xophz.com",
-    },
-    {
       name: "YouMeOS",
       category: "Spatial Web Operating System",
       tagline: "Vue 3 Spatial Desktop & Headless Kernel",
@@ -73,6 +66,29 @@ export function useResumeData() {
   ];
 
   const experience: readonly ResumeJob[] = [
+    {
+      role: "Principal Agentic Architect & Author",
+      company: "Chemical X",
+      location: "Remote",
+      period: "01/2026 - Present",
+      bullets: [
+        {
+          title: "Agentic AI Engineering Standards",
+          detail:
+            "Author an open standard and CLI for deterministic AI-assisted coding, published as npx chemx audit and used to score repositories for AI-readiness before deployment.",
+        },
+        {
+          title: "AST Hazard Linting",
+          detail:
+            "Built static analysis measuring coupling friction and context pollution in codebases where coding agents are active, catching architectural drift that review volume hides.",
+        },
+        {
+          title: "Tool Runtimes & Evaluation",
+          detail:
+            "Design MCP server bridges and evaluation harnesses holding agent tool-calling to the same regression standards as the rest of the stack.",
+        },
+      ],
+    },
     {
       role: "System Architect",
       company: "Vi",
@@ -116,11 +132,6 @@ export function useResumeData() {
           title: "Full-Stack Architecture Audits",
           detail:
             "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS.",
-        },
-        {
-          title: "Chemical X Authoring",
-          detail:
-            "Author Chemical X, an open standard and CLI for deterministic AI-assisted coding, plus MCP tool bridges and an AST hazard linter.",
         },
       ],
     },

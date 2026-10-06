@@ -73,7 +73,7 @@ class ResumeBuilder:
         self.y += self.get_layout_height(layout_name) + 1.5
 
         # Subtitle
-        sub_text = '<span letter_spacing="1200"><b>PRINCIPAL SOFTWARE ARCHITECT • FULL-STACK, AWS &amp; AI TOOLING</b></span>'
+        sub_text = '<span letter_spacing="1200"><b>PRINCIPAL SYSTEMS ARCHITECT • DISTRIBUTED SYSTEMS, AWS &amp; AGENTIC AI</b></span>'
         layout_sub = self.create_layout(sub_text, "Liberation Sans Bold 7.8", align=Pango.Alignment.CENTER)
         self.cr.set_source_rgb(*COLOR_ACCENT)
         self.cr.move_to(MARGIN_X, self.y)
@@ -179,7 +179,7 @@ class ResumeBuilder:
         # 1. EXECUTIVE PROFILE
         self.render_section_title("EXECUTIVE PROFILE")
         profile_text = (
-            "Principal software architect with 20+ years building web platforms and digital systems, "
+            "Principal systems architect with 25+ years building web platforms and distributed systems, "
             "including 12+ years in enterprise architecture. Experienced bridging frontend applications "
             "with distributed backend services, containerizing and deploying on AWS, and modernizing "
             "monolithic codebases. Currently focused on architecture audits and guardrails for teams "
@@ -237,21 +237,26 @@ class ResumeBuilder:
 
         self.y = max(y1, y2) + 1.5
 
-        # 3. FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED
-        self.render_section_title("FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED")
-        apps = [
-            ("Chemical X (Agentic AI & Engineering Standards):", "Open-source toolkit that audits codebases for AI-readiness, deterministic tool-calling, and AST hazard prevention (npx chemx audit)."),
-            ("YouMeOS (Spatial Web Operating System):", "Browser-based spatial desktop on Vue 3 with a headless REST/event-driven backend."),
-            ("My Compass Consulting & Software Suite:", "Enterprise legacy monolith modernization and bespoke modular software engine engineered on rigid Atomic Design principles.")
-        ]
-        for lead, body in apps:
-            self.render_bullet(lead, body, font_str="Liberation Sans 6.9", space_below=0.8)
-        self.y += 1.5
 
         # 4. PROFESSIONAL EXPERIENCE
         self.render_section_title("PROFESSIONAL EXPERIENCE")
 
         # Role 1
+        self.render_role_header(
+            "Principal Agentic Architect & Author",
+            "Chemical X • Remote",
+            "01/2026 - Present"
+        )
+        r0_bullets = [
+            ("Agentic AI Engineering Standards:", "Author an open standard and CLI for deterministic AI-assisted coding, published as npx chemx audit and used to score repositories for AI-readiness before deployment."),
+            ("AST Hazard Linting:", "Built static analysis measuring coupling friction and context pollution in codebases where coding agents are active, catching architectural drift that review volume hides."),
+            ("Tool Runtimes & Evaluation:", "Design MCP server bridges and evaluation harnesses holding agent tool-calling to the same regression standards as the rest of the stack.")
+        ]
+        for lead, body in r0_bullets:
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
+        self.y += 1.4
+
+        # Role 2
         self.render_role_header(
             "System Architect",
             "Vi • Remote",
@@ -266,7 +271,7 @@ class ResumeBuilder:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
         self.y += 1.4
 
-        # Role 2
+        # Role 3
         self.render_role_header(
             "Founder & Principal Architect",
             "My Compass Consulting / Hall of the Gods, Inc. • Tucson, AZ",
@@ -275,14 +280,13 @@ class ResumeBuilder:
         r2_bullets = [
             ("Edge Infrastructure Operations:", "Run multi-tenant edge infrastructure for 25+ production web platforms with automated edge caching and 99.99% uptime."),
             ("Platform & Workflow Engineering:", "Delivered containerized client platforms and workflow engines, reducing ongoing maintenance overhead by 75%."),
-            ("Full-Stack Architecture Audits:", "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS."),
-            ("Chemical X Authoring:", "Author Chemical X, an open standard and CLI for deterministic AI-assisted coding, plus MCP tool bridges and an AST hazard linter.")
+            ("Full-Stack Architecture Audits:", "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS.")
         ]
         for lead, body in r2_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
         self.y += 1.4
 
-        # Role 3
+        # Role 4
         self.render_role_header(
             "Senior Front-End Engineer & AWS Cloud Manager",
             "Madden Media • Tucson, AZ",
@@ -296,7 +300,7 @@ class ResumeBuilder:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
         self.y += 1.4
 
-        # Role 4
+        # Role 5
         self.render_role_header(
             "Senior Full-Stack Developer",
             "J.D. Mellberg Financial / Tracking First • Tucson, AZ",
@@ -309,6 +313,16 @@ class ResumeBuilder:
         for lead, body in r4_bullets:
             self.render_bullet(lead, body, font_str="Liberation Sans 6.85", space_below=0.6)
         self.y += 1.6
+
+        # 3. FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED
+        self.render_section_title("FLAGSHIP APPLICATIONS & PLATFORMS DEVELOPED")
+        apps = [
+            ("YouMeOS (Spatial Web Operating System):", "Browser-based spatial desktop on Vue 3 with a headless REST/event-driven backend."),
+            ("My Compass Consulting & Software Suite:", "Enterprise legacy monolith modernization and bespoke modular software engine engineered on rigid Atomic Design principles.")
+        ]
+        for lead, body in apps:
+            self.render_bullet(lead, body, font_str="Liberation Sans 6.9", space_below=0.8)
+        self.y += 1.5
 
         # 5. EDUCATION & CREDENTIALS
         self.render_section_title("EDUCATION & CREDENTIALS")
