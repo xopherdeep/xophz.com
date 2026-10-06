@@ -6,7 +6,7 @@ export const useProfileData = () => {
     title: IDENTITY.title,
     legalName: IDENTITY.legalName,
     tagline:
-      "Computer repair, website design, and tech consulting for people and small businesses in Tucson, AZ.",
+      "Technical leadership for teams that have engineers but nobody owning the technical direction, and AI somewhere in the plan.",
     origin:
       "I built my first webpage in 8th grade and wrote my first game in QBasic by 10th. I've been doing this professionally since 2001.",
     avatar: "/xp_headshot.webp",
@@ -15,27 +15,12 @@ export const useProfileData = () => {
   };
 
   const heroTags = [
-    "Computer Repair",
-    "Website Design",
-    "Tech Consulting",
+    "Fractional CTO",
+    "Agentic AI",
+    "Systems Architecture",
     "Tucson, AZ",
   ];
 
-  const skillTags = [
-    "Computer Repair",
-    "Website Design",
-    "Tech Consulting",
-    "Small Business IT",
-    "Cloud & Architecture",
-    "System Architect",
-    "Distributed Infrastructure",
-    "Agentic AI Architecture (MCP)",
-    "Enterprise Legacy Modernization",
-    "Cloud-Native Platforms",
-    "AWS & Cloud Systems",
-    "Serial Founder",
-    "Tucson, AZ",
-  ];
 
   const executivePersonas = [
     {
@@ -422,7 +407,6 @@ export const useProfileData = () => {
     personas,
     executivePersonas,
     creativePersonas,
-    skillTags,
     heroTags,
     specialties,
     skills,

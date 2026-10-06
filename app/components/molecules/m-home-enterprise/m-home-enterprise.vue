@@ -21,17 +21,17 @@ const { platforms, hasPlatforms } = useHomeEnterpriseController()
             size="sm"
             class="self-start"
           >
-            The other half of the job
+            Built, not pitched
           </UBadge>
           <h2
             id="home-enterprise-heading"
             class="font-display text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight"
           >
-            I also architect large systems for a living
+            Platforms I've shipped and still run
           </h2>
           <p class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-body max-w-2xl">
-            Alongside local work, I spend my days on distributed platforms, cloud architecture, and
-            deterministic AI tooling. If you need an architect rather than a repair, start here.
+            Every one of these is live, and I still maintain them. The audit command below is real too:
+            run it against your own repository and read what it says about you.
           </p>
         </div>
 

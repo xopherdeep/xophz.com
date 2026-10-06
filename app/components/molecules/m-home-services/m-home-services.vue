@@ -16,10 +16,10 @@ const { services, hasServices } = useHomeServicesController()
           id="home-services-heading"
           class="text-xl sm:text-2xl font-bold font-display text-zinc-900 dark:text-zinc-50"
         >
-          What I can help with
+          What I do
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 font-body">
-          On-site in Tucson or remote. I take jobs as they come, big or small.
+          Remote, or on-site in Tucson. Ongoing or fixed scope.
         </p>
       </div>
 

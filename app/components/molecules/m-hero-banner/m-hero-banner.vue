@@ -69,19 +69,19 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
               Book a call
             </UButton>
             <UButton
-              to="/work-with-me"
-              icon="i-lucide-handshake"
+              to="/resume"
+              icon="i-lucide-file-badge"
               color="neutral"
               variant="outline"
               size="lg"
-              :aria-label="`Work with ${profile.name}`"
+              aria-label="View executive resume"
             >
-              Work with me
+              Executive resume
             </UButton>
           </div>
 
           <p class="text-xs text-zinc-500 dark:text-zinc-400 font-body">
-            {{ IDENTITY.location }} · On-site &amp; remote · Open for jobs
+            {{ IDENTITY.location }} · Remote · Open for engagements
           </p>
         </div>
       </div>

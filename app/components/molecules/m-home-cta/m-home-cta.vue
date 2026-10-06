@@ -24,15 +24,15 @@ const { bookingUrl, emailUrl, canDisplay } = useHomeCtaController()
             variant="subtle"
             size="sm"
           >
-            Open for jobs
+            Open for engagements
           </UBadge>
 
           <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight leading-tight">
-            Got something that needs fixing or building?
+            Need someone to own the technical direction?
           </h2>
 
           <p class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-body max-w-xl">
-            Book a quick call and we'll see if it's a fit. It takes a few minutes and costs nothing.
+            Thirty minutes, no charge, and a straight answer about whether I'm the right fit.
           </p>
 
           <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
