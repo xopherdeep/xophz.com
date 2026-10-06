@@ -1,0 +1,43 @@
+// Scoped styling for m-home-portals
+.m-home-portals {
+  width: 100%;
+
+  &__card {
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s var(--xo-transition-spring), transform 0.3s var(--xo-transition-spring);
+  }
+
+  &__card:hover {
+    border-color: color-mix(in srgb, var(--portal-color) 45%, transparent);
+    transform: translateY(-2px);
+  }
+
+  // Venture colour bleeds in from the top edge on hover rather than sitting
+  // as a flat block, so four saturated brands do not fight each other.
+  &__wash {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 70% 55% at 50% 0%,
+      color-mix(in srgb, var(--portal-color) 16%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  &__card:hover &__wash {
+    opacity: 1;
+  }
+
+  &__chip {
+    background-color: color-mix(in srgb, var(--portal-color) 14%, transparent);
+    color: var(--portal-color);
+  }
+
+  &__role {
+    color: var(--portal-color);
+  }
+}

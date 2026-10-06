@@ -62,13 +62,13 @@ const { platforms, hasPlatforms } = useHomeEnterpriseController()
 
         <div class="flex flex-wrap items-center gap-3 pt-1">
           <UButton
-            to="/resume"
-            icon="i-lucide-file-badge"
+            to="/timeline"
+            icon="i-lucide-git-commit-horizontal"
             color="neutral"
             variant="outline"
             size="md"
           >
-            Executive resume
+            Career timeline
           </UButton>
           <UButton
             to="/projects"

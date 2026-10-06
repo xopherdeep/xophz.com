@@ -6,7 +6,7 @@ export const useProfileData = () => {
     title: IDENTITY.title,
     legalName: IDENTITY.legalName,
     tagline:
-      "Technical leadership for teams that have engineers but nobody owning the technical direction, and AI somewhere in the plan.",
+      "Systems architect and founder. Enterprise platforms, sovereign infrastructure, and agentic AI tooling, mostly built across ventures of my own.",
     origin:
       "I built my first webpage in 8th grade and wrote my first game in QBasic by 10th. I've been doing this professionally since 2001.",
     avatar: "/xp_headshot.webp",
@@ -15,9 +15,9 @@ export const useProfileData = () => {
   };
 
   const heroTags = [
-    "Fractional CTO",
+    "Systems Architect",
+    "Founder",
     "Agentic AI",
-    "Systems Architecture",
     "Tucson, AZ",
   ];
 

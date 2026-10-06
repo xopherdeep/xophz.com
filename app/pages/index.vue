@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { IDENTITY } from '~/constants/identity'
 
-const description = `Fractional CTO, systems architecture, and agentic AI engineering from ${IDENTITY.fullName}. 25+ years shipping production systems. Tucson, AZ and remote.`
+const description = `${IDENTITY.fullName}: systems architect and founder in Tucson, AZ. Enterprise platforms, sovereign infrastructure, and agentic AI tooling across My Compass Consulting, Chemical X, and Worldwide Webwork.`
 
 useSeoMeta({
-  title: `${IDENTITY.name} · Fractional CTO & Systems Architect`,
+  title: `${IDENTITY.name} · Systems Architect & Founder`,
   ogTitle: `xophz · ${IDENTITY.name}`,
   twitterTitle: `xophz · ${IDENTITY.name}`,
   description,
@@ -16,8 +16,7 @@ useSeoMeta({
 <template>
   <div class="w-full flex flex-col">
     <MHeroBanner />
-    <MHomeServices />
-    <MHomeSteps />
+    <MHomePortals />
     <MHomeEnterprise />
     <MHomeCta />
   </div>

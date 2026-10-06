@@ -28,11 +28,11 @@ const { bookingUrl, emailUrl, canDisplay } = useHomeCtaController()
           </UBadge>
 
           <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight leading-tight">
-            Need someone to own the technical direction?
+            Want to build something together?
           </h2>
 
           <p class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-body max-w-xl">
-            Thirty minutes, no charge, and a straight answer about whether I'm the right fit.
+            Whichever corner of this you came for, the fastest way in is a call.
           </p>
 
           <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
