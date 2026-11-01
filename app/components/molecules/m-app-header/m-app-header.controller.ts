@@ -12,6 +12,7 @@ export function useAppHeaderController() {
   // 3. Computed State & 2-Stage Booleans
   const navItems = computed<AppHeaderItem[]>(() => [
     { label: 'Home', to: '/', icon: 'i-lucide-home' },
+    { label: 'Consulting', to: '/consulting', icon: 'i-lucide-compass' },
     { label: 'About', to: '/about', icon: 'i-lucide-user' },
     { label: 'Resume', to: '/resume', icon: 'i-lucide-file-badge' },
     { label: 'Timeline', to: '/timeline', icon: 'i-lucide-history' },

@@ -95,6 +95,10 @@ useSeoMeta({
             <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{{ step.desc }}</p>
           </li>
         </ol>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400">
+          Want the details? See the <NuxtLink to="/consulting#engagements" class="underline">three ways to work together</NuxtLink>
+          (audit, focused project, or ongoing advisory) and what happens after you book.
+        </p>
       </section>
 
       <section id="case-studies" class="flex flex-col gap-4 scroll-mt-24" aria-labelledby="case-studies-heading">

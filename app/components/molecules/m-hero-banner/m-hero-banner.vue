@@ -67,6 +67,15 @@ const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBann
               Work with me
             </UButton>
             <UButton
+              to="/consulting"
+              icon="i-lucide-compass"
+              color="primary"
+              variant="soft"
+              size="lg"
+            >
+              Consulting
+            </UButton>
+            <UButton
               :to="bookingUrl"
               target="_blank"
               icon="i-lucide-calendar"
