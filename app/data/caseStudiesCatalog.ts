@@ -100,7 +100,8 @@ export const caseStudies: readonly CaseStudy[] = [
       'A household to-do list is easy for kids to ignore. The goal was a product families would actually open: parents set the chores and rewards, kids get a reason to do them, and the family keeps its data on its own device.',
     approach: [
       'Designed the whole game: parents play the Game Master and write quests, kids play heroes who earn XP, gold and ability points, and each chore is a beast to beat before its deadline clock runs out.',
-      'Built one Vue 3, Ionic and Capacitor codebase for web, Android and iOS, with game rules kept in small tested modules and no account server, so family data stays on the device.',
+      'Built one Vue 3, Ionic and Capacitor codebase that runs as a web app today, with Android and iOS builds ready. Game rules live in small tested modules, and there is no account server, so family data stays on the device.',
+      'The same build also ships inside my WordPress Compass ecosystem as the For the XP plugin, so the engine is reusable beyond the app.',
       'Set up the delivery pipeline: every pull request runs lint, typecheck and the affected tests, and every merge to master deploys the web app to Cloudflare Pages.',
     ],
     results: [
