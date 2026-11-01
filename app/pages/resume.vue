@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {
   Terminal as LucideTerminal,
-  Cpu as LucideCpu,
   Layers as LucideLayers,
   Briefcase as LucideBriefcase,
   Award as LucideAward,
+  TrendingUp as LucideTrendingUp,
 } from '@lucide/vue'
 import ResumeHeader from '~/components/resume/ResumeHeader.vue'
 import ResumeSection from '~/components/resume/ResumeSection.vue'
@@ -15,12 +15,12 @@ import { IDENTITY } from '~/constants/identity'
 
 useSeoMeta({
   title: `Resume · ${IDENTITY.fullName}`,
-  description: 'Principal Systems Architect and Systems Synthesist with 25+ years experience in distributed cloud systems, agentic AI architecture, and sovereign infrastructure.',
+  description: 'Principal operations and systems advisor with 25+ years diagnosing operational bottlenecks and redesigning workflows. $1.2M a year in waste removed, 75% less maintenance overhead.',
   ogTitle: `Resume · ${IDENTITY.fullName}`,
-  ogDescription: 'Principal Systems Architect and Systems Synthesist. 25+ years experience designing high-throughput, agent-native platforms.',
+  ogDescription: 'Principal operations and systems advisor. $1.2M a year in operational waste removed, 75% less maintenance overhead, 25+ years of cross-functional delivery.',
 })
 
-const { competencies, flagshipApps, experience } = useResumeData()
+const { outcomes, competencies, flagshipApps, experience } = useResumeData()
 </script>
 
 <template>
@@ -34,35 +34,33 @@ const { competencies, flagshipApps, experience } = useResumeData()
       <ResumeSection
         title="Executive Summary"
         :icon="LucideTerminal"
-        badge="25+ Yrs Tech &amp; Venture | 12+ Yrs Architecture"
+        badge="25+ Yrs Operations &amp; Systems"
       >
         <p class="text-xs sm:text-[0.84rem] leading-relaxed text-zinc-600 dark:text-zinc-300 text-justify">
-          Principal systems architect with 25+ years building web platforms and distributed systems, including 12+ years in
-          enterprise architecture. Experienced bridging frontend applications with distributed backend services,
-          containerizing and deploying on AWS, and modernizing monolithic codebases. Currently focused on architecture
-          audits and guardrails for teams adopting AI-assisted development, including MCP tooling and deterministic code
-          generation.
+          Principal operations and systems advisor with 25+ years of finding where operations leak money and time and
+          designing the fix across people, process, and systems. Removed an estimated $1.2M a year in operational waste
+          at a financial firm by unifying telephony, CRM, and marketing data and automating lead validation. Cut client
+          maintenance overhead by 75%. Leads cross-functional work between product, engineering, and client teams, and
+          explains it in plain English. Currently advising on AI readiness: where AI tools fit a team's workflow and the
+          guardrails they need.
         </p>
       </ResumeSection>
 
-      <!-- Core Architecture Competencies -->
+      <!-- Selected Outcomes -->
       <ResumeSection
-        title="Core Architecture &amp; Engineering Competencies"
-        :icon="LucideCpu"
+        title="Selected Outcomes"
+        :icon="LucideTrendingUp"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <div
-            v-for="(c, idx) in competencies"
-            :key="c.group"
-            class="flex flex-col gap-1.5 p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl animate-fade-up"
+            v-for="(o, idx) in outcomes"
+            :key="o.label"
+            class="flex flex-col gap-1 p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] backdrop-blur-xl animate-fade-up"
             :style="{ animationDelay: `${60 + idx * 40}ms` }"
           >
-            <span class="text-xs font-bold text-violet-600 dark:text-violet-400">
-              {{ c.group }}
-            </span>
-            <span class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
-              {{ c.items }}
-            </span>
+            <span class="font-display text-xl font-bold text-zinc-900 dark:text-zinc-50">{{ o.metric }}</span>
+            <span class="text-xs font-bold text-violet-600 dark:text-violet-400">{{ o.label }}</span>
+            <span class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">{{ o.detail }}</span>
           </div>
         </div>
       </ResumeSection>
@@ -87,9 +85,8 @@ const { competencies, flagshipApps, experience } = useResumeData()
 
       <!-- Flagship Applications & Sovereign Platforms -->
       <ResumeSection
-        title="Flagship Applications &amp; Sovereign Platforms"
+        title="Selected Platforms"
         :icon="LucideLayers"
-        badge="Live Ecosystem"
       >
         <ResumeAppsGrid :apps="flagshipApps" />
       </ResumeSection>
@@ -104,6 +101,18 @@ const { competencies, flagshipApps, experience } = useResumeData()
           Diagnostics). References available on request.
         </p>
       </ResumeSection>
+
+      <!-- Technical Literacy Footnote -->
+      <section aria-labelledby="tech-literacy" class="px-1">
+        <h2 id="tech-literacy" class="text-[0.7rem] font-bold tracking-[0.12em] uppercase text-zinc-500 dark:text-zinc-400 mb-1">
+          Technical literacy
+        </h2>
+        <p class="text-[0.7rem] leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <template v-for="(c, idx) in competencies" :key="c.group">
+            <strong class="font-semibold">{{ c.group }}:</strong> {{ c.items }}<span v-if="idx < competencies.length - 1"> </span>
+          </template>
+        </p>
+      </section>
 
       <!-- Quick Download Card -->
       <div

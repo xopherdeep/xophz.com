@@ -70,7 +70,7 @@ export const caseStudies: readonly CaseStudy[] = [
     key: 'my-compass',
     client: 'My Compass Consulting clients',
     title: 'Running and modernizing 25+ client platforms',
-    role: 'Founder & Principal Architect',
+    role: 'Principal Operations & Systems Advisor',
     period: '2018 to present',
     url: 'https://www.mycompassconsulting.com',
     linkLabel: 'Visit My Compass Consulting',

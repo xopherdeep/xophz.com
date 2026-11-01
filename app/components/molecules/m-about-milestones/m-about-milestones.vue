@@ -11,7 +11,7 @@ const { milestones, hasMilestones } = useAboutMilestonesController()
         class="text-xl sm:text-2xl font-bold font-display text-zinc-900 dark:text-zinc-50 mb-8"
         v-motion="{ initial: { opacity: 0, x: -15 }, enter: { opacity: 1, x: 0 } }"
       >
-        Career Milestones
+        Selected Outcomes
       </h2>
 
       <!-- Timeline -->

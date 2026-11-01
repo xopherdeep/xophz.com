@@ -14,7 +14,7 @@ export interface WorkStep {
 
 export interface WorkCaseStudy {
   readonly key: string
-  readonly category: 'Repair' | 'Websites' | 'Consulting'
+  readonly category: 'Operations' | 'Delivery' | 'Systems'
   readonly title: string
   readonly summary: string
   readonly outcome: string
@@ -26,77 +26,76 @@ export const CONTACT_EMAIL = 'sayhi@xophz.com'
 
 export const workServices: readonly WorkService[] = [
   {
-    key: 'repair',
-    title: 'Computer Repair & Tech Help',
-    icon: 'i-lucide-wrench',
-    color: '#10b981',
-    blurb: 'Slow, broken, infected, or just confusing? I fix it, on-site in Tucson or remotely.',
-    items: [
-      'Diagnostics and hardware repair',
-      'Virus and malware cleanup',
-      'Data recovery and backups',
-      'Home and small office networks',
-    ],
-  },
-  {
-    key: 'websites',
-    title: 'Website Design',
-    icon: 'i-lucide-layout-template',
+    key: 'diagnostics',
+    title: 'Operations Diagnostics',
+    icon: 'i-lucide-search-check',
     color: '#8b5cf6',
-    blurb: 'A clear, fast website for your business, built, fixed, and kept running.',
+    blurb: 'Find where your operations leak money and time, and why.',
     items: [
-      'New sites and redesigns',
-      'Fixes, updates, and speed-ups',
-      'Hosting, domains, and email',
-      'Online catalogs and booking tools',
+      'Audit of how work and data move between teams',
+      'The structural bottleneck, named in plain English',
+      'Cost of doing nothing, estimated up front',
+      'A prioritized plan, not a slide deck',
     ],
   },
   {
-    key: 'consulting',
-    title: 'Tech Consulting',
-    icon: 'i-lucide-compass',
+    key: 'workflow',
+    title: 'Workflow & Systems Design',
+    icon: 'i-lucide-workflow',
     color: '#06b6d4',
-    blurb: 'A second opinion or a one-off project, from picking the right tools to bigger system design.',
+    blurb: 'Redesign how sales, operations, and delivery hand off work, and the systems underneath.',
     items: [
-      'Tech audits and second opinions',
-      'Moving from old systems to the cloud',
-      'Custom software and automation',
-      'Architecture advice for growing teams',
+      'CRM, telephony, and marketing data joined up',
+      'Automated validation in place of manual cleanup',
+      'Modernizing the platforms that slow teams down',
+      'Lower ongoing maintenance overhead',
+    ],
+  },
+  {
+    key: 'ai-readiness',
+    title: 'AI Readiness & Guardrails',
+    icon: 'i-lucide-shield-check',
+    color: '#10b981',
+    blurb: 'Decide where AI tools fit your workflow and what guardrails they need before rollout.',
+    items: [
+      'Readiness review of current workflows',
+      'Risk and hazard controls for AI-assisted work',
+      'Adoption plan your team can follow',
+      'Built on the Chemical X auditing standard',
     ],
   },
 ]
 
 export const workSteps: readonly WorkStep[] = [
-  { title: 'Book a call', desc: 'Tell me what is going on. It takes a few minutes and costs nothing.' },
-  { title: 'I scope it', desc: 'You get a plain-language plan and a price before any work starts.' },
-  { title: 'I do the work', desc: 'Repairs, builds, and fixes done, with everything explained in normal words.' },
+  { title: 'Book a call', desc: 'Tell me what is slow, expensive, or breaking. It takes a few minutes and costs nothing.' },
+  { title: 'I scope it', desc: 'You get a plain-language diagnosis and a price before any work starts.' },
+  { title: 'We fix it', desc: 'I lead the redesign with your team and explain every decision in normal words.' },
 ]
 
 // Built only from facts already on the site (timeline and resume data).
-// Replace or extend with real client jobs: what was wrong, what was done, the result.
 // Longer consulting write-ups live in caseStudiesCatalog.ts.
 export const workCaseStudies: readonly WorkCaseStudy[] = [
   {
-    key: 'repair-years',
-    category: 'Repair',
-    title: '7 years of on-site repair for homes and small businesses',
-    summary: 'Founded and ran Affordable Computer Services: diagnostic repairs, small business networks, and system recovery.',
-    outcome: '2004 to 2011, plus earlier bench work at eMachines and Hi-Tech Computers.',
+    key: 'leads',
+    category: 'Operations',
+    title: 'Cutting $1.2M a year in waste at a financial firm',
+    summary: 'Joined Five9 telephony, Salesforce CRM, and marketing data into one real-time operations view for J.D. Mellberg Financial, then automated the lead validation that was burning spend.',
+    outcome: 'An estimated $1.2M a year in operational waste removed.',
+    url: 'https://www.jdmellbergfinancial.com',
+  },
+  {
+    key: 'maintenance',
+    category: 'Systems',
+    title: 'Cutting maintenance overhead by 75%',
+    summary: 'Redesigned client platforms and workflows at My Compass Consulting so they cost far less to keep running.',
+    outcome: '75% less ongoing maintenance, with 25+ production platforms at 99.99% uptime.',
   },
   {
     key: 'agency',
-    category: 'Websites',
-    title: 'Midnight Nerd: custom sites and software for clients',
-    summary: 'Ran a small digital agency delivering tailored websites, systems integration, and cloud management.',
-    outcome: '2014 to 2020 of client delivery.',
+    category: 'Delivery',
+    title: 'Running client delivery for an agency',
+    summary: 'Ran Midnight Nerd, delivering systems integration and cloud management for clients, and later managed AWS delivery for destination clients at Madden Media.',
+    outcome: '2014 to 2021 of client delivery.',
     url: 'https://midnightnerd.com',
-  },
-  {
-    key: 'card-vault',
-    category: 'Websites',
-    title: 'Card Vault: an online catalog for card shops',
-    summary: 'A hosted catalog built for local card shops, show organizers, and floor vendors.',
-    outcome: 'Live and in use as a turnkey service.',
-    url: 'https://cardvault.worldwidewebwork.com/',
   },
 ]

@@ -16,6 +16,12 @@ export interface ResumeJob {
   readonly bullets: readonly ResumeBullet[];
 }
 
+export interface ResumeOutcome {
+  readonly metric: string;
+  readonly label: string;
+  readonly detail: string;
+}
+
 export interface FlagshipApp {
   readonly name: string;
   readonly category: string;
@@ -25,24 +31,45 @@ export interface FlagshipApp {
 }
 
 export function useResumeData() {
+  const outcomes: readonly ResumeOutcome[] = [
+    {
+      metric: "$1.2M / yr",
+      label: "Operational waste removed",
+      detail:
+        "J.D. Mellberg Financial: unified Five9 telephony, Salesforce CRM, and marketing data into one operations view and automated lead validation.",
+    },
+    {
+      metric: "75%",
+      label: "Less maintenance overhead",
+      detail:
+        "My Compass Consulting: redesigned client platforms and workflows so they cost far less to keep running.",
+    },
+    {
+      metric: "99.99%",
+      label: "Availability across 25+ platforms",
+      detail:
+        "Kept production platforms for clients and employers up while leading cross-functional architecture work.",
+    },
+  ];
+
   const competencies: readonly ResumeCompetency[] = [
     {
-      group: "Frontend & Full-Stack",
+      group: "Software",
       items:
         "TypeScript, JavaScript, Vue 3/Nuxt, React, Node.js, Python, REST/GraphQL APIs.",
     },
     {
-      group: "Cloud & Infrastructure",
+      group: "Cloud",
       items:
         "AWS (S3, EC2, CloudFront, Route 53, RDS, Lambda), Docker, CI/CD, Edge Caching, Linux/Bash.",
     },
     {
-      group: "Data & Observability",
+      group: "Data",
       items:
         "MySQL/MariaDB, Redis, SQLite, Telemetry Streaming, Real-Time Dashboards.",
     },
     {
-      group: "AI & Agentic Systems",
+      group: "AI",
       items:
         "Model Context Protocol (MCP), AST-Based Linting, Agent Evals, Context-Isolated Agent Workflows.",
     },
@@ -96,9 +123,9 @@ export function useResumeData() {
       period: "12/2021 - 01/2026",
       bullets: [
         {
-          title: "Frontend Architecture & Systems Bridge",
+          title: "Cross-Team Architecture Leadership",
           detail:
-            "Led architecture and development of the core frontend codebase, serving as the architectural bridge between product interfaces and distributed backend services.",
+            "Led architecture of the core frontend codebase, serving as the bridge between product and backend teams.",
         },
         {
           title: "Containerization & Cloud Reliability",
@@ -113,25 +140,25 @@ export function useResumeData() {
       ],
     },
     {
-      role: "Founder & Principal Architect",
-      company: "My Compass Consulting / Hall of the Gods, Inc.",
+      role: "Principal Operations & Systems Advisor",
+      company: "My Compass Consulting",
       location: "Tucson, AZ",
       period: "12/2004 - Present",
       bullets: [
         {
-          title: "Edge Infrastructure Operations",
+          title: "Workflow Redesign",
           detail:
-            "Run multi-tenant edge infrastructure for 25+ production web platforms with automated edge caching and 99.99% uptime.",
+            "Redesigned client platforms and workflows, reducing ongoing maintenance overhead by 75%.",
         },
         {
-          title: "Platform & Workflow Engineering",
+          title: "Operations & Systems Audits",
           detail:
-            "Delivered containerized client platforms and workflow engines, reducing ongoing maintenance overhead by 75%.",
+            "Audit operations and systems for commercial and enterprise clients, find the bottlenecks, and move them off fragile on-prem setups.",
         },
         {
-          title: "Full-Stack Architecture Audits",
+          title: "Service Reliability",
           detail:
-            "Conduct full-stack architecture audits for commercial and enterprise clients, resolving DNS and database bottlenecks and migrating on-prem systems to AWS.",
+            "Keep 25+ production client platforms running at 99.99% uptime.",
         },
       ],
     },
@@ -160,20 +187,21 @@ export function useResumeData() {
       period: "06/2015 - 10/2019",
       bullets: [
         {
-          title: "Operations Dashboard",
+          title: "$1.2M Annual Savings",
           detail:
-            "Built a real-time operations dashboard integrating Five9 telephony, Salesforce CRM, and marketing APIs across millions of lead and call records.",
+            "Automated lead validation that eliminated invalid lead spend and manual data cleanup, saving an estimated $1.2M a year.",
         },
         {
-          title: "Lead Validation & Operational Savings",
+          title: "Unified Operations View",
           detail:
-            "Engineered automated validation that eliminated invalid lead spend and manual data cleanup, saving an estimated $1.2M annually.",
+            "Built a real-time operations dashboard joining Five9 telephony, Salesforce CRM, and marketing data across millions of lead and call records.",
         },
       ],
     },
   ];
 
   return {
+    outcomes,
     competencies,
     flagshipApps,
     experience,

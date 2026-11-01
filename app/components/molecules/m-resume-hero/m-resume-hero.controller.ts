@@ -5,7 +5,7 @@ import type { ContactLink, ResumeIdentity } from "./types";
 export function useResumeHeroController() {
   const identity: ResumeIdentity = {
     name: IDENTITY.fullName,
-    role: "Principal Software Architect | Full-Stack, AWS & AI Tooling",
+    role: "Principal Operations & Systems Advisor | Operations Diagnostics, Workflow Design & AI Readiness",
   };
 
   const contactLinks = computed<ContactLink[]>(() => [
