@@ -198,7 +198,7 @@ export const useProfileData = () => {
       tag: "Distributed Compute · Live",
       color: "#555",
       url: "https://www.buildablox.com",
-      desc: "Proprietary sovereign infrastructure: self-healing, automated compute nodes networked via the w⁴ hyper-cube mesh protocol for sovereign data governance.",
+      desc: "Self-hosted servers that repair themselves and keep your data on hardware you own, not someone else's cloud.",
       tier: "engineering" as const,
     },
     {
@@ -234,7 +234,7 @@ export const useProfileData = () => {
       tag: "Network Infrastructure · Live",
       color: "#3dee98",
       url: "https://www.worldwidewebwork.com",
-      desc: "Sovereign network topology engineered for high availability, cryptographic verification, and distributed reliability.",
+      desc: "Networks built to stay up, verify who is connecting, and keep working when one piece fails.",
       tier: "engineering" as const,
     },
     {
@@ -243,7 +243,7 @@ export const useProfileData = () => {
       tag: "Infrastructure Operations · Live",
       color: "#06b6d4",
       url: "https://www.blackboxwhiteglove.com",
-      desc: "Concierge sovereign infrastructure and automated node orchestration networked via the w⁴ distributed protocol.",
+      desc: "Hands-on setup and management of self-hosted servers, so you own your systems without having to run them yourself.",
       tier: "engineering" as const,
     },
     {

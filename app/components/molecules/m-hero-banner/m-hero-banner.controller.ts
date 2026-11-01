@@ -5,16 +5,22 @@ import type { HeroProfile } from './types'
 
 export function useHeroBannerController() {
   // 1. Composables & Stores
-  const { identity, heroTags } = useProfileData()
+  const { identity } = useProfileData()
 
   // 2. Reactive Primitives
   const bookingUrl = BOOKING_URL
+
+  // Homepage pitch lives here, not in identity, so the hero can say plainly
+  // what the work is without changing the shared bio used on other pages.
+  const heroTagline =
+    "I fix computers, build websites, and help people and small businesses make smart tech decisions. Tell me what's broken or what you want built, and I'll give you a plain plan and a price before any work starts."
+  const heroTags = ['Computer Repair', 'Website Design', 'Tech Consulting', 'Tucson, AZ']
 
   // 3. Computed State & 2-Stage Booleans
   const profile = computed<HeroProfile>(() => ({
     name: identity.name,
     title: identity.title,
-    tagline: identity.tagline,
+    tagline: heroTagline,
     origin: identity.origin,
     avatar: identity.avatar,
     tags: heroTags
