@@ -71,6 +71,11 @@ const formatShortDate = (raw: string) =>
         </template>
       </OPageHero>
 
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 -mt-4">
+        In Tucson and need a computer fixed or a small business website?
+        <NuxtLink to="/tucson-tech-help" class="underline">See Tucson tech help</NuxtLink>.
+      </p>
+
       <!-- Connect Channels Directory (4 Columns) -->
       <MConnectChannels />
 
