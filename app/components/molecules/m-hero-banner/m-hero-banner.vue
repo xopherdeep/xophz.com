@@ -62,7 +62,7 @@ const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBann
               color="primary"
               variant="solid"
               size="lg"
-              class="shadow-glow-violet"
+              class="shadow-glow-violet cursor-pointer"
             >
               Work with me
             </UButton>
@@ -73,6 +73,7 @@ const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBann
               color="neutral"
               variant="outline"
               size="lg"
+              class="cursor-pointer"
             >
               Book a free call
             </UButton>
@@ -95,15 +96,16 @@ const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBann
                 :key="app.key"
               >
                 <UButton
-                  :href="app.url"
-                  target="_blank"
-                  rel="noopener"
+                  type="button"
                   :icon="app.icon"
                   color="neutral"
                   variant="soft"
                   size="sm"
+                  trailing-icon="i-lucide-arrow-up-right"
+                  class="m-hero-banner__app group cursor-pointer ring-1 ring-transparent transition-all duration-200 hover:ring-primary/40 hover:text-primary hover:shadow-md motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-95"
+                  :ui="{ trailingIcon: 'size-3.5 opacity-40 transition-all duration-200 group-hover:opacity-100 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5' }"
                   :title="`Open ${app.name} (${app.host}) in a phone-size window`"
-                  @click="openAppWindow($event, app)"
+                  @click="openAppWindow(app)"
                 >
                   {{ app.name }}
                 </UButton>
