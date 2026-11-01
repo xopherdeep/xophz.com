@@ -12,11 +12,12 @@ export function useHeroBannerController() {
   const bookingUrl = BOOKING_URL
 
   // Live products, shown in the hero so visitors can try real shipped work.
+  // Ordered by business relevance: the consulting brand first, playful apps last.
   const apps: readonly HeroApp[] = [
+    { key: 'my-compass', name: 'My Compass', host: 'phone.mycompassconsulting.com', url: 'https://phone.mycompassconsulting.com/', icon: 'i-lucide-compass' },
     { key: 'kitchen-synk', name: 'Kitchen Synk', host: 'kitchensynk.app', url: 'https://kitchensynk.app/', icon: 'i-lucide-chef-hat' },
     { key: 'doit-xp', name: 'Do It for the XP', host: 'app.doit.forthexp.com', url: 'https://app.doit.forthexp.com/', icon: 'i-lucide-trophy' },
     { key: 'nook-phone', name: 'Nook Phone', host: 'nookphone.app', url: 'https://nookphone.app/', icon: 'i-lucide-smartphone' },
-    { key: 'compass-phone', name: 'Compass Phone', host: 'phone.mycompassconsulting.com', url: 'https://phone.mycompassconsulting.com/', icon: 'i-lucide-phone' },
     { key: 'dodo-air', name: 'Dodo Air', host: 'dodoair.forthexp.com', url: 'https://dodoair.forthexp.com/', icon: 'i-lucide-plane' }
   ]
 
