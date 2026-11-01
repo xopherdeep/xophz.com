@@ -4,8 +4,8 @@ import { IDENTITY } from '~/constants/identity'
 useSeoMeta({
   title: `About · ${IDENTITY.name}`,
   ogTitle: `About · ${IDENTITY.name}`,
-  description: 'Principal Systems Architect, founder, artist, and polymath. 25+ years bridging cloud-first systems architecture, agentic AI, and sovereign digital infrastructure.',
-  ogDescription: 'Principal Systems Architect, founder, artist, and polymath. 25+ years bridging cloud-first systems architecture, agentic AI, and sovereign digital infrastructure.',
+  description: 'Principal operations and systems advisor. 25+ years diagnosing operational bottlenecks and redesigning workflows, including $1.2M a year in waste removed at a financial firm.',
+  ogDescription: 'Principal operations and systems advisor. 25+ years diagnosing operational bottlenecks and redesigning workflows, including $1.2M a year in waste removed at a financial firm.',
 })
 </script>
 
@@ -13,11 +13,11 @@ useSeoMeta({
   <div class="w-full flex flex-col py-8 gap-8">
     <MAboutHero />
     <MAboutBio />
-    <MAboutPhilosophies />
-    <MAboutPersonas />
     <MAboutMilestones />
     <MAboutSpecialties />
+    <MAboutPhilosophies />
     <MAboutSkills />
+    <MAboutPersonas />
     <MAboutManifesto />
   </div>
 </template>

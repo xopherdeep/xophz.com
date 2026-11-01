@@ -3,7 +3,7 @@ import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import MConnectChannels from '~/components/molecules/m-connect-channels/m-connect-channels.vue'
 import { IDENTITY } from '~/constants/identity'
 
-const description = `Get in touch with ${IDENTITY.fullName} for computer repair, website design, or tech consulting in Tucson, AZ. Book a call or send an email.`
+const description = `Get in touch with ${IDENTITY.fullName} for operations and systems advisory. Book a call or send an email.`
 
 useSeoMeta({
   title: `Connect · ${IDENTITY.name}`,
@@ -29,12 +29,12 @@ const formatShortDate = (raw: string) =>
         title="Connect"
         badge-text="Direct Channels"
         badge-icon="i-lucide-mail"
-        meta-text="Repair, Websites & Consulting"
+        meta-text="Operations & Systems Advisory"
         glow-primary="violet"
         glow-secondary="cyan"
       >
         <template #description>
-          Need a computer fixed, a website built, or a second opinion on your tech? Book a quick call or send an email and we'll figure out if it's a fit.
+          Operations leaking time or money, or weighing how AI fits your team? Book a quick call or send an email and we'll figure out if it's a fit.
         </template>
         <template #actions>
           <UButton

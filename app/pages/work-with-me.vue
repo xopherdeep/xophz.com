@@ -4,7 +4,7 @@ import { BOOKING_URL, CONTACT_EMAIL, workServices, workSteps, workCaseStudies } 
 import { IDENTITY } from '~/constants/identity'
 
 const description =
-  `Computer repair, website design, and tech consulting in Tucson, AZ from ${IDENTITY.fullName}. 25+ years of experience. Book a quick call.`
+  `Operations and systems advisory from ${IDENTITY.fullName}: find where operations leak money and time, and fix it. 25+ years of experience. Book a quick call.`
 
 useSeoMeta({
   title: `Work with Me · ${IDENTITY.name}`,
@@ -21,15 +21,16 @@ useSeoMeta({
     <UContainer class="max-w-[1100px] w-full flex flex-col gap-10">
       <OPageHero
         title="Work with me"
-        badge-text="Open for jobs"
+        badge-text="Operations & systems advisory"
         badge-icon="i-lucide-handshake"
-        meta-text="Tucson, AZ · On-site & remote"
+        meta-text="Tucson, AZ · Remote"
         glow-primary="emerald"
         glow-secondary="violet"
       >
         <template #description>
-          I'm {{ IDENTITY.fullName }}. I fix computers, build websites, and help with tech decisions for people and
-          small businesses, with 25+ years of experience. I take jobs as they come, big or small.
+          I'm {{ IDENTITY.fullName }}. I find where operations leak money and time, design the fix across people,
+          process, and systems, and explain it in plain English. At one financial firm that removed an estimated
+          $1.2M a year in waste.
         </template>
         <template #actions>
           <UButton
@@ -96,7 +97,7 @@ useSeoMeta({
       </section>
 
       <section class="flex flex-col gap-4" aria-labelledby="work-heading">
-        <h2 id="work-heading" class="font-display text-xl font-bold text-zinc-900 dark:text-zinc-100">Past work</h2>
+        <h2 id="work-heading" class="font-display text-xl font-bold text-zinc-900 dark:text-zinc-100">Selected outcomes</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <article
             v-for="study in workCaseStudies"
@@ -122,14 +123,14 @@ useSeoMeta({
           </article>
         </div>
         <p class="text-sm text-zinc-500 dark:text-zinc-400">
-          Looking for the enterprise side? See the <NuxtLink to="/resume" class="underline">resume</NuxtLink> and
+          More detail in the <NuxtLink to="/resume" class="underline">resume</NuxtLink> and
           <NuxtLink to="/timeline" class="underline">career timeline</NuxtLink>.
         </p>
       </section>
 
       <section class="rounded-2xl p-6 md:p-8 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div>
-          <h2 class="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">Got something that needs fixing or building?</h2>
+          <h2 class="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">Operations slower or costlier than they should be?</h2>
           <p class="text-sm text-zinc-600 dark:text-zinc-400">Book a quick call and we'll see if it's a fit.</p>
         </div>
         <UButton :to="BOOKING_URL" target="_blank" color="primary" variant="solid" size="lg" icon="i-lucide-calendar" class="shadow-glow-violet">

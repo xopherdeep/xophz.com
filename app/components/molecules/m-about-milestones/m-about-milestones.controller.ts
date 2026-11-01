@@ -4,22 +4,22 @@ import type { MilestoneItem } from './types'
 export function useAboutMilestonesController() {
   const milestones = computed<MilestoneItem[]>(() => [
     {
-      period: 'Dual-Tenure Track Record',
-      title: 'Enterprise Architecture & Leadership',
-      role: 'System Architect & Founder Leadership',
-      desc: 'Architecting distributed cloud systems, modernizing complex legacy monoliths, and scaling engineering teams and architectures across high-growth ventures and enterprise clients.'
+      period: 'Operations Outcomes',
+      title: 'J.D. Mellberg Financial',
+      role: 'Operations Dashboard & Lead Validation',
+      desc: 'Unified Five9 telephony, Salesforce CRM, and marketing data into one real-time operations view, and automated lead validation that removed an estimated $1.2M a year in wasted spend and manual cleanup.'
     },
     {
       period: 'Consulting & Advisory',
       title: 'My Compass Consulting',
-      role: 'Founder & Custom Solutions Architect',
-      desc: 'Serving as the strategic tip of the spear for organizations requiring high-integrity technical blueprints, performance optimization, and executive technology direction.'
+      role: 'Principal Operations & Systems Advisor',
+      desc: 'Diagnosing where client operations leak time and money, then redesigning the workflows and platforms behind them. Cut ongoing maintenance overhead by 75% while running 25+ production platforms at 99.99% uptime.'
     },
     {
-      period: 'Foundational Ecosystem',
-      title: 'Hall of the Gods & Sovereign Webwork',
-      role: 'Founder & Worldbuilder',
-      desc: 'Pioneering sovereign digital infrastructure alongside multi-disciplinary creative ventures spanning music, visual art, and spatial computing.'
+      period: 'Team Leadership',
+      title: 'Vi',
+      role: 'System Architect',
+      desc: 'Led architecture of the core frontend codebase as the bridge between product and backend teams, set API contracts, and sustained 99.99% availability.'
     }
   ])
 
