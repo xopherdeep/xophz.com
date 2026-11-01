@@ -12,7 +12,7 @@ import {
 import { IDENTITY } from '~/constants/identity'
 
 const description =
-  `Tech consulting from ${IDENTITY.fullName} in Tucson, AZ: a tech check-up, a focused project, or ongoing help. Plain language, a written price up front, and a free first call.`
+  `Operations and systems consulting from ${IDENTITY.fullName}: an operations check-up, a focused project, or ongoing advisory. Plain language, a written price up front, and a free first call.`
 
 useSeoMeta({
   title: `Consulting · ${IDENTITY.name}`,
@@ -33,17 +33,17 @@ const body = 'text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
   <main class="min-h-dvh flex flex-col items-center relative py-10">
     <UContainer class="max-w-[1100px] w-full flex flex-col gap-12">
       <OPageHero
-        title="Tech consulting"
+        title="Operations & systems consulting"
         badge-text="Taking new clients"
         badge-icon="i-lucide-compass"
-        meta-text="Tucson, AZ · Remote or on-site"
+        meta-text="Remote · Based in Tucson, AZ"
         glow-primary="cyan"
         glow-secondary="violet"
       >
         <template #description>
-          Straight answers and hands-on help with your technology. I've spent 25+ years building and fixing
-          systems, from small shops to large companies. I'll tell you what's worth doing, what it costs, and
-          then help you get it done.
+          I help teams fix the processes and systems behind their operations: how work moves, where the numbers
+          come from, and which tools are worth keeping. 25+ years of hands-on systems work, explained in plain
+          language. I'll tell you what's worth doing, what it costs, and then help you get it done.
         </template>
         <template #actions>
           <UButton
@@ -80,8 +80,7 @@ const body = 'text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
           </li>
         </ul>
         <p class="text-sm text-zinc-500 dark:text-zinc-400">
-          Looking for something else? See everything I take on at
-          <NuxtLink to="/work-with-me" class="underline">Work with me</NuxtLink>.
+          Hiring for a full-time role? See the <NuxtLink to="/resume" class="underline">resume</NuxtLink>.
         </p>
       </section>
 
@@ -181,7 +180,7 @@ const body = 'text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
       <!-- CTA -->
       <section :class="[card, 'p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left']">
         <div>
-          <h2 class="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">Have a tech question or a project in mind?</h2>
+          <h2 class="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">Have a process or system that needs fixing?</h2>
           <p :class="body">
             Book a free call, or email <a :href="`mailto:${CONTACT_EMAIL}`" class="underline">{{ CONTACT_EMAIL }}</a>.
           </p>
