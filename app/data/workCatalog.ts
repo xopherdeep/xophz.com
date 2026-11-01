@@ -74,6 +74,7 @@ export const workSteps: readonly WorkStep[] = [
 
 // Built only from facts already on the site (timeline and resume data).
 // Replace or extend with real client jobs: what was wrong, what was done, the result.
+// Longer consulting write-ups live in caseStudiesCatalog.ts.
 export const workCaseStudies: readonly WorkCaseStudy[] = [
   {
     key: 'repair-years',
@@ -97,13 +98,5 @@ export const workCaseStudies: readonly WorkCaseStudy[] = [
     summary: 'A hosted catalog built for local card shops, show organizers, and floor vendors.',
     outcome: 'Live and in use as a turnkey service.',
     url: 'https://cardvault.worldwidewebwork.com/',
-  },
-  {
-    key: 'leads',
-    category: 'Consulting',
-    title: 'Cutting waste at a financial firm',
-    summary: 'Built the lead-parsing and data validation systems for JD Mellberg Financial.',
-    outcome: 'An estimated $1.2M a year in operational waste removed.',
-    url: 'https://www.jdmellbergfinancial.com',
   },
 ]

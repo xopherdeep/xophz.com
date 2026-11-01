@@ -2,7 +2,7 @@
 import { IDENTITY } from '~/constants/identity'
 import { useHeroBannerController } from './m-hero-banner.controller'
 
-const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
+const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBannerController()
 </script>
 
 <template>
@@ -57,16 +57,14 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
 
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1">
             <UButton
-              :to="bookingUrl"
-              target="_blank"
-              icon="i-lucide-calendar"
+              to="/work-with-me"
+              icon="i-lucide-handshake"
               color="primary"
               variant="solid"
               size="lg"
-              class="shadow-glow-violet"
-              aria-label="Book a call"
+              class="shadow-glow-violet cursor-pointer"
             >
-              Book a call
+              Work with me
             </UButton>
             <UButton
               to="/consulting"
@@ -74,24 +72,58 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
               color="primary"
               variant="soft"
               size="lg"
-              aria-label="See consulting services"
             >
               Consulting
             </UButton>
             <UButton
-              to="/resume"
-              icon="i-lucide-file-badge"
+              :to="bookingUrl"
+              target="_blank"
+              icon="i-lucide-calendar"
               color="neutral"
               variant="outline"
               size="lg"
-              aria-label="View executive resume"
+              class="cursor-pointer"
             >
-              Executive resume
+              Book a free call
             </UButton>
           </div>
 
+          <nav
+            class="m-hero-banner__apps flex flex-col gap-2 pt-2"
+            aria-labelledby="hero-apps-heading"
+          >
+            <p
+              id="hero-apps-heading"
+              class="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-body"
+            >
+              Try my apps
+              <span class="normal-case tracking-normal font-normal">· live products I built and run, each opens in a phone-size window</span>
+            </p>
+            <ul class="flex flex-wrap justify-center md:justify-start gap-2">
+              <li
+                v-for="app in apps"
+                :key="app.key"
+              >
+                <UButton
+                  type="button"
+                  :icon="app.icon"
+                  color="neutral"
+                  variant="soft"
+                  size="sm"
+                  trailing-icon="i-lucide-arrow-up-right"
+                  class="m-hero-banner__app group cursor-pointer ring-1 ring-transparent transition-all duration-200 hover:ring-primary/40 hover:text-primary hover:shadow-md motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:scale-95"
+                  :ui="{ trailingIcon: 'size-3.5 opacity-40 transition-all duration-200 group-hover:opacity-100 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5' }"
+                  :title="`Open ${app.name} (${app.host}) in a phone-size window`"
+                  @click="openAppWindow(app)"
+                >
+                  {{ app.name }}
+                </UButton>
+              </li>
+            </ul>
+          </nav>
+
           <p class="text-xs text-zinc-500 dark:text-zinc-400 font-body">
-            {{ IDENTITY.location }} · Remote · Open for engagements
+            {{ IDENTITY.location }} · Remote & on-site · Taking new clients
           </p>
         </div>
       </div>

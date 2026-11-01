@@ -6,3 +6,11 @@ export interface HeroProfile {
   readonly avatar: string
   readonly tags: readonly string[]
 }
+
+export interface HeroApp {
+  readonly key: string
+  readonly name: string
+  readonly host: string
+  readonly url: string
+  readonly icon: string
+}
