@@ -2,7 +2,7 @@
 import { IDENTITY } from '~/constants/identity'
 import { useHeroBannerController } from './m-hero-banner.controller'
 
-const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
+const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBannerController()
 </script>
 
 <template>
@@ -77,6 +77,39 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
               Book a free call
             </UButton>
           </div>
+
+          <nav
+            class="m-hero-banner__apps flex flex-col gap-2 pt-2"
+            aria-labelledby="hero-apps-heading"
+          >
+            <p
+              id="hero-apps-heading"
+              class="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-body"
+            >
+              Try my apps
+              <span class="normal-case tracking-normal font-normal">· live products I built and run, each opens in a phone-size window</span>
+            </p>
+            <ul class="flex flex-wrap justify-center md:justify-start gap-2">
+              <li
+                v-for="app in apps"
+                :key="app.key"
+              >
+                <UButton
+                  :href="app.url"
+                  target="_blank"
+                  rel="noopener"
+                  :icon="app.icon"
+                  color="neutral"
+                  variant="soft"
+                  size="sm"
+                  :title="`Open ${app.name} (${app.host}) in a phone-size window`"
+                  @click="openAppWindow($event, app)"
+                >
+                  {{ app.name }}
+                </UButton>
+              </li>
+            </ul>
+          </nav>
 
           <p class="text-xs text-zinc-500 dark:text-zinc-400 font-body">
             {{ IDENTITY.location }} · Remote & on-site · Taking new clients
