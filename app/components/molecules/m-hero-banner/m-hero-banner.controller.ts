@@ -15,6 +15,7 @@ export function useHeroBannerController() {
   // Ordered by business relevance: the consulting brand first, playful apps last.
   const apps: readonly HeroApp[] = [
     { key: 'my-compass', name: 'My Compass', host: 'phone.mycompassconsulting.com', url: 'https://phone.mycompassconsulting.com/', icon: 'i-lucide-compass' },
+    { key: 'planner', name: 'My Remarkably Organized Planner', host: 'planner.mycompassconsulting.com', url: 'https://planner.mycompassconsulting.com/', icon: 'i-lucide-notebook-pen' },
     { key: 'kitchen-synk', name: 'Kitchen Synk', host: 'kitchensynk.app', url: 'https://kitchensynk.app/', icon: 'i-lucide-chef-hat' },
     { key: 'doit-xp', name: 'Do It for the XP', host: 'app.doit.forthexp.com', url: 'https://app.doit.forthexp.com/', icon: 'i-lucide-trophy' },
     { key: 'nook-phone', name: 'Nook Phone', host: 'nookphone.app', url: 'https://nookphone.app/', icon: 'i-lucide-smartphone' },
