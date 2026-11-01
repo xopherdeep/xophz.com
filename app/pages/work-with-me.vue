@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import OPageHero from '~/components/organisms/o-page-hero/o-page-hero.vue'
 import { BOOKING_URL, CONTACT_EMAIL, workServices, workSteps, workCaseStudies } from '~/data/workCatalog'
+import { caseStudies } from '~/data/caseStudiesCatalog'
 import { IDENTITY } from '~/constants/identity'
 
 const description =
@@ -94,6 +95,78 @@ useSeoMeta({
             <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{{ step.desc }}</p>
           </li>
         </ol>
+      </section>
+
+      <section id="case-studies" class="flex flex-col gap-4 scroll-mt-24" aria-labelledby="case-studies-heading">
+        <div class="flex flex-col gap-1">
+          <h2 id="case-studies-heading" class="font-display text-xl font-bold text-zinc-900 dark:text-zinc-100">Case studies</h2>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Bigger consulting and architecture work: what was wrong, what I did, and what changed.</p>
+        </div>
+        <article
+          v-for="study in caseStudies"
+          :key="study.key"
+          :aria-labelledby="`case-${study.key}`"
+          class="rounded-2xl p-5 md:p-6 bg-white dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/[0.06] flex flex-col gap-5"
+        >
+          <header class="flex flex-col gap-1.5">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold tracking-wide uppercase text-cyan-700 dark:text-cyan-400">
+              <span>{{ study.client }}</span>
+              <span aria-hidden="true" class="text-zinc-400">·</span>
+              <span class="text-zinc-500 dark:text-zinc-400">{{ study.role }}, {{ study.period }}</span>
+            </div>
+            <h3 :id="`case-${study.key}`" class="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">{{ study.title }}</h3>
+          </header>
+
+          <dl class="grid grid-cols-3 gap-2 sm:gap-3">
+            <div
+              v-for="result in study.results"
+              :key="result.label"
+              class="rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 bg-zinc-50 dark:bg-white/[0.04] border border-zinc-200/60 dark:border-white/[0.05]"
+            >
+              <dt class="sr-only">{{ result.label }}</dt>
+              <dd class="flex flex-col">
+                <span class="font-display text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">{{ result.value }}</span>
+                <span class="text-[11px] sm:text-xs leading-snug text-zinc-600 dark:text-zinc-400">{{ result.label }}</span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-5">
+            <div class="flex flex-col gap-1.5">
+              <h4 class="text-xs font-bold tracking-widest uppercase text-violet-600 dark:text-violet-400">The problem</h4>
+              <p class="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{{ study.problem }}</p>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <h4 class="text-xs font-bold tracking-widest uppercase text-violet-600 dark:text-violet-400">What I did</h4>
+              <ul class="flex flex-col gap-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                <li v-for="step in study.approach" :key="step" class="flex items-start gap-2">
+                  <UIcon name="i-lucide-check" class="w-4 h-4 mt-0.5 shrink-0 text-cyan-600 dark:text-cyan-400" />
+                  <span>{{ step }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <footer class="flex flex-wrap items-center justify-between gap-3">
+            <ul class="flex flex-wrap gap-1.5" aria-label="Skills used">
+              <li v-for="skill in study.skills" :key="skill">
+                <UBadge color="neutral" variant="subtle" size="sm">{{ skill }}</UBadge>
+              </li>
+            </ul>
+            <UButton
+              v-if="study.url"
+              :to="study.url"
+              target="_blank"
+              color="neutral"
+              variant="link"
+              size="xs"
+              trailing-icon="i-lucide-arrow-up-right"
+              class="px-0"
+            >
+              {{ study.linkLabel ?? 'Visit site' }}
+            </UButton>
+          </footer>
+        </article>
       </section>
 
       <section class="flex flex-col gap-4" aria-labelledby="work-heading">

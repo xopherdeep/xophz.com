@@ -73,6 +73,7 @@ export const workSteps: readonly WorkStep[] = [
 ]
 
 // Built only from facts already on the site (timeline and resume data).
+// Longer consulting write-ups live in caseStudiesCatalog.ts.
 export const workCaseStudies: readonly WorkCaseStudy[] = [
   {
     key: 'leads',
