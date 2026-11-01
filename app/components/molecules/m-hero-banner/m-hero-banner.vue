@@ -79,7 +79,7 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
           </div>
 
           <p class="text-xs text-zinc-500 dark:text-zinc-400 font-body">
-            {{ IDENTITY.location }} · On-site & remote · Taking new jobs
+            {{ IDENTITY.location }} · Remote & on-site · Taking new clients
           </p>
         </div>
       </div>
