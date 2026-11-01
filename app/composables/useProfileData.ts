@@ -393,6 +393,7 @@ export const useProfileData = () => {
 
   const navChips = [
     { label: "Work with me", to: "/work-with-me", icon: "i-lucide-handshake" },
+    { label: "Consulting", to: "/consulting", icon: "i-lucide-compass" },
     { label: "About", to: "/about", icon: "i-lucide-user" },
     { label: "Resume", to: "/resume", icon: "i-lucide-file-text" },
     { label: "Opus", to: "/projects", icon: "i-lucide-briefcase" },

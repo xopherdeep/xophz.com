@@ -69,6 +69,16 @@ const { profile, canDisplayHero, bookingUrl } = useHeroBannerController()
               Book a call
             </UButton>
             <UButton
+              to="/consulting"
+              icon="i-lucide-compass"
+              color="primary"
+              variant="soft"
+              size="lg"
+              aria-label="See consulting services"
+            >
+              Consulting
+            </UButton>
+            <UButton
               to="/resume"
               icon="i-lucide-file-badge"
               color="neutral"
