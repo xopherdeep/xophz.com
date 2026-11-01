@@ -95,15 +95,13 @@ const { profile, canDisplayHero, bookingUrl, apps, openAppWindow } = useHeroBann
                 :key="app.key"
               >
                 <UButton
-                  :href="app.url"
-                  target="_blank"
-                  rel="noopener"
+                  type="button"
                   :icon="app.icon"
                   color="neutral"
                   variant="soft"
                   size="sm"
                   :title="`Open ${app.name} (${app.host}) in a phone-size window`"
-                  @click="openAppWindow($event, app)"
+                  @click="openAppWindow(app)"
                 >
                   {{ app.name }}
                 </UButton>
