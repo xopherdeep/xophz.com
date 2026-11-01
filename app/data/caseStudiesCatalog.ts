@@ -18,7 +18,9 @@ export interface CaseStudy {
 }
 
 // Every claim here comes from app/composables/useResumeData.ts and
-// app/data/timelineCatalog.ts. Change those first if a fact changes.
+// app/data/timelineCatalog.ts, except Do It For The XP, which comes from the
+// README and code of github.com/xopherdeep/do-it-for-the-xp (Nov 2026).
+// Change the source first if a fact changes.
 export const caseStudies: readonly CaseStudy[] = [
   {
     key: 'vi',
@@ -85,5 +87,27 @@ export const caseStudies: readonly CaseStudy[] = [
       { value: '75%', label: 'less ongoing maintenance overhead' },
     ],
     skills: ['Architecture Audits', 'Monolith Modernization', 'AWS', 'Edge Caching', 'Nuxt & Vue 3', 'Atomic Design'],
+  },
+  {
+    key: 'do-it-for-the-xp',
+    client: 'Do It For The XP',
+    title: 'Shipping a family chore app that plays like an RPG',
+    role: 'Creator',
+    period: 'Live now',
+    url: 'https://app.doit.forthexp.com',
+    linkLabel: 'Play it',
+    problem:
+      'A household to-do list is easy for kids to ignore. The goal was a product families would actually open: parents set the chores and rewards, kids get a reason to do them, and the family keeps its data on its own device.',
+    approach: [
+      'Designed the whole game: parents play the Game Master and write quests, kids play heroes who earn XP, gold and ability points, and each chore is a beast to beat before its deadline clock runs out.',
+      'Built one Vue 3, Ionic and Capacitor codebase for web, Android and iOS, with game rules kept in small tested modules and no account server, so family data stays on the device.',
+      'Set up the delivery pipeline: every pull request runs lint, typecheck and the affected tests, and every merge to master deploys the web app to Cloudflare Pages.',
+    ],
+    results: [
+      { value: 'Live', label: 'and playable on the web today' },
+      { value: '575', label: 'automated test specs' },
+      { value: '9', label: 'dungeons, each with its own region and boss' },
+    ],
+    skills: ['Product Design', 'Vue 3', 'Ionic & Capacitor', 'TypeScript', 'CI/CD', 'Offline-First'],
   },
 ]
