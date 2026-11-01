@@ -6,7 +6,7 @@ export const IDENTITY = {
   lastName: 'Pollard',
   nickname: 'Xopher',
   handle: 'XP',
-  title: 'Principal Systems Architect · Founder',
+  title: 'Principal Operations & Systems Advisor',
   email: 'hello@xophz.com',
   vcardEmail: 'sayhi@xophz.com',
   phone: '520-762-4947',

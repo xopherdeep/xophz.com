@@ -6,7 +6,7 @@ export const useProfileData = () => {
     title: IDENTITY.title,
     legalName: IDENTITY.legalName,
     tagline:
-      "Systems architect and founder. Enterprise platforms, sovereign infrastructure, and agentic AI tooling, mostly built across ventures of my own.",
+      "I find where operations leak money and time, design the fix across people, process, and systems, and explain it in plain English. Results include $1.2M a year in operational waste removed and a 75% cut in maintenance overhead.",
     origin:
       "I built my first webpage in 8th grade and wrote my first game in QBasic by 10th. I've been doing this professionally since 2001.",
     avatar: "/xp_headshot.webp",
@@ -15,9 +15,9 @@ export const useProfileData = () => {
   };
 
   const heroTags = [
-    "Systems Architect",
-    "Founder",
-    "Agentic AI",
+    "Operations & Systems",
+    "Workflow Design",
+    "AI Readiness",
     "Tucson, AZ",
   ];
 
@@ -26,10 +26,10 @@ export const useProfileData = () => {
     {
       key: "xp",
       name: "XP",
-      subtitle: "Executive Architect & Founder",
+      subtitle: "Principal Consultant",
       icon: "i-lucide-terminal",
       color: "#8b5cf6",
-      desc: "Software architect and founder driving high-stakes systems synthesis, enterprise platforms, and sovereign infrastructure.",
+      desc: "Principal consultant on operations and systems: diagnosing bottlenecks, designing workflows, and leading cross-functional delivery.",
       link: "https://forthexp.com",
       linkLabel: "forthexp.com",
       group: "executive" as const,
@@ -118,7 +118,7 @@ export const useProfileData = () => {
     },
     {
       key: "lead",
-      title: "Principal & Founder Leadership",
+      title: "Cross-Functional Leadership",
       icon: "i-lucide-target",
       desc: "Guiding cross-functional engineering teams, architecture standards, and product execution from inception to scale.",
     },

@@ -100,7 +100,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
   {
     id: 'worldwide-webwork',
     company: 'Worldwide Webwork',
-    role: 'Founder & Principal Systems Architect',
+    role: 'Principal Systems Architect',
     period: 'Oct 2019 - Present',
     startDate: '2019-10',
     endDate: null,
@@ -118,7 +118,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
   {
     id: 'my-compass-consulting',
     company: 'My Compass Consulting',
-    role: 'Founder & Custom Solutions Architect',
+    role: 'Principal Operations & Systems Advisor',
     period: 'May 2018 - Present',
     startDate: '2018-05',
     endDate: null,
@@ -136,7 +136,7 @@ export const timelineCatalog: readonly TimelineItem[] = [
   {
     id: 'hall-of-the-gods',
     company: 'Hall of the Gods, Inc.',
-    role: 'Founder & CEO',
+    role: 'Principal',
     period: 'Dec 2004 - Present',
     startDate: '2004-12',
     endDate: null,

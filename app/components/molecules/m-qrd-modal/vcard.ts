@@ -17,7 +17,7 @@ export const XP_CONTACT: QrdContact = {
   birthday: "May 7",
   location: IDENTITY.location,
   avatar: "/xp_headshot.webp",
-  note: `${IDENTITY.title} · Agentic AI, legacy modernization, and sovereign infrastructure · ${IDENTITY.location}`,
+  note: `${IDENTITY.title} · Operations diagnostics, workflow design, and AI readiness · ${IDENTITY.location}`,
 };
 
 export function generateQrVcard(contact: QrdContact): string {

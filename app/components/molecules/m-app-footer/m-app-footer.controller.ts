@@ -46,6 +46,7 @@ export function useAppFooterController() {
     { label: "Software Suite", to: "/my-compass" },
     { label: "Spark Plugs", to: "/sparks" },
     { label: "Blog", to: "/posts" },
+    { label: "Tucson Tech Help", to: "/tucson-tech-help" },
   ]);
 
   // 2. Atomic Booleans
