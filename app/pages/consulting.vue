@@ -12,7 +12,7 @@ import {
 import { IDENTITY } from '~/constants/identity'
 
 const description =
-  `Operations and systems consulting from ${IDENTITY.fullName}: an operations check-up, a focused project, or ongoing advisory. Plain language, a written price up front, and a free first call.`
+  `Operations and systems consulting from ${IDENTITY.fullName}: a fixed-fee operations diagnostic, a fixed-price project, or ongoing advisory. Plain language, a written price up front, and a free first call.`
 
 useSeoMeta({
   title: `Consulting · ${IDENTITY.name}`,
@@ -80,7 +80,8 @@ const body = 'text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
           </li>
         </ul>
         <p class="text-sm text-zinc-500 dark:text-zinc-400">
-          Hiring for a full-time role? See the <NuxtLink to="/resume" class="underline">resume</NuxtLink>.
+          Hiring for a full-time or hourly contract role instead? That's a separate arrangement; see the
+          <NuxtLink to="/resume" class="underline">resume</NuxtLink>.
         </p>
       </section>
 
@@ -100,7 +101,11 @@ const body = 'text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
       <section id="engagements" class="flex flex-col gap-4 scroll-mt-24" aria-labelledby="engagements-heading">
         <div class="flex flex-col gap-1">
           <h2 id="engagements-heading" :class="h2">Three ways to work together</h2>
-          <p :class="body">Not sure which one fits? That's what the free call is for.</p>
+          <p :class="body">
+            The diagnostic and projects are priced by what you get, not by the hour: one fixed fee, in writing,
+            before work starts. If it takes me longer, that's on me. Ongoing help is a flat monthly fee.
+            Not sure which one fits? That's what the free call is for.
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <article
