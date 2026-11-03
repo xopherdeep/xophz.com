@@ -36,6 +36,7 @@ export const workServices: readonly WorkService[] = [
       'The structural bottleneck, named in plain English',
       'Cost of doing nothing, estimated up front',
       'A prioritized plan, not a slide deck',
+      'One fixed fee, quoted before any work starts',
     ],
   },
   {
@@ -68,7 +69,7 @@ export const workServices: readonly WorkService[] = [
 
 export const workSteps: readonly WorkStep[] = [
   { title: 'Book a call', desc: 'Tell me what is slow, expensive, or breaking. It takes a few minutes and costs nothing.' },
-  { title: 'I scope it', desc: 'You get a plain-language diagnosis and a price before any work starts.' },
+  { title: 'I scope it', desc: 'You get a plain-language diagnosis and a fixed price for the work before anything starts.' },
   { title: 'We fix it', desc: 'I lead the redesign with your team and explain every decision in normal words.' },
 ]
 

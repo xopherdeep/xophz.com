@@ -79,13 +79,14 @@ export const consultingAreas: readonly ConsultingArea[] = [
 export const consultingEngagements: readonly ConsultingEngagement[] = [
   {
     key: 'audit',
-    name: 'Audit',
+    name: 'Diagnostic',
     plainName: 'An operations check-up',
     icon: 'i-lucide-search-check',
     color: '#06b6d4',
-    length: 'About 1 to 2 weeks',
+    length: 'About 1 to 2 weeks · one fixed fee',
     bestFor: 'You want to know where time and money are leaking before you spend on new tools or hires.',
     youGet: [
+      'One fixed fee for the whole diagnostic, agreed in writing before we start. No hourly meter.',
       'Interviews with the people who do the work, plus a look at your tools and data',
       'A written map of how work flows today, what is working, what is risky, and what it costs you',
       'A ranked list of fixes, from quick wins to bigger projects',
@@ -98,7 +99,7 @@ export const consultingEngagements: readonly ConsultingEngagement[] = [
     plainName: 'A focused project',
     icon: 'i-lucide-rocket',
     color: '#8b5cf6',
-    length: 'Usually 2 to 6 weeks',
+    length: 'Usually 2 to 6 weeks · fixed price',
     bestFor: 'You know what needs fixing, like a broken handoff, a reporting mess, or a system move, and want it done properly.',
     youGet: [
       'A written scope and a fixed price before work starts',
@@ -113,10 +114,10 @@ export const consultingEngagements: readonly ConsultingEngagement[] = [
     plainName: 'Ongoing help',
     icon: 'i-lucide-calendar-sync',
     color: '#10b981',
-    length: 'Month to month',
+    length: 'Month to month · flat monthly fee',
     bestFor: 'You want a senior operations and systems advisor on call, for planning, reviews, and decisions, without a full-time hire.',
     youGet: [
-      'A set number of hours each month, agreed up front',
+      'A flat monthly fee for an agreed amount of my time',
       'A regular check-in call',
       'Quick answers by email or chat between calls',
       'Cancel any time with a month of notice',
