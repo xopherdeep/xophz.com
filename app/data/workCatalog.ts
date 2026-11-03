@@ -36,7 +36,7 @@ export const workServices: readonly WorkService[] = [
       'The structural bottleneck, named in plain English',
       'Cost of doing nothing, estimated up front',
       'A prioritized plan, not a slide deck',
-      'One fixed fee, quoted before any work starts',
+      'One fixed fee, starting at $5,000, quoted before any work starts',
     ],
   },
   {

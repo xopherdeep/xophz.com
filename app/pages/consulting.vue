@@ -12,7 +12,7 @@ import {
 import { IDENTITY } from '~/constants/identity'
 
 const description =
-  `Operations and systems consulting from ${IDENTITY.fullName}: a fixed-fee operations diagnostic, a fixed-price project, or ongoing advisory. Plain language, a written price up front, and a free first call.`
+  `Operations and systems consulting from ${IDENTITY.fullName}: a fixed-fee operations diagnostic (from $5,000), a fixed-price project, or ongoing advisory. Plain language, a written price up front, and a free first call.`
 
 useSeoMeta({
   title: `Consulting · ${IDENTITY.name}`,

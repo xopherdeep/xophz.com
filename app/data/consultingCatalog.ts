@@ -83,10 +83,10 @@ export const consultingEngagements: readonly ConsultingEngagement[] = [
     plainName: 'An operations check-up',
     icon: 'i-lucide-search-check',
     color: '#06b6d4',
-    length: 'About 1 to 2 weeks · one fixed fee',
+    length: 'About 1 to 2 weeks · from $5,000, fixed fee',
     bestFor: 'You want to know where time and money are leaking before you spend on new tools or hires.',
     youGet: [
-      'One fixed fee for the whole diagnostic, agreed in writing before we start. No hourly meter.',
+      'One fixed fee for the whole diagnostic, starting at $5,000 and agreed in writing before we start. No hourly meter.',
       'Interviews with the people who do the work, plus a look at your tools and data',
       'A written map of how work flows today, what is working, what is risky, and what it costs you',
       'A ranked list of fixes, from quick wins to bigger projects',
